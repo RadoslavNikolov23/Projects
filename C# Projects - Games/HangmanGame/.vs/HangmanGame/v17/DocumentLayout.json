@@ -1,14 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\PC\\source\\repos\\HangmanGame\\",
+  "WorkspaceRootPath": "C:\\Projects - Working\\C# Projects - Games\\HangmanGame\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{48182E04-2167-4B60-BD7F-60DA718E592B}|HangmanGame\\HangmanGame.csproj|c:\\users\\pc\\source\\repos\\hangmangame\\hangmangame\\output.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{48182E04-2167-4B60-BD7F-60DA718E592B}|HangmanGame\\HangmanGame.csproj|c:\\projects - working\\c# projects - games\\hangmangame\\hangmangame\\gameclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48182E04-2167-4B60-BD7F-60DA718E592B}|HangmanGame\\HangmanGame.csproj|solutionrelative:hangmangame\\gameclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48182E04-2167-4B60-BD7F-60DA718E592B}|HangmanGame\\HangmanGame.csproj|c:\\projects - working\\c# projects - games\\hangmangame\\hangmangame\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48182E04-2167-4B60-BD7F-60DA718E592B}|HangmanGame\\HangmanGame.csproj|solutionrelative:hangmangame\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{48182E04-2167-4B60-BD7F-60DA718E592B}|HangmanGame\\HangmanGame.csproj|c:\\projects - working\\c# projects - games\\hangmangame\\hangmangame\\output.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{48182E04-2167-4B60-BD7F-60DA718E592B}|HangmanGame\\HangmanGame.csproj|solutionrelative:hangmangame\\output.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{48182E04-2167-4B60-BD7F-60DA718E592B}|HangmanGame\\HangmanGame.csproj|c:\\users\\pc\\source\\repos\\hangmangame\\hangmangame\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{48182E04-2167-4B60-BD7F-60DA718E592B}|HangmanGame\\HangmanGame.csproj|solutionrelative:hangmangame\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{48182E04-2167-4B60-BD7F-60DA718E592B}|HangmanGame\\HangmanGame.csproj|c:\\projects - working\\c# projects - games\\hangmangame\\hangmangame\\wordsclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{48182E04-2167-4B60-BD7F-60DA718E592B}|HangmanGame\\HangmanGame.csproj|solutionrelative:hangmangame\\wordsclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,26 +34,52 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
+              "Title": "WordsClass.cs",
+              "DocumentMoniker": "C:\\Projects - Working\\C# Projects - Games\\HangmanGame\\HangmanGame\\WordsClass.cs",
+              "RelativeDocumentMoniker": "HangmanGame\\WordsClass.cs",
+              "ToolTip": "C:\\Projects - Working\\C# Projects - Games\\HangmanGame\\HangmanGame\\WordsClass.cs",
+              "RelativeToolTip": "HangmanGame\\WordsClass.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAUwAgAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-13T20:17:25.197Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Output.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\source\\repos\\HangmanGame\\HangmanGame\\Output.cs",
+              "DocumentMoniker": "C:\\Projects - Working\\C# Projects - Games\\HangmanGame\\HangmanGame\\Output.cs",
               "RelativeDocumentMoniker": "HangmanGame\\Output.cs",
-              "ToolTip": "C:\\Users\\PC\\source\\repos\\HangmanGame\\HangmanGame\\Output.cs",
+              "ToolTip": "C:\\Projects - Working\\C# Projects - Games\\HangmanGame\\HangmanGame\\Output.cs",
               "RelativeToolTip": "HangmanGame\\Output.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGwAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-13T16:33:08.95Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GameClass.cs",
+              "DocumentMoniker": "C:\\Projects - Working\\C# Projects - Games\\HangmanGame\\HangmanGame\\GameClass.cs",
+              "RelativeDocumentMoniker": "HangmanGame\\GameClass.cs",
+              "ToolTip": "C:\\Projects - Working\\C# Projects - Games\\HangmanGame\\HangmanGame\\GameClass.cs",
+              "RelativeToolTip": "HangmanGame\\GameClass.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-13T20:19:09.28Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\source\\repos\\HangmanGame\\HangmanGame\\Program.cs",
+              "DocumentMoniker": "C:\\Projects - Working\\C# Projects - Games\\HangmanGame\\HangmanGame\\Program.cs",
               "RelativeDocumentMoniker": "HangmanGame\\Program.cs",
-              "ToolTip": "C:\\Users\\PC\\source\\repos\\HangmanGame\\HangmanGame\\Program.cs",
+              "ToolTip": "C:\\Projects - Working\\C# Projects - Games\\HangmanGame\\HangmanGame\\Program.cs",
               "RelativeToolTip": "HangmanGame\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwAgAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-13T15:27:35.861Z",
               "EditorCaption": ""

@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PC\\source\\repos\\HangmanGame\\HangmanGame\\HangmanGame.csproj",
+      "projectUniqueName": "C:\\Projects - Working\\C# Projects - Games\\HangmanGame\\HangmanGame\\HangmanGame.csproj",
       "projectName": "HangmanGame",
-      "projectPath": "C:\\Users\\PC\\source\\repos\\HangmanGame\\HangmanGame\\HangmanGame.csproj",
+      "projectPath": "C:\\Projects - Working\\C# Projects - Games\\HangmanGame\\HangmanGame\\HangmanGame.csproj",
       "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PC\\source\\repos\\HangmanGame\\HangmanGame\\obj\\",
+      "outputPath": "C:\\Projects - Working\\C# Projects - Games\\HangmanGame\\HangmanGame\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
