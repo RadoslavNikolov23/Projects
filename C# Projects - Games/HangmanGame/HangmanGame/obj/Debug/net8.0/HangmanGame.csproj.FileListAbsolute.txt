@@ -1,0 +1,14 @@
+C:\Users\PC\source\repos\HangmanGame\HangmanGame\bin\Debug\net8.0\HangmanGame.exe
+C:\Users\PC\source\repos\HangmanGame\HangmanGame\bin\Debug\net8.0\HangmanGame.deps.json
+C:\Users\PC\source\repos\HangmanGame\HangmanGame\bin\Debug\net8.0\HangmanGame.runtimeconfig.json
+C:\Users\PC\source\repos\HangmanGame\HangmanGame\bin\Debug\net8.0\HangmanGame.dll
+C:\Users\PC\source\repos\HangmanGame\HangmanGame\bin\Debug\net8.0\HangmanGame.pdb
+C:\Users\PC\source\repos\HangmanGame\HangmanGame\obj\Debug\net8.0\HangmanGame.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PC\source\repos\HangmanGame\HangmanGame\obj\Debug\net8.0\HangmanGame.AssemblyInfoInputs.cache
+C:\Users\PC\source\repos\HangmanGame\HangmanGame\obj\Debug\net8.0\HangmanGame.AssemblyInfo.cs
+C:\Users\PC\source\repos\HangmanGame\HangmanGame\obj\Debug\net8.0\HangmanGame.csproj.CoreCompileInputs.cache
+C:\Users\PC\source\repos\HangmanGame\HangmanGame\obj\Debug\net8.0\HangmanGame.dll
+C:\Users\PC\source\repos\HangmanGame\HangmanGame\obj\Debug\net8.0\refint\HangmanGame.dll
+C:\Users\PC\source\repos\HangmanGame\HangmanGame\obj\Debug\net8.0\HangmanGame.pdb
+C:\Users\PC\source\repos\HangmanGame\HangmanGame\obj\Debug\net8.0\HangmanGame.genruntimeconfig.cache
+C:\Users\PC\source\repos\HangmanGame\HangmanGame\obj\Debug\net8.0\ref\HangmanGame.dll
