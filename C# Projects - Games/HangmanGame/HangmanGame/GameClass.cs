@@ -19,6 +19,8 @@ namespace HangmanGame
             char[] charWords = word.ToArray();
             char[] emptyCharArray = new char[charWords.Length];
 
+            List<char> guestLettersList = new List<char>();
+
             for (int i = 0; i < emptyCharArray.Length; i++) emptyCharArray[i] = '*';
 
             int attempsToWin = charWords.Length;
@@ -43,7 +45,7 @@ namespace HangmanGame
 
                     char guestSymbol = char.Parse(Console.ReadLine());
 
-                    if (charWords.Contains(guestSymbol))
+                    if (charWords.Contains(guestSymbol) && char.IsLetter(guestSymbol))
                     {
                         int indexAt = charWords.ToList().IndexOf(guestSymbol);
                         emptyCharArray[indexAt] = guestSymbol;
@@ -67,6 +69,8 @@ namespace HangmanGame
                     if (maxTries == countTries)
                     {
                         Output.MaxOut();
+                        Console.WriteLine($"The word was - {word}");
+
                         break;
                     }
 
@@ -74,8 +78,31 @@ namespace HangmanGame
                     if (attempsToWin == countToWin)
                     {
                         guestTheWord = true;
+                        Console.WriteLine($"\nCongratulations you have fount the word: {word}");
+
                         break;
                     }
+
+                    if (char.IsLetter(guestSymbol))
+                    {
+                        guestLettersList.Add(guestSymbol);
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine();
+                        Console.WriteLine($"You have tried the following letters:");
+                        Console.WriteLine(string.Join(", ", guestLettersList));
+                        Console.WriteLine();
+                        Console.ForegroundColor = ConsoleColor.White;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor= ConsoleColor.Magenta;
+                        Console.WriteLine("\nEnter a letter!\n");
+                        Console.ForegroundColor = ConsoleColor.White;
+
+                    }
+
+
+
                 }
                 catch (Exception ex)
                 {

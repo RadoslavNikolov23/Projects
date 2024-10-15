@@ -11,7 +11,7 @@ namespace HangmanGame
     {
         public static void MaxOut()
         {
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine();
             Console.WriteLine(@"_______________");
             Console.WriteLine(@"|      |      |");
@@ -30,7 +30,7 @@ namespace HangmanGame
 
         public static void FifthTry()
         {
-            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine();
             Console.WriteLine(@"_______________");
             Console.WriteLine(@"|      |      |");
@@ -48,7 +48,7 @@ namespace HangmanGame
         }
         public static void ForthTry()
         {
-            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine();
             Console.WriteLine(@"_______________");
             Console.WriteLine(@"|      |      |");

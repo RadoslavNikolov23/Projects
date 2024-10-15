@@ -1,0 +1,15 @@
+C:\Projects - Working\C# Projects - Games\HangmanGame\HangmanGame\bin\Debug\net6.0\HangmanGame.exe
+C:\Projects - Working\C# Projects - Games\HangmanGame\HangmanGame\bin\Debug\net6.0\HangmanGame.deps.json
+C:\Projects - Working\C# Projects - Games\HangmanGame\HangmanGame\bin\Debug\net6.0\HangmanGame.runtimeconfig.json
+C:\Projects - Working\C# Projects - Games\HangmanGame\HangmanGame\bin\Debug\net6.0\HangmanGame.dll
+C:\Projects - Working\C# Projects - Games\HangmanGame\HangmanGame\bin\Debug\net6.0\HangmanGame.pdb
+C:\Projects - Working\C# Projects - Games\HangmanGame\HangmanGame\obj\Debug\net6.0\HangmanGame.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects - Working\C# Projects - Games\HangmanGame\HangmanGame\obj\Debug\net6.0\HangmanGame.AssemblyInfoInputs.cache
+C:\Projects - Working\C# Projects - Games\HangmanGame\HangmanGame\obj\Debug\net6.0\HangmanGame.AssemblyInfo.cs
+C:\Projects - Working\C# Projects - Games\HangmanGame\HangmanGame\obj\Debug\net6.0\HangmanGame.csproj.CoreCompileInputs.cache
+C:\Projects - Working\C# Projects - Games\HangmanGame\HangmanGame\obj\Debug\net6.0\HangmanGame.sourcelink.json
+C:\Projects - Working\C# Projects - Games\HangmanGame\HangmanGame\obj\Debug\net6.0\HangmanGame.dll
+C:\Projects - Working\C# Projects - Games\HangmanGame\HangmanGame\obj\Debug\net6.0\refint\HangmanGame.dll
+C:\Projects - Working\C# Projects - Games\HangmanGame\HangmanGame\obj\Debug\net6.0\HangmanGame.pdb
+C:\Projects - Working\C# Projects - Games\HangmanGame\HangmanGame\obj\Debug\net6.0\HangmanGame.genruntimeconfig.cache
+C:\Projects - Working\C# Projects - Games\HangmanGame\HangmanGame\obj\Debug\net6.0\ref\HangmanGame.dll

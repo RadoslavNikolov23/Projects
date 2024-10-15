@@ -18,7 +18,11 @@ public class Program
             Console.WriteLine();
 
             if (input == "y" || input == "yes") continue;
-            else if (input == "n" || input == "no") break;
+            else if (input == "n" || input == "no")
+            {
+                Console.WriteLine("GoodBye!");
+                break;
+            }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
