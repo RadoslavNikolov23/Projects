@@ -26,8 +26,8 @@ namespace HangmanGame
             int attempsToWin = charWords.Length;
             int countToWin = 0;
 
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"You have to guess a fruit, with the length of {word.Length} letters and have only 6 tries!\n");
+            //Console.ForegroundColor = ConsoleColor.Yellow;
+            //Console.WriteLine($"You have to guess a fruit, with the length of {word.Length} letters and have only 6 tries!\n");
             Console.ForegroundColor = ConsoleColor.DarkYellow;
             Console.WriteLine("Let's begin!");
 
