@@ -1,19 +1,33 @@
 ﻿using HangmanGame.EnumWords;
+using HangmanGame.IO.Contracts;
+using HangmanGame.IO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HangmanGame.Engine.Contracts;
+using HangmanGame.Output;
 
-namespace HangmanGame
+namespace HangmanGame.Engine
 {
-    public class GameClass
+    public class Game:IGame
     {
+        private IReader reader;
+        private IWriter writer;
+        private IOutputGraphics outputGraphics;
+        private const int maxTries = 6;
 
-        public static void GameOn()
+        public Game()
+        {
+            reader = new Reader();
+            writer = new Writer();
+            outputGraphics = new OutputGraphics();
+        }
+
+        public void GameOn()
         {
             string word = WordEngine.GetRandomWord();
-            int maxTries = 6;
             int countTries = 0;
             bool guestTheWord = false;
 
@@ -24,24 +38,25 @@ namespace HangmanGame
 
             List<char> guestLettersList = new List<char>();
 
-            for (int i = 0; i < emptyCharArray.Length; i++) emptyCharArray[i] = '*';
+            for (int i = 0; i < emptyCharArray.Length; i++) 
+                emptyCharArray[i] = '*';
 
             int attempsToWin = charWords.Length;
             int countToWin = 0;
 
-            Console.WriteLine("Let's begin!");
-            OutputGraphics.OutputGraphics.StartView();
+            writer.WriteLine("Let's begin!");
+            outputGraphics.StartView();
 
             while (true)
             {
                 try
                 {
                     Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine($"Your word is: {string.Join("", emptyCharArray)}\n");
+                    writer.WriteLine($"Your word is: {string.Join("", emptyCharArray)}");
                     Console.ForegroundColor = ConsoleColor.White;
-                    Console.Write("Enter a letter: ");
+                    writer.Write("Enter a letter: ");
 
-                    char guestSymbol = char.Parse(Console.ReadLine());
+                    char guestSymbol = char.Parse(reader.ReadLine());
 
 
                     if (charWords.Contains(guestSymbol) && char.IsLetter(guestSymbol))
@@ -49,30 +64,30 @@ namespace HangmanGame
                         int indexAt = charWords.ToList().IndexOf(guestSymbol);
                         emptyCharArray[indexAt] = guestSymbol;
                         charWords[indexAt] = '*';
-                        Console.WriteLine($"Congratulation you have found the letter {guestSymbol}");
+                        writer.WriteLine($"\nCongratulation you have found the letter {guestSymbol}");
                         countToWin++;
 
                     }
                     else
                     {
                         countTries++;
-                        Console.WriteLine("Wrong letter!");
-                        Console.WriteLine($"You have {maxTries - countTries} wrong tries left!");
+                        writer.WriteLine("\nWrong letter!");
+                        writer.WriteLine($"You have {maxTries - countTries} wrong tries left!");
                         ChechOutPut(countTries);
-                        Console.WriteLine($"Try again!");
+                        writer.WriteLine($"Try again!");
                     }
 
                     if (maxTries == countTries)
                     {
-                        OutputGraphics.OutputGraphics.MaxOut();
-                        Console.WriteLine($"The word was - {word}");
+                        outputGraphics.MaxOut();
+                        writer.WriteLine($"\nThe word was - {word}");
                         break;
                     }
 
                     if (attempsToWin == countToWin)
                     {
                         guestTheWord = true;
-                        Console.WriteLine($"\nCongratulations you have fount the word: {word}");
+                        writer.WriteLine($"\nCongratulations you have fount the word: {word}");
                         break;
                     }
 
@@ -80,30 +95,28 @@ namespace HangmanGame
                     {
                         guestLettersList.Add(guestSymbol);
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine($"You have tried the following letters:");
-                        Console.WriteLine(string.Join(", ", guestLettersList));
+                        writer.WriteLine($"You have tried the following letters:");
+                        writer.WriteLine(string.Join(", ", guestLettersList));
                         Console.ForegroundColor = ConsoleColor.White;
                     }
                     else
-                    {
-                        Console.ForegroundColor= ConsoleColor.Magenta;
-                        Console.WriteLine("Enter a letter!\n");
-                        Console.ForegroundColor = ConsoleColor.White;
-                    }
+                        writer.WriteLine("Enter a letter!\n");
+                    
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Wrong input!");
-                    Console.WriteLine($"Enter ONLY one letter!\n");
+                    writer.WriteLine($"Wrong input!");
+                    writer.WriteLine($"Enter ONLY one letter!\n");
                 }
+
             }
         }
 
-        private static void ChechWordType(string word, int maxTries)
+        private void ChechWordType(string word, int maxTries)
         {
             FruitWords[] wordToMatch = Enum.GetValues<FruitWords>();
             bool isFruit = false;
-            foreach(var wordWord in wordToMatch)
+            foreach (var wordWord in wordToMatch)
             {
                 if (wordWord.ToString().ToLower() == word)
                 {
@@ -112,30 +125,29 @@ namespace HangmanGame
                 }
             }
 
-            string typeWord=String.Empty;
-            typeWord = isFruit ? "Fruit" : "Car Brand";
+            string typeWord = isFruit ? "Fruit" : "Car Brand";
 
-            Console.WriteLine($"You have to guess a {typeWord}, with the length of {word.Length} letters and have only {maxTries} tries!\n");
+            writer.WriteLine($"You have to guess a {typeWord}, with the length of {word.Length} letters and have only {maxTries} tries!\n");
         }
 
-        public static void ChechOutPut(int number)
+        public void ChechOutPut(int number)
         {
             switch (number)
             {
                 case 1:
-                    OutputGraphics.OutputGraphics.FirstTry();
+                    outputGraphics.FirstTry();
                     break;
                 case 2:
-                    OutputGraphics.OutputGraphics.SecondTry();
+                    outputGraphics.SecondTry();
                     break;
                 case 3:
-                    OutputGraphics.OutputGraphics.ThirdTry();
+                    outputGraphics.ThirdTry();
                     break;
                 case 4:
-                    OutputGraphics.OutputGraphics.ForthTry();
+                    outputGraphics.ForthTry();
                     break;
                 case 5:
-                    OutputGraphics.OutputGraphics.FifthTry();
+                    outputGraphics.FifthTry();
                     break;
             }
         }

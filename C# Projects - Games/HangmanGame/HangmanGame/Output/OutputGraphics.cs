@@ -1,140 +1,148 @@
-﻿using System;
+﻿using HangmanGame.IO.Contracts;
+using HangmanGame.IO;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HangmanGame.Output;
 
-namespace HangmanGame.OutputGraphics
+namespace HangmanGame
 {
-    public class OutputGraphics
+    public class OutputGraphics: IOutputGraphics
     {
+        private IWriter writer;
 
-        public static void MaxOut()
+        public OutputGraphics()
+        {
+            this.writer = new Writer();
+        }
+        public void MaxOut()
         {
             Console.ForegroundColor = ConsoleColor.DarkRed;
-            Console.WriteLine();
-            Console.WriteLine(@"_______________");
-            Console.WriteLine(@"|      |      |");
-            Console.WriteLine(@"|     ( )     |");
-            Console.WriteLine(@"|     /|\     |");
-            Console.WriteLine(@"|    / | \    |");
-            Console.WriteLine(@"|     /|\     |");
-            Console.WriteLine(@"|    /   \    |");
-            Console.WriteLine(@"|             |");
-            Console.WriteLine(@"|_____________|");
-            Console.WriteLine(@"|_____________|");
-            Console.WriteLine();
+           // writer.WriteLine();
+            writer.WriteLine(@"_______________");
+            writer.WriteLine(@"|      |      |");
+            writer.WriteLine(@"|     ( )     |");
+            writer.WriteLine(@"|     /|\     |");
+            writer.WriteLine(@"|    / | \    |");
+            writer.WriteLine(@"|     /|\     |");
+            writer.WriteLine(@"|    /   \    |");
+            writer.WriteLine(@"|             |");
+            writer.WriteLine(@"|_____________|");
+            writer.WriteLine(@"|_____________|");
+            writer.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
 
         }
 
-        public static void FifthTry()
+        public void FifthTry()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine();
-            Console.WriteLine(@"_______________");
-            Console.WriteLine(@"|      |      |");
-            Console.WriteLine(@"|     ( )     |");
-            Console.WriteLine(@"|     /|\     |");
-            Console.WriteLine(@"|    / | \    |");
-            Console.WriteLine(@"|     /|      |");
-            Console.WriteLine(@"|    /        |");
-            Console.WriteLine(@"|             |");
-            Console.WriteLine(@"|_____________|");
-            Console.WriteLine(@"|_____________|");
-            Console.WriteLine();
+            //writer.WriteLine();
+            writer.WriteLine(@"_______________");
+            writer.WriteLine(@"|      |      |");
+            writer.WriteLine(@"|     ( )     |");
+            writer.WriteLine(@"|     /|\     |");
+            writer.WriteLine(@"|    / | \    |");
+            writer.WriteLine(@"|     /|      |");
+            writer.WriteLine(@"|    /        |");
+            writer.WriteLine(@"|             |");
+            writer.WriteLine(@"|_____________|");
+            writer.WriteLine(@"|_____________|");
+            writer.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
 
         }
-        public static void ForthTry()
+        public void ForthTry()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine();
-            Console.WriteLine(@"_______________");
-            Console.WriteLine(@"|      |      |");
-            Console.WriteLine(@"|     ( )     |");
-            Console.WriteLine(@"|     /|\     |");
-            Console.WriteLine(@"|    / | \    |");
-            Console.WriteLine(@"|      |      |");
-            Console.WriteLine(@"|             |");
-            Console.WriteLine(@"|             |");
-            Console.WriteLine(@"|_____________|");
-            Console.WriteLine(@"|_____________|");
-            Console.WriteLine();
+           // writer.WriteLine();
+            writer.WriteLine(@"_______________");
+            writer.WriteLine(@"|      |      |");
+            writer.WriteLine(@"|     ( )     |");
+            writer.WriteLine(@"|     /|\     |");
+            writer.WriteLine(@"|    / | \    |");
+            writer.WriteLine(@"|      |      |");
+            writer.WriteLine(@"|             |");
+            writer.WriteLine(@"|             |");
+            writer.WriteLine(@"|_____________|");
+            writer.WriteLine(@"|_____________|");
+            writer.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
 
         }
-        public static void ThirdTry()
+        public void ThirdTry()
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine();
-            Console.WriteLine(@"_______________");
-            Console.WriteLine(@"|      |      |");
-            Console.WriteLine(@"|     ( )     |");
-            Console.WriteLine(@"|     /|      |");
-            Console.WriteLine(@"|    / |      |");
-            Console.WriteLine(@"|             |");
-            Console.WriteLine(@"|             |");
-            Console.WriteLine(@"|             |");
-            Console.WriteLine(@"|_____________|");
-            Console.WriteLine(@"|_____________|");
-            Console.WriteLine();
+           // writer.WriteLine();
+            writer.WriteLine(@"_______________");
+            writer.WriteLine(@"|      |      |");
+            writer.WriteLine(@"|     ( )     |");
+            writer.WriteLine(@"|     /|      |");
+            writer.WriteLine(@"|    / |      |");
+            writer.WriteLine(@"|             |");
+            writer.WriteLine(@"|             |");
+            writer.WriteLine(@"|             |");
+            writer.WriteLine(@"|_____________|");
+            writer.WriteLine(@"|_____________|");
+            writer.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
 
         }
-        public static void SecondTry()
+        public void SecondTry()
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine();
-            Console.WriteLine(@"_______________");
-            Console.WriteLine(@"|      |      |");
-            Console.WriteLine(@"|     ( )     |");
-            Console.WriteLine(@"|      |      |");
-            Console.WriteLine(@"|      |      |");
-            Console.WriteLine(@"|      |      |");
-            Console.WriteLine(@"|             |");
-            Console.WriteLine(@"|             |");
-            Console.WriteLine(@"|_____________|");
-            Console.WriteLine(@"|_____________|");
-            Console.WriteLine();
+           // writer.WriteLine();
+            writer.WriteLine(@"_______________");
+            writer.WriteLine(@"|      |      |");
+            writer.WriteLine(@"|     ( )     |");
+            writer.WriteLine(@"|      |      |");
+            writer.WriteLine(@"|      |      |");
+            writer.WriteLine(@"|      |      |");
+            writer.WriteLine(@"|             |");
+            writer.WriteLine(@"|             |");
+            writer.WriteLine(@"|_____________|");
+            writer.WriteLine(@"|_____________|");
+            writer.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
 
         }
-        public static void FirstTry()
+        public void FirstTry()
         {
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine();
-            Console.WriteLine(@"_______________");
-            Console.WriteLine(@"|      |      |");
-            Console.WriteLine(@"|     ( )     |");
-            Console.WriteLine(@"|             |");
-            Console.WriteLine(@"|             |");
-            Console.WriteLine(@"|             |");
-            Console.WriteLine(@"|             |");
-            Console.WriteLine(@"|             |");
-            Console.WriteLine(@"|_____________|");
-            Console.WriteLine(@"|_____________|");
-            Console.WriteLine();
+           // writer.WriteLine();
+            writer.WriteLine(@"_______________");
+            writer.WriteLine(@"|      |      |");
+            writer.WriteLine(@"|     ( )     |");
+            writer.WriteLine(@"|             |");
+            writer.WriteLine(@"|             |");
+            writer.WriteLine(@"|             |");
+            writer.WriteLine(@"|             |");
+            writer.WriteLine(@"|             |");
+            writer.WriteLine(@"|_____________|");
+            writer.WriteLine(@"|_____________|");
+            writer.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
 
         }
 
-        public static void StartView()
+        public void StartView()
         {
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine();
-            Console.WriteLine(@"_______________");
-            Console.WriteLine(@"|             |");
-            Console.WriteLine(@"|             |");
-            Console.WriteLine(@"|             |");
-            Console.WriteLine(@"|             |");
-            Console.WriteLine(@"|             |");
-            Console.WriteLine(@"|             |");
-            Console.WriteLine(@"|             |");
-            Console.WriteLine(@"|_____________|");
-            Console.WriteLine(@"|_____________|");
-            Console.WriteLine();
+            //writer.WriteLine();
+            writer.WriteLine(@"_______________");
+            writer.WriteLine(@"|             |");
+            writer.WriteLine(@"|             |");
+            writer.WriteLine(@"|             |");
+            writer.WriteLine(@"|             |");
+            writer.WriteLine(@"|             |");
+            writer.WriteLine(@"|             |");
+            writer.WriteLine(@"|             |");
+            writer.WriteLine(@"|_____________|");
+            writer.WriteLine(@"|_____________|");
+            writer.WriteLine();
             Console.ForegroundColor = ConsoleColor.White;
 
         }
