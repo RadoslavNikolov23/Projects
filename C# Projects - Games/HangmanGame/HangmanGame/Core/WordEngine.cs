@@ -17,9 +17,9 @@ namespace HangmanGame.Engine
             FruitWords[] fruitsWord = Enum.GetValues<FruitWords>();
             CarBrandWords[] carBrandsWord = Enum.GetValues<CarBrandWords>();
 
-            return numberTMethod == 0 ? GetRandomWord(fruitsWord) : GetRandomWord(carBrandsWord);
+            return numberTMethod == 0 ? RandomWord(fruitsWord) : RandomWord(carBrandsWord);
         }
-        private static string GetRandomWord<T>(T[] words)
+        private static string RandomWord<T>(T[] words)
         {
             int randomIndex = Random.Shared.Next(words.Length);
             string wordForGame = words[randomIndex].ToString()!;
