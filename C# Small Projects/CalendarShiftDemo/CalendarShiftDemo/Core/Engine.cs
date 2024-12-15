@@ -1,6 +1,10 @@
 ﻿using CalendarShiftDemo.Core.Contacts;
 using CalendarShiftDemo.IO;
 using CalendarShiftDemo.IO.Contacts;
+using CalendarShiftDemo.Models;
+using CalendarShiftDemo.Models.Contracts;
+using CalendarShiftDemo.Repository;
+using CalendarShiftDemo.Repository.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -21,42 +25,59 @@ namespace CalendarShiftDemo.Core
         }
         public void Run()
         {
-         
-
-            //List<DateTime> yearDate = new List<DateTime>();
-            //DateTime dateTime = new DateTime(2025,01,01);
-
-            //do
-            //{
-            //    yearDate.Add(dateTime);
-            //    dateTime=dateTime.AddDays(1);
-            //} while (dateTime.Year == 2025);
-
 
             string inputDate = string.Empty;
-            string inputMonth= string.Empty;
+            string inputMonth = string.Empty;
+
+
             writer.WriteLine("Въведи ден и месец, в който си дневна смяна: ");
             writer.Write("Ден: ");
-            inputDate = reader.ReadLine();    
+            inputDate = reader.ReadLine();
             writer.Write("Месец: ");
             inputMonth = reader.ReadLine();
-            DateTime workDayShigt = new DateTime(2025, int.Parse(inputMonth), int.Parse(inputDate));
-            DateTime workNightShigt = new DateTime(2025, int.Parse(inputMonth), (int.Parse(inputDate))+1);
 
-            List<string> workDays= new List<string>();
+            IRepository<IShift> shifts= new RepositoryShifts();
 
-            while(workDayShigt.Year==2025 && workNightShigt.Year == 2025)
+
+            DateTime workDayShigt = new DateTime(2024, int.Parse(inputMonth), int.Parse(inputDate), 07, 00, 00);
+            DateTime workNightShigt = new DateTime(2024, int.Parse(inputMonth), (int.Parse(inputDate)) + 1, 19, 00, 00);
+
+            DayShift dayShift = new DayShift(workDayShigt);
+            NightShift nightShift = new NightShift(workNightShigt);
+
+            shifts.AddShift(dayShift);
+            shifts.AddShift(nightShift);
+
+
+
+            while (true)
             {
-                StringBuilder sb = new StringBuilder();
-                sb.AppendLine($"Работиш дневни смени на: {workDayShigt}");
-                sb.AppendLine($"Работиш нощни смени на: {workNightShigt}");
-                sb.AppendLine();
-                workDays.Add(sb.ToString());
+
                 workDayShigt = workDayShigt.AddDays(4);
                 workNightShigt = workNightShigt.AddDays(4);
+
+                if (workDayShigt.Year == 2025 || workNightShigt.Year == 2025) break;
+
+                shifts.AddShift(new DayShift(workDayShigt));
+                shifts.AddShift(new NightShift(workNightShigt));
             }
 
-            writer.WriteLine(string.Join("", workDays.ToArray()));
+            int count = 1;
+            foreach(IShift shift in shifts.Shifts)
+            {
+                writer.WriteLine(shift.ToString());
+
+                if (count++ % 2 == 0)
+                    writer.WriteLine("\n");
+                
+            }
+
+            int allShift = shifts.ShiftsWorder();
+            int allHours = shifts.TimeWorked();
+
+            writer.WriteLine($"Работил си общо {allShift} смени и общо {allHours} часове");
+
+
 
         }
     }
