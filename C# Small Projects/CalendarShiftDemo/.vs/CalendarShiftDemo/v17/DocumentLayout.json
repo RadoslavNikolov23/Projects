@@ -1,0 +1,147 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\PC\\source\\repos\\CalendarShiftDemo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B09FAFE4-03EF-471C-8909-640B2FA04E59}|CalendarShiftDemo\\CalendarShiftDemo.csproj|c:\\users\\pc\\source\\repos\\calendarshiftdemo\\calendarshiftdemo\\core\\engine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B09FAFE4-03EF-471C-8909-640B2FA04E59}|CalendarShiftDemo\\CalendarShiftDemo.csproj|solutionrelative:calendarshiftdemo\\core\\engine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B09FAFE4-03EF-471C-8909-640B2FA04E59}|CalendarShiftDemo\\CalendarShiftDemo.csproj|c:\\users\\pc\\source\\repos\\calendarshiftdemo\\calendarshiftdemo\\io\\writer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B09FAFE4-03EF-471C-8909-640B2FA04E59}|CalendarShiftDemo\\CalendarShiftDemo.csproj|solutionrelative:calendarshiftdemo\\io\\writer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B09FAFE4-03EF-471C-8909-640B2FA04E59}|CalendarShiftDemo\\CalendarShiftDemo.csproj|c:\\users\\pc\\source\\repos\\calendarshiftdemo\\calendarshiftdemo\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B09FAFE4-03EF-471C-8909-640B2FA04E59}|CalendarShiftDemo\\CalendarShiftDemo.csproj|solutionrelative:calendarshiftdemo\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B09FAFE4-03EF-471C-8909-640B2FA04E59}|CalendarShiftDemo\\CalendarShiftDemo.csproj|c:\\users\\pc\\source\\repos\\calendarshiftdemo\\calendarshiftdemo\\io\\contacts\\ireader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B09FAFE4-03EF-471C-8909-640B2FA04E59}|CalendarShiftDemo\\CalendarShiftDemo.csproj|solutionrelative:calendarshiftdemo\\io\\contacts\\ireader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B09FAFE4-03EF-471C-8909-640B2FA04E59}|CalendarShiftDemo\\CalendarShiftDemo.csproj|c:\\users\\pc\\source\\repos\\calendarshiftdemo\\calendarshiftdemo\\io\\reader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B09FAFE4-03EF-471C-8909-640B2FA04E59}|CalendarShiftDemo\\CalendarShiftDemo.csproj|solutionrelative:calendarshiftdemo\\io\\reader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B09FAFE4-03EF-471C-8909-640B2FA04E59}|CalendarShiftDemo\\CalendarShiftDemo.csproj|c:\\users\\pc\\source\\repos\\calendarshiftdemo\\calendarshiftdemo\\io\\contacts\\iwriter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B09FAFE4-03EF-471C-8909-640B2FA04E59}|CalendarShiftDemo\\CalendarShiftDemo.csproj|solutionrelative:calendarshiftdemo\\io\\contacts\\iwriter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B09FAFE4-03EF-471C-8909-640B2FA04E59}|CalendarShiftDemo\\CalendarShiftDemo.csproj|c:\\users\\pc\\source\\repos\\calendarshiftdemo\\calendarshiftdemo\\core\\contacts\\iengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B09FAFE4-03EF-471C-8909-640B2FA04E59}|CalendarShiftDemo\\CalendarShiftDemo.csproj|solutionrelative:calendarshiftdemo\\core\\contacts\\iengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Writer.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\source\\repos\\CalendarShiftDemo\\CalendarShiftDemo\\IO\\Writer.cs",
+              "RelativeDocumentMoniker": "CalendarShiftDemo\\IO\\Writer.cs",
+              "ToolTip": "C:\\Users\\PC\\source\\repos\\CalendarShiftDemo\\CalendarShiftDemo\\IO\\Writer.cs",
+              "RelativeToolTip": "CalendarShiftDemo\\IO\\Writer.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAvwA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-14T22:06:08.807Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Reader.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\source\\repos\\CalendarShiftDemo\\CalendarShiftDemo\\IO\\Reader.cs",
+              "RelativeDocumentMoniker": "CalendarShiftDemo\\IO\\Reader.cs",
+              "ToolTip": "C:\\Users\\PC\\source\\repos\\CalendarShiftDemo\\CalendarShiftDemo\\IO\\Reader.cs",
+              "RelativeToolTip": "CalendarShiftDemo\\IO\\Reader.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-14T22:04:48.99Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IWriter.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\source\\repos\\CalendarShiftDemo\\CalendarShiftDemo\\IO\\Contacts\\IWriter.cs",
+              "RelativeDocumentMoniker": "CalendarShiftDemo\\IO\\Contacts\\IWriter.cs",
+              "ToolTip": "C:\\Users\\PC\\source\\repos\\CalendarShiftDemo\\CalendarShiftDemo\\IO\\Contacts\\IWriter.cs",
+              "RelativeToolTip": "CalendarShiftDemo\\IO\\Contacts\\IWriter.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-14T22:04:04.847Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IReader.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\source\\repos\\CalendarShiftDemo\\CalendarShiftDemo\\IO\\Contacts\\IReader.cs",
+              "RelativeDocumentMoniker": "CalendarShiftDemo\\IO\\Contacts\\IReader.cs",
+              "ToolTip": "C:\\Users\\PC\\source\\repos\\CalendarShiftDemo\\CalendarShiftDemo\\IO\\Contacts\\IReader.cs",
+              "RelativeToolTip": "CalendarShiftDemo\\IO\\Contacts\\IReader.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-14T22:03:37.64Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Engine.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\source\\repos\\CalendarShiftDemo\\CalendarShiftDemo\\Core\\Engine.cs",
+              "RelativeDocumentMoniker": "CalendarShiftDemo\\Core\\Engine.cs",
+              "ToolTip": "C:\\Users\\PC\\source\\repos\\CalendarShiftDemo\\CalendarShiftDemo\\Core\\Engine.cs",
+              "RelativeToolTip": "CalendarShiftDemo\\Core\\Engine.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAYwCsAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-14T22:03:14.378Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IEngine.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\source\\repos\\CalendarShiftDemo\\CalendarShiftDemo\\Core\\Contacts\\IEngine.cs",
+              "RelativeDocumentMoniker": "CalendarShiftDemo\\Core\\Contacts\\IEngine.cs",
+              "ToolTip": "C:\\Users\\PC\\source\\repos\\CalendarShiftDemo\\CalendarShiftDemo\\Core\\Contacts\\IEngine.cs",
+              "RelativeToolTip": "CalendarShiftDemo\\Core\\Contacts\\IEngine.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-14T22:02:11.103Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "StartUp.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\source\\repos\\CalendarShiftDemo\\CalendarShiftDemo\\StartUp.cs",
+              "RelativeDocumentMoniker": "CalendarShiftDemo\\StartUp.cs",
+              "ToolTip": "C:\\Users\\PC\\source\\repos\\CalendarShiftDemo\\CalendarShiftDemo\\StartUp.cs",
+              "RelativeToolTip": "CalendarShiftDemo\\StartUp.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-14T22:00:37.468Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

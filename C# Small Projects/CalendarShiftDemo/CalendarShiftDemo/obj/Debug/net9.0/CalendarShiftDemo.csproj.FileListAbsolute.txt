@@ -1,0 +1,14 @@
+C:\Users\PC\source\repos\CalendarShiftDemo\CalendarShiftDemo\obj\Debug\net9.0\CalendarShiftDemo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\PC\source\repos\CalendarShiftDemo\CalendarShiftDemo\obj\Debug\net9.0\CalendarShiftDemo.AssemblyInfoInputs.cache
+C:\Users\PC\source\repos\CalendarShiftDemo\CalendarShiftDemo\obj\Debug\net9.0\CalendarShiftDemo.AssemblyInfo.cs
+C:\Users\PC\source\repos\CalendarShiftDemo\CalendarShiftDemo\obj\Debug\net9.0\CalendarShiftDemo.csproj.CoreCompileInputs.cache
+C:\Users\PC\source\repos\CalendarShiftDemo\CalendarShiftDemo\bin\Debug\net9.0\CalendarShiftDemo.exe
+C:\Users\PC\source\repos\CalendarShiftDemo\CalendarShiftDemo\bin\Debug\net9.0\CalendarShiftDemo.deps.json
+C:\Users\PC\source\repos\CalendarShiftDemo\CalendarShiftDemo\bin\Debug\net9.0\CalendarShiftDemo.runtimeconfig.json
+C:\Users\PC\source\repos\CalendarShiftDemo\CalendarShiftDemo\bin\Debug\net9.0\CalendarShiftDemo.dll
+C:\Users\PC\source\repos\CalendarShiftDemo\CalendarShiftDemo\bin\Debug\net9.0\CalendarShiftDemo.pdb
+C:\Users\PC\source\repos\CalendarShiftDemo\CalendarShiftDemo\obj\Debug\net9.0\CalendarShiftDemo.dll
+C:\Users\PC\source\repos\CalendarShiftDemo\CalendarShiftDemo\obj\Debug\net9.0\refint\CalendarShiftDemo.dll
+C:\Users\PC\source\repos\CalendarShiftDemo\CalendarShiftDemo\obj\Debug\net9.0\CalendarShiftDemo.pdb
+C:\Users\PC\source\repos\CalendarShiftDemo\CalendarShiftDemo\obj\Debug\net9.0\CalendarShiftDemo.genruntimeconfig.cache
+C:\Users\PC\source\repos\CalendarShiftDemo\CalendarShiftDemo\obj\Debug\net9.0\ref\CalendarShiftDemo.dll
