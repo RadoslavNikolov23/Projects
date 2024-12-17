@@ -10,6 +10,7 @@ namespace CalendarShiftDemo.IO.Contacts
     {
         void Write(string text);
 
+        void WriteLine();
         void WriteLine(string text);
         void WriteText(string text);
     }

@@ -5,6 +5,8 @@ using CalendarShiftDemo.Models;
 using CalendarShiftDemo.Models.Contracts;
 using CalendarShiftDemo.Repository;
 using CalendarShiftDemo.Repository.Contracts;
+using CalendarShiftDemo.WorkModel;
+using CalendarShiftDemo.WorkModel.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -26,59 +28,95 @@ namespace CalendarShiftDemo.Core
         public void Run()
         {
 
-            string inputDate = string.Empty;
-            string inputMonth = string.Empty;
-
+            Dictionary<int, IRepository<IShift>> shiftByMonts = new Dictionary<int, IRepository<IShift>>();
+            for (int i = 0; i < 12; i++)
+                shiftByMonts[i + 1] = new RepositoryShifts();
 
             writer.WriteLine("Въведи ден и месец, в който си дневна смяна: ");
             writer.Write("Ден: ");
-            inputDate = reader.ReadLine();
+            int inputDate = int.Parse(reader.ReadLine());
             writer.Write("Месец: ");
-            inputMonth = reader.ReadLine();
+            int inputMonth = int.Parse(reader.ReadLine());
 
-            IRepository<IShift> shifts= new RepositoryShifts();
+            DateTime inputDayShift = new DateTime(2024, inputMonth, inputDate, 07, 00, 00);
+            DateTime inputNightShift = new DateTime(2024, inputMonth, inputDate+1, 19, 00, 00);
 
-
-            DateTime workDayShigt = new DateTime(2024, int.Parse(inputMonth), int.Parse(inputDate), 07, 00, 00);
-            DateTime workNightShigt = new DateTime(2024, int.Parse(inputMonth), (int.Parse(inputDate)) + 1, 19, 00, 00);
-
-            DayShift dayShift = new DayShift(workDayShigt);
-            NightShift nightShift = new NightShift(workNightShigt);
-
-            shifts.AddShift(dayShift);
-            shifts.AddShift(nightShift);
-
-
-
-            while (true)
+            while (inputDayShift.Year==2024 || inputNightShift.Year==2024)
             {
+                IShift shiftDay = new DayShift(inputDayShift);
+                IShift shiftNIght = new NightShift(inputNightShift);
+                shiftByMonts[inputDayShift.Month].AddShift(shiftDay);
+                shiftByMonts[inputDayShift.Month].AddShift(shiftNIght);
 
-                workDayShigt = workDayShigt.AddDays(4);
-                workNightShigt = workNightShigt.AddDays(4);
-
-                if (workDayShigt.Year == 2025 || workNightShigt.Year == 2025) break;
-
-                shifts.AddShift(new DayShift(workDayShigt));
-                shifts.AddShift(new NightShift(workNightShigt));
+                inputDayShift = inputDayShift.AddDays(4);
+                inputNightShift = inputNightShift.AddDays(4);
             }
 
-            int count = 1;
-            foreach(IShift shift in shifts.Shifts)
-            {
-                writer.WriteLine(shift.ToString());
+            inputDayShift = new DateTime(2024, inputMonth, inputDate, 07, 00, 00);
+            inputNightShift = new DateTime(2024, inputMonth, inputDate +1, 19, 00, 00);
+            inputDayShift = inputDayShift.AddDays(-4);
+            inputNightShift = inputNightShift.AddDays(-4);
 
-                if (count++ % 2 == 0)
-                    writer.WriteLine("\n");
-                
+            while (inputDayShift.Year == 2024 || inputNightShift.Year == 2024)
+            {
+                inputDayShift = inputDayShift.AddDays(-4);
+                inputNightShift = inputNightShift.AddDays(-4);
+                IShift shiftDay = new DayShift(inputDayShift);
+                IShift shiftNIght = new NightShift(inputNightShift);
+                shiftByMonts[inputDayShift.Month].AddShift(shiftDay);
+                shiftByMonts[inputDayShift.Month].AddShift(shiftNIght);
+
+              
             }
 
-            int allShift = shifts.ShiftsWorder();
-            int allHours = shifts.TimeWorked();
+            StringBuilder sb = new StringBuilder();
+            foreach(KeyValuePair<int, IRepository<IShift>> shifts in shiftByMonts)
+            {
+                int count = 1;
+                foreach (IShift shift in shifts.Value.Shifts)
+                {
+                    sb.AppendLine(shift.ToString());
 
-            writer.WriteLine($"Работил си общо {allShift} смени и общо {allHours} часове");
+                    if (count++ % 2 == 0)
+                        sb.AppendLine();
+                }
+            
+                int allShift = shifts.Value.ShiftsWorder();
+                int allHours = shifts.Value.TimeWorked();
+                string month = MonthName(shifts.Key);
+                sb.AppendLine($"През месец {month} сте работили общо {allShift} дни и {allHours} часове");
+              
+
+                int totalShift = TotalWork.GetMonthDays(shifts.Key);
+                int totalHours=TotalWork.GetMonthHours(shifts.Key);
+                sb.AppendLine($"През месец {month} общия брои работни дни е {allShift} и {allHours} часове");
+
+                sb.AppendLine();
+            }
+            writer.WriteText(sb.ToString());
 
 
 
+        }
+
+        private string MonthName(int key)
+        {
+            switch (key)
+            {
+                case 1: return "Януари";
+                case 2: return "Февруари";
+                case 3: return "Март";
+                case 4: return "Април";
+                case 5: return "Май";
+                case 6: return "Юни";
+                case 7: return "Юли";
+                case 8: return "Август";
+                case 9: return "Септември";
+                case 10: return "Октомви";
+                case 11: return "Ноември";
+                case 12: return "Декември";
+                default: return null;
+            }
         }
     }
 }

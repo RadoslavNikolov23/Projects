@@ -20,6 +20,7 @@ namespace CalendarShiftDemo.IO
         }
         public void Write(string text) => Console.Write(text);
 
+        public void WriteLine() => Console.WriteLine();
         public void WriteLine(string text) => Console.WriteLine(text);
 
         public void WriteText(string text) => File.WriteAllText(filePath, text.Trim()+Environment.NewLine);
