@@ -1,4 +1,5 @@
-﻿using CalendarShiftDemo.Models.Contracts;
+﻿using CalendarShiftDemo.Models;
+using CalendarShiftDemo.Models.Contracts;
 using CalendarShiftDemo.Repository.Contracts;
 using System;
 using System.Collections.Generic;
@@ -38,11 +39,14 @@ namespace CalendarShiftDemo.Repository
 
         public int TimeWorked()
         {
-            int allHours = this.shifts.Count;
-            allHours *= 12;
 
+            List<IShift> dayShifts=this.shifts.Where(s=>s.GetType().Name==nameof(DayShift)).ToList();
+            List<IShift> nightShifts=this.shifts.Where(s=>s.GetType().Name==nameof(NightShift)).ToList();
 
-            return allHours;
+            int dayShiftHours = dayShifts.Count*12;
+            int nightShiftHours = nightShifts.Count*13;
+
+            return dayShiftHours+nightShiftHours;
         }
 
     }

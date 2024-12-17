@@ -41,7 +41,8 @@ namespace CalendarShiftDemo.Core
             DateTime inputDayShift = new DateTime(2024, inputMonth, inputDate, 07, 00, 00);
             DateTime inputNightShift = new DateTime(2024, inputMonth, inputDate+1, 19, 00, 00);
 
-            while (inputDayShift.Year==2024 || inputNightShift.Year==2024)
+
+            while (true)
             {
                 IShift shiftDay = new DayShift(inputDayShift);
                 IShift shiftNIght = new NightShift(inputNightShift);
@@ -50,17 +51,20 @@ namespace CalendarShiftDemo.Core
 
                 inputDayShift = inputDayShift.AddDays(4);
                 inputNightShift = inputNightShift.AddDays(4);
+                if (inputDayShift.Year != 2024 || inputNightShift.Year != 2024) break;
+
             }
 
             inputDayShift = new DateTime(2024, inputMonth, inputDate, 07, 00, 00);
-            inputNightShift = new DateTime(2024, inputMonth, inputDate +1, 19, 00, 00);
-            inputDayShift = inputDayShift.AddDays(-4);
-            inputNightShift = inputNightShift.AddDays(-4);
+            inputNightShift = new DateTime(2024, inputMonth, inputDate, 19, 00, 00);
 
-            while (inputDayShift.Year == 2024 || inputNightShift.Year == 2024)
+
+            while (true)
             {
                 inputDayShift = inputDayShift.AddDays(-4);
-                inputNightShift = inputNightShift.AddDays(-4);
+                inputNightShift = inputNightShift.AddDays(-3);
+
+                if (inputDayShift.Year != 2024 || inputNightShift.Year != 2024) break;
                 IShift shiftDay = new DayShift(inputDayShift);
                 IShift shiftNIght = new NightShift(inputNightShift);
                 shiftByMonts[inputDayShift.Month].AddShift(shiftDay);
@@ -89,7 +93,7 @@ namespace CalendarShiftDemo.Core
 
                 int totalShift = TotalWork.GetMonthDays(shifts.Key);
                 int totalHours=TotalWork.GetMonthHours(shifts.Key);
-                sb.AppendLine($"През месец {month} общия брои работни дни е {allShift} и {allHours} часове");
+                sb.AppendLine($"През месец {month} общия брои работни дни е {totalShift} и {totalHours} часове");
 
                 sb.AppendLine();
             }
@@ -112,7 +116,7 @@ namespace CalendarShiftDemo.Core
                 case 7: return "Юли";
                 case 8: return "Август";
                 case 9: return "Септември";
-                case 10: return "Октомви";
+                case 10: return "Октомври";
                 case 11: return "Ноември";
                 case 12: return "Декември";
                 default: return null;
