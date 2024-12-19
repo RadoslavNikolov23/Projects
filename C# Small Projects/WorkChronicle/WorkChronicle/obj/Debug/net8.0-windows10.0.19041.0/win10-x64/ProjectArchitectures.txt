@@ -1,0 +1,1 @@
+C:\Projects - Working\C# Small Projects\WorkChronicle\WorkChronicle\WorkChronicle.csproj;x64

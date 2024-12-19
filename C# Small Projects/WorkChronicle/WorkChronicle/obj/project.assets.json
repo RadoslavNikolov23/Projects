@@ -33055,11 +33055,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PC\\source\\repos\\WorkChronicle\\WorkChronicle\\WorkChronicle.csproj",
+      "projectUniqueName": "C:\\Projects - Working\\C# Small Projects\\WorkChronicle\\WorkChronicle\\WorkChronicle.csproj",
       "projectName": "WorkChronicle",
-      "projectPath": "C:\\Users\\PC\\source\\repos\\WorkChronicle\\WorkChronicle\\WorkChronicle.csproj",
+      "projectPath": "C:\\Projects - Working\\C# Small Projects\\WorkChronicle\\WorkChronicle\\WorkChronicle.csproj",
       "packagesPath": "C:\\Users\\PC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PC\\source\\repos\\WorkChronicle\\WorkChronicle\\obj\\",
+      "outputPath": "C:\\Projects - Working\\C# Small Projects\\WorkChronicle\\WorkChronicle\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
       "fallbackFolders": [
