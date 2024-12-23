@@ -1,0 +1,14 @@
+Month/WorkDays/WorkHours
+January/22/176
+February/20/160
+March/20/160
+April/20/160
+May/19/152
+June/21/168
+July/23/184
+August/21/168
+September/20/160
+October/23/184
+November/20/160
+December20/160
+Total/249/1992

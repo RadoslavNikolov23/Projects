@@ -8,7 +8,7 @@
     For more information on package manifest files, see http://go.microsoft.com/fwlink/?LinkID=241727
   -->
   <Identity Name="com.companyname.workchronicle" Publisher="CN=User Name" Version="1.0.0.1" ProcessorArchitecture="x64" />
-  <mp:PhoneIdentity PhoneProductId="9319BAE8-5E5A-4F7C-82C0-87251C122CA6" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <mp:PhoneIdentity PhoneProductId="5BE0E540-1FA0-408B-9658-784627917561" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>WorkChronicle</DisplayName>
     <PublisherDisplayName>User Name</PublisherDisplayName>

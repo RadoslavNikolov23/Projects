@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using WorkChronicle.Logic.Core;
+using WorkChronicle.Logic.Core.Contacts;
 
 namespace WorkChronicle
 {
@@ -16,7 +18,8 @@ namespace WorkChronicle
                 });
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+           builder.Logging.AddDebug();
+            builder.Services.AddSingleton<IEngine, Engine>();
 #endif
 
             return builder.Build();

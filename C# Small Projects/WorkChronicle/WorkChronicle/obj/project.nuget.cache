@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gzIcDRfVdu8=",
+  "dgSpecHash": "EaMU5UDQqYw=",
   "success": true,
-  "projectFilePath": "C:\\Projects - Working\\C# Small Projects\\WorkChronicle\\WorkChronicle\\WorkChronicle.csproj",
+  "projectFilePath": "C:\\Users\\PC\\source\\repos\\WorkChronicle\\WorkChronicle\\WorkChronicle.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\PC\\.nuget\\packages\\googlegson\\2.10.1.4\\googlegson.2.10.1.4.nupkg.sha512",
     "C:\\Users\\PC\\.nuget\\packages\\microsoft.extensions.configuration\\8.0.0\\microsoft.extensions.configuration.8.0.0.nupkg.sha512",

@@ -1,31 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WorkChronicle.MainPage">
+             x:Class="WorkChronicle.MainPage"
+             Title="Work Chronicle">
 
-    <VerticalStackLayout Padding="10">
-        <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
-            <Button Text="Previous Year" Clicked="OnPreviousYearCliked" />
-            <Label x:Name="YearLabel1" FontSize="14" VerticalOptions="Center"/>
-            <Button Text="Next Year" Clicked="OnNextYearCliked" />
-        </HorizontalStackLayout>
-
-        <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
-            <Button Text="Previos Month" Clicked="OnPreviuosMonth"/>
-            <Label x:Name="MonthLabel1" FontSize="10" VerticalOptions="Center"/>
-            <Button Text="Nex Month" Clicked="OnNextMonth"/>
-        </HorizontalStackLayout>
-                                
-        <Label Text="Select Date:"
+    <VerticalStackLayout  Padding="20" Spacing="20">
+        <Label Text="Select a date from the calendar"
                FontSize="18"
                HorizontalOptions="Start" />
 
-        <Grid x:Name="CalenderGrid" RowSpacing="5" ColumnSpacing="5" />
+        <DatePicker x:Name="MyDatePicker"
+                    Format="D"
+                    DateSelected="OnDateSelected"
+                    HorizontalOptions="Center" />
 
         <Label x:Name="SelectedDateLabel"
-               FontSize="18"
-               HorizontalOptions="Start" 
-               Text="Selected Date: "/>
+               Text="Selected Date: none"
+               FontSize="16"
+                HorizontalOptions="Center" />
+
+        <Button Text="Calculate work shifts"
+                Clicked="CalculedWordShifts"
+                HorizontalOptions="Center" />
 
 
     </VerticalStackLayout>
