@@ -1,34 +1,79 @@
-﻿using WorkChronicle.Logic.Core;
-using WorkChronicle.Logic.Core.Contacts;
+﻿using Microsoft.Maui.Controls;
+using System;
+using System.Collections.Generic;
 
 namespace WorkChronicle
 {
     public partial class MainPage : ContentPage
     {
-        private IEngine engine;
-        private DateTime selectedDate;
 
         public MainPage()
         {
             InitializeComponent();
-
-            this.engine = new Engine();
-
-            this.selectedDate = DateTime.Now;
-            SelectedDateLabel.Text = $"Selected date: {selectedDate:f}";
-
         }
 
 
-        private void OnDateSelected(object sender, DateChangedEventArgs e)
+
+        private void OnCalculateShiftsClicked(object sender, EventArgs e)
         {
-            this.selectedDate = e.NewDate;
-            SelectedDateLabel.Text = $"Selected date: {selectedDate:f}";
+            DateTime startDate = StartDatePicker.Date;
+            string cycleInput = CycleEntry.Text;
+
+            if (string.IsNullOrEmpty(cycleInput))
+            {
+                ResultsLabel.Text = "Please enter a valid date";
+                return;
+            }
+
+            var cycle = cycleInput.Split('-');
+            if (cycle.Length == 0)
+            {
+                ResultsLabel.Text = "Cycle pattern is empty";
+                return;
+            }
+
+            var shifts = CalcucateShifts(startDate, cycle);
+            int totalHours = CalculateTotalHours(shifts);
+
+            ResultsLabel.Text = $"Total hours: {totalHours}";
+            ShiftListView.ItemsSource = shifts;
+
         }
 
-        private void CalculedWordShifts(object sender, EventArgs e)
+        private List<string> CalcucateShifts(DateTime startDate, string[] cycle)
         {
-            engine.Run(this.selectedDate);
+            List<string> shifts = new List<string>();
+            int cycleLenght=cycle.Length;
+            int dayInMonth = DateTime.DaysInMonth(startDate.Year, startDate.Month);
+
+            for (int i = 0; i < dayInMonth; i++)
+            {
+                DateTime currentDay = startDate.AddDays(i);
+                var shift = cycle[i % cycleLenght];
+
+                if(shift=="off")
+                    continue;
+                shifts.Add($"{currentDay:f}: {shift}");
+            }
+
+            return shifts;
+        }
+
+        private int CalculateTotalHours(List<string> shifts)
+        {
+            int totalHours = 0;
+            foreach (var shift in shifts)
+            {
+                if (shift.Contains("Day"))
+                {
+                    totalHours += 12;
+                }
+                else if (shift.Contains("Night"))
+                {
+                    totalHours += 12;
+                }
+            }
+            return totalHours;
         }
     }
 
