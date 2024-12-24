@@ -7,16 +7,16 @@
   <StackLayout Padding="20" Spacing="20">
 
 
-        <Label Text="Select the starting day of your work cycle:" FontSize="Medium" />
+        <Label Text="Select the starting day of your work cycle:" FontSize="Large" />
         <DatePicker x:Name="StartDatePicker" />
 
 
-        <Label Text="Enter shift cycle pattern: (Day-Night-Off-Off):" FontSize="Medium" />
-        <Entry x:Name="CycleEntry" Placeholder="Day-Night-Off-Off" />
+        <Label Text="Enter shift cycle pattern: (Day-Night/Day-Day/Day-Night-Night):" FontSize="Large" />
+        <Entry x:Name="CycleEntry" Placeholder="" />
 
         <Button Text="Calculate Shifts" Clicked="OnCalculateShiftsClicked" />
 
-        <Label x:Name="ResultsLabel" FontSize="Medium" TextColor="Blue" />
+        <Label x:Name="ResultsLabel" FontSize="Medium" TextColor="DarkBlue" />
         <CollectionView x:Name="ShiftListView" />
 
     </StackLayout>

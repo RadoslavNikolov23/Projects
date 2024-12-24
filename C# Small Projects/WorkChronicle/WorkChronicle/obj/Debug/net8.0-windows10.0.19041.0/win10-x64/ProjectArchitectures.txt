@@ -1,1 +1,1 @@
-C:\Users\PC\source\repos\WorkChronicle\WorkChronicle\WorkChronicle.csproj;x64
+C:\Users\PC\Desktop\WorkChronicle\WorkChronicle\WorkChronicle.csproj;x64

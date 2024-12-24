@@ -25,14 +25,14 @@ namespace WorkChronicle
                 return;
             }
 
-            var cycle = cycleInput.Split('-');
+            string[] cycle = cycleInput.Split('-');
             if (cycle.Length == 0)
             {
-                ResultsLabel.Text = "Cycle pattern is empty";
+                ResultsLabel.Text = "Something went wrong";
                 return;
             }
 
-            var shifts = CalcucateShifts(startDate, cycle);
+            List<string> shifts = CalcucateShifts(startDate, cycle);
             int totalHours = CalculateTotalHours(shifts);
 
             ResultsLabel.Text = $"Total hours: {totalHours}";
@@ -46,14 +46,26 @@ namespace WorkChronicle
             int cycleLenght=cycle.Length;
             int dayInMonth = DateTime.DaysInMonth(startDate.Year, startDate.Month);
 
-            for (int i = 0; i < dayInMonth; i++)
-            {
-                DateTime currentDay = startDate.AddDays(i);
-                var shift = cycle[i % cycleLenght];
+            DateTime currentDay= startDate;
 
-                if(shift=="off")
-                    continue;
+            for (int i=0;i < dayInMonth; i++)
+            {
+                string shift = cycle[i% cycleLenght];
+
+                if (shift != "Day" && shift != "Night")
+                   continue;
+
                 shifts.Add($"{currentDay:f}: {shift}");
+                if (shift == "Night")
+                {
+                    currentDay = currentDay.AddDays(1);
+                }
+                currentDay = currentDay.AddDays(4);
+
+                if(currentDay.Month != startDate.Month)
+                {
+                    break;
+                }
             }
 
             return shifts;
@@ -70,7 +82,7 @@ namespace WorkChronicle
                 }
                 else if (shift.Contains("Night"))
                 {
-                    totalHours += 12;
+                    totalHours += 13;
                 }
             }
             return totalHours;
