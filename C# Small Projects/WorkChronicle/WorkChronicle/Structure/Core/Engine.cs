@@ -14,7 +14,7 @@ namespace WorkChronicle.Structure.Core
 {
     public class Engine : IEngine
     {
-        public List<string> CalculateShifts(DateTime startDate, string[] cycle)
+        public ISchedule<IShift> CalculateShifts(DateTime startDate, string[] cycle)
         {
             ISchedule<IShift> schedule = new Schedule();
 
@@ -51,7 +51,6 @@ namespace WorkChronicle.Structure.Core
                             break;
 
                         schedule.AddShift(dayShift);
-
                     }
                 }
 
@@ -69,32 +68,25 @@ namespace WorkChronicle.Structure.Core
 
                     }
                 }
-                   
             }
 
+            return schedule;
+        }
+
+        public List<string> PrintShifts(ISchedule<IShift> schedule)
+        {
             List<string> shifts = new List<string>();
 
             foreach (var shift in schedule.WorkSchedule)
             {
-                shifts.Add(shift.ToString());
+                shifts.Add(shift.ToString()!);
             }
-
             return shifts;
         }
-        public int CalculateTotalHours(List<string> shifts)
+        public int CalculateTotalHours(ISchedule<IShift> schedule)
         {
-            int totalHours = 0;
-            foreach (var shift in shifts)
-            {
-                if (shift.Contains("Day"))
-                {
-                    totalHours += 12;
-                }
-                else if (shift.Contains("Night"))
-                {
-                    totalHours += 13;
-                }
-            }
+            int totalHours = schedule.WorkSchedule.Sum(s=>s.Hour);
+         
             return totalHours;
         }
 

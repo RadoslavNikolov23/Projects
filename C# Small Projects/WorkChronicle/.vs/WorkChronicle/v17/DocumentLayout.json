@@ -3,44 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\PC\\Desktop\\WorkChronicle\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|c:\\users\\pc\\desktop\\workchronicle\\workchronicle\\structure\\core\\engine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|solutionrelative:workchronicle\\structure\\core\\engine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|c:\\users\\pc\\desktop\\workchronicle\\workchronicle\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|solutionrelative:workchronicle\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|c:\\users\\pc\\desktop\\workchronicle\\workchronicle\\structure\\models\\nightshift.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|solutionrelative:workchronicle\\structure\\models\\nightshift.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|c:\\users\\pc\\desktop\\workchronicle\\workchronicle\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|solutionrelative:workchronicle\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|c:\\users\\pc\\desktop\\workchronicle\\workchronicle\\structure\\models\\shift.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|solutionrelative:workchronicle\\structure\\models\\shift.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|c:\\users\\pc\\desktop\\workchronicle\\workchronicle\\structure\\models\\dayshift.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|solutionrelative:workchronicle\\structure\\models\\dayshift.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|c:\\users\\pc\\desktop\\workchronicle\\workchronicle\\structure\\repository\\contracts\\ischedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|solutionrelative:workchronicle\\structure\\repository\\contracts\\ischedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|c:\\users\\pc\\desktop\\workchronicle\\workchronicle\\structure\\models\\nightshift.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|solutionrelative:workchronicle\\structure\\models\\nightshift.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|c:\\users\\pc\\desktop\\workchronicle\\workchronicle\\structure\\repository\\schedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|solutionrelative:workchronicle\\structure\\repository\\schedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|c:\\users\\pc\\desktop\\workchronicle\\workchronicle\\structure\\models\\shift.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|solutionrelative:workchronicle\\structure\\models\\shift.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|c:\\users\\pc\\desktop\\workchronicle\\workchronicle\\views\\secondpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|solutionrelative:workchronicle\\views\\secondpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|c:\\users\\pc\\desktop\\workchronicle\\workchronicle\\structure\\core\\contracts\\iengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|solutionrelative:workchronicle\\structure\\core\\contracts\\iengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|c:\\users\\pc\\desktop\\workchronicle\\workchronicle\\structure\\models\\contracts\\ishift.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|solutionrelative:workchronicle\\structure\\models\\contracts\\ishift.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|c:\\users\\pc\\desktop\\workchronicle\\workchronicle\\views\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|solutionrelative:workchronicle\\views\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|c:\\users\\pc\\desktop\\workchronicle\\workchronicle\\structure\\core\\engine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|solutionrelative:workchronicle\\structure\\core\\engine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|c:\\users\\pc\\desktop\\workchronicle\\workchronicle\\structure\\workhoursbyyears\\workhoursbyyear.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CA25B562-7D32-42E0-9893-74D0A9E82B96}|WorkChronicle\\WorkChronicle.csproj|solutionrelative:workchronicle\\structure\\workhoursbyyears\\workhoursbyyear.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,27 +42,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 0,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Shift.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\Structure\\Models\\Shift.cs",
+              "RelativeDocumentMoniker": "WorkChronicle\\Structure\\Models\\Shift.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\Structure\\Models\\Shift.cs",
+              "RelativeToolTip": "WorkChronicle\\Structure\\Models\\Shift.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-25T21:46:01.446Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MainPage.xaml",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\MainPage.xaml",
-              "RelativeDocumentMoniker": "WorkChronicle\\MainPage.xaml",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\MainPage.xaml",
-              "RelativeToolTip": "WorkChronicle\\MainPage.xaml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-25T17:24:54.865Z",
+              "DocumentIndex": 1,
+              "Title": "DayShift.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\Structure\\Models\\DayShift.cs",
+              "RelativeDocumentMoniker": "WorkChronicle\\Structure\\Models\\DayShift.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\Structure\\Models\\DayShift.cs",
+              "RelativeToolTip": "WorkChronicle\\Structure\\Models\\DayShift.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAxwBIAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-25T21:45:55.273Z",
               "EditorCaption": ""
             },
             {
@@ -81,113 +78,82 @@
               "RelativeDocumentMoniker": "WorkChronicle\\Structure\\Models\\NightShift.cs",
               "ToolTip": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\Structure\\Models\\NightShift.cs",
               "RelativeToolTip": "WorkChronicle\\Structure\\Models\\NightShift.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAADwvxIAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBEAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T17:13:58.011Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DayShift.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\Structure\\Models\\DayShift.cs",
-              "RelativeDocumentMoniker": "WorkChronicle\\Structure\\Models\\DayShift.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\Structure\\Models\\DayShift.cs",
-              "RelativeToolTip": "WorkChronicle\\Structure\\Models\\DayShift.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAADwvxMAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T17:13:39.548Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\MainPage.xaml.cs",
-              "RelativeDocumentMoniker": "WorkChronicle\\MainPage.xaml.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\MainPage.xaml.cs",
-              "RelativeToolTip": "WorkChronicle\\MainPage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T16:48:12.431Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Engine.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\Structure\\Core\\Engine.cs",
-              "RelativeDocumentMoniker": "WorkChronicle\\Structure\\Core\\Engine.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\Structure\\Core\\Engine.cs",
-              "RelativeToolTip": "WorkChronicle\\Structure\\Core\\Engine.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T16:47:53.647Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "IEngine.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\Structure\\Core\\Contracts\\IEngine.cs",
-              "RelativeDocumentMoniker": "WorkChronicle\\Structure\\Core\\Contracts\\IEngine.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\Structure\\Core\\Contracts\\IEngine.cs",
-              "RelativeToolTip": "WorkChronicle\\Structure\\Core\\Contracts\\IEngine.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T16:47:40.241Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Shift.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\Structure\\Models\\Shift.cs",
-              "RelativeDocumentMoniker": "WorkChronicle\\Structure\\Models\\Shift.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\Structure\\Models\\Shift.cs",
-              "RelativeToolTip": "WorkChronicle\\Structure\\Models\\Shift.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAgwB8AAABWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T16:43:23.204Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "IShift.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\Structure\\Models\\Contracts\\IShift.cs",
-              "RelativeDocumentMoniker": "WorkChronicle\\Structure\\Models\\Contracts\\IShift.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\Structure\\Models\\Contracts\\IShift.cs",
-              "RelativeToolTip": "WorkChronicle\\Structure\\Models\\Contracts\\IShift.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA0AAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T16:43:22.073Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Schedule.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\Structure\\Repository\\Schedule.cs",
-              "RelativeDocumentMoniker": "WorkChronicle\\Structure\\Repository\\Schedule.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\Structure\\Repository\\Schedule.cs",
-              "RelativeToolTip": "WorkChronicle\\Structure\\Repository\\Schedule.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAkwAkAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T16:39:47.501Z",
+              "WhenOpened": "2024-12-25T21:45:47.921Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "ISchedule.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\Structure\\Repository\\Contracts\\ISchedule.cs",
-              "RelativeDocumentMoniker": "WorkChronicle\\Structure\\Repository\\Contracts\\ISchedule.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\Structure\\Repository\\Contracts\\ISchedule.cs",
-              "RelativeToolTip": "WorkChronicle\\Structure\\Repository\\Contracts\\ISchedule.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAfAAAAAAAAAA==",
+              "Title": "MainPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\Views\\MainPage.xaml.cs",
+              "RelativeDocumentMoniker": "WorkChronicle\\Views\\MainPage.xaml.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\Views\\MainPage.xaml.cs",
+              "RelativeToolTip": "WorkChronicle\\Views\\MainPage.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAwwAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T16:34:57.545Z",
+              "WhenOpened": "2024-12-25T21:44:56.444Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IEngine.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\Structure\\Core\\Contracts\\IEngine.cs",
+              "RelativeDocumentMoniker": "WorkChronicle\\Structure\\Core\\Contracts\\IEngine.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\Structure\\Core\\Contracts\\IEngine.cs",
+              "RelativeToolTip": "WorkChronicle\\Structure\\Core\\Contracts\\IEngine.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABAAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-25T21:31:42.311Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SecondPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\Views\\SecondPage.xaml.cs",
+              "RelativeDocumentMoniker": "WorkChronicle\\Views\\SecondPage.xaml.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\Views\\SecondPage.xaml.cs",
+              "RelativeToolTip": "WorkChronicle\\Views\\SecondPage.xaml.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwBUAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-25T21:30:54.798Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Engine.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\Structure\\Core\\Engine.cs",
+              "RelativeDocumentMoniker": "WorkChronicle\\Structure\\Core\\Engine.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\Structure\\Core\\Engine.cs",
+              "RelativeToolTip": "WorkChronicle\\Structure\\Core\\Engine.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAUwFgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-25T21:30:41.178Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "WorkHoursByYear.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\Structure\\WorkHoursByYears\\WorkHoursByYear.cs",
+              "RelativeDocumentMoniker": "WorkChronicle\\Structure\\WorkHoursByYears\\WorkHoursByYear.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\WorkChronicle\\WorkChronicle\\Structure\\WorkHoursByYears\\WorkHoursByYear.cs",
+              "RelativeToolTip": "WorkChronicle\\Structure\\WorkHoursByYears\\WorkHoursByYear.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAwAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-25T21:24:22.673Z",
               "EditorCaption": ""
             }
           ]
