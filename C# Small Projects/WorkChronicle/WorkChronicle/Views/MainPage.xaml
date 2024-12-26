@@ -12,17 +12,22 @@
 
 
         <Label Text="Enter shift cycle pattern: (Day-Night/Day-Day/Day-Night-Night):" FontSize="Medium" />
-        <Entry x:Name="CycleEntry" Placeholder="" />
+
+        <Picker x:Name="WorkSchedulePicker" 
+                Title="Select Shift Pattern"
+                HorizontalOptions="Start">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Day-Night</x:String>
+                    <x:String>Day-Day</x:String>
+                    <x:String>Day-Night-Night</x:String>
+                 </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
 
         <Button Text="Calculate Shifts" Clicked="OnCalculateShiftsClicked" />
-      
-        <Label x:Name="ResultsLabel" FontSize="Medium" TextColor="DarkBlue" />
 
-        <!--
-      
-        <CollectionView x:Name="ShiftListView" />
-      
-        -->
+        <Label x:Name="ResultsLabel" FontSize="Medium" TextColor="DarkBlue" />
 
     </StackLayout>
 </ContentPage>

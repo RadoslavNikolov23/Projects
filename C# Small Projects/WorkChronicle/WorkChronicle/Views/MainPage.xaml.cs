@@ -20,14 +20,17 @@ namespace WorkChronicle
 
 
             DateTime startDate = StartDatePicker.Date;
-            string cycleInput = CycleEntry.Text;
-            if (string.IsNullOrEmpty(cycleInput))
+            string selectedSchedule= WorkSchedulePicker.Items[WorkSchedulePicker.SelectedIndex];
+
+
+            if (string.IsNullOrEmpty(selectedSchedule))
             {
-                ResultsLabel.Text = "Please enter a valid date";
+                ResultsLabel.Text = "Please select a work schedule first.";
                 return;
+
             }
 
-            string[] cycle = cycleInput.Split('-');
+            string[] cycle = selectedSchedule.Split('-');
             if (cycle.Length == 0)
             {
                 ResultsLabel.Text = "Something went wrong";
