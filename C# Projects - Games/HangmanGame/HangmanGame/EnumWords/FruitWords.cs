@@ -8,7 +8,7 @@ namespace HangmanGame.EnumWords
 {
     enum FruitWords
     {
-        apple,
+        Apple,
         Apricot,
         Avocado,
         Banana,
