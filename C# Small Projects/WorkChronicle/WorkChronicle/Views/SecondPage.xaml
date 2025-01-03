@@ -8,6 +8,8 @@
         <Label x:Name="ResultsLabel" FontSize="Medium" TextColor="DarkBlue" />
         <CollectionView x:Name="ShiftListView" />
 
+        <Button Text="Remove Shift" Clicked="RemoveShiftClicked" />
+
         <Button Text="Go Back" Clicked="OnGoBackButtonClicked" />
 
     </StackLayout>

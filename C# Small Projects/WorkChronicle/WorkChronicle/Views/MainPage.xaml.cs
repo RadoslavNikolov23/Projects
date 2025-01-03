@@ -22,12 +22,10 @@ namespace WorkChronicle
             DateTime startDate = StartDatePicker.Date;
             string selectedSchedule= WorkSchedulePicker.Items[WorkSchedulePicker.SelectedIndex];
 
-
             if (string.IsNullOrEmpty(selectedSchedule))
             {
                 ResultsLabel.Text = "Please select a work schedule first.";
                 return;
-
             }
 
             string[] cycle = selectedSchedule.Split('-');

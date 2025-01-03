@@ -9,7 +9,7 @@
     <Color x:Key="Primary">#dc0b0b</Color>
     <Color x:Key="PrimaryDark">#830909</Color>
     <Color x:Key="PrimaryDarkText">#242424</Color>
-    <Color x:Key="Secondary">#DFD8F7</Color>
+    <Color x:Key="Secondary">White</Color>
     <Color x:Key="SecondaryDarkText">#4b0c04</Color>
     <Color x:Key="Tertiary">#dc870b</Color>
 

@@ -82,7 +82,6 @@ namespace WorkChronicle.Structure.Core
 
                         schedule.AddShift(firstNightShift);
                         schedule.AddShift(secondNightShift);
-
                     }
                 }
             }
