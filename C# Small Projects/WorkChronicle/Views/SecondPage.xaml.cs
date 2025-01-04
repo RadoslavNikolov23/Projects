@@ -1,3 +1,5 @@
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using WorkChronicle.Core.Models.Contracts;
 using WorkChronicle.Core.Repository.Contracts;
 using WorkChronicle.Structure.Core;
@@ -8,9 +10,9 @@ namespace WorkChronicle;
 
 public partial class SecondPage : ContentPage
 {
-	public SecondPage(DateTime startDate, string[] cycle)
-	{
-		InitializeComponent();
+    public SecondPage(DateTime startDate, string[] cycle)
+    {
+        InitializeComponent();
 
         IEngine engine = new Engine();
 
@@ -31,11 +33,21 @@ public partial class SecondPage : ContentPage
         }
 
         string monthName = GetMonthName(monthByHoursTotal.Key);
-        ResultsLabel.Text = $"Your total hours are: {totalHours}, for the month {monthName} the working hours are {monthByHoursTotal.Value[1]}";
-        ShiftListView.ItemsSource = shifts;
-    }
+        int totalHoursByMonth = int.Parse(monthByHoursTotal.Value[1]);
 
-    
+        ResultsLabel.Text = $"Your total hours are: {totalHours}, for the month {monthName} the working hours are {totalHoursByMonth}";
+        ShiftListView.ItemsSource = shifts;
+
+        if (totalHours > totalHoursByMonth)
+        {
+            HoursLabel.Text = $"You have {totalHours - totalHoursByMonth} hours of overtime, you have to choose which shift to compensate.";
+        }
+        else
+        {
+            HoursLabel.Text = $"You have {totalHoursByMonth - totalHours} under the total hours for the month.";
+            RemoveShiftButton.IsVisible = false;
+        }
+    }
 
     private async void OnGoBackButtonClicked(object sender, EventArgs e)
     {
@@ -44,7 +56,7 @@ public partial class SecondPage : ContentPage
 
     private void RemoveShiftClicked(object sender, EventArgs e)
     {
-        
+
     }
 
     private string GetMonthName(int month)
@@ -79,4 +91,5 @@ public partial class SecondPage : ContentPage
                 return "Unknown";
         }
     }
+
 }

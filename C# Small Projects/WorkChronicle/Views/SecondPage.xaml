@@ -3,14 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WorkChronicle.SecondPage"
              Title="Work Chronicle">
+
+
     <StackLayout Padding="20" Spacing="20">
         
         <Label x:Name="ResultsLabel" FontSize="Medium" TextColor="DarkBlue" />
         <CollectionView x:Name="ShiftListView" />
 
-        <Button Text="Remove Shift" Clicked="RemoveShiftClicked" />
+        <Label x:Name="HoursLabel" FontSize="Medium" TextColor="DarkBlue"/>
+
+        <Button x:Name="RemoveShiftButton" 
+                Text="Remove Shift" 
+                Clicked="RemoveShiftClicked" />
 
         <Button Text="Go Back" Clicked="OnGoBackButtonClicked" />
 
     </StackLayout>
+
 </ContentPage>
