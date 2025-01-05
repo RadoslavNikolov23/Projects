@@ -4,20 +4,33 @@
              x:Class="WorkChronicle.SecondPage"
              Title="Work Chronicle">
 
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
 
-    <StackLayout Padding="20" Spacing="20">
-        
-        <Label x:Name="ResultsLabel" FontSize="Medium" TextColor="DarkBlue" />
-        <CollectionView x:Name="ShiftListView" />
+            <Label x:Name="ResultsLabel" FontSize="Medium" TextColor="Black" />
 
-        <Label x:Name="HoursLabel" FontSize="Medium" TextColor="DarkBlue"/>
+            <CollectionView x:Name="ShiftCollectionView"
+                    ItemsSource="{Binding Shifts}"
+                    SelectionMode="Multiple"
+                    SelectionChanged="OnShiftSelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="8" Orientation="Horizontal">
+                            <Label Text="{Binding .}" TextColor="Black" FontSize="14" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
 
-        <Button x:Name="RemoveShiftButton" 
+            <Label x:Name="HoursLabel" FontSize="Medium" TextColor="Black"/>
+
+            <Button x:Name="RemoveShiftButton" 
                 Text="Remove Shift" 
                 Clicked="RemoveShiftClicked" />
 
-        <Button Text="Go Back" Clicked="OnGoBackButtonClicked" />
+            <Button Text="Go Back" Clicked="OnGoBackButtonClicked" />
 
-    </StackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 
 </ContentPage>

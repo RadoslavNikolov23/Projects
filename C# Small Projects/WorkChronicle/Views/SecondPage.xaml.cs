@@ -1,3 +1,4 @@
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using WorkChronicle.Core.Models.Contracts;
@@ -10,6 +11,9 @@ namespace WorkChronicle;
 
 public partial class SecondPage : ContentPage
 {
+    private List<string> SelectedShifts { get; set; } = new List<string>();
+
+
     public SecondPage(DateTime startDate, string[] cycle)
     {
         InitializeComponent();
@@ -19,6 +23,7 @@ public partial class SecondPage : ContentPage
         ISchedule<IShift> schedule = engine.CalculateShifts(startDate, cycle);
 
         List<string> shifts = engine.PrintShifts(schedule);
+        SelectedShifts = shifts; //TODO
         int totalHours = engine.CalculateTotalHours(schedule);
 
         KeyValuePair<int, string[]> monthByHoursTotal = new KeyValuePair<int, string[]>();
@@ -36,7 +41,8 @@ public partial class SecondPage : ContentPage
         int totalHoursByMonth = int.Parse(monthByHoursTotal.Value[1]);
 
         ResultsLabel.Text = $"Your total hours are: {totalHours}, for the month {monthName} the working hours are {totalHoursByMonth}";
-        ShiftListView.ItemsSource = shifts;
+
+        ShiftCollectionView.ItemsSource = SelectedShifts;
 
         if (totalHours > totalHoursByMonth)
         {
@@ -49,13 +55,15 @@ public partial class SecondPage : ContentPage
         }
     }
 
-    private async void OnGoBackButtonClicked(object sender, EventArgs e)
+    private void OnShiftSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        await Navigation.PopAsync();
+        
     }
 
     private void RemoveShiftClicked(object sender, EventArgs e)
     {
+        
+
 
     }
 
@@ -90,6 +98,11 @@ public partial class SecondPage : ContentPage
             default:
                 return "Unknown";
         }
+    }
+
+    private async void OnGoBackButtonClicked(object sender, EventArgs e)
+    {
+        await Navigation.PopAsync();
     }
 
 }
