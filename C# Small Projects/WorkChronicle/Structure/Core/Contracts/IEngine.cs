@@ -12,8 +12,6 @@ namespace WorkChronicle.Structure.Core.Contracts
     {
         ISchedule<IShift> CalculateShifts(DateTime startDate, string[] cycle);
 
-        List<string> PrintShifts(ISchedule<IShift> schedule);
-
         int CalculateTotalHours(ISchedule<IShift> schedule);
     }
 }

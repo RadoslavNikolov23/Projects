@@ -11,38 +11,21 @@ namespace WorkChronicle;
 
 public partial class SecondPage : ContentPage
 {
-    private List<string> SelectedShifts { get; set; } = new List<string>();
-
-
     public SecondPage(DateTime startDate, string[] cycle)
     {
         InitializeComponent();
 
         IEngine engine = new Engine();
-
         ISchedule<IShift> schedule = engine.CalculateShifts(startDate, cycle);
-
-        List<string> shifts = engine.PrintShifts(schedule);
-        SelectedShifts = shifts; //TODO
         int totalHours = engine.CalculateTotalHours(schedule);
 
-        KeyValuePair<int, string[]> monthByHoursTotal = new KeyValuePair<int, string[]>();
-
-        if (startDate.Year == 2024)
-        {
-            monthByHoursTotal = WorkHoursByYear.Year2024(startDate.Month);
-        }
-        else if (startDate.Year == 2025)
-        {
-            monthByHoursTotal = WorkHoursByYear.Year2025(startDate.Month);
-        }
-
+        KeyValuePair<int, string[]> monthByHoursTotal = GetMonthHoursTotal(startDate);
         string monthName = GetMonthName(monthByHoursTotal.Key);
         int totalHoursByMonth = int.Parse(monthByHoursTotal.Value[1]);
 
         ResultsLabel.Text = $"Your total hours are: {totalHours}, for the month {monthName} the working hours are {totalHoursByMonth}";
 
-        ShiftCollectionView.ItemsSource = SelectedShifts;
+        ShiftCollectionView.ItemsSource = schedule.WorkSchedule;
 
         if (totalHours > totalHoursByMonth)
         {
@@ -63,8 +46,6 @@ public partial class SecondPage : ContentPage
     private void RemoveShiftClicked(object sender, EventArgs e)
     {
         
-
-
     }
 
     private string GetMonthName(int month)
@@ -98,6 +79,20 @@ public partial class SecondPage : ContentPage
             default:
                 return "Unknown";
         }
+    }
+
+    private KeyValuePair<int, string[]> GetMonthHoursTotal(DateTime startDate)
+    {
+        if (startDate.Year == 2024)
+        {
+            return WorkHoursByYear.Year2024(startDate.Month);
+        }
+        else if (startDate.Year == 2025)
+        {
+            return WorkHoursByYear.Year2025(startDate.Month);
+        }
+
+        return new KeyValuePair<int, string[]>();
     }
 
     private async void OnGoBackButtonClicked(object sender, EventArgs e)

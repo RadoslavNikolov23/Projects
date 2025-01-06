@@ -60,7 +60,7 @@ namespace WorkChronicle.Structure.Core
                         tempDayDateTime = tempDayDateTime.AddDays(5);
                         dayShift = new DayShift(tempDayDateTime.Year, tempDayDateTime.Month, tempDayDateTime.Day);
 
-                        if (dayShift.Month != startDate.Month)
+                        if (HasShiftMonthChanged(dayShift, startDate))
                             break;
 
                         schedule.AddShift(dayShift);
@@ -77,7 +77,7 @@ namespace WorkChronicle.Structure.Core
                         tempSecondNightDateTime = tempSecondNightDateTime.AddDays(5);
                         secondNightShift = new NightShift(tempSecondNightDateTime.Year, tempSecondNightDateTime.Month, tempSecondNightDateTime.Day);
 
-                        if (firstNightShift.Month != startDate.Month || tempSecondNightDateTime.Month!=startDate.Month)
+                        if (HasShiftMonthChanged(firstNightShift, startDate) || tempSecondNightDateTime.Month != startDate.Month)
                             break;
 
                         schedule.AddShift(firstNightShift);
@@ -115,7 +115,7 @@ namespace WorkChronicle.Structure.Core
                         tempFirstDayDateTime = tempFirstDayDateTime.AddDays(4);
                         firstDayShift = new DayShift(tempFirstDayDateTime.Year, tempFirstDayDateTime.Month, tempFirstDayDateTime.Day);
 
-                        if (firstDayShift.Month != startDate.Month)
+                        if (HasShiftMonthChanged(firstDayShift, startDate))
                             break;
 
                         schedule.AddShift(firstDayShift);
@@ -126,7 +126,7 @@ namespace WorkChronicle.Structure.Core
                         tempSecondDayDateTime = tempSecondDayDateTime.AddDays(4);
                         secondDayShift = new DayShift(tempSecondDayDateTime.Year, tempSecondDayDateTime.Month, tempSecondDayDateTime.Day);
 
-                        if (secondDayShift.Month != startDate.Month)
+                        if (HasShiftMonthChanged(secondDayShift, startDate))
                             break;
 
                         schedule.AddShift(secondDayShift);
@@ -170,7 +170,7 @@ namespace WorkChronicle.Structure.Core
                         tempDayDateTime = tempDayDateTime.AddDays(4);
                         dayShift = new DayShift(tempDayDateTime.Year, tempDayDateTime.Month, tempDayDateTime.Day);
 
-                        if (dayShift.Month != startDate.Month)
+                        if (HasShiftMonthChanged(dayShift, startDate))
                             break;
 
                         schedule.AddShift(dayShift);
@@ -184,7 +184,7 @@ namespace WorkChronicle.Structure.Core
                         tempNightDateTime = tempNightDateTime.AddDays(4);
                         nightShift = new NightShift(tempNightDateTime.Year, tempNightDateTime.Month, tempNightDateTime.Day);
 
-                        if (nightShift.Month != startDate.Month)
+                        if (HasShiftMonthChanged(nightShift, startDate))
                             break;
 
                         schedule.AddShift(nightShift);
@@ -196,22 +196,16 @@ namespace WorkChronicle.Structure.Core
             return schedule;
         }
 
-        public List<string> PrintShifts(ISchedule<IShift> schedule)
-        {
-            List<string> shifts = new List<string>();
-
-            foreach (var shift in schedule.WorkSchedule)
-            {
-                shifts.Add(shift.ToString()!);
-            }
-            return shifts;
-        }
-
         public int CalculateTotalHours(ISchedule<IShift> schedule)
         {
             int totalHours = schedule.WorkSchedule.Sum(s => s.Hour);
 
             return totalHours;
+        }
+
+        private static bool HasShiftMonthChanged(IShift dayShift, DateTime startDate)
+        {
+            return dayShift.Month != startDate.Month;
         }
 
     }
