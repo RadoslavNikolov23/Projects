@@ -11,12 +11,17 @@ namespace WorkChronicle;
 
 public partial class SecondPage : ContentPage
 {
+    public ISchedule<IShift> schedule { get; set; }
+
+    private List<IShift> SelectedShifts { get; set; } = new List<IShift>();
+
     public SecondPage(DateTime startDate, string[] cycle)
     {
         InitializeComponent();
 
         IEngine engine = new Engine();
-        ISchedule<IShift> schedule = engine.CalculateShifts(startDate, cycle);
+        //ISchedule<IShift> this.schedule = engine.CalculateShifts(startDate, cycle);
+         this.schedule = engine.CalculateShifts(startDate, cycle);
         int totalHours = engine.CalculateTotalHours(schedule);
 
         KeyValuePair<int, string[]> monthByHoursTotal = GetMonthHoursTotal(startDate);
@@ -36,16 +41,28 @@ public partial class SecondPage : ContentPage
             HoursLabel.Text = $"You have {totalHoursByMonth - totalHours} under the total hours for the month.";
             RemoveShiftButton.IsVisible = false;
         }
+
+        //Shifts= (ObservableCollection<IShift>)schedule.WorkSchedule;
     }
 
     private void OnShiftSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        
+        SelectedShifts = e.CurrentSelection.Cast<IShift>().ToList();
     }
 
     private void RemoveShiftClicked(object sender, EventArgs e)
     {
-        
+        foreach (var shift in SelectedShifts)
+        {
+            this.schedule.RemoveShift(shift.Year,shift.Month,shift.Day);
+        }
+
+        // Clear the selection
+        ShiftCollectionView.SelectedItems.Clear();
+        SelectedShifts.Clear();
+
+        // Optionally, update a label or provide feedback
+        ResultsLabel.Text = "Selected shifts removed!";
     }
 
     private string GetMonthName(int month)

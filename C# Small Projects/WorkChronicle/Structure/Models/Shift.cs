@@ -30,7 +30,6 @@ namespace WorkChronicle.Core.Models
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine($"{WorkShift.Day:d2}/{WorkShift.Month:d2}/{WorkShift.Year}");
-                //+ $"- от {WorkShift.Hour:d2}:{WorkShift.Minute:d2} ");
 
             return sb.ToString().Trim();
         }

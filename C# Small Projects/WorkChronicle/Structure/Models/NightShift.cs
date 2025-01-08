@@ -16,7 +16,6 @@ namespace WorkChronicle.Core.Models
         public override string ToString()
         {
             return $"You work Night Shift at: " + base.ToString();
-            //+ $" до {WorkShift.Hour - 12:d2}:{WorkShift.Minute:d2}";
         }
     }
    
