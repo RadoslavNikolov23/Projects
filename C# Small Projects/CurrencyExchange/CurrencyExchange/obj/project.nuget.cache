@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "7L7UwfW5C8+IsDbJh6tsG/GjeCuLZITX0vg+DlJKvVE6FC4391G8r8pLBeB3u4Ji0a7/JWKx44vboXVpJ/o+Xw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\PC\\source\\repos\\CurrencyExchange\\CurrencyExchange\\CurrencyExchange.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\PC\\.nuget\\packages\\csvhelper\\33.0.1\\csvhelper.33.0.1.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\htmlagilitypack\\1.11.72\\htmlagilitypack.1.11.72.nupkg.sha512",
+    "C:\\Users\\PC\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -1,0 +1,16 @@
+C:\Users\PC\source\repos\CurrencyExchange\CurrencyExchange\bin\Debug\netcoreapp3.1\CurrencyExchange.exe
+C:\Users\PC\source\repos\CurrencyExchange\CurrencyExchange\bin\Debug\netcoreapp3.1\CurrencyExchange.deps.json
+C:\Users\PC\source\repos\CurrencyExchange\CurrencyExchange\bin\Debug\netcoreapp3.1\CurrencyExchange.runtimeconfig.json
+C:\Users\PC\source\repos\CurrencyExchange\CurrencyExchange\bin\Debug\netcoreapp3.1\CurrencyExchange.runtimeconfig.dev.json
+C:\Users\PC\source\repos\CurrencyExchange\CurrencyExchange\bin\Debug\netcoreapp3.1\CurrencyExchange.dll
+C:\Users\PC\source\repos\CurrencyExchange\CurrencyExchange\bin\Debug\netcoreapp3.1\CurrencyExchange.pdb
+C:\Users\PC\source\repos\CurrencyExchange\CurrencyExchange\bin\Debug\netcoreapp3.1\CsvHelper.dll
+C:\Users\PC\source\repos\CurrencyExchange\CurrencyExchange\bin\Debug\netcoreapp3.1\HtmlAgilityPack.dll
+C:\Users\PC\source\repos\CurrencyExchange\CurrencyExchange\obj\Debug\netcoreapp3.1\CurrencyExchange.csproj.AssemblyReference.cache
+C:\Users\PC\source\repos\CurrencyExchange\CurrencyExchange\obj\Debug\netcoreapp3.1\CurrencyExchange.AssemblyInfoInputs.cache
+C:\Users\PC\source\repos\CurrencyExchange\CurrencyExchange\obj\Debug\netcoreapp3.1\CurrencyExchange.AssemblyInfo.cs
+C:\Users\PC\source\repos\CurrencyExchange\CurrencyExchange\obj\Debug\netcoreapp3.1\CurrencyExchange.csproj.CoreCompileInputs.cache
+C:\Users\PC\source\repos\CurrencyExchange\CurrencyExchange\obj\Debug\netcoreapp3.1\CurrencyExchange.csproj.CopyComplete
+C:\Users\PC\source\repos\CurrencyExchange\CurrencyExchange\obj\Debug\netcoreapp3.1\CurrencyExchange.dll
+C:\Users\PC\source\repos\CurrencyExchange\CurrencyExchange\obj\Debug\netcoreapp3.1\CurrencyExchange.pdb
+C:\Users\PC\source\repos\CurrencyExchange\CurrencyExchange\obj\Debug\netcoreapp3.1\CurrencyExchange.genruntimeconfig.cache
