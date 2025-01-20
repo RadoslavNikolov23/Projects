@@ -12,7 +12,8 @@
             <CollectionView x:Name="ShiftCollectionView"
                     ItemsSource="{Binding Shifts}"
                     SelectionMode="Multiple"
-                    SelectionChanged="OnShiftSelectionChanged">
+                    SelectionChanged="OnShiftSelectionChanged"
+                    ItemsUpdatingScrollMode="KeepScrollOffset">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Padding="8" Orientation="Horizontal">

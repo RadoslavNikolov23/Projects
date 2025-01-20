@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,11 +12,11 @@ namespace WorkChronicle.Core.Repository
 {
     public class Schedule : ISchedule<IShift>
     {
-        private List<IShift> workSchedule;
+        private ObservableCollection<IShift> workSchedule;
 
         public Schedule()
         {
-            this.workSchedule = new List<IShift>();
+            this.workSchedule = new ObservableCollection<IShift>();
         }
         public IReadOnlyCollection<IShift> WorkSchedule { get => this.workSchedule.AsReadOnly(); }
 
@@ -29,6 +30,11 @@ namespace WorkChronicle.Core.Repository
             IShift shiftToRemove=this.workSchedule.FirstOrDefault(s => s.Year == year && s.Month == month && s.Day == day)!;
 
             return this.workSchedule.Remove(shiftToRemove);
+        }
+
+        public int IndexOfShift(IShift shift)
+        {
+           return this.workSchedule.IndexOf(shift);
         }
 
         public int TotalShifts()

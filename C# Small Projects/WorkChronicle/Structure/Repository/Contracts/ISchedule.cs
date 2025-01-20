@@ -14,6 +14,8 @@ namespace WorkChronicle.Core.Repository.Contracts
 
         bool RemoveShift(int year, int month, int day);
 
+        int IndexOfShift(T shift);
+
         int TotalShifts();
 
         int TotalWorkHours();
