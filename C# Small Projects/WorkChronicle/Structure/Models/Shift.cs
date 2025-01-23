@@ -25,6 +25,10 @@ namespace WorkChronicle.Core.Models
         public int Hour { get; set; }
         public DateTime WorkShift { get => this.workShift; }
 
+        public DateTime GetDateShift()
+        {
+            return WorkShift;
+        }
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();

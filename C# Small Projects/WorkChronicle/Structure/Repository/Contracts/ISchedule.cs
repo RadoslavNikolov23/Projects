@@ -12,7 +12,7 @@ namespace WorkChronicle.Core.Repository.Contracts
 
         void AddShift(T shift);
 
-        bool RemoveShift(int year, int month, int day);
+        bool RemoveShift(T shift);
 
         int IndexOfShift(T shift);
 

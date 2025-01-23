@@ -13,5 +13,7 @@ namespace WorkChronicle.Core.Models.Contracts
         public int Day { get; set; }
         public int Hour { get; set; }
         public DateTime WorkShift { get; }
+
+        public DateTime GetDateShift();
     }
 }

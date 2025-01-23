@@ -13,7 +13,8 @@ public partial class SecondPage : ContentPage
 {
     public ISchedule<IShift> schedule { get; set; }
 
-    private ObservableCollection<IShift> SelectedShifts { get; set; } = new ObservableCollection<IShift>();
+    private ObservableCollection<IShift> SelectedShiftsForRemove { get; set; } = new ObservableCollection<IShift>();
+    private ObservableCollection<IShift> CompensatedShifts { get; set; } = new ObservableCollection<IShift>();
 
     public SecondPage(DateTime startDate, string[] cycle)
     {
@@ -22,7 +23,14 @@ public partial class SecondPage : ContentPage
         IEngine engine = new Engine();
 
         this.schedule = engine.CalculateShifts(startDate, cycle);        
-        int totalHours = engine.CalculateTotalHours(schedule);
+        GenerateShiftDetails(this.schedule, startDate);
+
+        BindingContext = this;
+    }
+
+    private void GenerateShiftDetails(ISchedule<IShift> schedule, DateTime startDate)
+    {
+        int totalHours = schedule.TotalWorkHours();
 
         KeyValuePair<int, string[]> monthByHoursTotal = GetMonthHoursTotal(startDate);
         string monthName = GetMonthName(monthByHoursTotal.Key);
@@ -31,6 +39,12 @@ public partial class SecondPage : ContentPage
         ResultsLabel.Text = $"Your total hours are: {totalHours}, for the month {monthName} the working hours are {totalHoursByMonth}";
 
         ShiftCollectionView.ItemsSource = schedule.WorkSchedule;
+
+        if(this.CompensatedShifts.Count == 0)
+            CompensateShiftButton.IsVisible = false;
+        else
+            CompensateShiftButton.IsVisible = true;
+
 
         if (totalHours > totalHoursByMonth)
         {
@@ -42,35 +56,48 @@ public partial class SecondPage : ContentPage
             RemoveShiftButton.IsVisible = false;
         }
 
-        BindingContext = this;
     }
-
 
     private void OnShiftSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        SelectedShifts.Clear();
         foreach (IShift shift in e.CurrentSelection.Cast<IShift>())
         {
-            SelectedShifts.Add(shift);
+           // if (!SelectedShiftsForRemove.Contains(shift))
+           // {
+                SelectedShiftsForRemove.Add(shift);
+           // }
         }
+
+        foreach (var shift in e.PreviousSelection.Cast<IShift>())
+        {
+            SelectedShiftsForRemove.Remove(shift);
+        }
+
+        //ShiftCollectionView.SelectedItems.Clear();
+
     }
 
     private void RemoveShiftClicked(object sender, EventArgs e)
     {
-        foreach (IShift shift in SelectedShifts)
+        foreach (IShift shift in SelectedShiftsForRemove)
         {
-            int index = this.schedule.IndexOfShift(shift);
-            this.schedule.RemoveShift(shift.Year,shift.Month,shift.Day);
-            ShiftCollectionView.ScrollTo(index, position: ScrollToPosition.MakeVisible, animate: false);
+            this.schedule.RemoveShift(shift);
+            this.CompensatedShifts.Add(shift);
 
         }
 
         ShiftCollectionView.SelectedItems.Clear();
-        SelectedShifts.Clear();
+        SelectedShiftsForRemove.Clear();
 
-        ResultsLabel.Text = "Selected shifts removed!";
+        DateTime startDate = schedule.WorkSchedule.First().GetDateShift();
+        GenerateShiftDetails(schedule, startDate);
     }
 
+    private async void CompensateShiftClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new ThirdPage(this.CompensatedShifts));
+
+    }
 
     private string GetMonthName(int month)
     {
@@ -124,4 +151,5 @@ public partial class SecondPage : ContentPage
         await Navigation.PopAsync();
     }
 
+   
 }

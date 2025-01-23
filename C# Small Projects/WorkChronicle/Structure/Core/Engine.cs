@@ -42,7 +42,6 @@ namespace WorkChronicle.Structure.Core
             schedule.AddShift(firstNightShift);
             schedule.AddShift(secondNightShift);
 
-
             DateTime tempDayDateTime = startDate;
             DateTime tempFistNightDateTime = new DateTime(startDate.Year, startDate.Month, startDate.Day + 1);
             DateTime tempSecondNightDateTime = new DateTime(startDate.Year, startDate.Month, startDate.Day + 2);
@@ -97,8 +96,6 @@ namespace WorkChronicle.Structure.Core
             IShift secondDayShift = new DayShift(startDate.Year, startDate.Month, startDate.Day + 1);
             schedule.AddShift(firstDayShift);
             schedule.AddShift(secondDayShift);
-
-
 
             DateTime tempFirstDayDateTime = startDate;
             DateTime tempSecondDayDateTime = new DateTime(startDate.Year, startDate.Month, startDate.Day + 1);
@@ -196,7 +193,7 @@ namespace WorkChronicle.Structure.Core
             return schedule;
         }
 
-        public int CalculateTotalHours(ISchedule<IShift> schedule)
+        public int CalculateTotalHours(ISchedule<IShift> schedule) //TODO: Check if this method is necessary
         {
             int totalHours = schedule.WorkSchedule.Sum(s => s.Hour);
 

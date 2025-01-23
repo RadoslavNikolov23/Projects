@@ -25,10 +25,8 @@ namespace WorkChronicle.Core.Repository
             this.workSchedule.Add(shift);
         }
 
-        public bool RemoveShift(int year, int month, int day)
+        public bool RemoveShift(IShift shiftToRemove)
         {
-            IShift shiftToRemove=this.workSchedule.FirstOrDefault(s => s.Year == year && s.Month == month && s.Day == day)!;
-
             return this.workSchedule.Remove(shiftToRemove);
         }
 

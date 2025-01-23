@@ -16,9 +16,6 @@ namespace WorkChronicle
 
         private async void OnCalculateShiftsClicked(object sender, EventArgs e)
         {
-            IEngine engine = new Engine();
-
-
             DateTime startDate = StartDatePicker.Date;
             string selectedSchedule= WorkSchedulePicker.Items[WorkSchedulePicker.SelectedIndex];
 

@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WorkChronicle.SecondPage"
+             x:Class="WorkChronicle.ThirdPage"
              Title="Work Chronicle">
-
+    
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
 
             <Label x:Name="ResultsLabel" FontSize="Medium" TextColor="Black" />
 
             <CollectionView x:Name="ShiftCollectionView"
-                    ItemsSource="{Binding Shifts}"
-                    SelectionMode="Multiple"
-                    SelectionChanged="OnShiftSelectionChanged">
+                ItemsSource="{Binding Shifts}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Padding="8" Orientation="Horizontal">
@@ -22,19 +20,12 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
+
             <Label x:Name="HoursLabel" FontSize="Medium" TextColor="Black"/>
-
-            <Button x:Name="RemoveShiftButton" 
-                Text="Remove Shift" 
-                Clicked="RemoveShiftClicked" />
-
-            <Button x:Name="CompensateShiftButton"
-                    Text="Compensate Shifts"
-                    Clicked="CompensateShiftClicked"/>
-
-            <Button Text="Go Back" Clicked="OnGoBackButtonClicked" />
+            
+            <Button Text="Go Back" Clicked="OnGoBackButtonClicked"/>
 
         </VerticalStackLayout>
     </ScrollView>
-
+    
 </ContentPage>
