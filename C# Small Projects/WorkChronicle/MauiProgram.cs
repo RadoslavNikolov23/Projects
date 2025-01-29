@@ -1,4 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
+using WorkChronicle.Core.Repository;
+using WorkChronicle.Structure.Core;
+using Microsoft.Extensions.DependencyInjection;
+
 
 namespace WorkChronicle
 {
@@ -15,9 +19,12 @@ namespace WorkChronicle
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
+
+  
 
             return builder.Build();
         }

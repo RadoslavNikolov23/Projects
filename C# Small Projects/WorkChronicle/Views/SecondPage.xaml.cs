@@ -11,21 +11,24 @@ namespace WorkChronicle;
 
 public partial class SecondPage : ContentPage
 {
-    public ISchedule<IShift> schedule { get; set; }
+    private readonly ISchedule<IShift> _schedule; //{ get; set; }
 
     private ObservableCollection<IShift> SelectedShiftsForRemove { get; set; } = new ObservableCollection<IShift>();
     private ObservableCollection<IShift> CompensatedShifts { get; set; } = new ObservableCollection<IShift>();
 
-    public SecondPage(DateTime startDate, string[] cycle)
+    public SecondPage(DateTime startDate, ISchedule<IShift> schedule)
     {
         InitializeComponent();
+        BindingContext = _schedule = schedule;
 
-        IEngine engine = new Engine();
+       // IEngine engine = new Engine();
 
-        this.schedule = engine.CalculateShifts(startDate, cycle);        
-        GenerateShiftDetails(this.schedule, startDate);
+       // this.schedule = engine.CalculateShifts(startDate, cycle);        
+       // GenerateShiftDetails(this.schedule, startDate);
+        GenerateShiftDetails(this._schedule, startDate);
 
         BindingContext = this;
+
     }
 
     private void GenerateShiftDetails(ISchedule<IShift> schedule, DateTime startDate)
@@ -81,7 +84,7 @@ public partial class SecondPage : ContentPage
     {
         foreach (IShift shift in SelectedShiftsForRemove)
         {
-            this.schedule.RemoveShift(shift);
+            this._schedule.RemoveShift(shift);
             this.CompensatedShifts.Add(shift);
 
         }
@@ -89,13 +92,13 @@ public partial class SecondPage : ContentPage
         ShiftCollectionView.SelectedItems.Clear();
         SelectedShiftsForRemove.Clear();
 
-        DateTime startDate = schedule.WorkSchedule.First().GetDateShift();
-        GenerateShiftDetails(schedule, startDate);
+        DateTime startDate = _schedule.WorkSchedule.First().GetDateShift();
+        GenerateShiftDetails(_schedule, startDate);
     }
 
     private async void CompensateShiftClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new ThirdPage(this.CompensatedShifts));
+        await Navigation.PushAsync(new ThirdPage(this.CompensatedShifts,this._schedule));
 
     }
 

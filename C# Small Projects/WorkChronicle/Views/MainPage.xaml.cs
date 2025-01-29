@@ -1,6 +1,8 @@
 ﻿using Microsoft.Maui.Controls;
 using System;
 using System.Collections.Generic;
+using WorkChronicle.Core.Models.Contracts;
+using WorkChronicle.Core.Repository.Contracts;
 using WorkChronicle.Structure.Core;
 using WorkChronicle.Structure.Core.Contracts;
 
@@ -9,14 +11,24 @@ namespace WorkChronicle
     public partial class MainPage : ContentPage
     {
 
+        public ISchedule<IShift> schedule { get; set; }
+
         public MainPage()
         {
             InitializeComponent();
+
         }
 
         private async void OnCalculateShiftsClicked(object sender, EventArgs e)
         {
             DateTime startDate = StartDatePicker.Date;
+
+            if (WorkSchedulePicker.SelectedIndex==-1)
+            {
+                ResultsLabel.Text = "Please select a work schedule first.";
+                return;
+            }
+
             string selectedSchedule= WorkSchedulePicker.Items[WorkSchedulePicker.SelectedIndex];
 
             if (string.IsNullOrEmpty(selectedSchedule))
@@ -32,8 +44,12 @@ namespace WorkChronicle
                 return;
             }
 
-            await Navigation.PushAsync(new SecondPage(startDate, cycle));
+            IEngine engine = new Engine();
+            this.schedule = engine.CalculateShifts(startDate, cycle);
+            await Navigation.PushAsync(new SecondPage(startDate, schedule));
         }
+
+
 
     }
 

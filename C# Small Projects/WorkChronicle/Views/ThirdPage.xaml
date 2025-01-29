@@ -10,7 +10,9 @@
             <Label x:Name="ResultsLabel" FontSize="Medium" TextColor="Black" />
 
             <CollectionView x:Name="ShiftCollectionView"
-                ItemsSource="{Binding Shifts}">
+                ItemsSource="{Binding Shifts}"
+                SelectionMode="Multiple"
+                SelectionChanged="OnShiftSelectionChanged">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Padding="8" Orientation="Horizontal">
@@ -22,7 +24,9 @@
 
 
             <Label x:Name="HoursLabel" FontSize="Medium" TextColor="Black"/>
-            
+
+            <Button x:Name="AddShiftButton" Text="Add Shift" Clicked="AddShiftButtonClicked" />
+
             <Button Text="Go Back" Clicked="OnGoBackButtonClicked"/>
 
         </VerticalStackLayout>

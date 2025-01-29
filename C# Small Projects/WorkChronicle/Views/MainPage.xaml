@@ -27,7 +27,7 @@
 
         <Button Text="Calculate Shifts" Clicked="OnCalculateShiftsClicked" />
 
-        <Label x:Name="ResultsLabel" FontSize="Medium" TextColor="DarkBlue" />
+        <Label x:Name="ResultsLabel" FontSize="Medium" TextColor="Black" />
 
     </StackLayout>
 </ContentPage>
