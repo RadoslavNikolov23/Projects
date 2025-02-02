@@ -1,6 +1,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Text.Json;
 using WorkChronicle.Core.Models.Contracts;
 using WorkChronicle.Core.Repository.Contracts;
 using WorkChronicle.Structure.Core;
@@ -11,24 +12,23 @@ namespace WorkChronicle;
 
 public partial class SecondPage : ContentPage
 {
-    private readonly ISchedule<IShift> _schedule; //{ get; set; }
+    private readonly ISchedule<IShift> schedule; //{ get; set; }
 
     private ObservableCollection<IShift> SelectedShiftsForRemove { get; set; } = new ObservableCollection<IShift>();
     private ObservableCollection<IShift> CompensatedShifts { get; set; } = new ObservableCollection<IShift>();
 
-    public SecondPage(DateTime startDate, ISchedule<IShift> schedule)
+    private List<IShift> CompansatedTempList = new List<IShift>();
+
+
+    public SecondPage(DateTime startDateNew, ISchedule<IShift> scheduleNew, ObservableCollection<IShift> listCompanseteShift)
     {
         InitializeComponent();
-        BindingContext = _schedule = schedule;
+       // BindingContext = this.schedule = scheduleNew;
+        this.schedule = scheduleNew;
+        CompansatedTempList = listCompanseteShift.ToList();
 
-       // IEngine engine = new Engine();
-
-       // this.schedule = engine.CalculateShifts(startDate, cycle);        
-       // GenerateShiftDetails(this.schedule, startDate);
-        GenerateShiftDetails(this._schedule, startDate);
-
+        GenerateShiftDetails(this.schedule, startDateNew);
         BindingContext = this;
-
     }
 
     private void GenerateShiftDetails(ISchedule<IShift> schedule, DateTime startDate)
@@ -43,7 +43,7 @@ public partial class SecondPage : ContentPage
 
         ShiftCollectionView.ItemsSource = schedule.WorkSchedule;
 
-        if(this.CompensatedShifts.Count == 0)
+        if (this.CompansatedTempList.Count == 0)
             CompensateShiftButton.IsVisible = false;
         else
             CompensateShiftButton.IsVisible = true;
@@ -58,48 +58,40 @@ public partial class SecondPage : ContentPage
             HoursLabel.Text = $"You have {totalHoursByMonth - totalHours} under the total hours for the month.";
             RemoveShiftButton.IsVisible = false;
         }
-
     }
 
     private void OnShiftSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         foreach (IShift shift in e.CurrentSelection.Cast<IShift>())
         {
-           // if (!SelectedShiftsForRemove.Contains(shift))
-           // {
-                SelectedShiftsForRemove.Add(shift);
-           // }
+            SelectedShiftsForRemove.Add(shift);
         }
 
         foreach (var shift in e.PreviousSelection.Cast<IShift>())
         {
             SelectedShiftsForRemove.Remove(shift);
         }
-
-        //ShiftCollectionView.SelectedItems.Clear();
-
     }
 
     private void RemoveShiftClicked(object sender, EventArgs e)
     {
         foreach (IShift shift in SelectedShiftsForRemove)
         {
-            this._schedule.RemoveShift(shift);
-            this.CompensatedShifts.Add(shift);
-
+            this.schedule.RemoveShift(shift);
+            this.CompansatedTempList.Add(shift);
         }
 
         ShiftCollectionView.SelectedItems.Clear();
         SelectedShiftsForRemove.Clear();
 
-        DateTime startDate = _schedule.WorkSchedule.First().GetDateShift();
-        GenerateShiftDetails(_schedule, startDate);
+        DateTime startDate = schedule.WorkSchedule.First().GetDateShift();
+        GenerateShiftDetails(schedule, startDate);
     }
 
     private async void CompensateShiftClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new ThirdPage(this.CompensatedShifts,this._schedule));
-
+        this.CompensatedShifts = new ObservableCollection<IShift>(this.CompansatedTempList.OrderBy(s => s.Year).ThenBy(s => s.Month).ThenBy(s => s.Day).ThenBy(s => s.Hour));
+        await Navigation.PushAsync(new ThirdPage(this.CompensatedShifts, this.schedule));
     }
 
     private string GetMonthName(int month)
@@ -151,8 +143,17 @@ public partial class SecondPage : ContentPage
 
     private async void OnGoBackButtonClicked(object sender, EventArgs e)
     {
-        await Navigation.PopAsync();
+        await Navigation.PushAsync(new MainPage());
     }
 
-   
+    private async void OnExitButtonClicked(object sender, EventArgs e)
+    {
+        List<IShift> jsonList = this.schedule.WorkSchedule.ToList();
+        string schdeuleJson = JsonSerializer.Serialize(jsonList);
+        Preferences.Set("WorkSchedule", schdeuleJson);
+
+        Application.Current.Quit();
+    }
+
+
 }

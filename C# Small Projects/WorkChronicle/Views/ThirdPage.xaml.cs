@@ -18,7 +18,8 @@ public partial class ThirdPage : ContentPage
 	{
 		InitializeComponent();
 
-        BindingContext = _scheduleCom = schedule;
+       // BindingContext = _scheduleCom = schedule;
+       _scheduleCom = schedule;
 
         ShiftCollectionView.ItemsSource = CompensatedShifts;
         CompensatedShiftsInThirdPage=CompensatedShifts;
@@ -28,25 +29,20 @@ public partial class ThirdPage : ContentPage
         else
             AddShiftButton.IsVisible = true;
 
+        BindingContext = this;
     }
 
     private void OnShiftSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         foreach (IShift shift in e.CurrentSelection.Cast<IShift>())
         {
-            // if (!SelectedShiftsForRemove.Contains(shift))
-            // {
             SelectedShiftsToAdd.Add(shift);
-            // }
         }
 
         foreach (var shift in e.PreviousSelection.Cast<IShift>())
         {
             SelectedShiftsToAdd.Remove(shift);
         }
-
-        //ShiftCollectionView.SelectedItems.Clear();
-
     }
 
     private void AddShiftButtonClicked(object sender, EventArgs e)
@@ -56,18 +52,18 @@ public partial class ThirdPage : ContentPage
             this._scheduleCom.AddShift(shift);
             this.CompensatedShiftsInThirdPage.Remove(shift);
         }
+        
+        this._scheduleCom.Sort();
 
         ShiftCollectionView.SelectedItems.Clear();
         SelectedShiftsToAdd.Clear();
-
-
     }
 
     private async void OnGoBackButtonClicked(object sender, EventArgs e)
     {
         DateTime startDate = this._scheduleCom.WorkSchedule.First().GetDateShift();
 
-        await Navigation.PushAsync(new SecondPage(startDate, _scheduleCom));
+        await Navigation.PushAsync(new SecondPage(startDate, _scheduleCom,this.CompensatedShiftsInThirdPage));
     }
 
 }

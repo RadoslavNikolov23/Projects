@@ -45,5 +45,14 @@ namespace WorkChronicle.Core.Repository
             int totalHours= this.workSchedule.Sum(s => s.Hour);
             return totalHours;
         }
+
+        public void Sort()
+        {
+            List<IShift> sortedList = this.workSchedule.OrderBy(s => s.WorkShift.Year)
+                .ThenBy(s=>s.WorkShift.Month)
+                .ThenBy(s=>s.WorkShift.Day)
+                .ThenBy(s=>s.WorkShift.Hour).ToList();
+            this.workSchedule = new ObservableCollection<IShift>(sortedList);
+        }
     }
 }

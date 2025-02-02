@@ -18,6 +18,8 @@ namespace WorkChronicle.Core.Repository.Contracts
 
         int TotalShifts();
 
+        public void Sort();
+
         int TotalWorkHours();
     }
 }

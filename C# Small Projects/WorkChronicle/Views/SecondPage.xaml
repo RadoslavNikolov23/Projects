@@ -10,14 +10,21 @@
             <Label x:Name="ResultsLabel" FontSize="Medium" TextColor="Black" />
 
             <CollectionView x:Name="ShiftCollectionView"
-                    ItemsSource="{Binding Shifts}"
-                    SelectionMode="Multiple"
-                    SelectionChanged="OnShiftSelectionChanged">
+                         ItemsSource="{Binding Shifts}"
+                         VerticalScrollBarVisibility="Always"
+                         SelectionMode="Multiple"
+                         SelectionChanged="OnShiftSelectionChanged">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout Padding="8" Orientation="Horizontal">
-                            <Label Text="{Binding .}" TextColor="Black" FontSize="14" />
-                        </StackLayout>
+                        <Frame Padding="6" Margin="3" BackgroundColor="#205b0e">
+                            <StackLayout Padding="6" Orientation="Horizontal">
+                                <Label Text="{Binding .}" TextColor="White" FontSize="12" />
+                            </StackLayout>
+                        </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
@@ -32,7 +39,12 @@
                     Text="Compensate Shifts"
                     Clicked="CompensateShiftClicked"/>
 
-            <Button Text="Go Back" Clicked="OnGoBackButtonClicked" />
+            <Button Text="Go Back to Main" Clicked="OnGoBackButtonClicked" />
+
+            <Button Text="Exit and Save"
+               Clicked="OnExitButtonClicked"
+               BackgroundColor="#2aa704"
+               TextColor="White" />
 
         </VerticalStackLayout>
     </ScrollView>

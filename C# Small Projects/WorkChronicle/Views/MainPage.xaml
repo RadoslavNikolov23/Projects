@@ -27,7 +27,17 @@
 
         <Button Text="Calculate Shifts" Clicked="OnCalculateShiftsClicked" />
 
+        <Button Text="Load saved Schedule"
+                Clicked="OnLoadScheduleClicked"
+                BackgroundColor="#2aa704"
+                TextColor="White" />
+      
         <Label x:Name="ResultsLabel" FontSize="Medium" TextColor="Black" />
+
+        <Button Text="Exit"
+                Clicked="OnExitButtonClicked"
+                BackgroundColor="#2aa704"
+                TextColor="White" />
 
     </StackLayout>
 </ContentPage>

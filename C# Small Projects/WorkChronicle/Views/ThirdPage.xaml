@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WorkChronicle.ThirdPage"
              Title="Work Chronicle">
-    
+
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
 
@@ -11,13 +11,20 @@
 
             <CollectionView x:Name="ShiftCollectionView"
                 ItemsSource="{Binding Shifts}"
+                VerticalScrollBarVisibility="Always"
                 SelectionMode="Multiple"
                 SelectionChanged="OnShiftSelectionChanged">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout Padding="8" Orientation="Horizontal">
-                            <Label Text="{Binding .}" TextColor="Black" FontSize="14" />
-                        </StackLayout>
+                        <Frame Padding="6" Margin="3" BackgroundColor="#205b0e">
+                            <StackLayout Padding="6" Orientation="Horizontal">
+                                <Label Text="{Binding .}" TextColor="White" FontSize="12" />
+                            </StackLayout>
+                        </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
@@ -31,5 +38,5 @@
 
         </VerticalStackLayout>
     </ScrollView>
-    
+
 </ContentPage>
