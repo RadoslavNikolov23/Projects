@@ -14,7 +14,7 @@ namespace WorkChronicle.Structure.Core
 {
     public class Engine : IEngine
     {
-        public ISchedule<IShift> CalculateShifts(DateTime startDate, string[] cycle)
+        public Schedule CalculateShifts(DateTime startDate, string[] cycle)
         {
             if (cycle.Length == 2)
             {
@@ -31,13 +31,13 @@ namespace WorkChronicle.Structure.Core
             return ShiftsDayNightNight(startDate, cycle);
         }
 
-        private ISchedule<IShift> ShiftsDayNightNight(DateTime startDate, string[] cycle)
+        private Schedule ShiftsDayNightNight(DateTime startDate, string[] cycle)
         {
-            ISchedule<IShift> schedule = new Schedule();
+            Schedule schedule = new Schedule();
 
-            IShift dayShift = new DayShift(startDate.Year, startDate.Month, startDate.Day);
-            IShift firstNightShift = new NightShift(startDate.Year, startDate.Month, startDate.Day + 1);
-            IShift secondNightShift = new NightShift(startDate.Year, startDate.Month, startDate.Day + 2);
+            IShift dayShift = new DayShift("DayShift",startDate.Year, startDate.Month, startDate.Day);
+            IShift firstNightShift = new NightShift("NightShift", startDate.Year, startDate.Month, startDate.Day + 1);
+            IShift secondNightShift = new NightShift("NightShift", startDate.Year, startDate.Month, startDate.Day + 2);
             schedule.AddShift(dayShift);
             schedule.AddShift(firstNightShift);
             schedule.AddShift(secondNightShift);
@@ -57,7 +57,7 @@ namespace WorkChronicle.Structure.Core
                     if (dayShift != null)
                     {
                         tempDayDateTime = tempDayDateTime.AddDays(5);
-                        dayShift = new DayShift(tempDayDateTime.Year, tempDayDateTime.Month, tempDayDateTime.Day);
+                        dayShift = new DayShift("DayShift", tempDayDateTime.Year, tempDayDateTime.Month, tempDayDateTime.Day);
 
                         if (HasShiftMonthChanged(dayShift, startDate))
                             break;
@@ -71,10 +71,10 @@ namespace WorkChronicle.Structure.Core
                     if (tempFistNightDateTime != null && tempSecondNightDateTime != null)
                     {
                         tempFistNightDateTime = tempFistNightDateTime.AddDays(5);
-                        firstNightShift = new NightShift(tempFistNightDateTime.Year, tempFistNightDateTime.Month, tempFistNightDateTime.Day);
+                        firstNightShift = new NightShift("NightShift", tempFistNightDateTime.Year, tempFistNightDateTime.Month, tempFistNightDateTime.Day);
 
                         tempSecondNightDateTime = tempSecondNightDateTime.AddDays(5);
-                        secondNightShift = new NightShift(tempSecondNightDateTime.Year, tempSecondNightDateTime.Month, tempSecondNightDateTime.Day);
+                        secondNightShift = new NightShift("NightShift", tempSecondNightDateTime.Year, tempSecondNightDateTime.Month, tempSecondNightDateTime.Day);
 
                         if (HasShiftMonthChanged(firstNightShift, startDate) || tempSecondNightDateTime.Month != startDate.Month)
                             break;
@@ -88,12 +88,12 @@ namespace WorkChronicle.Structure.Core
             return schedule;
         }
 
-        private ISchedule<IShift> ShiftsDayDay(DateTime startDate, string[] cycle)
+        private Schedule ShiftsDayDay(DateTime startDate, string[] cycle)
         {
-            ISchedule<IShift> schedule = new Schedule();
+            Schedule schedule = new Schedule();
 
-            IShift firstDayShift = new DayShift(startDate.Year, startDate.Month, startDate.Day);
-            IShift secondDayShift = new DayShift(startDate.Year, startDate.Month, startDate.Day + 1);
+            IShift firstDayShift = new DayShift("DayShift",startDate.Year, startDate.Month, startDate.Day);
+            IShift secondDayShift = new DayShift("DayShift", startDate.Year, startDate.Month, startDate.Day + 1);
             schedule.AddShift(firstDayShift);
             schedule.AddShift(secondDayShift);
 
@@ -110,7 +110,7 @@ namespace WorkChronicle.Structure.Core
                     if (firstDayShift != null)
                     {
                         tempFirstDayDateTime = tempFirstDayDateTime.AddDays(4);
-                        firstDayShift = new DayShift(tempFirstDayDateTime.Year, tempFirstDayDateTime.Month, tempFirstDayDateTime.Day);
+                        firstDayShift = new DayShift("DayShift",tempFirstDayDateTime.Year, tempFirstDayDateTime.Month, tempFirstDayDateTime.Day);
 
                         if (HasShiftMonthChanged(firstDayShift, startDate))
                             break;
@@ -121,7 +121,7 @@ namespace WorkChronicle.Structure.Core
                     if (secondDayShift != null)
                     {
                         tempSecondDayDateTime = tempSecondDayDateTime.AddDays(4);
-                        secondDayShift = new DayShift(tempSecondDayDateTime.Year, tempSecondDayDateTime.Month, tempSecondDayDateTime.Day);
+                        secondDayShift = new DayShift("DayShift",tempSecondDayDateTime.Year, tempSecondDayDateTime.Month, tempSecondDayDateTime.Day);
 
                         if (HasShiftMonthChanged(secondDayShift, startDate))
                             break;
@@ -134,21 +134,21 @@ namespace WorkChronicle.Structure.Core
             return schedule;
         }
 
-        private ISchedule<IShift> ShiftsDayNight(DateTime startDate, string[] cycle)
+        private Schedule ShiftsDayNight(DateTime startDate, string[] cycle)
         {
-            ISchedule<IShift> schedule = new Schedule();
+            Schedule schedule = new Schedule();
 
             IShift dayShift = null;
             IShift nightShift = null;
 
             if (cycle.Contains("Day"))
             {
-                dayShift = new DayShift(startDate.Year, startDate.Month, startDate.Day);
+                dayShift = new DayShift("DayShift", startDate.Year, startDate.Month, startDate.Day);
                 schedule.AddShift(dayShift);
             }
             if (cycle.Contains("Night"))
             {
-                nightShift = new NightShift(startDate.Year, startDate.Month, startDate.Day + 1);
+                nightShift = new NightShift("NightShift", startDate.Year, startDate.Month, startDate.Day + 1);
                 schedule.AddShift(nightShift);
             }
 
@@ -165,7 +165,7 @@ namespace WorkChronicle.Structure.Core
                     if (dayShift != null)
                     {
                         tempDayDateTime = tempDayDateTime.AddDays(4);
-                        dayShift = new DayShift(tempDayDateTime.Year, tempDayDateTime.Month, tempDayDateTime.Day);
+                        dayShift = new DayShift("DayShift", tempDayDateTime.Year, tempDayDateTime.Month, tempDayDateTime.Day);
 
                         if (HasShiftMonthChanged(dayShift, startDate))
                             break;
@@ -179,7 +179,7 @@ namespace WorkChronicle.Structure.Core
                     if (nightShift != null)
                     {
                         tempNightDateTime = tempNightDateTime.AddDays(4);
-                        nightShift = new NightShift(tempNightDateTime.Year, tempNightDateTime.Month, tempNightDateTime.Day);
+                        nightShift = new NightShift("NightShift", tempNightDateTime.Year, tempNightDateTime.Month, tempNightDateTime.Day);
 
                         if (HasShiftMonthChanged(nightShift, startDate))
                             break;
@@ -193,7 +193,7 @@ namespace WorkChronicle.Structure.Core
             return schedule;
         }
 
-        public int CalculateTotalHours(ISchedule<IShift> schedule) //TODO: Check if this method is necessary
+        public int CalculateTotalHours(Schedule schedule) //TODO: Check if this method is necessary
         {
             int totalHours = schedule.WorkSchedule.Sum(s => s.Hour);
 

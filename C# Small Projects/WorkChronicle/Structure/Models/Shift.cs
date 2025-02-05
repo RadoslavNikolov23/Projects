@@ -10,19 +10,24 @@ namespace WorkChronicle.Core.Models
     public abstract class Shift : IShift
     {
         private DateTime workShift;
-        public Shift(int year, int month, int day, int hour)
+        public Shift(string shiftType,int year, int month, int day, int hour)
         {
+            ShiftType = shiftType;
             Year = year;
             Month = month;
             Day = day;
             Hour = hour;
+            ShiftType = shiftType;
+            isCompensated = false;
             this.workShift = new DateTime(this.Year, this.Month, this.Day, this.Hour, 0, 0);
         }
 
+        public string ShiftType { get; set; }
         public int Year { get; set; }
         public int Month { get; set; }
         public int Day { get; set; }
         public int Hour { get; set; }
+        public bool isCompensated { get; set; }
         public DateTime WorkShift { get => this.workShift; }
 
         public DateTime GetDateShift()

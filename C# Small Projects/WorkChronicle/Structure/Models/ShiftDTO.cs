@@ -1,21 +1,21 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WorkChronicle.Core.Models.Contracts
+namespace WorkChronicle.Structure.Models
 {
-    public interface IShift
+    public class ShiftDTO
     {
-        public string ShiftType { get; set; }
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
         public int Year { get; set; }
         public int Month { get; set; }
         public int Day { get; set; }
         public int Hour { get; set; }
-        public bool isCompensated { get; set; }
-        public DateTime WorkShift { get; }
-
-        public DateTime GetDateShift();
+        public string ShiftType { get; set; }
+        public bool IsCompensated { get; set; }
     }
 }

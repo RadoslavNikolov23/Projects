@@ -9,7 +9,7 @@ namespace WorkChronicle.Core.Models
     public class NightShift : Shift
     {
         private const int hourNightShift = 13;
-        public NightShift(int year, int month, int day) : base(year, month, day, hourNightShift)
+        public NightShift(string shiftType,int year, int month, int day) : base(shiftType, year, month, day, hourNightShift)
         {
         }
 

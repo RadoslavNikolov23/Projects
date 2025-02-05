@@ -2,42 +2,17 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="WorkChronicle.MainPage"
-             Title="WorkChronicle">
+             Title="Welcome to Work Chronicle">
     
-  <StackLayout Padding="20" Spacing="20">
-
-
-        <Label Text="Select the starting day of your work cycle:" FontSize="Medium" />
-        <DatePicker x:Name="StartDatePicker" />
-
-
-        <Label Text="Enter shift cycle pattern: (Day-Night/Day-Day/Day-Night-Night):" FontSize="Medium" />
-
-        <Picker x:Name="WorkSchedulePicker" 
-                Title="Select Shift Pattern"
-                HorizontalOptions="Start">
-            <Picker.ItemsSource>
-                <x:Array Type="{x:Type x:String}">
-                    <x:String>Day-Night</x:String>
-                    <x:String>Day-Day</x:String>
-                    <x:String>Day-Night-Night</x:String>
-                 </x:Array>
-            </Picker.ItemsSource>
-        </Picker>
-
-        <Button Text="Calculate Shifts" Clicked="OnCalculateShiftsClicked" />
-
-        <Button Text="Load saved Schedule"
-                Clicked="OnLoadScheduleClicked"
-                BackgroundColor="#2aa704"
-                TextColor="White" />
+  <StackLayout Padding="20" Spacing="30">
       
-        <Label x:Name="ResultsLabel" FontSize="Medium" TextColor="Black" />
+        <Label x:Name="ChoiseLabel" Text="Choise one of the options:" TextColor="Black" FontSize="Medium"/>
 
-        <Button Text="Exit"
-                Clicked="OnExitButtonClicked"
-                BackgroundColor="#2aa704"
-                TextColor="White" />
+        <Button Text="View saved schedules" Clicked="ViewSavedSchedules"/>
 
+        <Button Text="Pick a new schedule" Clicked="PickNewSchedule"/>
+
+        <Button Text="Exit" Clicked="ExitApp"/>
+      
     </StackLayout>
 </ContentPage>

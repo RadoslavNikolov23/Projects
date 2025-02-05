@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ namespace WorkChronicle.Core.Repository.Contracts
 {
     public interface ISchedule<T> where T : class
     {
-        public IReadOnlyCollection<T> WorkSchedule { get; }
+        public ObservableCollection<T> WorkSchedule { get; set; }
 
         void AddShift(T shift);
 

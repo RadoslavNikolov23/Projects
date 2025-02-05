@@ -8,8 +8,19 @@
     Title="WorkChronicle">
 
     <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+        Route="MainPage" 
+        ContentTemplate="{DataTemplate local:MainPage}"/>
 
+    <ShellContent 
+        Route="ScheduleView" 
+        ContentTemplate="{DataTemplate local:ScheduleView}"  />
+
+    <ShellContent 
+        Route="PickerDateView" 
+        ContentTemplate="{DataTemplate local:PickerDateView}"  />
+
+    <ShellContent 
+        Route="CompensateShiftsView"  
+        ContentTemplate="{DataTemplate local:CompensateShiftsView}"/>
+    
 </Shell>

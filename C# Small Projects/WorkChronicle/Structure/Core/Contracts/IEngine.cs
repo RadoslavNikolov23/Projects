@@ -4,14 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WorkChronicle.Core.Models.Contracts;
+using WorkChronicle.Core.Repository;
 using WorkChronicle.Core.Repository.Contracts;
 
 namespace WorkChronicle.Structure.Core.Contracts
 {
     public interface IEngine
     {
-        ISchedule<IShift> CalculateShifts(DateTime startDate, string[] cycle);
+        Schedule CalculateShifts(DateTime startDate, string[] cycle);
 
-        int CalculateTotalHours(ISchedule<IShift> schedule);
+        int CalculateTotalHours(Schedule schedule);
     }
 }
