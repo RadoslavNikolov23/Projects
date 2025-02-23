@@ -1,31 +1,15 @@
-using CommunityToolkit.Mvvm.Input;
-using SQLite;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Text.Json;
-using WorkChronicle.Core.Models;
-using WorkChronicle.Core.Models.Contracts;
-using WorkChronicle.Core.Repository;
-using WorkChronicle.Core.Repository.Contracts;
-using WorkChronicle.Structure.Core;
-using WorkChronicle.Structure.Core.Contracts;
-using WorkChronicle.Structure.Database;
-using WorkChronicle.Structure.Models;
-using WorkChronicle.Structure.WorkHoursByYears;
-
 namespace WorkChronicle;
 
 public partial class ScheduleView : ContentPage
 {
-    private readonly Schedule schedule;
+    private ISchedule<IShift> schedule;
 
     private ObservableCollection<IShift> SelectedShiftsForRemove { get; set; } = new ObservableCollection<IShift>();
 
-    public ScheduleView(Schedule schedule)
+    public ScheduleView(ISchedule<IShift> schedule)
     {
         InitializeComponent();
-       this.schedule = schedule;
+        this.schedule = schedule;
 
         if (schedule.WorkSchedule.Count == 0)
         {
@@ -104,14 +88,11 @@ public partial class ScheduleView : ContentPage
 
     private async void CompensateShiftClicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync($"CompensateShiftsView");
+        await Navigation.PushAsync(new CompensateShiftsView(schedule));
     }
 
     private async void OnGoBackButtonClicked(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("///MainPage");
     }
-
-
-
 }

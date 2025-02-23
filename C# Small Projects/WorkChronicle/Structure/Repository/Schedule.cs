@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WorkChronicle.Core.Models;
-using WorkChronicle.Core.Models.Contracts;
-using WorkChronicle.Core.Repository.Contracts;
-
-namespace WorkChronicle.Core.Repository
+﻿namespace WorkChronicle.Core.Repository
 {
     public class Schedule : ISchedule<IShift>
     {
@@ -18,8 +8,8 @@ namespace WorkChronicle.Core.Repository
         {
             this.workSchedule = new ObservableCollection<IShift>();
         }
-      //  public IReadOnlyCollection<IShift> WorkSchedule { get => this.workSchedule.AsReadOnly(); }
-        public ObservableCollection<IShift> WorkSchedule { get => this.workSchedule; set; }
+
+        public ReadOnlyObservableCollection<IShift> WorkSchedule { get => new ReadOnlyObservableCollection<IShift>(this.workSchedule); }
 
         public void AddShift(IShift shift)
         {
@@ -48,17 +38,18 @@ namespace WorkChronicle.Core.Repository
 
         public int TotalWorkHours()
         {
-            int totalHours= this.workSchedule.Sum(s => s.Hour);
+            int totalHours = 0;
+
+            foreach (var shift in workSchedule)
+            {
+                if(shift.isCompensated == false)
+                {
+                    totalHours += shift.Hour;
+                }
+            }
+
             return totalHours;
         }
 
-        public void Sort()
-        {
-            List<IShift> sortedList = this.workSchedule.OrderBy(s => s.WorkShift.Year)
-                .ThenBy(s=>s.WorkShift.Month)
-                .ThenBy(s=>s.WorkShift.Day)
-                .ThenBy(s=>s.WorkShift.Hour).ToList();
-            this.workSchedule = new ObservableCollection<IShift>(sortedList);
-        }
     }
 }

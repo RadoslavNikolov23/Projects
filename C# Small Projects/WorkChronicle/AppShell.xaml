@@ -10,6 +10,10 @@
     <ShellContent
         Route="MainPage" 
         ContentTemplate="{DataTemplate local:MainPage}"/>
+    
+    <ShellContent
+        Route="LoadSavedScheduleView" 
+        ContentTemplate="{DataTemplate local:LoadSavedScheduleView}"/>
 
     <ShellContent 
         Route="ScheduleView" 

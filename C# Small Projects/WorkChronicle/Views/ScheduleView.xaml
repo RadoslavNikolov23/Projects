@@ -4,6 +4,7 @@
              x:Class="WorkChronicle.ScheduleView"
              Title="Work Chronicle">
 
+    
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
 

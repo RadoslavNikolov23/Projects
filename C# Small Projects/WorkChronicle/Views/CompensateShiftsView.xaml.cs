@@ -1,21 +1,12 @@
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using WorkChronicle.Core.Models.Contracts;
-using WorkChronicle.Core.Repository;
-using WorkChronicle.Core.Repository.Contracts;
-using WorkChronicle.Structure.Database;
-
-
 namespace WorkChronicle;
 
 public partial class CompensateShiftsView : ContentPage
 {
-    private readonly Schedule schedule;
+    private ISchedule<IShift> schedule;
 
     private ObservableCollection<IShift> SelectedShiftsToAdd{ get; set; } = new ObservableCollection<IShift>();
 
-    public CompensateShiftsView(Schedule schedule)
+    public CompensateShiftsView(ISchedule<IShift> schedule)
     {
         InitializeComponent();
         this.schedule = schedule;
@@ -54,11 +45,15 @@ public partial class CompensateShiftsView : ContentPage
 
         ShiftCollectionView.SelectedItems.Clear();
         SelectedShiftsToAdd.Clear();
+
+        ShiftCollectionView.ItemsSource = schedule.WorkSchedule.Where(s => s.isCompensated == true); ;
     }
 
     private async void OnGoBackButtonClicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync($"ScheduleView");
+        await Navigation.PushAsync(new ScheduleView(schedule));
+
+       // await Shell.Current.GoToAsync($"ScheduleView");
     }
 
 }

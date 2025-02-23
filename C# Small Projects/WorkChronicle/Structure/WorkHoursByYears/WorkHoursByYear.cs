@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WorkChronicle.Structure.WorkHoursByYears
+﻿namespace WorkChronicle.Structure.WorkHoursByYears
 {
     public class WorkHoursByYear
     {

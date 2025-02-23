@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WorkChronicle.Structure.Core.Contracts;
-using Microsoft.Maui.Controls;
-using WorkChronicle.Core.Repository.Contracts;
-using WorkChronicle.Core.Models.Contracts;
-using WorkChronicle.Core.Repository;
-using WorkChronicle.Core.Models;
-
-namespace WorkChronicle.Structure.Core
+﻿namespace WorkChronicle.Structure.Core
 {
     public class Engine : IEngine
     {
@@ -68,8 +56,8 @@ namespace WorkChronicle.Structure.Core
 
                 if (shift == "Night")
                 {
-                    if (tempFistNightDateTime != null && tempSecondNightDateTime != null)
-                    {
+                   // if (tempFistNightDateTime != null && tempSecondNightDateTime != null)
+                  //  {
                         tempFistNightDateTime = tempFistNightDateTime.AddDays(5);
                         firstNightShift = new NightShift("NightShift", tempFistNightDateTime.Year, tempFistNightDateTime.Month, tempFistNightDateTime.Day);
 
@@ -81,7 +69,7 @@ namespace WorkChronicle.Structure.Core
 
                         schedule.AddShift(firstNightShift);
                         schedule.AddShift(secondNightShift);
-                    }
+                  //  }
                 }
             }
 
@@ -138,8 +126,8 @@ namespace WorkChronicle.Structure.Core
         {
             Schedule schedule = new Schedule();
 
-            IShift dayShift = null;
-            IShift nightShift = null;
+            IShift? dayShift = null;
+            IShift? nightShift = null;
 
             if (cycle.Contains("Day"))
             {

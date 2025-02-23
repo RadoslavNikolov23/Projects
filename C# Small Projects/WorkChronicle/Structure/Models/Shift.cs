@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WorkChronicle.Core.Models.Contracts;
-
-namespace WorkChronicle.Core.Models
+﻿namespace WorkChronicle.Core.Models
 {
     public abstract class Shift : IShift
     {

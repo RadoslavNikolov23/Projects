@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WorkChronicle.Core.Repository.Contracts
+﻿namespace WorkChronicle.Core.Repository.Contracts
 {
     public interface ISchedule<T> where T : class
     {
-        public ObservableCollection<T> WorkSchedule { get; set; }
+        public ReadOnlyObservableCollection<T> WorkSchedule { get; }
 
         void AddShift(T shift);
 
@@ -19,7 +12,7 @@ namespace WorkChronicle.Core.Repository.Contracts
 
         int TotalShifts();
 
-        public void Sort();
+        public int TotalCompansatedShifts();
 
         int TotalWorkHours();
     }

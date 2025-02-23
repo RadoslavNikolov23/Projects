@@ -7,6 +7,7 @@
             InitializeComponent();
 
             Routing.RegisterRoute("MainPage", typeof(MainPage));
+            Routing.RegisterRoute("LoadSavedScheduleView", typeof(LoadSavedScheduleView));
             Routing.RegisterRoute("PickerDateView", typeof(PickerDateView));
             Routing.RegisterRoute("ScheduleView", typeof(ScheduleView));
             Routing.RegisterRoute("CompensateShiftsView", typeof(CompensateShiftsView));
