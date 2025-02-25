@@ -1,3 +1,6 @@
+
+using System.Diagnostics;
+
 namespace WorkChronicle;
 
 public partial class PickerDateView : ContentPage
@@ -6,11 +9,11 @@ public partial class PickerDateView : ContentPage
 
     private readonly IEngine engine;
 
-    public PickerDateView(IEngine engine)
+    public PickerDateView(ISchedule<IShift> schedule)
     {
         InitializeComponent();
-        this.schedule = new Schedule();
-        this.engine = engine;
+        this.schedule = schedule;
+        this.engine = new Engine();
         BindingContext = this;
     }
 
@@ -39,8 +42,15 @@ public partial class PickerDateView : ContentPage
             return;
         }
 
-        this.schedule= this.engine.CalculateShifts(startDate, cycle);
+        ISchedule<IShift> tempSchedule= this.engine.CalculateShifts(startDate, cycle);
 
-        await Navigation.PushAsync(new ScheduleView(schedule));
+        foreach(var shift in tempSchedule.WorkSchedule)
+        {
+            schedule.AddShift(shift);
+        }
+
+        await Shell.Current.GoToAsync($"ScheduleView");
+
+        //await Navigation.PushAsync(new ScheduleView(schedule));
     }
 }

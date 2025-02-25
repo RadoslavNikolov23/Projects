@@ -1,4 +1,6 @@
-﻿namespace WorkChronicle.Core.Repository
+﻿using System.Diagnostics;
+
+namespace WorkChronicle.Core.Repository
 {
     public class Schedule : ISchedule<IShift>
     {
@@ -6,10 +8,11 @@
 
         public Schedule()
         {
-            this.workSchedule = new ObservableCollection<IShift>();
+            workSchedule= new ObservableCollection<IShift>();
         }
 
-        public ReadOnlyObservableCollection<IShift> WorkSchedule { get => new ReadOnlyObservableCollection<IShift>(this.workSchedule); }
+       // public ReadOnlyObservableCollection<IShift> WorkSchedule { get => new ReadOnlyObservableCollection<IShift>(this.workSchedule); }
+        public ObservableCollection<IShift> WorkSchedule { get => workSchedule; }
 
         public void AddShift(IShift shift)
         {

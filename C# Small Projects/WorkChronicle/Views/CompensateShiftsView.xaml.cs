@@ -2,14 +2,28 @@ namespace WorkChronicle;
 
 public partial class CompensateShiftsView : ContentPage
 {
-    private ISchedule<IShift> schedule;
+    private readonly ISchedule<IShift> schedule;
 
-    private ObservableCollection<IShift> SelectedShiftsToAdd{ get; set; } = new ObservableCollection<IShift>();
+    private ObservableCollection<IShift> SelectedShiftsToAdd { get; set; } = new ObservableCollection<IShift>();
 
     public CompensateShiftsView(ISchedule<IShift> schedule)
     {
         InitializeComponent();
         this.schedule = schedule;
+        RefreshThePage();
+
+
+
+    }
+
+    override protected void OnAppearing()
+    {
+        base.OnAppearing();
+        RefreshThePage();
+    }
+
+    private void RefreshThePage()
+    {
         ShiftCollectionView.ItemsSource = schedule.WorkSchedule.Where(s => s.isCompensated == true); ;
 
         int compansateShiftsCount = this.schedule.TotalCompansatedShifts();
@@ -51,9 +65,9 @@ public partial class CompensateShiftsView : ContentPage
 
     private async void OnGoBackButtonClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new ScheduleView(schedule));
+        // await Navigation.PushAsync(new ScheduleView(schedule));
 
-       // await Shell.Current.GoToAsync($"ScheduleView");
+        await Shell.Current.GoToAsync($"ScheduleView");
     }
 
 }

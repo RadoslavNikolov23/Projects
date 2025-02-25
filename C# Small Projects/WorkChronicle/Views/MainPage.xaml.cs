@@ -1,15 +1,23 @@
-﻿namespace WorkChronicle
+﻿
+namespace WorkChronicle
 {
     public partial class MainPage : INotifyPropertyChanged
     {
-       // private readonly IEngine engine; //TODO To Remove
-
-        public MainPage(IEngine engine)
+        private ISchedule<IShift> schedule;
+        public MainPage(ISchedule<IShift> schedule)
         {
             InitializeComponent();
+            this.schedule= schedule;
             BindingContext = this;
-            // this.engine = engine;  //TODO To Remove
         }
+
+        //override protected void OnAppearing()
+        //{
+        //    base.OnAppearing();
+        //    schedule = new Schedule();
+        //    BindingContext = this;
+
+        //}
 
 
         private async void ViewSavedSchedules(object sender, EventArgs e)
@@ -22,7 +30,6 @@
         {
             //await Navigation.PushAsync(new PickerDateView(engine));
            await Shell.Current.GoToAsync($"PickerDateView");
-
         }
 
         private void ExitApp(object sender, EventArgs e)

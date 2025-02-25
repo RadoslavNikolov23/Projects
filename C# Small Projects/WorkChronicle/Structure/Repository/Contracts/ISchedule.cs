@@ -2,7 +2,8 @@
 {
     public interface ISchedule<T> where T : class
     {
-        public ReadOnlyObservableCollection<T> WorkSchedule { get; }
+       // public IReadOnlyList<T> WorkSchedule { get; }
+        public ObservableCollection<T> WorkSchedule { get; }
 
         void AddShift(T shift);
 

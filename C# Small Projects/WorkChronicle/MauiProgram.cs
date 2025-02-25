@@ -1,4 +1,5 @@
-﻿namespace WorkChronicle
+﻿
+namespace WorkChronicle
 {
     public static class MauiProgram
     {
@@ -13,8 +14,8 @@
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-           // builder.Services.AddSingleton<IEngine, Engine>();
-          //  builder.Services.AddSingleton<Schedule>();
+
+            builder.Services.AddSingleton<ISchedule<IShift>, Schedule>();
             builder.Services.AddSingleton<AppShell>();
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<ScheduleView>();

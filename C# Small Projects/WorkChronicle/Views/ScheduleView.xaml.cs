@@ -1,3 +1,6 @@
+
+using System.Diagnostics;
+
 namespace WorkChronicle;
 
 public partial class ScheduleView : ContentPage
@@ -8,9 +11,23 @@ public partial class ScheduleView : ContentPage
 
     public ScheduleView(ISchedule<IShift> schedule)
     {
+
         InitializeComponent();
         this.schedule = schedule;
+       // this.SelectedShiftsForRemove ;
+        
+        RefreshThePage();
+    }
 
+
+    override protected void OnAppearing()
+    {
+        base.OnAppearing();
+        RefreshThePage();
+    }
+
+    private void RefreshThePage()
+    {
         if (schedule.WorkSchedule.Count == 0)
         {
             TextLabel.Text = "You have no shifts for this month.";
@@ -21,8 +38,10 @@ public partial class ScheduleView : ContentPage
         {
             DateTime startDateNew = schedule.WorkSchedule.First().GetDateShift();
             GenerateShiftDetails(this.schedule, startDateNew);
-       }
+        }
+
         BindingContext = this;
+
     }
 
     private void GenerateShiftDetails(ISchedule<IShift> schedule, DateTime startDate)
@@ -39,6 +58,7 @@ public partial class ScheduleView : ContentPage
         ShiftCollectionView.ItemsSource = schedule.WorkSchedule.Where(s => s.isCompensated == false);
 
         int compansateShiftsCount = this.schedule.TotalCompansatedShifts();
+
         if (compansateShiftsCount == 0)
             CompensateShiftButton.IsVisible = false;
         else
@@ -82,17 +102,20 @@ public partial class ScheduleView : ContentPage
         ShiftCollectionView.SelectedItems.Clear();
         SelectedShiftsForRemove.Clear();
 
-        DateTime startDate = schedule.WorkSchedule.First().GetDateShift();
-        GenerateShiftDetails(schedule, startDate);
+        RefreshThePage();
+       // ShiftCollectionView.ItemsSource = schedule.WorkSchedule.Where(s => s.isCompensated == false);
     }
 
     private async void CompensateShiftClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new CompensateShiftsView(schedule));
+        await Shell.Current.GoToAsync($"CompensateShiftsView");
+
+       // await Navigation.PushAsync(new CompensateShiftsView(schedule));
     }
 
     private async void OnGoBackButtonClicked(object sender, EventArgs e)
     {
+        schedule.WorkSchedule.Clear();
         await Shell.Current.GoToAsync("///MainPage");
     }
 }

@@ -2,17 +2,19 @@ namespace WorkChronicle;
 
 public partial class LoadSavedScheduleView : ContentPage
 {
-    private ISchedule<IShift> schedule;
+    private readonly ISchedule<IShift> schedule;
 
-    public LoadSavedScheduleView()
+    public LoadSavedScheduleView(ISchedule<IShift> schedule)
 	{
 		InitializeComponent();
-        this.schedule = new Schedule ();
+        this.schedule = schedule;
     }
 
     private async void OnLoadSavedButton(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new ScheduleView(schedule));
+        await Shell.Current.GoToAsync("ScheduleView");
+
+       // await Navigation.PushAsync(new ScheduleView(schedule));
 
     }
 }
