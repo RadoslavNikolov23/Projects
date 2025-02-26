@@ -5,16 +5,16 @@
        // public IReadOnlyList<T> WorkSchedule { get; }
         public ObservableCollection<T> WorkSchedule { get; }
 
-        void AddShift(T shift);
+        Task AddShift(T shift);
 
-        bool RemoveShift(T shift);
+        Task RemoveShift(T shift);
 
-        int IndexOfShift(T shift);
+        Task<int> IndexOfShift(T shift);
 
-        int TotalShifts();
+        Task<int> TotalShifts();
 
-        public int TotalCompansatedShifts();
+        Task<int> TotalCompansatedShifts();
 
-        int TotalWorkHours();
+        Task<int> TotalWorkHours();
     }
 }

@@ -14,32 +14,34 @@ namespace WorkChronicle.Core.Repository
        // public ReadOnlyObservableCollection<IShift> WorkSchedule { get => new ReadOnlyObservableCollection<IShift>(this.workSchedule); }
         public ObservableCollection<IShift> WorkSchedule { get => workSchedule; }
 
-        public void AddShift(IShift shift)
+        public Task AddShift(IShift shift)
         {
             this.workSchedule.Add(shift);
+            return Task.CompletedTask;
         }
 
-        public bool RemoveShift(IShift shiftToRemove)
+        public Task RemoveShift(IShift shiftToRemove)
         {
-            return this.workSchedule.Remove(shiftToRemove);
+            this.workSchedule.Remove(shiftToRemove);
+            return Task.CompletedTask;
         }
 
-        public int IndexOfShift(IShift shift)
+        public Task<int> IndexOfShift(IShift shift)
         {
-           return this.workSchedule.IndexOf(shift);
+            return Task.FromResult(this.workSchedule.IndexOf(shift));
         }
 
-        public int TotalShifts()
+        public Task<int> TotalShifts()
         {
-            return this.workSchedule.Count;
+            return Task.FromResult(this.workSchedule.Count);
         }
 
-        public int TotalCompansatedShifts()
+        public Task<int> TotalCompansatedShifts()
         {
-            return this.workSchedule.Count(s => s.isCompensated == true);
+            return Task.FromResult(this.workSchedule.Count(s => s.isCompensated == true));
         }
 
-        public int TotalWorkHours()
+        public Task<int> TotalWorkHours()
         {
             int totalHours = 0;
 
@@ -51,7 +53,7 @@ namespace WorkChronicle.Core.Repository
                 }
             }
 
-            return totalHours;
+            return Task.FromResult(totalHours);
         }
 
     }

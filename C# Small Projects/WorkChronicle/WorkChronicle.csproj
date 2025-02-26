@@ -58,6 +58,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.1" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
@@ -65,28 +66,31 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Views\PickerDateView.xaml.cs">
-	    <DependentUpon>PickerDateView.xaml</DependentUpon>
+	  <Compile Update="Views\LoadSavedSchedulePage.xaml.cs">
+	    <DependentUpon>LoadSavedSchedulePage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\ScheduleView.xaml.cs">
-	    <DependentUpon>ScheduleView.xaml</DependentUpon>
+	  <Compile Update="Views\PickerDatePage.xaml.cs">
+	    <DependentUpon>PickerDatePage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\CompensateShiftsView.xaml.cs">
-	    <DependentUpon>CompensateShiftsView.xaml</DependentUpon>
+	  <Compile Update="Views\SchedulePage.xaml.cs">
+	    <DependentUpon>SchedulePage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\CompensateShiftsPage.xaml.cs">
+	    <DependentUpon>CompensateShiftsPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Views\LoadSavedScheduleView.xaml">
+	  <MauiXaml Update="Views\LoadSavedSchedulePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\PickerDateView.xaml">
+	  <MauiXaml Update="Views\PickerDatePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\ScheduleView.xaml">
+	  <MauiXaml Update="Views\SchedulePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\CompensateShiftsView.xaml">
+	  <MauiXaml Update="Views\CompensateShiftsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

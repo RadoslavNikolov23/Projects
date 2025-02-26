@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:WorkChronicle.ViewModels"
+             x:Class="WorkChronicle.CompensateShiftsPage"
+             x:DataType="viewmodels:CompensateShiftsPageViewModel"
+             Title="CompensateShiftsPage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+
+            <Label x:Name="ResultsLabel" FontSize="Medium" TextColor="Black" />
+
+            <CollectionView x:Name="ShiftCollectionView"
+                ItemsSource="{Binding ShiftCollectionView}"
+                SelectedItems="{Binding SelectedShiftsToAdd,Mode=TwoWay}"
+                VerticalScrollBarVisibility="Always"
+                SelectionMode="Multiple"
+                SelectionChanged="ShiftSelectionChanged">
+                
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="6" Margin="3" BackgroundColor="#205b0e">
+                            <StackLayout Padding="6" Orientation="Horizontal">
+                                <Label Text="{Binding .}" TextColor="White" FontSize="12" />
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button Text="Add Shift" 
+                     Command="{Binding AddShiftButtonCommand}"/>
+
+            <Button Text="Go Back" 
+                    Command="{Binding GoBackButtonCommand}"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

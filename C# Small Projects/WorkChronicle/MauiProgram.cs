@@ -1,5 +1,4 @@
-﻿
-namespace WorkChronicle
+﻿namespace WorkChronicle
 {
     public static class MauiProgram
     {
@@ -14,21 +13,34 @@ namespace WorkChronicle
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-
-            builder.Services.AddSingleton<ISchedule<IShift>, Schedule>();
-            builder.Services.AddSingleton<AppShell>();
-            builder.Services.AddSingleton<MainPage>();
-            builder.Services.AddSingleton<ScheduleView>();
-            builder.Services.AddSingleton<PickerDateView>();
-            builder.Services.AddSingleton<LoadSavedScheduleView>();
-            builder.Services.AddSingleton<CompensateShiftsView>();
-        
 #if DEBUG
-           builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
+            builder.Services.AddSingleton<AppShell>();
+            builder.Services.AddSingleton<ISchedule<IShift>, Schedule>();
+            RegisterVM(builder.Services);
+            RegisterPages(builder.Services);
 
 
             return builder.Build();
         }
+        static void RegisterPages(IServiceCollection services)
+        {
+            services.AddSingleton<MainPage>();
+            services.AddSingleton<SchedulePage>();
+            services.AddSingleton<PickerDatePage>();
+            services.AddSingleton<LoadSavedSchedulePage>();
+            services.AddSingleton<CompensateShiftsPage>();
+        }
+
+        static void RegisterVM(IServiceCollection services)
+        {
+            services.AddTransient<MainPageViewModel>();
+            services.AddTransient<SchedulePageViewModel>();
+            services.AddTransient<PickerDatePageViewModel>();
+            services.AddTransient<LoadSavedSchedulePageViewModel>();
+            services.AddTransient<CompensateShiftsPageViewModel>();
+        }
     }
+
 }

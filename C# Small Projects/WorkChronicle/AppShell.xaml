@@ -12,19 +12,19 @@
         ContentTemplate="{DataTemplate local:MainPage}"/>
     
     <ShellContent
-        Route="LoadSavedScheduleView" 
-        ContentTemplate="{DataTemplate local:LoadSavedScheduleView}"/>
+        Route="LoadSavedSchedulePage" 
+        ContentTemplate="{DataTemplate local:LoadSavedSchedulePage}"/>
 
     <ShellContent 
-        Route="ScheduleView" 
-        ContentTemplate="{DataTemplate local:ScheduleView}"  />
+        Route="SchedulePage" 
+        ContentTemplate="{DataTemplate local:SchedulePage}"  />
 
     <ShellContent 
-        Route="PickerDateView" 
-        ContentTemplate="{DataTemplate local:PickerDateView}"  />
+        Route="PickerDatePage" 
+        ContentTemplate="{DataTemplate local:PickerDatePage}"  />
 
     <ShellContent 
-        Route="CompensateShiftsView"  
-        ContentTemplate="{DataTemplate local:CompensateShiftsView}"/>
+        Route="CompensateShiftsPage"  
+        ContentTemplate="{DataTemplate local:CompensateShiftsPage}"/>
     
 </Shell>

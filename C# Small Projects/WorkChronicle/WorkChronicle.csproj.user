@@ -11,16 +11,16 @@
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
   </PropertyGroup>
   <ItemGroup>
-    <MauiXaml Update="Views\LoadSavedScheduleView.xaml">
+    <MauiXaml Update="Views\LoadSavedSchedulePage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\PickerDateView.xaml">
+    <MauiXaml Update="Views\PickerDatePage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\ScheduleView.xaml">
+    <MauiXaml Update="Views\SchedulePage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\CompensateShiftsView.xaml">
+    <MauiXaml Update="Views\CompensateShiftsPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>
