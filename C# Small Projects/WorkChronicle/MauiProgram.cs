@@ -26,11 +26,11 @@
         }
         static void RegisterPages(IServiceCollection services)
         {
-            services.AddSingleton<MainPage>();
-            services.AddSingleton<SchedulePage>();
-            services.AddSingleton<PickerDatePage>();
-            services.AddSingleton<LoadSavedSchedulePage>();
-            services.AddSingleton<CompensateShiftsPage>();
+            services.AddTransient<MainPage>();
+            services.AddTransient<SchedulePage>();
+            services.AddTransient<PickerDatePage>();
+            services.AddTransient<LoadSavedSchedulePage>();
+            services.AddTransient<CompensateShiftsPage>();
         }
 
         static void RegisterVM(IServiceCollection services)

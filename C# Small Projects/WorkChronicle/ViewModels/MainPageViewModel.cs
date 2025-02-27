@@ -13,14 +13,14 @@
         private async Task ViewSavedSchedules()
         {
             //await Navigation.PushAsync(new ScheduleView(this.schedule));
-            await Shell.Current.GoToAsync($"LoadSavedSchedulePage");
+            await Shell.Current.GoToAsync(nameof(LoadSavedSchedulePage));
         }
 
         [RelayCommand]
         private async Task PickNewSchedule()
         {
             //await Navigation.PushAsync(new PickerDateView(engine));
-            await Shell.Current.GoToAsync($"PickerDatePage");
+            await Shell.Current.GoToAsync(nameof(PickerDatePage));
         }
 
         [RelayCommand]

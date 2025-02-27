@@ -11,14 +11,13 @@ public partial class SchedulePage : ContentPage
 
     }
 
-    protected override void OnAppearing()
+    protected override void OnNavigatedTo(NavigatedToEventArgs args)
     {
-        base.OnAppearing();
-
-        // If you are using a ViewModel constructor that needs data, you can reset it here.
-        // Ensure you are re-binding the context if necessary.
-       // var viewModel = (SchedulePageViewModel)BindingContext;
-        //viewModel?.RefreshThePage(); // Call a method to refresh the data/UI
+        base.OnNavigatedTo(args);
+        if (BindingContext is SchedulePageViewModel viewModel)
+        {
+            _ = viewModel.InitializeViewModel(); // Call a method to refresh data
+        }
     }
 
 

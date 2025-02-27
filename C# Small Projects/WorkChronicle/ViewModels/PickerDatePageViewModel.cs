@@ -46,7 +46,7 @@
                 await schedule.AddShift(shift);
             }
 
-            await Shell.Current.GoToAsync($"SchedulePage");
+            await Shell.Current.GoToAsync(nameof(SchedulePage));
         }
 
 

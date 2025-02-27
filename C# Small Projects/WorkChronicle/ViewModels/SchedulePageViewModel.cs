@@ -17,11 +17,8 @@
         [ObservableProperty]
         private string hoursMessage = "";
 
-        public SchedulePageViewModel()
-        {
-            
-        }
-        public SchedulePageViewModel(ISchedule<IShift> schedule):base()
+
+        public SchedulePageViewModel(ISchedule<IShift> schedule)
         {
             this.schedule = schedule;
             this.ShiftCollectionView = new ObservableCollection<IShift>();
@@ -30,7 +27,7 @@
 
         }
 
-        private async Task InitializeViewModel()
+        public async Task InitializeViewModel()
         {
             await RefreshThePage();
         }
@@ -163,7 +160,7 @@
         [RelayCommand]
         private async Task CompensateShift()
         {
-            await Shell.Current.GoToAsync($"CompensateShiftsPage");
+            await Shell.Current.GoToAsync(nameof(CompensateShiftsPage));
         }
 
 

@@ -74,7 +74,7 @@
         {
             // await Navigation.PushAsync(new ScheduleView(schedule));
 
-            await Shell.Current.GoToAsync($"SchedulePage");
+            await Shell.Current.GoToAsync(nameof(SchedulePage));
         }
     }
 }
