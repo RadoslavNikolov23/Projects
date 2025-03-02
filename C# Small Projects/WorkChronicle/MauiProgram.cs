@@ -21,7 +21,6 @@
             RegisterVM(builder.Services);
             RegisterPages(builder.Services);
 
-
             return builder.Build();
         }
         static void RegisterPages(IServiceCollection services)
@@ -42,5 +41,4 @@
             services.AddTransient<CompensateShiftsPageViewModel>();
         }
     }
-
 }

@@ -12,13 +12,12 @@
             <Label x:Name="ResultsLabel" FontSize="Medium" TextColor="Black" />
 
             <CollectionView x:Name="ShiftCollectionView"
-                ItemsSource="{Binding ShiftCollectionView}"
-                SelectedItems="{Binding SelectedShiftsToAdd,Mode=TwoWay}"
-                VerticalScrollBarVisibility="Always"
-                SelectionMode="Multiple"
-                SelectionChanged="ShiftSelectionChanged">
-                
-                <CollectionView.ItemsLayout>
+                         ItemsSource="{Binding ShiftCollectionView}"
+                         SelectionMode="Multiple"
+                         VerticalScrollBarVisibility="Always"
+                         SelectedItems="{Binding SelectedShiftsToAdd}">
+
+                    <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Vertical" />
                 </CollectionView.ItemsLayout>
 

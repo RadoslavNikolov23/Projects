@@ -23,7 +23,6 @@
             this.selectedStartDate = DateTime.Now;
         }
 
-
         public ObservableCollection<string> WorkSchedules { get; } = new()
         {
             "Day-Night",
@@ -38,7 +37,6 @@
             DateTime startDate = SelectedStartDate.Date;
 
             string[] cycle= await ValidateSchedule();
-
             ISchedule<IShift> tempSchedule = this.engine.CalculateShifts(startDate, cycle);
 
             foreach (var shift in tempSchedule.WorkSchedule)
@@ -49,8 +47,6 @@
             await Shell.Current.GoToAsync(nameof(SchedulePage));
         }
 
-
-        
         private async Task<string[]> ValidateSchedule()
         {
             await Task.Delay(100);
@@ -67,7 +63,6 @@
                 ResultsMessage = "Something went wrong";
                 return Array.Empty<string>();
             }
-
 
             return cycle;
         }

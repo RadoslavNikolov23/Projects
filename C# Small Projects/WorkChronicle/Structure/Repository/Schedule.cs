@@ -11,6 +11,7 @@ namespace WorkChronicle.Core.Repository
             workSchedule= new ObservableCollection<IShift>();
         }
 
+        //TODO Check if this work !!!!!
        // public ReadOnlyObservableCollection<IShift> WorkSchedule { get => new ReadOnlyObservableCollection<IShift>(this.workSchedule); }
         public ObservableCollection<IShift> WorkSchedule { get => workSchedule; }
 
@@ -38,7 +39,7 @@ namespace WorkChronicle.Core.Repository
 
         public Task<int> TotalCompansatedShifts()
         {
-            return Task.FromResult(this.workSchedule.Count(s => s.isCompensated == true));
+            return Task.FromResult(this.workSchedule.Count(s => s.IsCompensated == true));
         }
 
         public Task<int> TotalWorkHours()
@@ -47,7 +48,7 @@ namespace WorkChronicle.Core.Repository
 
             foreach (var shift in workSchedule)
             {
-                if(shift.isCompensated == false)
+                if(shift.IsCompensated == false)
                 {
                     totalHours += shift.Hour;
                 }

@@ -11,8 +11,6 @@
             Routing.RegisterRoute("PickerDatePage", typeof(PickerDatePage));
             Routing.RegisterRoute("LoadSavedSchedulePage", typeof(LoadSavedSchedulePage));
             Routing.RegisterRoute("CompensateShiftsPage", typeof(CompensateShiftsPage));
-
-
         }
 
     }

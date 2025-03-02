@@ -6,20 +6,18 @@
              x:DataType="viewmodels:SchedulePageViewModel"
              Title="SchedulePage">
 
-
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
 
             <Label Text="{Binding TextMessage}" FontSize="Medium" TextColor="Black" />
 
-         
+
             <CollectionView x:Name="ShiftCollectionView"
                          ItemsSource="{Binding ShiftCollectionView}"
-                         SelectedItems="{Binding SelectedShiftsForRemove,Mode=TwoWay}"
-                         VerticalScrollBarVisibility="Always"
                          SelectionMode="Multiple"
-                         SelectionChanged="ShiftSelectionChanged">
-                    <CollectionView.ItemsLayout>
+                         VerticalScrollBarVisibility="Always"
+                         SelectedItems="{Binding SelectedShiftsForRemove}">
+                <CollectionView.ItemsLayout>
                     <LinearItemsLayout Orientation="Vertical" />
                 </CollectionView.ItemsLayout>
 

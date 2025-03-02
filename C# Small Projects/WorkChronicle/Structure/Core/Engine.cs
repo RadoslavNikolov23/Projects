@@ -23,7 +23,7 @@
         {
             Schedule schedule = new Schedule();
 
-            IShift dayShift = new DayShift("DayShift",startDate.Year, startDate.Month, startDate.Day);
+            IShift dayShift = new DayShift("DayShift", startDate.Year, startDate.Month, startDate.Day);
             IShift firstNightShift = new NightShift("NightShift", startDate.Year, startDate.Month, startDate.Day + 1);
             IShift secondNightShift = new NightShift("NightShift", startDate.Year, startDate.Month, startDate.Day + 2);
             schedule.AddShift(dayShift);
@@ -56,20 +56,18 @@
 
                 if (shift == "Night")
                 {
-                   // if (tempFistNightDateTime != null && tempSecondNightDateTime != null)
-                  //  {
-                        tempFistNightDateTime = tempFistNightDateTime.AddDays(5);
-                        firstNightShift = new NightShift("NightShift", tempFistNightDateTime.Year, tempFistNightDateTime.Month, tempFistNightDateTime.Day);
+                    tempFistNightDateTime = tempFistNightDateTime.AddDays(5);
+                    firstNightShift = new NightShift("NightShift", tempFistNightDateTime.Year, tempFistNightDateTime.Month, tempFistNightDateTime.Day);
 
-                        tempSecondNightDateTime = tempSecondNightDateTime.AddDays(5);
-                        secondNightShift = new NightShift("NightShift", tempSecondNightDateTime.Year, tempSecondNightDateTime.Month, tempSecondNightDateTime.Day);
+                    tempSecondNightDateTime = tempSecondNightDateTime.AddDays(5);
+                    secondNightShift = new NightShift("NightShift", tempSecondNightDateTime.Year, tempSecondNightDateTime.Month, tempSecondNightDateTime.Day);
 
-                        if (HasShiftMonthChanged(firstNightShift, startDate) || tempSecondNightDateTime.Month != startDate.Month)
-                            break;
+                    if (HasShiftMonthChanged(firstNightShift, startDate) || tempSecondNightDateTime.Month != startDate.Month)
+                        break;
 
-                        schedule.AddShift(firstNightShift);
-                        schedule.AddShift(secondNightShift);
-                  //  }
+                    schedule.AddShift(firstNightShift);
+                    schedule.AddShift(secondNightShift);
+
                 }
             }
 
@@ -80,7 +78,7 @@
         {
             Schedule schedule = new Schedule();
 
-            IShift firstDayShift = new DayShift("DayShift",startDate.Year, startDate.Month, startDate.Day);
+            IShift firstDayShift = new DayShift("DayShift", startDate.Year, startDate.Month, startDate.Day);
             IShift secondDayShift = new DayShift("DayShift", startDate.Year, startDate.Month, startDate.Day + 1);
             schedule.AddShift(firstDayShift);
             schedule.AddShift(secondDayShift);
@@ -98,7 +96,7 @@
                     if (firstDayShift != null)
                     {
                         tempFirstDayDateTime = tempFirstDayDateTime.AddDays(4);
-                        firstDayShift = new DayShift("DayShift",tempFirstDayDateTime.Year, tempFirstDayDateTime.Month, tempFirstDayDateTime.Day);
+                        firstDayShift = new DayShift("DayShift", tempFirstDayDateTime.Year, tempFirstDayDateTime.Month, tempFirstDayDateTime.Day);
 
                         if (HasShiftMonthChanged(firstDayShift, startDate))
                             break;
@@ -109,7 +107,7 @@
                     if (secondDayShift != null)
                     {
                         tempSecondDayDateTime = tempSecondDayDateTime.AddDays(4);
-                        secondDayShift = new DayShift("DayShift",tempSecondDayDateTime.Year, tempSecondDayDateTime.Month, tempSecondDayDateTime.Day);
+                        secondDayShift = new DayShift("DayShift", tempSecondDayDateTime.Year, tempSecondDayDateTime.Month, tempSecondDayDateTime.Day);
 
                         if (HasShiftMonthChanged(secondDayShift, startDate))
                             break;

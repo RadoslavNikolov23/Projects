@@ -6,7 +6,7 @@
         private ISchedule<IShift> schedule;
 
         [ObservableProperty]
-        private ObservableCollection<IShift> selectedShiftsForRemove;
+        private IList<object> selectedShiftsForRemove;
 
         [ObservableProperty]
         private ObservableCollection<IShift> shiftCollectionView;
@@ -17,14 +17,12 @@
         [ObservableProperty]
         private string hoursMessage = "";
 
-
         public SchedulePageViewModel(ISchedule<IShift> schedule)
         {
             this.schedule = schedule;
             this.ShiftCollectionView = new ObservableCollection<IShift>();
-            this.SelectedShiftsForRemove = new ObservableCollection<IShift>();
-            _ = InitializeViewModel(); 
-
+            this.SelectedShiftsForRemove = new List<object>();
+            _ = RefreshThePage();
         }
 
         public async Task InitializeViewModel()
@@ -46,8 +44,6 @@
                 return;
             }
 
-
-
             if (Schedule.WorkSchedule.Count == 0)
             {
 
@@ -61,15 +57,10 @@
                 DateTime startDateNew = Schedule.WorkSchedule.First().GetDateShift();
                 await GenerateShiftDetails(this.Schedule, startDateNew);
             }
-
-            
-
         }
 
         private async Task GenerateShiftDetails(ISchedule<IShift> schedule, DateTime startDate)
         {
-            //await Task.Delay(100);
-
             int totalHours = await schedule.TotalWorkHours();
 
             KeyValuePair<int, string[]> monthByHoursTotal = Provider.GetMonthHoursTotal(startDate);
@@ -79,7 +70,7 @@
 
             TextMessage = $"Your total hours are: {totalHours}, for the month {monthName} the working hours are {totalHoursByMonth}";
 
-            this.ShiftCollectionView = new ObservableCollection<IShift>(this.Schedule.WorkSchedule.Where(s => s.isCompensated == false));
+            this.ShiftCollectionView = new ObservableCollection<IShift>(this.Schedule.WorkSchedule.Where(s => s.IsCompensated == false));
 
             int compansateShiftsCount = await this.Schedule.TotalCompansatedShifts();
 
@@ -99,63 +90,28 @@
                 HoursMessage = $"You have {totalHoursByMonth - totalHours} under the total hours for the month.";
                 //RemoveShiftButton.IsVisible = false; //TODO
             }
-
         }
-
-
-       // public AsyncRelayCommand RemoveShiftCommand => new AsyncRelayCommand(RemoveShift);
 
         [RelayCommand]
         private async Task RemoveShift()
         {
-            await Task.Delay(100);
+            if (SelectedShiftsForRemove == null || SelectedShiftsForRemove.Count == 0)
+                return;
+
+            await Task.Delay(10);
+
             foreach (IShift shift in SelectedShiftsForRemove)
             {
-                foreach (var s in Schedule.WorkSchedule.Where(s => s == shift))
+                foreach (var s in Schedule.WorkSchedule.Where(s => s.Equals(shift)))
                 {
-                    s.isCompensated = true;  
+                    s.IsCompensated = true;
                 }
             }
+
             SelectedShiftsForRemove.Clear();
 
             await RefreshThePage();
         }
-
-        public async Task HandleSelectionChanged(SelectionChangedEventArgs e)
-        {
-            await Task.Delay(100);
-
-            foreach (var shift in e.CurrentSelection.Cast<IShift>())
-            {
-                if (!SelectedShiftsForRemove.Contains(shift))
-                    SelectedShiftsForRemove.Add(shift);  
-            }
-
-            foreach (var shift in e.PreviousSelection.Cast<IShift>())
-            {
-                SelectedShiftsForRemove.Remove(shift); 
-            }
-        }
-
-        
-
-        //[RelayCommand]
-        //private async Task RemoveShiftClicked(object sender, EventArgs e)
-        //{
-        //    foreach (IShift shift in SelectedShiftsForRemove)
-        //    {
-        //        foreach (var s in this.schedule.WorkSchedule.Where(s => s == shift))
-        //        {
-        //            s.isCompensated = true;
-        //        }
-        //    }
-
-        //    ShiftCollectionView.SelectedItems.Clear();
-        //    SelectedShiftsForRemove.Clear();
-
-        //    RefreshThePage();
-        //    // ShiftCollectionView.ItemsSource = schedule.WorkSchedule.Where(s => s.isCompensated == false);
-        //}
 
         [RelayCommand]
         private async Task CompensateShift()
@@ -163,13 +119,11 @@
             await Shell.Current.GoToAsync(nameof(CompensateShiftsPage));
         }
 
-
         [RelayCommand]
         private async Task GoBackButton()
         {
             Schedule.WorkSchedule.Clear();
             await Shell.Current.GoToAsync("///MainPage");
         }
-
     }
 }
