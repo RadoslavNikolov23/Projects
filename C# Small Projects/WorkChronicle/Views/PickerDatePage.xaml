@@ -21,6 +21,13 @@
                 SelectedItem="{Binding SelectedSchedule, Mode=TwoWay}"
                 HorizontalOptions="Start"/>
 
+        <Label Text="Enter first shift: (DayShift/NightShift):" FontSize="Medium" />
+        
+        <Picker Title="Select First Shift"
+          ItemsSource="{Binding WorkShift}"
+          SelectedItem="{Binding SelectedShift, Mode=TwoWay}"
+          HorizontalOptions="Start"/>
+
         <Label Text="{Binding ResultsMessage}" FontSize="Medium" TextColor="Black" />
         
         <Button Text="Calculate Shifts" 

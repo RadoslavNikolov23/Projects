@@ -1,8 +1,9 @@
-﻿namespace WorkChronicle.Core.Repository.Contracts
+﻿using System.Collections.ObjectModel;
+
+namespace WorkChronicle.Core.Repository.Contracts
 {
     public interface ISchedule<T> where T : class
     {
-       // public IReadOnlyList<T> WorkSchedule { get; }
         public ObservableCollection<T> WorkSchedule { get; }
 
         Task AddShift(T shift);

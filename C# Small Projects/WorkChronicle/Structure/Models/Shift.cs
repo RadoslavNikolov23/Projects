@@ -2,7 +2,6 @@
 {
     public abstract class Shift : IShift
     {
-        private DateTime workShift;
         public Shift(string shiftType,int year, int month, int day, int hour)
         {
             ShiftType = shiftType;
@@ -12,7 +11,6 @@
             Hour = hour;
             ShiftType = shiftType;
             IsCompensated = false;
-            this.workShift = new DateTime(this.Year, this.Month, this.Day, this.Hour, 0, 0);
         }
 
         public string ShiftType { get; set; }
@@ -21,21 +19,20 @@
         public int Day { get; set; }
         public int Hour { get; set; }
         public bool IsCompensated { get; set; }
-        public DateTime WorkShift { get => this.workShift; }
 
-        public DateTime GetDateShift()
-        {
-            return WorkShift;
-        }
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine($"{WorkShift.Day:d2}/{WorkShift.Month:d2}/{WorkShift.Year}");
+            sb.AppendLine($"{this.Day:d2}/{this.Month:d2}/{this.Year}");
 
             return sb.ToString().Trim();
         }
 
+        public DateTime GetDateShift()
+        {
+            return new DateTime(this.Year, this.Month, this.Day);
+        }
         public override bool Equals(object? obj)
         {
             if (obj is Shift otherShift)
@@ -45,15 +42,14 @@
                        this.Month == otherShift.Month &&
                        this.Day == otherShift.Day &&
                        this.Hour == otherShift.Hour &&
-                       this.IsCompensated == otherShift.IsCompensated &&
-                       this.WorkShift == otherShift.WorkShift;
+                       this.IsCompensated == otherShift.IsCompensated;
             }
             return false;
         }
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(this.ShiftType,this.Year,this.Month,this.Day,this.Hour,this.IsCompensated,this.WorkShift);
+            return HashCode.Combine(this.ShiftType,this.Year,this.Month,this.Day,this.Hour,this.IsCompensated);
         }
 
     }

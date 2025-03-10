@@ -4,7 +4,7 @@
     {
         private ISchedule<IShift> schedule;
 
-        private readonly IEngine engine;
+        private readonly IEngine<ISchedule<IShift>> engine;
 
         [ObservableProperty]
         private DateTime selectedStartDate;
@@ -16,11 +16,16 @@
         private string resultsMessage = "";
 
 
+        [ObservableProperty]
+        private string selectedShift = "";
+
+
         public PickerDatePageViewModel(ISchedule<IShift> schedule)
         {
             this.schedule = schedule;
             this.engine = new Engine();
             this.selectedStartDate = DateTime.Now;
+            this.selectedShift = WorkShift[0];
         }
 
         public ObservableCollection<string> WorkSchedules { get; } = new()
@@ -30,14 +35,22 @@
             "Day-Night-Night"
         };
 
+        public ObservableCollection<string> WorkShift { get; } = new()
+        {
+            "DayShift",
+            "NightShift",
+        };
+
 
         [RelayCommand]
         private async Task CalculateShifts()
         {
             DateTime startDate = SelectedStartDate.Date;
 
-            string[] cycle= await ValidateSchedule();
-            ISchedule<IShift> tempSchedule = this.engine.CalculateShifts(startDate, cycle);
+            string[] cycle = await ValidateSchedule();
+
+
+            ISchedule<IShift> tempSchedule = await this.engine.CalculateShifts(startDate, cycle, this.SelectedShift);
 
             foreach (var shift in tempSchedule.WorkSchedule)
             {

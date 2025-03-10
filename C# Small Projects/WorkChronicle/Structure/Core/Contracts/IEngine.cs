@@ -1,9 +1,9 @@
 ﻿namespace WorkChronicle.Structure.Core.Contracts
 {
-    public interface IEngine
+    public interface IEngine<T> where T:class
     {
-        Schedule CalculateShifts(DateTime startDate, string[] cycle);
+        Task <T>  CalculateShifts(DateTime startDate, string[] cycle, string firstShift);
 
-        int CalculateTotalHours(Schedule schedule);
+        int CalculateTotalHours(T schedule);
     }
 }

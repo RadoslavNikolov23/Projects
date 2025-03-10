@@ -11,8 +11,6 @@ namespace WorkChronicle.Core.Repository
             workSchedule= new ObservableCollection<IShift>();
         }
 
-        //TODO Check if this work !!!!!
-       // public ReadOnlyObservableCollection<IShift> WorkSchedule { get => new ReadOnlyObservableCollection<IShift>(this.workSchedule); }
         public ObservableCollection<IShift> WorkSchedule { get => workSchedule; }
 
         public Task AddShift(IShift shift)
