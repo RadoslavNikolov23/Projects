@@ -61,7 +61,7 @@
 
         private async Task GenerateShiftDetails(ISchedule<IShift> schedule, DateTime startDate)
         {
-            int totalHours = await schedule.TotalWorkHours();
+            int totalHours = await schedule.CalculateTotalWorkHours();
 
             KeyValuePair<int, string[]> monthByHoursTotal = Provider.GetMonthHoursTotal(startDate);
 

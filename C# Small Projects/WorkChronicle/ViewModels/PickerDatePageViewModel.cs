@@ -17,7 +17,19 @@
 
 
         [ObservableProperty]
-        private string selectedShift = "";
+        private string selectedFirstShift = "";
+
+        [ObservableProperty]
+        private TimeSpan dayShiftStartTime;
+
+        [ObservableProperty]
+        private TimeSpan nightShiftStartTime;
+
+        [ObservableProperty]
+        private int totalShiftHours;
+
+        public List<int> ShiftDurations { get; } = new() { 4, 6, 8, 10, 12 };
+
 
 
         public PickerDatePageViewModel(ISchedule<IShift> schedule)
@@ -25,7 +37,10 @@
             this.schedule = schedule;
             this.engine = new Engine();
             this.selectedStartDate = DateTime.Now;
-            this.selectedShift = WorkShift[0];
+            this.selectedFirstShift = WorkShift[0];
+            this.dayShiftStartTime = new TimeSpan(07, 00, 00);
+            this.nightShiftStartTime = new TimeSpan(19, 00, 00);
+            this.totalShiftHours = 12;
         }
 
         public ObservableCollection<string> WorkSchedules { get; } = new()
@@ -50,7 +65,11 @@
             string[] cycle = await ValidateSchedule();
 
 
-            ISchedule<IShift> tempSchedule = await this.engine.CalculateShifts(startDate, cycle, this.SelectedShift);
+            ShiftConfiguration shiftConfiguration = new ShiftConfiguration(this.DayShiftStartTime.Hours, this.NightShiftStartTime.Hours, this.TotalShiftHours);
+            ScheduleConfiguration scheduleConfiguration = new ScheduleConfiguration(startDate, cycle, this.SelectedFirstShift, shiftConfiguration);
+
+
+            ISchedule<IShift> tempSchedule = await this.engine.CalculateShifts(scheduleConfiguration);
 
             foreach (var shift in tempSchedule.WorkSchedule)
             {

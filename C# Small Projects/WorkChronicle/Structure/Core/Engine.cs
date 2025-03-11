@@ -4,110 +4,111 @@
     {
         private ISchedule<IShift> schedule = new Schedule();
 
-        public async Task<ISchedule<IShift>> CalculateShifts (DateTime startDate, string[] cycle, string firstShift)
+        public async Task<ISchedule<IShift>> CalculateShifts (ScheduleConfiguration scheduleConfiguration)
         {
-            if (cycle.Length == 2)
+            if (scheduleConfiguration.Cycle.Length == 2)
             {
-                if (cycle[1] == "Night")
+                if (scheduleConfiguration.Cycle[1] == "Night")
                 {
-                    await ShiftsDayNight(startDate, cycle, firstShift);
+                    await ShiftsDayNight(scheduleConfiguration);
                 }
-                else if (cycle[1] == "Day")
+                else if (scheduleConfiguration.Cycle[1] == "Day")
                 {
-                    await ShiftsDayDay(startDate, cycle, firstShift);
+                    await ShiftsDayDay(scheduleConfiguration);
                 }
             }
-            else if (cycle.Length == 3)
+            else if (scheduleConfiguration.Cycle.Length == 3)
             {
-                await ShiftsDayNightNight(startDate, cycle, firstShift);
+                await ShiftsDayNightNight(scheduleConfiguration);
             }
 
             return this.schedule;
         }
 
-        public int CalculateTotalHours(ISchedule<IShift> schedule) //TODO: Check if this method is necessary
-        {
-            int totalHours = schedule.WorkSchedule.Sum(s => s.Hour);
+        //public int CalculateTotalHours(ISchedule<IShift> schedule) //TODO: Check if this method is necessary
+        //{
+        //    int totalHours = schedule.WorkSchedule.Sum(s => s.Hour);
 
-            return totalHours;
-        }
+        //    return totalHours;
+        //}
 
-        private async Task ShiftsDayNightNight(DateTime startDate, string[] cycle, string firstShift)
+        private async Task ShiftsDayNightNight(ScheduleConfiguration sc)
         {
             IShift? dayShift = null;
             IShift? firstNightShift = null;
             IShift? secondNightShift = null;
 
-            if (firstShift == "DayShift")
+            if (sc.FirstShift == "DayShift")
             {
-                dayShift = new DayShift("DayShift", startDate.Year, startDate.Month, startDate.Day);
+                dayShift = new DayShift(ShiftType.DayShift, sc.StartDate.Year, sc.StartDate.Month, sc.StartDate.Day, sc.ShiftConfiguration.StartDayShift, sc.ShiftConfiguration.TotalShiftHours);
                 await this.schedule.AddShift(dayShift);
             }
-            else if (firstShift == "NightShift")
+            else if (sc.FirstShift == "NightShift")
             {
-                firstNightShift = new NightShift("NightShift", startDate.Year, startDate.Month, startDate.Day);
-                secondNightShift = new NightShift("NightShift", startDate.Year, startDate.Month, startDate.Day + 1);
+                firstNightShift = new NightShift(ShiftType.NightShift, sc.StartDate.Year, sc.StartDate.Month, sc.StartDate.Day, sc.ShiftConfiguration.StartNightShift, sc.ShiftConfiguration.TotalShiftHours);
+                secondNightShift = new NightShift(ShiftType.NightShift, sc.StartDate.Year, sc.StartDate.Month, sc.StartDate.Day + 1, sc.ShiftConfiguration.StartNightShift, sc.ShiftConfiguration.TotalShiftHours);
                 await this.schedule.AddShift(firstNightShift!);
                 await this.schedule.AddShift(secondNightShift!);
             }
 
             if (dayShift == null)
             {
-                dayShift = new DayShift("DayShift", startDate.Year, startDate.Month, startDate.Day - 1);
+                dayShift = new DayShift(ShiftType.DayShift, sc.StartDate.Year, sc.StartDate.Month, sc.StartDate.Day - 1, sc.ShiftConfiguration.StartDayShift, sc.ShiftConfiguration.TotalShiftHours);
             }
             else if (firstNightShift == null)
             {
-                firstNightShift = new NightShift("NightShift", startDate.Year, startDate.Month, startDate.Day + 1);
-                secondNightShift = new NightShift("NightShift", startDate.Year, startDate.Month, startDate.Day + 2);
+                firstNightShift = new NightShift(ShiftType.NightShift, sc.StartDate.Year, sc.StartDate.Month, sc.StartDate.Day + 1, sc.ShiftConfiguration.StartNightShift, sc.ShiftConfiguration.TotalShiftHours);
+                secondNightShift = new NightShift(ShiftType.NightShift, sc.StartDate.Year, sc.StartDate.Month, sc.StartDate.Day + 2, sc.ShiftConfiguration.StartNightShift, sc.ShiftConfiguration.TotalShiftHours);
                 await this.schedule.AddShift(firstNightShift!);
                 await this.schedule.AddShift(secondNightShift!);
             }
 
             const int daysBetweenShiftsCycle = 5;
-            await AddShiftsToSchedule(cycle, dayShift, firstNightShift!, daysBetweenShiftsCycle, startDate.Month);
+            await AddShiftsToSchedule(sc.Cycle, dayShift, firstNightShift!, daysBetweenShiftsCycle, sc.StartDate.Month);
         }
 
-        private async Task ShiftsDayDay(DateTime startDate, string[] cycle, string firstShift)
+        private async Task ShiftsDayDay(ScheduleConfiguration sc)
         {
             //Have to insert in the picker, aditionl option to pick where the dayShifts start - on the first/second?????)
 
-            IShift firstDayShift = new DayShift("DayShift", startDate.Year, startDate.Month, startDate.Day);
-            IShift secondDayShift = new DayShift("DayShift", startDate.Year, startDate.Month, startDate.Day + 1);
+            IShift firstDayShift = new DayShift(ShiftType.DayShift, sc.StartDate.Year, sc.StartDate.Month, sc.StartDate.Day, sc.ShiftConfiguration.StartDayShift, sc.ShiftConfiguration.TotalShiftHours);
+            IShift secondDayShift = new DayShift(ShiftType.DayShift, sc.StartDate.Year, sc.StartDate.Month, sc.StartDate.Day + 1, sc.ShiftConfiguration.StartDayShift, sc.ShiftConfiguration.TotalShiftHours);
             await this.schedule.AddShift(firstDayShift);
             await this.schedule.AddShift(secondDayShift);
 
             const int daysBetweenShiftsCycle = 4;
-            await AddShiftsToSchedule(cycle, firstDayShift, secondDayShift, daysBetweenShiftsCycle, startDate.Month);
+            await AddShiftsToSchedule(sc.Cycle, firstDayShift, secondDayShift!, daysBetweenShiftsCycle, sc.StartDate.Month);
+
         }
 
-        private async Task ShiftsDayNight(DateTime startDate, string[] cycle, string firstShift)
+        private async Task ShiftsDayNight(ScheduleConfiguration sc)
         {
             IShift? dayShift = null;
             IShift? nightShift = null;
 
-            if (firstShift == "DayShift")
+            if (sc.FirstShift == "DayShift")
             {
-                dayShift = new DayShift("DayShift", startDate.Year, startDate.Month, startDate.Day);
+                dayShift = new DayShift(ShiftType.DayShift, sc.StartDate.Year, sc.StartDate.Month, sc.StartDate.Day, sc.ShiftConfiguration.StartDayShift, sc.ShiftConfiguration.TotalShiftHours);
                 await this.schedule.AddShift(dayShift);
             }
-            else if (firstShift == "NightShift")
+            else if (sc.FirstShift == "NightShift")
             {
-                nightShift = new NightShift("NightShift", startDate.Year, startDate.Month, startDate.Day);
+                nightShift = new NightShift(ShiftType.NightShift, sc.StartDate.Year, sc.StartDate.Month, sc.StartDate.Day, sc.ShiftConfiguration.StartNightShift, sc.ShiftConfiguration.TotalShiftHours);
                 await this.schedule.AddShift(nightShift!);
             }
 
             if (dayShift == null)
             {
-                dayShift = new DayShift("DayShift", startDate.Year, startDate.Month, startDate.Day - 1);
+                dayShift = new DayShift(ShiftType.DayShift, sc.StartDate.Year, sc.StartDate.Month, sc.StartDate.Day - 1, sc.ShiftConfiguration.StartDayShift, sc.ShiftConfiguration.TotalShiftHours);
             }
             else if (nightShift == null)
             {
-                nightShift = new NightShift("NightShift", startDate.Year, startDate.Month, startDate.Day + 1);
+                nightShift = new NightShift(ShiftType.NightShift, sc.StartDate.Year, sc.StartDate.Month, sc.StartDate.Day + 1, sc.ShiftConfiguration.StartNightShift, sc.ShiftConfiguration.TotalShiftHours);
                 await this.schedule.AddShift(nightShift!);
             }
 
             const int daysBetweenShiftsCycle = 4;
-            await AddShiftsToSchedule(cycle, dayShift, nightShift!, daysBetweenShiftsCycle, startDate.Month);
+            await AddShiftsToSchedule(sc.Cycle, dayShift, nightShift!, daysBetweenShiftsCycle, sc.StartDate.Month);
         }
 
         private Task AddShiftsToSchedule(string[] cycle, IShift dayShift, IShift nightShift, int daysBetweenShiftsCycle, int startDateMonth)
@@ -142,7 +143,7 @@
                     if (HasShiftMonthChanged(tempDayDateTime.Month, startDateMonth))
                         break;
 
-                    this.schedule.AddShift(new DayShift(dayShift.ShiftType, tempDayDateTime.Year, tempDayDateTime.Month, tempDayDateTime.Day));
+                    this.schedule.AddShift(new DayShift(dayShift.ShiftType, tempDayDateTime.Year, tempDayDateTime.Month, tempDayDateTime.Day,dayShift.StarTime,dayShift.ShiftHour));
 
                     if (IsDayDayShift)
                     {
@@ -151,7 +152,7 @@
                         if (HasShiftMonthChanged(tempDayDateTime.Month, startDateMonth))
                             break;
 
-                        this.schedule.AddShift(new DayShift(dayShift.ShiftType, tempDayDateTime.Year, tempDayDateTime.Month, tempDayDateTime.Day));
+                        this.schedule.AddShift(new DayShift(dayShift.ShiftType, tempDayDateTime.Year, tempDayDateTime.Month, tempDayDateTime.Day, dayShift.StarTime, dayShift.ShiftHour));
                     }
                 }
 
@@ -162,7 +163,7 @@
                     if (HasShiftMonthChanged(tempNightDateTime.Month, startDateMonth))
                         break;
 
-                    this.schedule.AddShift(new NightShift(nightShift.ShiftType, tempNightDateTime.Year, tempNightDateTime.Month, tempNightDateTime.Day));
+                    this.schedule.AddShift(new NightShift(nightShift.ShiftType, tempNightDateTime.Year, tempNightDateTime.Month, tempNightDateTime.Day, nightShift.StarTime, nightShift.ShiftHour));
 
                     if (IsDayNightNightShift)
                     {
@@ -171,7 +172,7 @@
                         if (HasShiftMonthChanged(tempSecondNightDateTime.Month, startDateMonth))
                             break;
 
-                        this.schedule.AddShift(new NightShift(nightShift.ShiftType, tempSecondNightDateTime.Year, tempSecondNightDateTime.Month, tempSecondNightDateTime.Day));
+                        this.schedule.AddShift(new NightShift(nightShift.ShiftType, tempSecondNightDateTime.Year, tempSecondNightDateTime.Month, tempSecondNightDateTime.Day, nightShift.StarTime, nightShift.ShiftHour));
                     }
                 }
             }

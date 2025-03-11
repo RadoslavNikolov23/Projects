@@ -2,29 +2,31 @@
 {
     public abstract class Shift : IShift
     {
-        public Shift(string shiftType,int year, int month, int day, int hour)
+        public Shift(ShiftType shiftType,int year, int month, int day, double startTime, double shiftHour)
         {
             ShiftType = shiftType;
             Year = year;
             Month = month;
             Day = day;
-            Hour = hour;
+            StarTime = startTime;
+            ShiftHour = shiftHour;
             ShiftType = shiftType;
             IsCompensated = false;
         }
 
-        public string ShiftType { get; set; }
+        public ShiftType ShiftType { get; set; }
         public int Year { get; set; }
         public int Month { get; set; }
         public int Day { get; set; }
-        public int Hour { get; set; }
+        public double StarTime { get; set; }
+        public double ShiftHour { get; set; }
         public bool IsCompensated { get; set; }
 
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine($"{this.Day:d2}/{this.Month:d2}/{this.Year}");
+            sb.AppendLine($"{this.Day:d2}/{this.Month:d2}/{this.Year}"); // Can insert the shift hours or something else
 
             return sb.ToString().Trim();
         }
@@ -41,7 +43,8 @@
                        this.Year == otherShift.Year &&
                        this.Month == otherShift.Month &&
                        this.Day == otherShift.Day &&
-                       this.Hour == otherShift.Hour &&
+                       this.StarTime == otherShift.StarTime &&
+                       this.ShiftHour == otherShift.ShiftHour &&
                        this.IsCompensated == otherShift.IsCompensated;
             }
             return false;
@@ -49,7 +52,7 @@
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(this.ShiftType,this.Year,this.Month,this.Day,this.Hour,this.IsCompensated);
+            return HashCode.Combine(this.ShiftType,this.Year,this.Month,this.Day,this.StarTime,this.ShiftHour, this.IsCompensated);
         }
 
     }

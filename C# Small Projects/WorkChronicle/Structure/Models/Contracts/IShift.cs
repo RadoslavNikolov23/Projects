@@ -2,11 +2,12 @@
 {
     public interface IShift
     {
-        public string ShiftType { get; set; }
+        public ShiftType ShiftType { get; set; }
         public int Year { get; set; }
         public int Month { get; set; }
         public int Day { get; set; }
-        public int Hour { get; set; }
+        public double StarTime { get; set; }
+        public double ShiftHour { get; set; }
         public bool IsCompensated { get; set; }
 
         public DateTime GetDateShift();

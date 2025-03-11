@@ -40,19 +40,44 @@ namespace WorkChronicle.Core.Repository
             return Task.FromResult(this.workSchedule.Count(s => s.IsCompensated == true));
         }
 
-        public Task<int> TotalWorkHours()
+        public async Task<int> CalculateTotalWorkHours()
         {
             int totalHours = 0;
 
             foreach (var shift in workSchedule)
             {
-                if(shift.IsCompensated == false)
+                if (shift.IsCompensated == false)
                 {
-                    totalHours += shift.Hour;
+                    totalHours += await CalculteShiftHours(shift);
                 }
             }
 
-            return Task.FromResult(totalHours);
+            return totalHours;
+        }
+
+        private Task<int> CalculteShiftHours(IShift shift)
+        {
+            double totalShiftHours = shift.ShiftHour;
+
+            if (shift.ShiftType == ShiftType.NightShift)
+            {
+                double startHour = shift.StarTime;
+                double endHour = (startHour + (int)shift.ShiftHour) % 24;
+
+                for (int i = (int)startHour; i < startHour + shift.ShiftHour; i++)
+                {
+                    int currentHour = i % 24;
+
+                    if (currentHour >= 22 || currentHour < 6)
+                    {
+                        totalShiftHours += 0.143; //Make this an constatnt the formula is 8/7
+                    }
+
+                }
+            }
+
+            return Task.FromResult((int)totalShiftHours);
+
         }
 
     }

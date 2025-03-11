@@ -2,10 +2,10 @@
 {
     public class DayShift : Shift
     {
-        private const int hourDayShift = 12;
-        public DayShift(string shiftType,int year, int month, int day) : base (shiftType, year, month, day, hourDayShift)
+       // private const int hourDayShift = 12;
+        public DayShift(ShiftType shiftType, int year, int month, int day, double startTime, double shiftHour) : base(shiftType, year, month, day, startTime, shiftHour)
         {
-            
+
         }
 
         public override string ToString()
