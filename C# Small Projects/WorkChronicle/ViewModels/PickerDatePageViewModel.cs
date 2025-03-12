@@ -15,7 +15,6 @@
         [ObservableProperty]
         private string resultsMessage = "";
 
-
         [ObservableProperty]
         private string selectedFirstShift = "";
 
@@ -29,8 +28,6 @@
         private int totalShiftHours;
 
         public List<int> ShiftDurations { get; } = new() { 4, 6, 8, 10, 12 };
-
-
 
         public PickerDatePageViewModel(ISchedule<IShift> schedule)
         {
@@ -56,7 +53,6 @@
             "NightShift",
         };
 
-
         [RelayCommand]
         private async Task CalculateShifts()
         {
@@ -64,11 +60,8 @@
 
             string[] cycle = await ValidateSchedule();
 
-
             ShiftConfiguration shiftConfiguration = new ShiftConfiguration(this.DayShiftStartTime.Hours, this.NightShiftStartTime.Hours, this.TotalShiftHours);
             ScheduleConfiguration scheduleConfiguration = new ScheduleConfiguration(startDate, cycle, this.SelectedFirstShift, shiftConfiguration);
-
-
             ISchedule<IShift> tempSchedule = await this.engine.CalculateShifts(scheduleConfiguration);
 
             foreach (var shift in tempSchedule.WorkSchedule)
@@ -79,7 +72,7 @@
             await Shell.Current.GoToAsync(nameof(SchedulePage));
         }
 
-        private async Task<string[]> ValidateSchedule()
+        private async Task<string[]> ValidateSchedule() //Maybe make this a Task only method
         {
             await Task.Delay(100);
 
