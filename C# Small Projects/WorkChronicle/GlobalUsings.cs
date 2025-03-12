@@ -10,7 +10,7 @@ global using WorkChronicle.Core.Models;
 global using WorkChronicle.Core.Models.Contracts;
 global using WorkChronicle.Structure.Core;
 global using WorkChronicle.Structure.Core.Contracts;
-global using WorkChronicle.Structure.Models.Enum;
+global using WorkChronicle.Structure.Models.Enums;
 global using WorkChronicle.Structure.WorkHoursByYears;
 global using WorkChronicle.Structure.Configuration;
 

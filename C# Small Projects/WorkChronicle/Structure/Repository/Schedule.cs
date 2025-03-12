@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-namespace WorkChronicle.Core.Repository
+﻿namespace WorkChronicle.Core.Repository
 {
     public class Schedule : ISchedule<IShift>
     {
@@ -59,25 +57,42 @@ namespace WorkChronicle.Core.Repository
         {
             double totalShiftHours = shift.ShiftHour;
 
-            if (shift.ShiftType == ShiftType.NightShift)
-            {
-                double startHour = shift.StarTime;
-                double endHour = (startHour + (int)shift.ShiftHour) % 24;
+            double startHour = shift.StarTime;
+            double endHour = (startHour + (int)shift.ShiftHour) % 24;
 
+            if (startHour < endHour)
+            {
                 for (int i = (int)startHour; i < startHour + shift.ShiftHour; i++)
                 {
                     int currentHour = i % 24;
 
                     if (currentHour >= 22 || currentHour < 6)
                     {
-                        totalShiftHours += 0.143; //Make this an constatnt the formula is 8/7
+                        totalShiftHours += GetNightShiftMultiplier(currentHour);
                     }
-
                 }
             }
+            else
+            {
+                for (int i = (int)startHour; i < 24; i++)
+                {
+                    if (i >= 22 || i < 6)
+                    {
+                        totalShiftHours += GetNightShiftMultiplier(i);
+                    }
+                }
 
+                for (int i = 0; i < endHour; i++)
+                {
+                    totalShiftHours += GetNightShiftMultiplier(i);
+                }
+            }
             return Task.FromResult((int)totalShiftHours);
+        }
 
+        private double GetNightShiftMultiplier(int currentHour)
+        {
+            return (currentHour >= 22 || currentHour < 6) ? 0.143 : 0.0; //Make the 0.143 a const
         }
 
     }

@@ -15,6 +15,7 @@
         [ObservableProperty]
         private string resultsMessage = "";
 
+
         [ObservableProperty]
         private string selectedFirstShift = "";
 
@@ -27,7 +28,9 @@
         [ObservableProperty]
         private int totalShiftHours;
 
-        public List<int> ShiftDurations { get; } = new() { 4, 6, 8, 10, 12 };
+        public List<int> ShiftDurations { get; } = new() { 4, 6, 8, 10, 12, 24 };
+
+
 
         public PickerDatePageViewModel(ISchedule<IShift> schedule)
         {
@@ -42,16 +45,26 @@
 
         public ObservableCollection<string> WorkSchedules { get; } = new()
         {
-            "Day-Night",
+            "Day24Hour",
             "Day-Day",
+            "Day-Night",
             "Day-Night-Night"
         };
+
+        //public ObservableCollection<string> DisplayWorkSchedules
+        //{
+        //    get
+        //    {
+        //        return new ObservableCollection<string>(WorkSchedules.Select(s => s == "Day" ? "Day24Hour" : s));
+        //    }
+        //}
 
         public ObservableCollection<string> WorkShift { get; } = new()
         {
             "DayShift",
             "NightShift",
         };
+
 
         [RelayCommand]
         private async Task CalculateShifts()
@@ -60,8 +73,11 @@
 
             string[] cycle = await ValidateSchedule();
 
+
             ShiftConfiguration shiftConfiguration = new ShiftConfiguration(this.DayShiftStartTime.Hours, this.NightShiftStartTime.Hours, this.TotalShiftHours);
             ScheduleConfiguration scheduleConfiguration = new ScheduleConfiguration(startDate, cycle, this.SelectedFirstShift, shiftConfiguration);
+
+
             ISchedule<IShift> tempSchedule = await this.engine.CalculateShifts(scheduleConfiguration);
 
             foreach (var shift in tempSchedule.WorkSchedule)
@@ -72,7 +88,7 @@
             await Shell.Current.GoToAsync(nameof(SchedulePage));
         }
 
-        private async Task<string[]> ValidateSchedule() //Maybe make this a Task only method
+        private async Task<string[]> ValidateSchedule()
         {
             await Task.Delay(100);
 

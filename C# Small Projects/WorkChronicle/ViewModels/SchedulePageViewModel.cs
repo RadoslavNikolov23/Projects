@@ -32,10 +32,25 @@
 
         private async Task RefreshThePage()
         {
-            if (Schedule == null || Schedule.WorkSchedule.Count == 0 )
+            if (Schedule == null)
             {
-               TextMessage = "You have no shifts for this month.";
+                Console.WriteLine("Schedule is NULL!");
                 return;
+            }
+
+            if (Schedule.WorkSchedule == null)
+            {
+                Console.WriteLine("Schedule.WorkSchedule is NULL!");
+                return;
+            }
+
+            if (Schedule.WorkSchedule.Count == 0)
+            {
+
+                TextMessage = "You have no shifts for this month.";
+
+                //RemoveShiftButton.IsVisible = false; ///TODO
+                // CompensateShiftButton.IsVisible = false;   //?TODO
             }
             else
             {
@@ -49,14 +64,15 @@
             int totalHours = await schedule.CalculateTotalWorkHours();
 
             KeyValuePair<int, string[]> monthByHoursTotal = Provider.GetMonthHoursTotal(startDate);
+
             string monthName = Provider.GetMonthName(monthByHoursTotal.Key);
             int totalHoursByMonth = int.Parse(monthByHoursTotal.Value[1]);
 
             TextMessage = $"Your total hours are: {totalHours}, for the month {monthName} the working hours are {totalHoursByMonth}";
-            
+
             this.ShiftCollectionView = new ObservableCollection<IShift>(this.Schedule.WorkSchedule.Where(s => s.IsCompensated == false));
 
-           // int compansateShiftsCount = await this.Schedule.TotalCompansatedShifts();
+            int compansateShiftsCount = await this.Schedule.TotalCompansatedShifts();
 
             /* TODO
             if (compansateShiftsCount == 0)
@@ -72,6 +88,7 @@
             else
             {
                 HoursMessage = $"You have {totalHoursByMonth - totalHours} under the total hours for the month.";
+                //RemoveShiftButton.IsVisible = false; //TODO
             }
         }
 
@@ -92,6 +109,7 @@
             }
 
             SelectedShiftsForRemove.Clear();
+
             await RefreshThePage();
         }
 
