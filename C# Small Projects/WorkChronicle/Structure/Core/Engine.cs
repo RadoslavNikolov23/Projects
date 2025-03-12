@@ -45,7 +45,6 @@
             }
             else if (sc.FirstShift == "NightShift")
             {
-            //Chech if the cucle.length is 3 and then add the second night shift!
                 firstNightShift = new NightShift(ShiftType.NightShift, sc.StartDate.Year, sc.StartDate.Month, sc.StartDate.Day, sc.ShiftConfiguration.StartNightShift, sc.ShiftConfiguration.TotalShiftHours);
                 secondNightShift = new NightShift(ShiftType.NightShift, sc.StartDate.Year, sc.StartDate.Month, sc.StartDate.Day + 1, sc.ShiftConfiguration.StartNightShift, sc.ShiftConfiguration.TotalShiftHours);
                 await this.schedule.AddShift(firstNightShift!);
