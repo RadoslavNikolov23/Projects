@@ -3,7 +3,7 @@
     public class Engine : IEngine<ISchedule<IShift>>
     {
         private ShiftType firstShiftType;
-        private ShiftPattern shiftPattern = new ShiftPattern();
+        private readonly ShiftPattern shiftPattern = new ShiftPattern();
         private ISchedule<IShift> schedule = new Schedule();
 
         public async Task<ISchedule<IShift>> CalculateShifts(ScheduleConfiguration scheduleConfiguration)
@@ -173,7 +173,7 @@
                     if (HasShiftMonthChanged(tempNightDT.Month, startDateMonth))
                         break;
 
-                    this.schedule.AddShift(new NightShift(nightShift.ShiftType, tempNightDT.Year, tempNightDT.Month, tempNightDT.Day, nightShift.StarTime, nightShift.ShiftHour));
+                    this.schedule.AddShift(new NightShift(nightShift!.ShiftType, tempNightDT.Year, tempNightDT.Month, tempNightDT.Day, nightShift.StarTime, nightShift.ShiftHour));
 
                     if (shiftPattern.IsDayNightNightShift)
                     {

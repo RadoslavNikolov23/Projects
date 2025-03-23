@@ -8,8 +8,17 @@
 
     <StackLayout Padding="20" Spacing="20">
 
+        <Label Text="Select a saved schedule:" FontSize="20"/>
+
+        <Picker Title="Select Schedule"
+                ItemsSource="{Binding ScheduleNames}"
+                SelectedItem="{Binding SelectedScheduleName}" />
+
         <Button Text="Load Saved Schedule" 
                 Command="{Binding LoadSavedCommand}" />
+        
+        <Label Text="(If no schedules appear, none are saved yet.)"
+               FontSize="14" TextColor="Gray"/>
         
     </StackLayout>
 </ContentPage>

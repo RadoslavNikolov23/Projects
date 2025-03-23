@@ -1,15 +1,11 @@
 ﻿namespace WorkChronicle.ViewModels
 {
-    using WorkChronicle.Structure.Models.Contracts;
-    using WorkChronicle.Structure.Repository.Contracts;
-
     public partial class MainPageViewModel: BaseViewModel
     {
         
-        private readonly ISchedule<IShift> schedule;
-        public MainPageViewModel(ISchedule<IShift> schedule)
+        public MainPageViewModel()
         {
-            this.schedule = schedule;   
+
         }
 
         [RelayCommand]

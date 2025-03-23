@@ -8,4 +8,10 @@ public partial class LoadSavedSchedulePage : ContentPage
         BindingContext=loadSavedSchedulePageViewModel;
     }
 
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        if (BindingContext is LoadSavedSchedulePageViewModel vm)
+            await vm.LoadScheduleNamesAsync();
+    }
 }

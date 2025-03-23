@@ -1,5 +1,7 @@
 ﻿namespace WorkChronicle
 {
+    using WorkChronicle.Data.Connection;
+    using WorkChronicle.Data.RepositoryDB;
     using WorkChronicle.Structure.Models.Contracts;
     using WorkChronicle.Structure.Repository;
     using WorkChronicle.Structure.Repository.Contracts;
@@ -22,6 +24,8 @@
 #endif
             builder.Services.AddSingleton<AppShell>();
             builder.Services.AddSingleton<ISchedule<IShift>, Schedule>();
+            builder.Services.AddSingleton<ScheduleDbContext>();
+            builder.Services.AddSingleton<ScheduleRepositoryDB>();
             RegisterVM(builder.Services);
             RegisterPages(builder.Services);
 
