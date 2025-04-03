@@ -3,7 +3,8 @@
     public enum ShiftType
     {
         DayShift = 0,
-        NightShift = 1
+        NightShift = 1,
+        RestDay = 2
     }
 
     public static class ShiftTypeExtensions

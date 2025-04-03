@@ -1,19 +1,23 @@
-namespace WorkChronicle;
-
-public partial class SchedulePage : ContentPage
+namespace WorkChronicle.Views
 {
-    public SchedulePage(SchedulePageViewModel schedulePageViewModel)
-    {
-        InitializeComponent();
-        BindingContext = schedulePageViewModel;
-    }
 
-    protected override void OnNavigatedTo(NavigatedToEventArgs args) //TODO Check if this method is needed?
+
+
+    public partial class SchedulePage : ContentPage
     {
-        base.OnNavigatedTo(args);
-        if (BindingContext is SchedulePageViewModel viewModel)
+        public SchedulePage(SchedulePageViewModel schedulePageViewModel)
         {
-            _ = viewModel.InitializeViewModel();
+            InitializeComponent();
+            BindingContext = schedulePageViewModel;
+        }
+
+        protected override void OnNavigatedTo(NavigatedToEventArgs args) //TODO Check if this method is needed?
+        {
+            base.OnNavigatedTo(args);
+            if (BindingContext is SchedulePageViewModel viewModel)
+            {
+                _ = viewModel.InitializeViewModel();
+            }
         }
     }
 }

@@ -1,11 +1,12 @@
-namespace WorkChronicle;
-
-public partial class CompensateShiftsPage : ContentPage
+namespace WorkChronicle.Views
 {
-    public CompensateShiftsPage(CompensateShiftsPageViewModel compensateShiftsPageViewModel)
+    public partial class CompensateShiftsPage : ContentPage
     {
-        InitializeComponent();
-        BindingContext = compensateShiftsPageViewModel;
-    }
+        public CompensateShiftsPage(CompensateShiftsPageViewModel compensateShiftsPageViewModel)
+        {
+            InitializeComponent();
+            BindingContext = compensateShiftsPageViewModel;
+        }
 
+    }
 }

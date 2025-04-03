@@ -1,12 +1,71 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle\\viewmodels\\mainpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|solutionrelative:viewmodels\\mainpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle\\views\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|solutionrelative:views\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle\\views\\schedulepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|solutionrelative:views\\schedulepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SchedulePage.xaml",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\Views\\SchedulePage.xaml",
+              "RelativeDocumentMoniker": "Views\\SchedulePage.xaml",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\Views\\SchedulePage.xaml",
+              "RelativeToolTip": "Views\\SchedulePage.xaml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-03T17:29:47.493Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainPage.xaml",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\Views\\MainPage.xaml",
+              "RelativeDocumentMoniker": "Views\\MainPage.xaml",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\Views\\MainPage.xaml*",
+              "RelativeToolTip": "Views\\MainPage.xaml*",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAEMAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-03T17:26:00.305Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainPageViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\ViewModels\\MainPageViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\MainPageViewModel.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\ViewModels\\MainPageViewModel.cs*",
+              "RelativeToolTip": "ViewModels\\MainPageViewModel.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-03T17:25:57.024Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

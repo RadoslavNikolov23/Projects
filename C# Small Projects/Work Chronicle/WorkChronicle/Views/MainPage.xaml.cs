@@ -1,4 +1,4 @@
-﻿namespace WorkChronicle
+﻿namespace WorkChronicle.Views
 {
     public partial class MainPage : ContentPage
     {
@@ -6,6 +6,13 @@
         {
             InitializeComponent();
             BindingContext = mainPageViewModel;
+
+        }
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            if (BindingContext is MainPageViewModel vm)
+                await vm.LoadScheduleNamesAsync();
         }
     }
 }

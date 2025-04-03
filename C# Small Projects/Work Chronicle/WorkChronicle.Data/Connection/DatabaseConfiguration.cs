@@ -1,20 +1,18 @@
 ﻿namespace WorkChronicle.Data.Connection
 {
+
     public static class DatabaseConfiguration
     {
-        private const string DatabaseFilename = "WorkChronicleDatabase.db";
+        private const string DatabaseFilename = "WorkChronicleDatabase.db3";
 
-#if ANDROID
-    public static string DatabasePath =>
-        Path.Combine(FileSystem.Current.AppDataDirectory, DatabaseFilename);
-#elif WINDOWS
-    public static string DatabasePath =>
-        Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), DatabaseFilename);
-#elif IOS
-    public static string DatabasePath =>
-        Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "..", "Library", DatabaseFilename);
-#else
-        public static string DatabasePath => DatabaseFilename; // fallback
-#endif
+        public const SQLite.SQLiteOpenFlags Flags =
+                                        SQLite.SQLiteOpenFlags.ReadWrite |
+                                        SQLite.SQLiteOpenFlags.Create |
+                                        SQLite.SQLiteOpenFlags.SharedCache;
+
+        public static string DatabasePath =>
+            Path.Combine(FileSystem.AppDataDirectory, DatabaseFilename);
+
     }
+
 }

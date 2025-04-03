@@ -7,5 +7,6 @@
             InitializeComponent();
             MainPage = appShell;
         }
+
     }
 }

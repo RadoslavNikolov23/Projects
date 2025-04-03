@@ -2,21 +2,86 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:WorkChronicle.ViewModels"
-             x:Class="WorkChronicle.MainPage"
+             x:Class="WorkChronicle.Views.MainPage"
              x:DataType="viewmodels:MainPageViewModel"
              Title="MainPage">
-    
-  <StackLayout Padding="20" Spacing="30">
-      
-        <Label x:Name="ChoiseLabel" Text="Choise one of the options:" TextColor="Black" FontSize="Medium"/>
 
-        <Button Text="View saved schedules" 
-                Command="{Binding ViewSavedSchedulesCommand}"/>
+    <StackLayout Padding="20" Spacing="30">
+      
+        <Label x:Name="ChoiseLabel" 
+               Text="Select a Schedule:" 
+               TextColor="Black" 
+               FontSize="Medium"/>
+
+        <Picker Title="Select Schedule"
+         ItemsSource="{Binding ScheduleNames}"
+         SelectedItem="{Binding SelectedScheduleName}" />
+
+        <Label Text="(If no schedules appear, none are saved yet)"
+        FontSize="14" TextColor="Gray"/>
+
+        <Label Text="{Binding SelectedMonthYear}" 
+               FontSize="24" 
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/>
+
+        <Grid ColumnSpacing="10" RowSpacing="10" Margin="5,10,5,10">
+
+            <!-- Define 7 Columns (Days of the Week) -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Define 4-5 Rows (Weeks) -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Bind Days Dynamically -->
+            <CollectionView ItemsSource="{Binding CalendarDays}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" 
+                                     Span="7" 
+                                     VerticalItemSpacing="10" 
+                                     HorizontalItemSpacing="2"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="viewmodels:CalendarDay">
+                        <Frame Padding="5"
+                               BackgroundColor="{Binding BackgroundColor}"
+                               BorderColor="Black"
+                               CornerRadius="5"
+                               HeightRequest="50"
+                               WidthRequest="50"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center">
+                            <Label Text="{Binding Day}" 
+                                   FontSize="16" 
+                                   HorizontalOptions="Center" 
+                                   VerticalOptions="Center"/>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </Grid>
+
 
         <Button Text="Pick a new schedule" 
                 Command="{Binding PickNewScheduleCommand}"/>
 
         <Button Text="Exit" 
                 Command="{Binding ExitAppCommand}"/>
+      
     </StackLayout>
 </ContentPage>

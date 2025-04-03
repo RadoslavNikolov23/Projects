@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:WorkChronicle.ViewModels"
-             x:Class="WorkChronicle.CompensateShiftsPage"
+             x:Class="WorkChronicle.Views.CompensateShiftsPage"
              x:DataType="viewmodels:CompensateShiftsPageViewModel"
              Title="CompensateShiftsPage">
 

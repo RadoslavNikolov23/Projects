@@ -1,8 +1,13 @@
 ﻿namespace WorkChronicle.ViewModels
 {
-  
-    public partial class SchedulePageViewModel:BaseViewModel
+    public partial class SchedulePageViewModel : BaseViewModel
     {
+        //Two repository DB
+
+        private WorkShiftRepositoryDB shiftRepo;
+        private WorkScheduleRepositoryDB scheduleRepo;
+
+
         [ObservableProperty]
         private ISchedule<IShift> schedule;
 
@@ -18,12 +23,15 @@
         [ObservableProperty]
         private string hoursMessage = "";
 
-        public SchedulePageViewModel(ISchedule<IShift> schedule)
+        public SchedulePageViewModel(ISchedule<IShift> schedule, WorkShiftRepositoryDB shiftRepositoryDB, WorkScheduleRepositoryDB scheduleRepositoryDB)
         {
             this.schedule = schedule;
             this.ShiftCollectionView = new ObservableCollection<IShift>();
             this.SelectedShiftsForRemove = new List<object>();
             _ = RefreshThePage();
+
+            this.shiftRepo = shiftRepositoryDB;
+            this.scheduleRepo = scheduleRepositoryDB;
         }
 
         public async Task InitializeViewModel()
@@ -46,12 +54,8 @@
             }
 
             if (Schedule.WorkSchedule.Count == 0)
-            {
-
+            { 
                 TextMessage = "You have no shifts for this month.";
-
-                //RemoveShiftButton.IsVisible = false; ///TODO
-                // CompensateShiftButton.IsVisible = false;   //?TODO
             }
             else
             {
@@ -75,13 +79,6 @@
 
             int compansateShiftsCount = await this.Schedule.TotalCompansatedShifts();
 
-            /* TODO
-            if (compansateShiftsCount == 0)
-                CompensateShiftButton.IsVisible = false;
-            else
-                CompensateShiftButton.IsVisible = true;
-            */
-
             if (totalHours > totalHoursByMonth)
             {
                 HoursMessage = $"You have {totalHours - totalHoursByMonth} hours of overtime, you have to choose which shift to compensate.";
@@ -89,7 +86,6 @@
             else
             {
                 HoursMessage = $"You have {totalHoursByMonth - totalHours} under the total hours for the month.";
-                //RemoveShiftButton.IsVisible = false; //TODO
             }
         }
 
@@ -121,10 +117,37 @@
         }
 
         [RelayCommand]
+        private async Task SaveShiftSchedule()
+        {
+            var scheduleDb = new DbSchedule { ScheduleName = "March 2025" }; //TODO Change name!!!! to WORK!!!
+            await scheduleRepo.AddSchedule(scheduleDb);
+
+            foreach (var shifts in schedule.WorkSchedule)
+            {
+                DbShift dbShift = new DbShift
+                {
+                    DbScheduleId = scheduleDb.Id,
+                    ShiftType = (ShiftTypes)shifts.ShiftType,
+                    Year = shifts.Year,
+                    Month = shifts.Month,
+                    Day = shifts.Day,
+                    StarTime = shifts.StarTime,
+                    ShiftHour = shifts.ShiftHour,
+                    IsCompensated = shifts.IsCompensated,
+                };
+
+                await shiftRepo.AddShift(dbShift);
+
+            }
+            TextMessage = "Schedule has been saved!"; // Make a pop in text box!
+        }
+
+        [RelayCommand]
         private async Task GoBackButton()
         {
             Schedule.WorkSchedule.Clear();
-            await Shell.Current.GoToAsync("///MainPage");
+           // await Shell.Current.GoToAsync("///MainPage");
+            await Shell.Current.GoToAsync(nameof(MainPage));
         }
     }
 }

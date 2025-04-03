@@ -1,10 +1,11 @@
-namespace WorkChronicle;
-
-public partial class PickerDatePage : ContentPage
+namespace WorkChronicle.Views
 {
-    public PickerDatePage(PickerDatePageViewModel pickerDatePageViewModel)
+    public partial class PickerDatePage : ContentPage
     {
-        InitializeComponent();
-        BindingContext = pickerDatePageViewModel;
+        public PickerDatePage(PickerDatePageViewModel pickerDatePageViewModel)
+        {
+            InitializeComponent();
+            BindingContext = pickerDatePageViewModel;
+        }
     }
 }

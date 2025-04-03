@@ -29,6 +29,8 @@
                 await ShiftsDayNightNight(scheduleConfiguration);
             }
 
+            await GenerateMonthSchedule(scheduleConfiguration);
+
             return this.schedule;
         }
 
@@ -120,9 +122,7 @@
         }
 
         private Task AddShiftsToSchedule(string[] cycle, IShift dayShift, IShift? nightShift, int daysBetweenShiftsCycle, int startDateMonth)
-        {
-           
-
+        { 
             DateTime tempDayDT = new DateTime(dayShift.Year, dayShift.Month, dayShift.Day);
             DateTime tempNightDT = default;
             DateTime tempSecondNightDT = default;
@@ -189,6 +189,32 @@
 
             return Task.CompletedTask;
         }
+
+        private Task GenerateMonthSchedule(ScheduleConfiguration scheduleConfiguration)
+        {
+            ISchedule<IShift> scheduleNew = new Schedule();
+            var year = scheduleConfiguration.StartDate.Year;
+            var month = scheduleConfiguration.StartDate.Month;
+
+            int totalDaysInMotn = DateTime.DaysInMonth(year, month);
+
+            for (int i = 1; i <= totalDaysInMotn; i++)
+            {
+                IShift? shift = this.schedule.WorkSchedule.FirstOrDefault(w => w.Day == i);
+
+                if (shift == null)
+                {
+                    shift = new RestDay(ShiftType.RestDay, year, month, i, 0, 0);
+                }
+
+                scheduleNew.AddShift(shift);
+            }
+
+            this.schedule = scheduleNew;
+
+            return Task.CompletedTask;
+        }
+
 
         private bool HasShiftMonthChanged(int shiftMonth, int startDateMonth)
         {
