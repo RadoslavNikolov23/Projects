@@ -7,7 +7,51 @@
              Title="MainPage">
 
     <StackLayout Padding="20" Spacing="30">
-      
+
+        <Label Text="{Binding SelectedMonthYear}" 
+               FontSize="24" 
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/>
+        
+        <Grid ColumnSpacing="10" RowSpacing="10" Margin="5,10,5,10">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Bind Days Dynamically -->
+            <CollectionView ItemsSource="{Binding CalendarDays}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" 
+                             Span="7" 
+                             VerticalItemSpacing="5" 
+                             HorizontalItemSpacing="4"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="viewmodels:CalendarDay">
+                        <Frame Padding="5"
+                       BackgroundColor="{Binding BackgroundColor}"
+                       BorderColor="Black"
+                       CornerRadius="5"
+                       HeightRequest="50"
+                       WidthRequest="50"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center">
+                            <Label Text="{Binding Day}" 
+                           FontSize="10" 
+                           HorizontalOptions="Center" 
+                           VerticalOptions="Center"/>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </Grid>
+
         <Label x:Name="ChoiseLabel" 
                Text="Select a Schedule:" 
                TextColor="Black" 
@@ -19,63 +63,6 @@
 
         <Label Text="(If no schedules appear, none are saved yet)"
         FontSize="14" TextColor="Gray"/>
-
-        <Label Text="{Binding SelectedMonthYear}" 
-               FontSize="24" 
-               FontAttributes="Bold"
-               HorizontalOptions="Center"/>
-
-        <Grid ColumnSpacing="10" RowSpacing="10" Margin="5,10,5,10">
-
-            <!-- Define 7 Columns (Days of the Week) -->
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <!-- Define 4-5 Rows (Weeks) -->
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
-
-            <!-- Bind Days Dynamically -->
-            <CollectionView ItemsSource="{Binding CalendarDays}">
-                <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Vertical" 
-                                     Span="7" 
-                                     VerticalItemSpacing="10" 
-                                     HorizontalItemSpacing="2"/>
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="viewmodels:CalendarDay">
-                        <Frame Padding="5"
-                               BackgroundColor="{Binding BackgroundColor}"
-                               BorderColor="Black"
-                               CornerRadius="5"
-                               HeightRequest="50"
-                               WidthRequest="50"
-                               VerticalOptions="Center"
-                               HorizontalOptions="Center">
-                            <Label Text="{Binding Day}" 
-                                   FontSize="16" 
-                                   HorizontalOptions="Center" 
-                                   VerticalOptions="Center"/>
-                        </Frame>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-
-        </Grid>
-
 
         <Button Text="Pick a new schedule" 
                 Command="{Binding PickNewScheduleCommand}"/>

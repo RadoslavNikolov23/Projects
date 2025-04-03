@@ -54,7 +54,7 @@
             }
 
             if (Schedule.WorkSchedule.Count == 0)
-            { 
+            {
                 TextMessage = "You have no shifts for this month.";
             }
             else
@@ -75,7 +75,11 @@
 
             TextMessage = $"Your total hours are: {totalHours}, for the month {monthName} the working hours are {totalHoursByMonth}";
 
-            this.ShiftCollectionView = new ObservableCollection<IShift>(this.Schedule.WorkSchedule.Where(s => s.IsCompensated == false));
+            this.ShiftCollectionView = new ObservableCollection<IShift>
+                                                            (this.Schedule
+                                                                    .WorkSchedule
+                                                                    .Where(s => s.ShiftType != ShiftType.RestDay 
+                                                                      && s.IsCompensated == false));
 
             int compansateShiftsCount = await this.Schedule.TotalCompansatedShifts();
 
@@ -119,7 +123,7 @@
         [RelayCommand]
         private async Task SaveShiftSchedule()
         {
-            var scheduleDb = new DbSchedule { ScheduleName = "March 2025" }; //TODO Change name!!!! to WORK!!!
+            var scheduleDb = new DbSchedule { ScheduleName = $"April 2025" }; //TODO Change name!!!! to WORK!!!
             await scheduleRepo.AddSchedule(scheduleDb);
 
             foreach (var shifts in schedule.WorkSchedule)
@@ -146,8 +150,7 @@
         private async Task GoBackButton()
         {
             Schedule.WorkSchedule.Clear();
-           // await Shell.Current.GoToAsync("///MainPage");
-            await Shell.Current.GoToAsync(nameof(MainPage));
+            await Shell.Current.GoToAsync("///MainPage");
         }
     }
 }

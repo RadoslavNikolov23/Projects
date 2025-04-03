@@ -1,7 +1,5 @@
 ﻿namespace WorkChronicle.ViewModels
 {
-    using System.Globalization;
-
     public partial class CalendarDay : ObservableObject
     {
         [ObservableProperty]
@@ -28,12 +26,6 @@
 
         public ObservableCollection<CalendarDay> CalendarDays { get; set; } = new();
 
-
-
-        // [ObservableProperty]
-        //ObservableCollection<DayItem> days;
-
-
         public MainPageViewModel(ISchedule<IShift> schedule, WorkScheduleRepositoryDB scheduleRepositoryDB)
         {
             this.schedule = schedule;
@@ -49,7 +41,7 @@
             CalendarDays.Clear();
 
             //Check scheduleRepositoryDB is there a way to get the name of the table!!!!
-            selectedMonthYear = $"{month} {year}";
+            selectedMonthYear = $"Work Schedule for {month} {year} ";
 
             DateTime firstDayOfMonth = new DateTime(year, month, 1);
             int startDayOfWeek = (int)firstDayOfMonth.DayOfWeek;
@@ -68,7 +60,7 @@
 
                 CalendarDays.Add(new CalendarDay
                 {
-                   Day = day.ToString(),
+                   Day = $"{day} {shiftType.ToString()}",
                    BackgroundColor = color
                 });
             }
@@ -81,8 +73,6 @@
         }
 
 
-
-
         [RelayCommand]
         public async Task LoadScheduleNamesAsync()
         {
@@ -90,6 +80,7 @@
             ScheduleNames.Clear();
             foreach (var s in schedules)
                 ScheduleNames.Add(s.ScheduleName);
+
         }
 
 
