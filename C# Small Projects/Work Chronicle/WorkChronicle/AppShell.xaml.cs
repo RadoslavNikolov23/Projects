@@ -23,7 +23,8 @@
         private async void OnExitClicked(object sender, EventArgs e)
         {
             // Exit the app
-            System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
+            //System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
+            Application.Current!.Quit();
         }
 
     }

@@ -1,4 +1,4 @@
-﻿namespace WorkChronicle.Structure.Models.Enums
+﻿namespace WorkChronicle.Common.Enums
 {
     public enum ShiftType
     {

@@ -10,18 +10,33 @@
             this.dbContext = dbContext;
         }
 
+        private async Task EnsureInitialized() => await dbContext.Init();
 
-        public Task<DbSchedule> GetLastSchedule()
+        public async Task<DbSchedule> GetLastSchedule()
         {
+            await EnsureInitialized();
 
-            return dbContext.Database.Table<DbSchedule>()
+            return await dbContext.Database.Table<DbSchedule>()
                             .OrderByDescending(s => s.Id)
-                            .FirstAsync(); // Assuming CreatedDate is a property of ScheduleRecord
+                            .FirstAsync();
         }
 
+        public async Task<DbSchedule> GetScheduleByName(string name)
+        {
+            await EnsureInitialized();
 
+            return await dbContext.Database.Table<DbSchedule>()
+                            .FirstAsync(s => s.ScheduleName==name); 
+        }
 
-        private async Task EnsureInitialized() => await dbContext.Init();
+        public async Task<List<string>> GetAllScheduleNames()
+        {
+            await EnsureInitialized();
+
+            return await dbContext.Database
+                                  .QueryScalarsAsync<string>
+                                  ("SELECT ScheduleName FROM DbSchedule ORDER BY Year, Month");
+        }
 
         public async Task<int> AddSchedule(DbSchedule schedule)
         {
@@ -31,15 +46,7 @@
                                         .InsertAsync(schedule);
         }
 
-        public async Task<List<DbSchedule>> GetSchedules()
-        {
-            await EnsureInitialized();
-
-            return await dbContext.Database
-                                        .Table<DbSchedule>()
-                                        .ToListAsync();
-        }
-
+      
         public async Task<int> UpdateSchedule(DbSchedule schedule)
         {
             await EnsureInitialized();

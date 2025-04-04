@@ -76,6 +76,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\WorkChronicle.Common\WorkChronicle.Common.csproj" />
 	  <ProjectReference Include="..\WorkChronicle.Data\WorkChronicle.Data.csproj" />
 	  <ProjectReference Include="..\WorkChronicle.Structure\WorkChronicle.Structure.csproj" />
 	</ItemGroup>

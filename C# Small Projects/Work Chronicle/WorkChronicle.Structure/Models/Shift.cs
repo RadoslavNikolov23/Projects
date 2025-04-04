@@ -2,16 +2,20 @@
 {
     public abstract class Shift : IShift
     {
-        public Shift(ShiftType shiftType,int year, int month, int day, double startTime, double shiftHour)
+        public Shift(ShiftType shiftType,int year, int month, int day, double startTime, double shiftHour): this(shiftType, year, month, day, startTime, shiftHour, false)
         {
-            ShiftType = shiftType;
-            Year = year;
-            Month = month;
-            Day = day;
-            StarTime = startTime;
-            ShiftHour = shiftHour;
-            ShiftType = shiftType;
-            IsCompensated = false;
+        }
+
+        public Shift(ShiftType shiftType,int year, int month, int day, double startTime, double shiftHour, bool isCompensated)
+        {
+            this.ShiftType = shiftType;
+            this.Year = year;
+            this.Month = month;
+            this.Day = day;
+            this.StarTime = startTime;
+            this.ShiftHour = shiftHour;
+            this.ShiftType = shiftType;
+            this.IsCompensated = isCompensated;
         }
 
         public ShiftType ShiftType { get; set; }

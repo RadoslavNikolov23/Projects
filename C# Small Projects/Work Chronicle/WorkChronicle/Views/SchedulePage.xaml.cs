@@ -11,12 +11,13 @@ namespace WorkChronicle.Views
             BindingContext = schedulePageViewModel;
         }
 
-        protected override void OnNavigatedTo(NavigatedToEventArgs args) //TODO Check if this method is needed?
+        protected override async void OnAppearing()
         {
-            base.OnNavigatedTo(args);
-            if (BindingContext is SchedulePageViewModel viewModel)
+            base.OnAppearing();
+            if (BindingContext is SchedulePageViewModel sv)
             {
-                _ = viewModel.InitializeViewModel();
+                await sv.RefreshThePage();
+
             }
         }
     }

@@ -2,9 +2,8 @@
 {
     public partial class SchedulePageViewModel : BaseViewModel
     {
-        //Two repository DB
-
         private WorkShiftRepositoryDB shiftRepo;
+
         private WorkScheduleRepositoryDB scheduleRepo;
 
 
@@ -28,19 +27,21 @@
             this.schedule = schedule;
             this.ShiftCollectionView = new ObservableCollection<IShift>();
             this.SelectedShiftsForRemove = new List<object>();
-            _ = RefreshThePage();
+
+           // _ = RefreshThePage();
 
             this.shiftRepo = shiftRepositoryDB;
             this.scheduleRepo = scheduleRepositoryDB;
         }
 
-        public async Task InitializeViewModel()
-        {
-            await RefreshThePage();
-        }
+        //public async Task InitializeViewModel()
+        //{
+        //    await RefreshThePage();
+        //}
 
-        private async Task RefreshThePage()
+        public async Task RefreshThePage()
         {
+
             if (Schedule == null)
             {
                 Console.WriteLine("Schedule is NULL!");
@@ -103,7 +104,8 @@
 
             foreach (IShift shift in SelectedShiftsForRemove)
             {
-                foreach (var s in Schedule.WorkSchedule.Where(s => s.Equals(shift)))
+                foreach (var s in Schedule.WorkSchedule
+                                           .Where(s => s.Equals(shift)))
                 {
                     s.IsCompensated = true;
                 }
@@ -123,15 +125,23 @@
         [RelayCommand]
         private async Task SaveShiftSchedule()
         {
-            var scheduleDb = new DbSchedule { ScheduleName = $"April 2025" }; //TODO Change name!!!! to WORK!!!
+            int year = this.Schedule.WorkSchedule[0].Year;
+            int month = this.Schedule.WorkSchedule[0].Month;
+
+            var scheduleDb = new DbSchedule 
+            { ScheduleName = $"{Provider.GetMonthName(month)} {year}",
+                Year = year,
+                Month = month,
+            }; 
+            
             await scheduleRepo.AddSchedule(scheduleDb);
 
-            foreach (var shifts in schedule.WorkSchedule)
+            foreach (var shifts in Schedule.WorkSchedule)
             {
                 DbShift dbShift = new DbShift
                 {
                     DbScheduleId = scheduleDb.Id,
-                    ShiftType = (ShiftTypes)shifts.ShiftType,
+                    ShiftType = shifts.ShiftType,
                     Year = shifts.Year,
                     Month = shifts.Month,
                     Day = shifts.Day,
@@ -143,7 +153,10 @@
                 await shiftRepo.AddShift(dbShift);
 
             }
-            TextMessage = "Schedule has been saved!"; // Make a pop in text box!
+                        
+            await Shell.Current.DisplayAlert("Success", "Your schedule has been saved.", "OK");
+
+            //TextMessage = "Schedule has been saved!"; // Make a pop in text box!
         }
 
         [RelayCommand]

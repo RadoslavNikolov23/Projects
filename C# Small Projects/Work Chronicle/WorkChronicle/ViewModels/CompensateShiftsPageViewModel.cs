@@ -1,8 +1,5 @@
 ﻿namespace WorkChronicle.ViewModels
 {
-    using WorkChronicle.Structure.Models.Contracts;
-    using WorkChronicle.Structure.Repository.Contracts;
-
     public partial class CompensateShiftsPageViewModel : BaseViewModel
     {
         [ObservableProperty]
@@ -24,15 +21,11 @@
 
         private async Task RefreshThePage()
         {
-            this.ShiftCollectionView = new ObservableCollection<IShift>(this.Schedule.WorkSchedule.Where(s => s.IsCompensated == true));
+            this.ShiftCollectionView = new ObservableCollection<IShift>
+                                            (this.Schedule.WorkSchedule
+                                                           .Where(s => s.ShiftType!=ShiftType.RestDay 
+                                                                    && s.IsCompensated == true));
             await Task.Delay(10);
-
-            //TODO
-            //int compansateShiftsCount = this.schedule.TotalCompansatedShifts();
-            //if (compansateShiftsCount == 0)
-            //    AddShiftButton.IsVisible = false;
-            //else
-            //    AddShiftButton.IsVisible = true;
         }
 
        
@@ -42,7 +35,8 @@
         {
             foreach (IShift shift in SelectedShiftsToAdd)
             {
-                foreach (var s in this.Schedule.WorkSchedule.Where(s => s.Equals(shift)))
+                foreach (var s in this.Schedule.WorkSchedule
+                                                .Where(s => s.Equals(shift)))
                 {
                     s.IsCompensated = false;
                 }

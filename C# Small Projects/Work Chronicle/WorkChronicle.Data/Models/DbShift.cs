@@ -7,7 +7,7 @@
         [PrimaryKey,AutoIncrement]
         public int Id { get; set; }
 
-        public ShiftTypes ShiftType { get; set; }
+        public ShiftType ShiftType { get; set; }
 
         public int Year { get; set; }
 

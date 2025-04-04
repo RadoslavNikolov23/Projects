@@ -8,35 +8,50 @@
 
     <StackLayout Padding="20" Spacing="15">
 
-        <Label Text="Enter shift cycle pattern: (Day-Night/Day-Day/Day-Night-Night):" FontSize="Medium" />
+        <Label Text="Enter shift cycle pattern: (Day24/Day-Day/Day-Night/Day-Night-Night):" 
+               FontSize="Medium" />
+        
         <Picker Title="Select Shift Pattern"
                 ItemsSource="{Binding WorkSchedules}"
                 SelectedItem="{Binding SelectedSchedule, Mode=TwoWay}"
                 HorizontalOptions="Start"/>
 
-        <Label Text="Select the starting day of your work cycle:" FontSize="Medium" />
+        <Label Text="Select the starting day of your work cycle:" 
+               FontSize="Medium" />
+        
         <DatePicker x:Name="StartDatePicker"
                     Date="{Binding SelectedStartDate}"/>
 
-        <Label Text="Select the starting time for the DayShift:" FontSize="Medium" />
-        <TimePicker Time="{Binding DayShiftStartTime,Mode=TwoWay}" Format="HH:mm"/>
+        <Label Text="Select the starting time for the DayShift:" 
+               FontSize="Medium" />
+        <TimePicker Time="{Binding DayShiftStartTime,Mode=TwoWay}" 
+                    Format="HH:mm"/>
       
-        <Label Text="Select the starting time for the NightShift:" FontSize="Medium" />
-        <TimePicker Time="{Binding NightShiftStartTime,Mode=TwoWay}" Format="HH:mm" />
+        <Label Text="Select the starting time for the NightShift:" 
+               FontSize="Medium" />
+        
+        <TimePicker Time="{Binding NightShiftStartTime,Mode=TwoWay}" 
+                    Format="HH:mm" />
 
 
-        <Label Text="Select Total Shift Hours:" FontSize="18" />
+        <Label Text="Select Total Shift Hours:" 
+               FontSize="18" />
+        
         <Picker ItemsSource="{Binding ShiftDurations}" 
                 SelectedItem="{Binding TotalShiftHours}" />
 
 
-        <Label Text="Enter first shift: (DayShift/NightShift):" FontSize="Medium" />
+        <Label Text="Enter first shift: (DayShift/NightShift):" 
+               FontSize="Medium" />
+        
         <Picker Title="Select First Shift"
                 ItemsSource="{Binding WorkShift}"
                 SelectedItem="{Binding SelectedFirstShift, Mode=TwoWay}"
                 HorizontalOptions="Start"/>
 
-        <Label Text="{Binding ResultsMessage}" FontSize="Medium" TextColor="Black" />
+        <Label Text="{Binding ResultsMessage}" 
+               FontSize="Medium" 
+               TextColor="Black" />
         
         <Button Text="Calculate Shifts" 
                 Command="{Binding CalculateShiftsCommand}"/>

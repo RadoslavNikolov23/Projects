@@ -32,8 +32,8 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <Button Text="Add Shift" 
-                     Command="{Binding AddShiftButtonCommand}"/>
+            <Button Text="Add Shift back to the Schedule" 
+                    Command="{Binding AddShiftButtonCommand}"/>
 
             <Button Text="Go Back" 
                     Command="{Binding GoBackButtonCommand}"/>

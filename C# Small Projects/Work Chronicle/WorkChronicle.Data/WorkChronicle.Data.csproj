@@ -12,4 +12,8 @@
 	<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.100" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\WorkChronicle.Common\WorkChronicle.Common.csproj" />
+  </ItemGroup>
+
 </Project>

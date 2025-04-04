@@ -8,11 +8,15 @@
             BindingContext = mainPageViewModel;
 
         }
+
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            if (BindingContext is MainPageViewModel vm)
-                await vm.LoadScheduleNamesAsync();
+            if (BindingContext is MainPageViewModel mv)
+            {
+                await mv.RefreshThePage();
+
+            }
         }
     }
 }

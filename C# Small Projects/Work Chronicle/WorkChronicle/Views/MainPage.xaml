@@ -2,73 +2,100 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:WorkChronicle.ViewModels"
+             xmlns:models="clr-namespace:WorkChronicle.ViewModels.Models"
              x:Class="WorkChronicle.Views.MainPage"
              x:DataType="viewmodels:MainPageViewModel"
              Title="MainPage">
 
-    <StackLayout Padding="20" Spacing="30">
+    <ScrollView>
+        <VerticalStackLayout Padding="15" Spacing="40">
 
-        <Label Text="{Binding SelectedMonthYear}" 
+            <Label Text="{Binding CalendarMonthYear}" 
                FontSize="24" 
                FontAttributes="Bold"
                HorizontalOptions="Center"/>
-        
-        <Grid ColumnSpacing="10" RowSpacing="10" Margin="5,10,5,10">
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
+            <Grid RowSpacing="6" Margin="5,10,5,10">
 
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
+                <!-- Weekday Header Row -->
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <!-- Day headers -->
+                    <RowDefinition Height="*" />
+                    <!-- Calendar body -->
+                </Grid.RowDefinitions>
 
-            <!-- Bind Days Dynamically -->
-            <CollectionView ItemsSource="{Binding CalendarDays}">
-                <CollectionView.ItemsLayout>
-                    <GridItemsLayout Orientation="Vertical" 
-                             Span="7" 
-                             VerticalItemSpacing="5" 
-                             HorizontalItemSpacing="4"/>
-                </CollectionView.ItemsLayout>
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="viewmodels:CalendarDay">
-                        <Frame Padding="5"
-                       BackgroundColor="{Binding BackgroundColor}"
-                       BorderColor="Black"
-                       CornerRadius="5"
-                       HeightRequest="50"
-                       WidthRequest="50"
-                       VerticalOptions="Center"
-                       HorizontalOptions="Center">
-                            <Label Text="{Binding Day}" 
-                           FontSize="10" 
-                           HorizontalOptions="Center" 
-                           VerticalOptions="Center"/>
-                        </Frame>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                <!-- Day Names -->
+                <Grid Grid.Row="0" ColumnSpacing="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
 
-        </Grid>
+                    <Label Grid.Column="0" Text="Mon" HorizontalOptions="Center"/>
+                    <Label Grid.Column="1" Text="Tue" HorizontalOptions="Center"/>
+                    <Label Grid.Column="2" Text="Wed" HorizontalOptions="Center"/>
+                    <Label Grid.Column="3" Text="Thu" HorizontalOptions="Center"/>
+                    <Label Grid.Column="4" Text="Fri" HorizontalOptions="Center"/>
+                    <Label Grid.Column="5" Text="Sat" HorizontalOptions="Center"/>
+                    <Label Grid.Column="6" Text="Sun" HorizontalOptions="Center"/>
+                </Grid>
 
-        <Label x:Name="ChoiseLabel" 
+                <!-- Bind Days Dynamically -->
+                <CollectionView Grid.Row="1"  
+                            ItemsSource="{Binding calendarDays}">
+                    <CollectionView.ItemsLayout>
+                        <GridItemsLayout Orientation="Vertical" 
+                                     Span="7" 
+                                     VerticalItemSpacing="5" 
+                                     HorizontalItemSpacing="4"/>
+                    </CollectionView.ItemsLayout>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:CalendarDay">
+                            <Frame Padding="5"
+                               BackgroundColor="{Binding BackgroundColor}"
+                               BorderColor="Black"
+                               CornerRadius="10"
+                               HeightRequest="38"
+                               WidthRequest="43"
+                               VerticalOptions="Center"
+                               HorizontalOptions="Center">
+
+                                <Label Text="{Binding Day}" 
+                                   FontSize="13" 
+                                   HorizontalOptions="Center" 
+                                   VerticalOptions="Center"/>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </Grid>
+
+            <Label x:Name="ChoiseLabel" 
                Text="Select a Schedule:" 
                TextColor="Black" 
                FontSize="Medium"/>
 
-        <Picker Title="Select Schedule"
+            <Picker Title="Select Schedule"
          ItemsSource="{Binding ScheduleNames}"
          SelectedItem="{Binding SelectedScheduleName}" />
 
-        <Label Text="(If no schedules appear, none are saved yet)"
-        FontSize="14" TextColor="Gray"/>
+            <Button Text="Load selected Schedule"
+                Command="{Binding LoadSavedScheduleCommand}"/>
 
-        <Button Text="Pick a new schedule" 
+            <Button Text="Pick a new schedule" 
                 Command="{Binding PickNewScheduleCommand}"/>
 
-        <Button Text="Exit" 
+            <!-- <Button Text="Exit" 
                 Command="{Binding ExitAppCommand}"/>
-      
-    </StackLayout>
+                -->
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

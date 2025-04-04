@@ -9,8 +9,9 @@
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="20">
 
-            <Label Text="{Binding TextMessage}" FontSize="Medium" TextColor="Black" />
-
+            <Label Text="{Binding TextMessage}" 
+                   FontSize="Medium" 
+                   TextColor="Black" />
 
             <CollectionView x:Name="ShiftCollectionView"
                          ItemsSource="{Binding ShiftCollectionView}"
@@ -32,7 +33,9 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <Label Text="{Binding HoursMessage,Mode=TwoWay}" FontSize="Medium" TextColor="Black"/>
+            <Label Text="{Binding HoursMessage,Mode=TwoWay}" 
+                   FontSize="Medium" 
+                   TextColor="Black"/>
 
             <Button Text="Remove Shift" 
                     Command="{Binding RemoveShiftCommand}"/>

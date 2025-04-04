@@ -1,19 +1,22 @@
 ﻿namespace WorkChronicle.ViewModels
 {
-    public partial class CalendarDay : ObservableObject
-    {
-        [ObservableProperty]
-        public string day;
-
-        [ObservableProperty]
-        public string backgroundColor;
-    }
 
     public partial class MainPageViewModel : BaseViewModel
     {
-        private readonly WorkScheduleRepositoryDB scheduleRepositoryDB;
 
-        private readonly ISchedule<IShift> schedule;
+        private WorkScheduleRepositoryDB scheduleRepo;
+
+        private WorkShiftRepositoryDB? shiftsRepo;
+
+
+        private DbSchedule? dbSchedule;
+
+        private IList<DbShift>? dbShifts;
+
+
+        private ISchedule<IShift> schedule;
+
+        public ObservableCollection<CalendarDay> calendarDays { get; set; }
 
         [ObservableProperty]
         private ObservableCollection<string> scheduleNames;
@@ -22,100 +25,218 @@
         private string selectedScheduleName = "";
 
         [ObservableProperty]
-        private string selectedMonthYear;
+        private string calendarMonthYear = "";
 
-        public ObservableCollection<CalendarDay> CalendarDays { get; set; } = new();
 
-        public MainPageViewModel(ISchedule<IShift> schedule, WorkScheduleRepositoryDB scheduleRepositoryDB)
+      //  public MainPageViewModel(ISchedule<IShift> schedule,WorkScheduleRepositoryDB scheduleRepo, WorkShiftRepositoryDB shiftsRepo)
+        public MainPageViewModel(WorkScheduleRepositoryDB scheduleRepo, WorkShiftRepositoryDB shiftsRepo)
         {
-            this.schedule = schedule;
-            this.scheduleRepositoryDB = scheduleRepositoryDB;
-            scheduleNames = new ObservableCollection<string>();
-            //LoadLastSchedule();
-            _ = LoadCalendar(2025, 3); //Change the year and month to be from the DB
+            this.scheduleRepo = scheduleRepo;
+            this.shiftsRepo = shiftsRepo;
+
+            this.schedule = new Schedule();
+            this.scheduleNames = new ObservableCollection<string>();
+            this.calendarDays = new ObservableCollection<CalendarDay>();
+
+            this.dbShifts = new List<DbShift>();
+
+            //_ = RefreshThePage();
+        }
+
+        public async Task RefreshThePage()
+        {
+            calendarDays.Clear();
+            this.schedule.WorkSchedule.Clear(); // Clear the current schedule
+
+            await LoadLastSchedule(); //Load the last schedule
+            await LoadScheduleNamesAsync(); //Load schedules names
+            //Initialize the calendar view grid
+            if (this.schedule.WorkSchedule.Count > 0)
+                await GenerateCalendar(schedule.WorkSchedule[0].Year, schedule.WorkSchedule[0].Month);
+            else
+                await GenerateBlankCalendar();
 
         }
 
-        public async Task LoadCalendar(int year, int month)
+        private async Task LoadScheduleNamesAsync()
         {
-            CalendarDays.Clear();
 
-            //Check scheduleRepositoryDB is there a way to get the name of the table!!!!
-            selectedMonthYear = $"Work Schedule for {month} {year} ";
+            ScheduleNames.Clear();
+            ScheduleNames = new ObservableCollection<string>(await scheduleRepo.GetAllScheduleNames());
 
-            DateTime firstDayOfMonth = new DateTime(year, month, 1);
-            int startDayOfWeek = (int)firstDayOfMonth.DayOfWeek;
-            int daysInMonth = DateTime.DaysInMonth(year, month);
+            //var schedulesNameOnly = await scheduleRepo.GetAllScheduleNames();
+            //if(schedulesNameOnly.Count>0)
+            //{
+            //    foreach (var names in schedulesNameOnly)
+            //        ScheduleNames.Add(names);
+            //}
+        }
 
-            for (int day = 1; day <= daysInMonth; day++)
+        private async Task LoadLastSchedule()
+        {
+            // Fetch the most recent schedule from the database
+            this.dbSchedule = await scheduleRepo.GetLastSchedule();
+            await LoadFromDBToSchedule();
+        }
+        private async Task LoadFromDBToSchedule()
+        {
+            if (dbSchedule != null)
             {
-                ShiftType shiftType = GetShiftForDay(year, month, day);
-                
-                string color = shiftType switch
-                {
-                    ShiftType.DayShift => "LightGreen",
-                    ShiftType.NightShift => "LightCoral",
-                    _ => "White" // RestDays
-                };
+                dbShifts = await shiftsRepo!.GetShiftsForSchedule(dbSchedule.Id);
+            }
 
-                CalendarDays.Add(new CalendarDay
+            if (dbShifts != null)
+            {
+                foreach (var dbShift in dbShifts)
                 {
-                   Day = $"{day} {shiftType.ToString()}",
-                   BackgroundColor = color
-                });
+                    IShift? shift = null;
+
+                    if (dbShift.ShiftType == ShiftType.DayShift)
+                    {
+                        shift = new DayShift(ShiftType.DayShift, dbShift.Year, dbShift.Month, dbShift.Day,
+                            dbShift.StarTime, dbShift.ShiftHour, dbShift.IsCompensated);
+                    }
+                    else if (dbShift.ShiftType == ShiftType.NightShift)
+                    {
+
+                        shift = new NightShift(ShiftType.NightShift, dbShift.Year, dbShift.Month, dbShift.Day,
+                            dbShift.StarTime, dbShift.ShiftHour, dbShift.IsCompensated);
+                    }
+                    else
+                    {
+                        shift = new RestDay(ShiftType.RestDay, dbShift.Year, dbShift.Month, dbShift.Day,
+                                                dbShift.StarTime, dbShift.ShiftHour, dbShift.IsCompensated);
+                    }
+
+                    await this.schedule.AddShift(shift!);
+                }
             }
         }
 
-        private ShiftType GetShiftForDay(int year, int month, int day)
+        public Task GenerateCalendar(int year, int month)
         {
-            // Mock Shift Data (Replace with Database Data)
-            return day % 5 == 0 ? ShiftType.RestDay : (day % 2 == 0 ? ShiftType.DayShift : ShiftType.NightShift);
+            calendarDays.Clear(); //Maybe not necessary 
+
+            CalendarMonthYear = $"Work Schedule for {Provider.GetMonthName(month)} {year} ";
+
+            DateTime firstDayOfMonth = new DateTime(year, month, 1);
+            int daysInMonth = DateTime.DaysInMonth(year, month);
+
+            GeneratePreviousMonthDays(calendarDays, firstDayOfMonth);
+
+            foreach (var shift in schedule.WorkSchedule)
+            {
+                string color = "White"; // Default color for rest days
+                string shiftInicial= "R"; // Default for rest days  
+                if (shift.IsCompensated)
+                {
+                    color = "LightBlue";
+                    shiftInicial= "C"; // Compensated
+                }
+                else if (shift.ShiftType == ShiftType.DayShift)
+                {
+                    color = "LightGreen";
+                    shiftInicial= "D";
+
+                }
+                else if (shift.ShiftType == ShiftType.NightShift)
+                {
+                    color = "LightCoral";
+                    shiftInicial = "N";
+                }
+
+                calendarDays.Add(new CalendarDay
+                {
+                    Day = $"{shift.Day} {shiftInicial}",
+                    BackgroundColor = color,
+                    IsCurrentMonth = true
+                });
+            }
+
+            GenerateNextMonthDays(calendarDays);
+
+            return Task.CompletedTask;
         }
 
+        public async Task GenerateBlankCalendar()
+        {
+            calendarDays.Clear(); //Maybe not necessary 
+
+            int year= DateTime.Now.Year;
+            int month = DateTime.Now.Month;
+
+            CalendarMonthYear = $"The month is {month} / {year} ";
+
+            DateTime firstDayOfMonth = new DateTime(year, month, 1);
+            int daysInMonth = DateTime.DaysInMonth(year, month);
+
+
+            await GeneratePreviousMonthDays(calendarDays, firstDayOfMonth);
+
+            for (int day = 1; day <= daysInMonth; day++)
+            {
+                string color = "White";
+
+                calendarDays.Add(new CalendarDay
+                {
+                    Day = $"{day}",
+                    BackgroundColor = color
+                });
+            }
+
+
+            await GenerateNextMonthDays(calendarDays);
+
+        }
+
+
+        private Task GeneratePreviousMonthDays(ObservableCollection<CalendarDay> calendarDays, DateTime firstDayOfMonth)
+        {
+            int offsetStart = ((int)firstDayOfMonth.DayOfWeek + 6) % 7;
+            var prevMonth = firstDayOfMonth.AddMonths(-1);
+            int prevMonthDays = DateTime.DaysInMonth(prevMonth.Year, prevMonth.Month);
+
+            for (int i = offsetStart - 1; i >= 0; i--)
+            {
+                calendarDays.Add(new CalendarDay
+                {
+                    Day = (prevMonthDays - i).ToString(),
+                    BackgroundColor = "LightGray",
+                    IsCurrentMonth = false
+                });
+            }
+            return Task.CompletedTask;
+        }
+
+
+        private Task GenerateNextMonthDays(ObservableCollection<CalendarDay> calendarDays)
+        {
+            int totalDays = calendarDays.Count;
+            int paddingEnd = 42 - totalDays;
+
+            for (int i = 1; i <= paddingEnd; i++)
+            {
+                calendarDays.Add(new CalendarDay
+                {
+                    Day = i.ToString(),
+                    BackgroundColor = "LightGray",
+                    IsCurrentMonth = false
+                });
+            }
+            return Task.CompletedTask;
+        }
 
         [RelayCommand]
-        public async Task LoadScheduleNamesAsync()
+        private async Task LoadSavedSchedule()
         {
-            var schedules = await scheduleRepositoryDB.GetSchedules();
-            ScheduleNames.Clear();
-            foreach (var s in schedules)
-                ScheduleNames.Add(s.ScheduleName);
+            calendarDays.Clear();
 
+            dbSchedule = await this.scheduleRepo.GetScheduleByName(SelectedScheduleName);
+            
+            await LoadFromDBToSchedule();
+
+            await RefreshThePage();
         }
-
-
-
-        //private void LoadLastSchedule()
-        //{
-        //    // Fetch the most recent schedule from the database
-        //    LastSchedule = _scheduleRepository.GetLastSchedule();
-
-        //    if (LastSchedule != null)
-        //    {
-        //        GenerateDays(LastSchedule.Year, LastSchedule.Month, LastSchedule.Shifts);
-        //    }
-        //}
-
-        //private Task GenerateDays()
-        //{
-        //    Days.Clear();
-        //    var shift = schedule.WorkSchedule.First();
-        //    int daysInMonth = DateTime.DaysInMonth(shift.Year, shift.Month);
-        //    var shiftDays = schedule.WorkSchedule.Where(s => s.Year == shift.Year && s.Month == shift.Year)
-        //                          .Select(s => s.Day)
-        //                          .Distinct();
-
-        //    for (int day = 1; day <= daysInMonth; day++)
-        //    {
-        //        Days.Add(new DayItem
-        //        {
-        //            Day = day,
-        //            HasShift = shiftDays.Contains(day)
-        //        });
-        //    }
-
-        //    return Task.CompletedTask;
-        //}
 
 
         [RelayCommand]
@@ -124,10 +245,10 @@
             await Shell.Current.GoToAsync(nameof(PickerDatePage));
         }
 
-        [RelayCommand]
-        private void ExitApp()
-        {
-            Application.Current!.Quit();
-        }
+        //[RelayCommand]
+        //private void ExitApp()
+        //{
+        //    Application.Current!.Quit();
+        //}
     }
 }

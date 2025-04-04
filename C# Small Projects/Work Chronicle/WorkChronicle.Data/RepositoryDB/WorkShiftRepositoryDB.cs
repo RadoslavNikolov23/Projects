@@ -7,6 +7,7 @@
         public WorkShiftRepositoryDB(WorkScheduleDB dbContext)
         {
             this.dbContext = dbContext;
+       
         }
 
         private async Task EnsureInitialized() => await dbContext.Init();
@@ -38,7 +39,7 @@
                                     .ToListAsync();
         }
 
-        public async Task<List<DbShift>> GetShiftsWithSchedule()
+        public async Task<IList<DbShift>> GetShiftsWithSchedule()
         {
             await EnsureInitialized();
 
@@ -55,7 +56,6 @@
             return shifts;
         }
 
-        // 🔹 Update a shift
         public async Task<int> UpdateShift(DbShift shift)
         {
             await EnsureInitialized();

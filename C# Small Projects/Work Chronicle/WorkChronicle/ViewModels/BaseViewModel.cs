@@ -1,6 +1,6 @@
 ﻿namespace WorkChronicle.ViewModels
 {
-    public class BaseViewModel:ObservableObject
+    public abstract class BaseViewModel : ObservableObject
     {
         public BaseViewModel()
         {

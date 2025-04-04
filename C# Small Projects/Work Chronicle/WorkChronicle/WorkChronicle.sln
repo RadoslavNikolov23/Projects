@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkChronicle.Structure", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkChronicle.Data", "..\WorkChronicle.Data\WorkChronicle.Data.csproj", "{0FD5567E-1BA1-4833-AD29-CC1BD6B2A8D2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkChronicle.Common", "..\WorkChronicle.Common\WorkChronicle.Common.csproj", "{1B9F5EC3-0B37-4DDC-8B06-B21335ABBC38}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +31,10 @@ Global
 		{0FD5567E-1BA1-4833-AD29-CC1BD6B2A8D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FD5567E-1BA1-4833-AD29-CC1BD6B2A8D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FD5567E-1BA1-4833-AD29-CC1BD6B2A8D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B9F5EC3-0B37-4DDC-8B06-B21335ABBC38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B9F5EC3-0B37-4DDC-8B06-B21335ABBC38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B9F5EC3-0B37-4DDC-8B06-B21335ABBC38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B9F5EC3-0B37-4DDC-8B06-B21335ABBC38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

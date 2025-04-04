@@ -6,15 +6,16 @@
         {
             if (startDate.Year == 2024)
             {
-                return WorkHoursByYear.Year2024(startDate.Month);
+                return WorkHoursByYear.Year2024(startDate.Month); 
             }
             else if (startDate.Year == 2025)
             {
-                return WorkHoursByYear.Year2025(startDate.Month);
+                return WorkHoursByYear.Year2025(startDate.Month); 
             }
 
             return new KeyValuePair<int, string[]>();
         }
+
 
         public static string GetMonthName(int month)
         {

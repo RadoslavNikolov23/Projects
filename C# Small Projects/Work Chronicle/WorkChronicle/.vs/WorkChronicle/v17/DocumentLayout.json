@@ -1,12 +1,199 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle\\viewmodels\\schedulepageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|solutionrelative:viewmodels\\schedulepageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle\\viewmodels\\mainpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|solutionrelative:viewmodels\\mainpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B9F5EC3-0B37-4DDC-8B06-B21335ABBC38}|..\\WorkChronicle.Common\\WorkChronicle.Common.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.common\\provider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B9F5EC3-0B37-4DDC-8B06-B21335ABBC38}|..\\WorkChronicle.Common\\WorkChronicle.Common.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.common\\workhoursbyyears\\workhoursbyyear.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B9F5EC3-0B37-4DDC-8B06-B21335ABBC38}|..\\WorkChronicle.Common\\WorkChronicle.Common.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.common\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF354B8C-9242-4E21-B4AD-BF95D5E2069A}|..\\WorkChronicle.Structure\\WorkChronicle.Structure.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.structure\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0FD5567E-1BA1-4833-AD29-CC1BD6B2A8D2}|..\\WorkChronicle.Data\\WorkChronicle.Data.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.data\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|solutionrelative:globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0FD5567E-1BA1-4833-AD29-CC1BD6B2A8D2}|..\\WorkChronicle.Data\\WorkChronicle.Data.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.data\\models\\dbshift.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0FD5567E-1BA1-4833-AD29-CC1BD6B2A8D2}|..\\WorkChronicle.Data\\WorkChronicle.Data.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.data\\models\\dbschedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1B9F5EC3-0B37-4DDC-8B06-B21335ABBC38}|..\\WorkChronicle.Common\\WorkChronicle.Common.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.common\\enums\\shifttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SchedulePageViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\ViewModels\\SchedulePageViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\SchedulePageViewModel.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\ViewModels\\SchedulePageViewModel.cs",
+              "RelativeToolTip": "ViewModels\\SchedulePageViewModel.cs",
+              "ViewState": "AgIAAIEAAAAAAAAAAAApwI0AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T13:52:23.567Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainPageViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\ViewModels\\MainPageViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\MainPageViewModel.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\ViewModels\\MainPageViewModel.cs",
+              "RelativeToolTip": "ViewModels\\MainPageViewModel.cs",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAtwGIAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T13:52:12.698Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "WorkHoursByYear.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Common\\WorkHoursByYears\\WorkHoursByYear.cs",
+              "RelativeDocumentMoniker": "..\\WorkChronicle.Common\\WorkHoursByYears\\WorkHoursByYear.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Common\\WorkHoursByYears\\WorkHoursByYear.cs",
+              "RelativeToolTip": "..\\WorkChronicle.Common\\WorkHoursByYears\\WorkHoursByYear.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T13:50:31.217Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GlobalUsings.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Common\\GlobalUsings.cs",
+              "RelativeDocumentMoniker": "..\\WorkChronicle.Common\\GlobalUsings.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Common\\GlobalUsings.cs",
+              "RelativeToolTip": "..\\WorkChronicle.Common\\GlobalUsings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T13:48:19.715Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Provider.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Common\\Provider.cs",
+              "RelativeDocumentMoniker": "..\\WorkChronicle.Common\\Provider.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Common\\Provider.cs",
+              "RelativeToolTip": "..\\WorkChronicle.Common\\Provider.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T13:47:29.966Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GlobalUsings.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\GlobalUsings.cs",
+              "RelativeDocumentMoniker": "..\\WorkChronicle.Structure\\GlobalUsings.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\GlobalUsings.cs",
+              "RelativeToolTip": "..\\WorkChronicle.Structure\\GlobalUsings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T13:46:57.968Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GlobalUsings.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Data\\GlobalUsings.cs",
+              "RelativeDocumentMoniker": "..\\WorkChronicle.Data\\GlobalUsings.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Data\\GlobalUsings.cs",
+              "RelativeToolTip": "..\\WorkChronicle.Data\\GlobalUsings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T13:46:53.37Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "GlobalUsings.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\GlobalUsings.cs",
+              "RelativeDocumentMoniker": "GlobalUsings.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\GlobalUsings.cs",
+              "RelativeToolTip": "GlobalUsings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T13:46:34.39Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DbShift.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Data\\Models\\DbShift.cs",
+              "RelativeDocumentMoniker": "..\\WorkChronicle.Data\\Models\\DbShift.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Data\\Models\\DbShift.cs",
+              "RelativeToolTip": "..\\WorkChronicle.Data\\Models\\DbShift.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T13:46:27.642Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DbSchedule.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Data\\Models\\DbSchedule.cs",
+              "RelativeDocumentMoniker": "..\\WorkChronicle.Data\\Models\\DbSchedule.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Data\\Models\\DbSchedule.cs",
+              "RelativeToolTip": "..\\WorkChronicle.Data\\Models\\DbSchedule.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T13:46:24.009Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ShiftType.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Common\\Enums\\ShiftType.cs",
+              "RelativeDocumentMoniker": "..\\WorkChronicle.Common\\Enums\\ShiftType.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Common\\Enums\\ShiftType.cs",
+              "RelativeToolTip": "..\\WorkChronicle.Common\\Enums\\ShiftType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-04T13:45:53.642Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

@@ -1,7 +1,5 @@
 ﻿namespace WorkChronicle.ViewModels
 {
-
-
     public partial class PickerDatePageViewModel : BaseViewModel
     {
         private ISchedule<IShift> schedule;
@@ -32,8 +30,6 @@
 
         public List<int> ShiftDurations { get; } = new() { 4, 6, 8, 10, 12, 24 };
 
-
-
         public PickerDatePageViewModel(ISchedule<IShift> schedule)
         {
             this.schedule = schedule;
@@ -53,20 +49,11 @@
             "Day-Night-Night"
         };
 
-        //public ObservableCollection<string> DisplayWorkSchedules
-        //{
-        //    get
-        //    {
-        //        return new ObservableCollection<string>(WorkSchedules.Select(s => s == "Day" ? "Day24Hour" : s));
-        //    }
-        //}
-
         public ObservableCollection<string> WorkShift { get; } = new()
         {
             "DayShift",
             "NightShift",
         };
-
 
         [RelayCommand]
         private async Task CalculateShifts()
