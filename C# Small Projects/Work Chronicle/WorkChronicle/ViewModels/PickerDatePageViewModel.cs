@@ -33,6 +33,8 @@
         public PickerDatePageViewModel(ISchedule<IShift> schedule)
         {
             this.schedule = schedule;
+            this.schedule.WorkSchedule.Clear(); // Clear the current schedule
+
             this.engine = new Engine();
             this.selectedStartDate = DateTime.Now;
             this.selectedFirstShift = WorkShift[0];
@@ -62,10 +64,8 @@
 
             string[] cycle = await ValidateSchedule();
 
-
             ShiftConfiguration shiftConfiguration = new ShiftConfiguration(this.DayShiftStartTime.Hours, this.NightShiftStartTime.Hours, this.TotalShiftHours);
             ScheduleConfiguration scheduleConfiguration = new ScheduleConfiguration(startDate, cycle, this.SelectedFirstShift, shiftConfiguration);
-
 
             ISchedule<IShift> tempSchedule = await this.engine.CalculateShifts(scheduleConfiguration);
 
@@ -77,24 +77,24 @@
             await Shell.Current.GoToAsync(nameof(SchedulePage));
         }
 
-        private async Task<string[]> ValidateSchedule()
+        private Task<string[]> ValidateSchedule()
         {
-            await Task.Delay(100);
+            //await Task.Delay(50);
 
             if (string.IsNullOrEmpty(SelectedSchedule))
             {
                 ResultsMessage = "Please select a work schedule first.";
-                return Array.Empty<string>();
+                return Task.FromResult(Array.Empty<string>());
             }
 
             string[] cycle = SelectedSchedule.Split('-');
             if (cycle.Length == 0)
             {
                 ResultsMessage = "Something went wrong";
-                return Array.Empty<string>();
+                return Task.FromResult(Array.Empty<string>());
             }
 
-            return cycle;
+            return Task.FromResult(cycle);
         }
     }
 }

@@ -7,11 +7,7 @@
         {
             InitializeComponent();
 
-          //  Routing.RegisterRoute("MainPage", typeof(MainPage));
-           // Routing.RegisterRoute("SchedulePage", typeof(SchedulePage));
-          //  Routing.RegisterRoute("PickerDatePage", typeof(PickerDatePage));
-          //  Routing.RegisterRoute("PropertiePage", typeof(PropertiePage));
-
+            // Register routes for navigation
             Routing.RegisterRoute(nameof(MainPage), typeof(MainPage));
             Routing.RegisterRoute(nameof(PickerDatePage), typeof(PickerDatePage));
             Routing.RegisterRoute(nameof(SchedulePage), typeof(SchedulePage));
@@ -23,7 +19,6 @@
         private async void OnExitClicked(object sender, EventArgs e)
         {
             // Exit the app
-            //System.Diagnostics.Process.GetCurrentProcess().CloseMainWindow();
             Application.Current!.Quit();
         }
 

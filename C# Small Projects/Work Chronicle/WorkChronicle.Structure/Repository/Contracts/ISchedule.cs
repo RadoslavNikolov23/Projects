@@ -14,7 +14,7 @@ namespace WorkChronicle.Structure.Repository.Contracts
 
         Task<int> TotalShifts();
 
-        Task<int> TotalCompansatedShifts();
+        Task<int> TotalCompensatedShifts();
 
         Task<int> CalculateTotalWorkHours();
     }

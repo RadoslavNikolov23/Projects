@@ -18,7 +18,7 @@
 
             return await dbContext.Database.Table<DbSchedule>()
                             .OrderByDescending(s => s.Id)
-                            .FirstAsync();
+                            .FirstOrDefaultAsync();
         }
 
         public async Task<DbSchedule> GetScheduleByName(string name)

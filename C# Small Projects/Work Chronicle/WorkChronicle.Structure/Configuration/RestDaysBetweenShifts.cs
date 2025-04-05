@@ -4,7 +4,7 @@
     {
         public const int Day24hoursSchedule = 4;
 
-        public const int DayDaychedule = 4;
+        public const int DayDaySchedule = 4;
 
         public const int DayNightSchedule = 4;
 

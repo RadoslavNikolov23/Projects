@@ -9,6 +9,8 @@
         public double StarTime { get; set; }
         public double ShiftHour { get; set; }
         public bool IsCompensated { get; set; }
+        public bool IsCurrentMonth { get; set; }
+        public string BackgroundColor { get; set; }
 
         public DateTime GetDateShift();
 

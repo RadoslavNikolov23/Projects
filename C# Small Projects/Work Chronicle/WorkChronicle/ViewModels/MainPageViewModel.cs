@@ -1,6 +1,5 @@
 ﻿namespace WorkChronicle.ViewModels
 {
-
     public partial class MainPageViewModel : BaseViewModel
     {
 
@@ -13,10 +12,8 @@
 
         private IList<DbShift>? dbShifts;
 
-
+        [ObservableProperty]
         private ISchedule<IShift> schedule;
-
-        public ObservableCollection<CalendarDay> calendarDays { get; set; }
 
         [ObservableProperty]
         private ObservableCollection<string> scheduleNames;
@@ -28,58 +25,69 @@
         private string calendarMonthYear = "";
 
 
-      //  public MainPageViewModel(ISchedule<IShift> schedule,WorkScheduleRepositoryDB scheduleRepo, WorkShiftRepositoryDB shiftsRepo)
-        public MainPageViewModel(WorkScheduleRepositoryDB scheduleRepo, WorkShiftRepositoryDB shiftsRepo)
+        public MainPageViewModel(ISchedule<IShift> schedule, WorkScheduleRepositoryDB scheduleRepo, WorkShiftRepositoryDB shiftsRepo)
         {
             this.scheduleRepo = scheduleRepo;
             this.shiftsRepo = shiftsRepo;
 
-            this.schedule = new Schedule();
+            this.schedule = schedule;
             this.scheduleNames = new ObservableCollection<string>();
-            this.calendarDays = new ObservableCollection<CalendarDay>();
 
             this.dbShifts = new List<DbShift>();
 
-            //_ = RefreshThePage();
+
         }
 
         public async Task RefreshThePage()
         {
-            calendarDays.Clear();
-            this.schedule.WorkSchedule.Clear(); // Clear the current schedule
+            await LoadScheduleNamesAsync();
 
-            await LoadLastSchedule(); //Load the last schedule
-            await LoadScheduleNamesAsync(); //Load schedules names
-            //Initialize the calendar view grid
-            if (this.schedule.WorkSchedule.Count > 0)
-                await GenerateCalendar(schedule.WorkSchedule[0].Year, schedule.WorkSchedule[0].Month);
+            await LoadLastSchedule();
+
+            if (this.Schedule.WorkSchedule.Count == 0)
+            {
+                //await GenerateBlankCalendar(); --- TO MAKE!!!!!!
+            }
             else
-                await GenerateBlankCalendar();
+            {
+                int year = this.Schedule.WorkSchedule.Where(s => s.IsCurrentMonth).First().Year;
+                int month = this.Schedule.WorkSchedule.Where(s => s.IsCurrentMonth).First().Month;
+                CalendarMonthYear = $"Work Schedule for {Provider.GetMonthName(month)} {year} ";
+            }
+
 
         }
 
         private async Task LoadScheduleNamesAsync()
         {
-
             ScheduleNames.Clear();
-            ScheduleNames = new ObservableCollection<string>(await scheduleRepo.GetAllScheduleNames());
 
-            //var schedulesNameOnly = await scheduleRepo.GetAllScheduleNames();
-            //if(schedulesNameOnly.Count>0)
-            //{
-            //    foreach (var names in schedulesNameOnly)
-            //        ScheduleNames.Add(names);
-            //}
+            List<string> namesDB = await scheduleRepo.GetAllScheduleNames();
+
+            if (namesDB.Count > 0)
+            {
+                foreach (var names in namesDB)
+                    ScheduleNames.Add(names);
+            }
+            else
+            {
+                ScheduleNames.Add("No schedules found");
+            }
         }
 
         private async Task LoadLastSchedule()
         {
-            // Fetch the most recent schedule from the database
             this.dbSchedule = await scheduleRepo.GetLastSchedule();
-            await LoadFromDBToSchedule();
+            if (dbSchedule != null)
+            {
+                await LoadFromDBToSchedule();
+            }
+            // await GenerateBlankCalendar();
         }
         private async Task LoadFromDBToSchedule()
         {
+            this.Schedule.WorkSchedule.Clear(); // Clear the current schedule
+
             if (dbSchedule != null)
             {
                 dbShifts = await shiftsRepo!.GetShiftsForSchedule(dbSchedule.Id);
@@ -94,148 +102,110 @@
                     if (dbShift.ShiftType == ShiftType.DayShift)
                     {
                         shift = new DayShift(ShiftType.DayShift, dbShift.Year, dbShift.Month, dbShift.Day,
-                            dbShift.StarTime, dbShift.ShiftHour, dbShift.IsCompensated);
+                            dbShift.StarTime, dbShift.ShiftHour, dbShift.IsCurrentMonth, dbShift.IsCompensated);
                     }
                     else if (dbShift.ShiftType == ShiftType.NightShift)
                     {
 
                         shift = new NightShift(ShiftType.NightShift, dbShift.Year, dbShift.Month, dbShift.Day,
-                            dbShift.StarTime, dbShift.ShiftHour, dbShift.IsCompensated);
+                            dbShift.StarTime, dbShift.ShiftHour, dbShift.IsCurrentMonth, dbShift.IsCompensated);
                     }
                     else
                     {
                         shift = new RestDay(ShiftType.RestDay, dbShift.Year, dbShift.Month, dbShift.Day,
-                                                dbShift.StarTime, dbShift.ShiftHour, dbShift.IsCompensated);
+                             dbShift.StarTime, dbShift.ShiftHour, dbShift.IsCurrentMonth, dbShift.IsCompensated);
                     }
 
-                    await this.schedule.AddShift(shift!);
-                }
-            }
-        }
-
-        public Task GenerateCalendar(int year, int month)
-        {
-            calendarDays.Clear(); //Maybe not necessary 
-
-            CalendarMonthYear = $"Work Schedule for {Provider.GetMonthName(month)} {year} ";
-
-            DateTime firstDayOfMonth = new DateTime(year, month, 1);
-            int daysInMonth = DateTime.DaysInMonth(year, month);
-
-            GeneratePreviousMonthDays(calendarDays, firstDayOfMonth);
-
-            foreach (var shift in schedule.WorkSchedule)
-            {
-                string color = "White"; // Default color for rest days
-                string shiftInicial= "R"; // Default for rest days  
-                if (shift.IsCompensated)
-                {
-                    color = "LightBlue";
-                    shiftInicial= "C"; // Compensated
-                }
-                else if (shift.ShiftType == ShiftType.DayShift)
-                {
-                    color = "LightGreen";
-                    shiftInicial= "D";
+                    await this.Schedule.AddShift(shift!);
 
                 }
-                else if (shift.ShiftType == ShiftType.NightShift)
-                {
-                    color = "LightCoral";
-                    shiftInicial = "N";
-                }
-
-                calendarDays.Add(new CalendarDay
-                {
-                    Day = $"{shift.Day} {shiftInicial}",
-                    BackgroundColor = color,
-                    IsCurrentMonth = true
-                });
             }
-
-            GenerateNextMonthDays(calendarDays);
-
-            return Task.CompletedTask;
         }
 
-        public async Task GenerateBlankCalendar()
-        {
-            calendarDays.Clear(); //Maybe not necessary 
+        //---------Make this method to generate a blank calendar for the current month---------
+        /*
+         public async Task GenerateBlankCalendar()
+         {
+            // calendarDays.Clear(); //Maybe not necessary 
 
-            int year= DateTime.Now.Year;
-            int month = DateTime.Now.Month;
+             int year = DateTime.Now.Year;
+             int month = DateTime.Now.Month;
 
-            CalendarMonthYear = $"The month is {month} / {year} ";
+             CalendarMonthYear = $"The month is {month} / {year} ";
 
-            DateTime firstDayOfMonth = new DateTime(year, month, 1);
-            int daysInMonth = DateTime.DaysInMonth(year, month);
-
-
-            await GeneratePreviousMonthDays(calendarDays, firstDayOfMonth);
-
-            for (int day = 1; day <= daysInMonth; day++)
-            {
-                string color = "White";
-
-                calendarDays.Add(new CalendarDay
-                {
-                    Day = $"{day}",
-                    BackgroundColor = color
-                });
-            }
+             DateTime firstDayOfMonth = new DateTime(year, month, 1);
+             int daysInMonth = DateTime.DaysInMonth(year, month);
 
 
-            await GenerateNextMonthDays(calendarDays);
+            // await GeneratePreviousMonthDays(calendarDays, firstDayOfMonth);
 
-        }
+             for (int day = 1; day <= daysInMonth; day++)
+             {
+                 string color = "White";
 
-
-        private Task GeneratePreviousMonthDays(ObservableCollection<CalendarDay> calendarDays, DateTime firstDayOfMonth)
-        {
-            int offsetStart = ((int)firstDayOfMonth.DayOfWeek + 6) % 7;
-            var prevMonth = firstDayOfMonth.AddMonths(-1);
-            int prevMonthDays = DateTime.DaysInMonth(prevMonth.Year, prevMonth.Month);
-
-            for (int i = offsetStart - 1; i >= 0; i--)
-            {
-                calendarDays.Add(new CalendarDay
-                {
-                    Day = (prevMonthDays - i).ToString(),
-                    BackgroundColor = "LightGray",
-                    IsCurrentMonth = false
-                });
-            }
-            return Task.CompletedTask;
-        }
+                 //calendarDays.Add(new CalendarDay
+                 //{
+                 //    Day = $"{day}",
+                 //    BackgroundColor = color
+                 //});
+             }
 
 
-        private Task GenerateNextMonthDays(ObservableCollection<CalendarDay> calendarDays)
-        {
-            int totalDays = calendarDays.Count;
-            int paddingEnd = 42 - totalDays;
+            // await GenerateNextMonthDays(calendarDays);
 
-            for (int i = 1; i <= paddingEnd; i++)
-            {
-                calendarDays.Add(new CalendarDay
-                {
-                    Day = i.ToString(),
-                    BackgroundColor = "LightGray",
-                    IsCurrentMonth = false
-                });
-            }
-            return Task.CompletedTask;
-        }
+         }
+
+
+         private Task GeneratePreviousMonthDays(ObservableCollection<CalendarDay> calendarDays, DateTime firstDayOfMonth)
+         {
+             int offsetStart = ((int)firstDayOfMonth.DayOfWeek + 6) % 7;
+             var prevMonth = firstDayOfMonth.AddMonths(-1);
+             int prevMonthDays = DateTime.DaysInMonth(prevMonth.Year, prevMonth.Month);
+
+             for (int i = offsetStart - 1; i >= 0; i--)
+             {
+                 calendarDays.Add(new CalendarDay
+                 {
+                     Day = (prevMonthDays - i).ToString(),
+                     BackgroundColor = "LightGray",
+                     IsCurrentMonth = false
+                 });
+             }
+             return Task.CompletedTask;
+         }
+
+
+         private Task GenerateNextMonthDays(ObservableCollection<CalendarDay> calendarDays)
+         {
+             int totalDays = calendarDays.Count;
+             int paddingEnd = 42 - totalDays;
+
+             for (int i = 1; i <= paddingEnd; i++)
+             {
+                 calendarDays.Add(new CalendarDay
+                 {
+                     Day = i.ToString(),
+                     BackgroundColor = "LightGray",
+                     IsCurrentMonth = false
+                 });
+             }
+             return Task.CompletedTask;
+         }
+        */
 
         [RelayCommand]
         private async Task LoadSavedSchedule()
         {
-            calendarDays.Clear();
-
             dbSchedule = await this.scheduleRepo.GetScheduleByName(SelectedScheduleName);
-            
             await LoadFromDBToSchedule();
 
-            await RefreshThePage();
+            // await RefreshThePage();
+
+            //Chech if the schedule is loaded correctly without the Refresh Page and make
+            // this into a method
+            int year = this.Schedule.WorkSchedule.Where(s => s.IsCurrentMonth).First().Year;
+            int month = this.Schedule.WorkSchedule.Where(s => s.IsCurrentMonth).First().Month;
+            CalendarMonthYear = $"Work Schedule for {Provider.GetMonthName(month)} {year} ";
         }
 
 
@@ -244,11 +214,5 @@
         {
             await Shell.Current.GoToAsync(nameof(PickerDatePage));
         }
-
-        //[RelayCommand]
-        //private void ExitApp()
-        //{
-        //    Application.Current!.Quit();
-        //}
     }
 }

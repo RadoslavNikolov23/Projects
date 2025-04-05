@@ -4,7 +4,7 @@ global using Microsoft.Extensions.Logging;
 
 global using WorkChronicle.Views;
 global using WorkChronicle.ViewModels;
-global using WorkChronicle.ViewModels.Models;
+//global using WorkChronicle.ViewModels.Models;
 
 global using WorkChronicle.Common.Enums;
 

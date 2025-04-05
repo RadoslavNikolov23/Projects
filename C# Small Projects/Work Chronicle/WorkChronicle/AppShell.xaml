@@ -10,7 +10,7 @@
     
 
     <!--<FlyoutItem Title="Home" Icon="home.png">-->
-    <FlyoutItem Title="Home">
+    <FlyoutItem Title="Home" Icon="home.png">
         <ShellContent Route="MainPage" ContentTemplate="{DataTemplate views:MainPage}" />
     </FlyoutItem>
 
@@ -19,10 +19,10 @@
         <ShellContent Route="PickerDatePage" ContentTemplate="{DataTemplate views:PickerDatePage}" />
     </FlyoutItem>
 
-    <!--<FlyoutItem Title="Schedule View" Icon="schedule.png">
-    <FlyoutItem Title="Schedule View">
+    <!--<FlyoutItem Title="Schedule View" Icon="schedule.png">-->
+    <FlyoutItem Title="Schedule View" IsVisible="False">
         <ShellContent Route="ScheduleViewPage" ContentTemplate="{DataTemplate views:SchedulePage}" />
-    </FlyoutItem> -->
+    </FlyoutItem> 
 
     <!--  <FlyoutItem Title="Properties" Icon="settings.png">-->
     <FlyoutItem Title="Properties">

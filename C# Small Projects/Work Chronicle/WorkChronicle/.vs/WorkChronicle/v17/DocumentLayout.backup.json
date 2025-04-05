@@ -3,40 +3,46 @@
   "WorkspaceRootPath": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle\\viewmodels\\schedulepageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|solutionrelative:viewmodels\\schedulepageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle\\viewmodels\\mainpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|solutionrelative:viewmodels\\mainpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1B9F5EC3-0B37-4DDC-8B06-B21335ABBC38}|..\\WorkChronicle.Common\\WorkChronicle.Common.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.common\\provider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1B9F5EC3-0B37-4DDC-8B06-B21335ABBC38}|..\\WorkChronicle.Common\\WorkChronicle.Common.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.common\\workhoursbyyears\\workhoursbyyear.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1B9F5EC3-0B37-4DDC-8B06-B21335ABBC38}|..\\WorkChronicle.Common\\WorkChronicle.Common.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.common\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BF354B8C-9242-4E21-B4AD-BF95D5E2069A}|..\\WorkChronicle.Structure\\WorkChronicle.Structure.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.structure\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0FD5567E-1BA1-4833-AD29-CC1BD6B2A8D2}|..\\WorkChronicle.Data\\WorkChronicle.Data.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.data\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BF354B8C-9242-4E21-B4AD-BF95D5E2069A}|..\\WorkChronicle.Structure\\WorkChronicle.Structure.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.structure\\repository\\schedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle\\globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|solutionrelative:globalusings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BF354B8C-9242-4E21-B4AD-BF95D5E2069A}|..\\WorkChronicle.Structure\\WorkChronicle.Structure.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.structure\\repository\\contracts\\ischedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0FD5567E-1BA1-4833-AD29-CC1BD6B2A8D2}|..\\WorkChronicle.Data\\WorkChronicle.Data.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.data\\models\\dbshift.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BF354B8C-9242-4E21-B4AD-BF95D5E2069A}|..\\WorkChronicle.Structure\\WorkChronicle.Structure.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.structure\\models\\shift.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0FD5567E-1BA1-4833-AD29-CC1BD6B2A8D2}|..\\WorkChronicle.Data\\WorkChronicle.Data.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.data\\models\\dbschedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BF354B8C-9242-4E21-B4AD-BF95D5E2069A}|..\\WorkChronicle.Structure\\WorkChronicle.Structure.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.structure\\models\\restday.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1B9F5EC3-0B37-4DDC-8B06-B21335ABBC38}|..\\WorkChronicle.Common\\WorkChronicle.Common.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.common\\enums\\shifttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BF354B8C-9242-4E21-B4AD-BF95D5E2069A}|..\\WorkChronicle.Structure\\WorkChronicle.Structure.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.structure\\models\\nightshift.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF354B8C-9242-4E21-B4AD-BF95D5E2069A}|..\\WorkChronicle.Structure\\WorkChronicle.Structure.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.structure\\models\\dayshift.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF354B8C-9242-4E21-B4AD-BF95D5E2069A}|..\\WorkChronicle.Structure\\WorkChronicle.Structure.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.structure\\models\\contracts\\ishift.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF354B8C-9242-4E21-B4AD-BF95D5E2069A}|..\\WorkChronicle.Structure\\WorkChronicle.Structure.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.structure\\core\\engine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF354B8C-9242-4E21-B4AD-BF95D5E2069A}|..\\WorkChronicle.Structure\\WorkChronicle.Structure.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.structure\\core\\contracts\\iengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF354B8C-9242-4E21-B4AD-BF95D5E2069A}|..\\WorkChronicle.Structure\\WorkChronicle.Structure.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.structure\\configuration\\shiftpattern.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF354B8C-9242-4E21-B4AD-BF95D5E2069A}|..\\WorkChronicle.Structure\\WorkChronicle.Structure.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.structure\\configuration\\shiftconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF354B8C-9242-4E21-B4AD-BF95D5E2069A}|..\\WorkChronicle.Structure\\WorkChronicle.Structure.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.structure\\configuration\\scheduleconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF354B8C-9242-4E21-B4AD-BF95D5E2069A}|..\\WorkChronicle.Structure\\WorkChronicle.Structure.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.structure\\configuration\\restdaysbetweenshifts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -51,144 +57,183 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "SchedulePageViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\ViewModels\\SchedulePageViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\SchedulePageViewModel.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\ViewModels\\SchedulePageViewModel.cs*",
-              "RelativeToolTip": "ViewModels\\SchedulePageViewModel.cs*",
-              "ViewState": "AgIAAIEAAAAAAAAAAAApwJAAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T13:52:23.567Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainPageViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\ViewModels\\MainPageViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\MainPageViewModel.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\ViewModels\\MainPageViewModel.cs*",
-              "RelativeToolTip": "ViewModels\\MainPageViewModel.cs*",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAtwGIAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T13:52:12.698Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "WorkHoursByYear.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Common\\WorkHoursByYears\\WorkHoursByYear.cs",
-              "RelativeDocumentMoniker": "..\\WorkChronicle.Common\\WorkHoursByYears\\WorkHoursByYear.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Common\\WorkHoursByYears\\WorkHoursByYear.cs",
-              "RelativeToolTip": "..\\WorkChronicle.Common\\WorkHoursByYears\\WorkHoursByYear.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T13:50:31.217Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "GlobalUsings.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Common\\GlobalUsings.cs",
-              "RelativeDocumentMoniker": "..\\WorkChronicle.Common\\GlobalUsings.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Common\\GlobalUsings.cs",
-              "RelativeToolTip": "..\\WorkChronicle.Common\\GlobalUsings.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T13:48:19.715Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Provider.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Common\\Provider.cs",
-              "RelativeDocumentMoniker": "..\\WorkChronicle.Common\\Provider.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Common\\Provider.cs",
-              "RelativeToolTip": "..\\WorkChronicle.Common\\Provider.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T13:47:29.966Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "GlobalUsings.cs",
               "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\GlobalUsings.cs",
               "RelativeDocumentMoniker": "..\\WorkChronicle.Structure\\GlobalUsings.cs",
               "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\GlobalUsings.cs",
               "RelativeToolTip": "..\\WorkChronicle.Structure\\GlobalUsings.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T13:46:57.968Z",
+              "WhenOpened": "2025-04-05T15:09:24.437Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Schedule.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\Repository\\Schedule.cs",
+              "RelativeDocumentMoniker": "..\\WorkChronicle.Structure\\Repository\\Schedule.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\Repository\\Schedule.cs",
+              "RelativeToolTip": "..\\WorkChronicle.Structure\\Repository\\Schedule.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T15:08:28.564Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ISchedule.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\Repository\\Contracts\\ISchedule.cs",
+              "RelativeDocumentMoniker": "..\\WorkChronicle.Structure\\Repository\\Contracts\\ISchedule.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\Repository\\Contracts\\ISchedule.cs",
+              "RelativeToolTip": "..\\WorkChronicle.Structure\\Repository\\Contracts\\ISchedule.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAQwBAAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T15:08:03.67Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Shift.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\Models\\Shift.cs",
+              "RelativeDocumentMoniker": "..\\WorkChronicle.Structure\\Models\\Shift.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\Models\\Shift.cs",
+              "RelativeToolTip": "..\\WorkChronicle.Structure\\Models\\Shift.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T15:07:56.183Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RestDay.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\Models\\RestDay.cs",
+              "RelativeDocumentMoniker": "..\\WorkChronicle.Structure\\Models\\RestDay.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\Models\\RestDay.cs",
+              "RelativeToolTip": "..\\WorkChronicle.Structure\\Models\\RestDay.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAA1wAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T15:07:52.238Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "NightShift.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\Models\\NightShift.cs",
+              "RelativeDocumentMoniker": "..\\WorkChronicle.Structure\\Models\\NightShift.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\Models\\NightShift.cs",
+              "RelativeToolTip": "..\\WorkChronicle.Structure\\Models\\NightShift.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAYwAMAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T15:07:48.577Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "GlobalUsings.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Data\\GlobalUsings.cs",
-              "RelativeDocumentMoniker": "..\\WorkChronicle.Data\\GlobalUsings.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Data\\GlobalUsings.cs",
-              "RelativeToolTip": "..\\WorkChronicle.Data\\GlobalUsings.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Title": "DayShift.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\Models\\DayShift.cs",
+              "RelativeDocumentMoniker": "..\\WorkChronicle.Structure\\Models\\DayShift.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\Models\\DayShift.cs",
+              "RelativeToolTip": "..\\WorkChronicle.Structure\\Models\\DayShift.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAYwAMAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T13:46:53.37Z",
+              "WhenOpened": "2025-04-05T15:07:39.784Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "GlobalUsings.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\GlobalUsings.cs",
-              "RelativeDocumentMoniker": "GlobalUsings.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\GlobalUsings.cs",
-              "RelativeToolTip": "GlobalUsings.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Title": "IShift.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\Models\\Contracts\\IShift.cs",
+              "RelativeDocumentMoniker": "..\\WorkChronicle.Structure\\Models\\Contracts\\IShift.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\Models\\Contracts\\IShift.cs",
+              "RelativeToolTip": "..\\WorkChronicle.Structure\\Models\\Contracts\\IShift.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T13:46:34.39Z",
+              "WhenOpened": "2025-04-05T15:07:35.346Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "DbShift.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Data\\Models\\DbShift.cs",
-              "RelativeDocumentMoniker": "..\\WorkChronicle.Data\\Models\\DbShift.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Data\\Models\\DbShift.cs",
-              "RelativeToolTip": "..\\WorkChronicle.Data\\Models\\DbShift.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Title": "Engine.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\Core\\Engine.cs",
+              "RelativeDocumentMoniker": "..\\WorkChronicle.Structure\\Core\\Engine.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\Core\\Engine.cs",
+              "RelativeToolTip": "..\\WorkChronicle.Structure\\Core\\Engine.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAOoAAABXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T13:46:27.642Z",
+              "WhenOpened": "2025-04-05T15:00:21.827Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 9,
-              "Title": "DbSchedule.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Data\\Models\\DbSchedule.cs",
-              "RelativeDocumentMoniker": "..\\WorkChronicle.Data\\Models\\DbSchedule.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Data\\Models\\DbSchedule.cs",
-              "RelativeToolTip": "..\\WorkChronicle.Data\\Models\\DbSchedule.cs",
+              "Title": "IEngine.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\Core\\Contracts\\IEngine.cs",
+              "RelativeDocumentMoniker": "..\\WorkChronicle.Structure\\Core\\Contracts\\IEngine.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\Core\\Contracts\\IEngine.cs",
+              "RelativeToolTip": "..\\WorkChronicle.Structure\\Core\\Contracts\\IEngine.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T13:46:24.009Z",
+              "WhenOpened": "2025-04-05T15:00:17.341Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "ShiftType.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Common\\Enums\\ShiftType.cs",
-              "RelativeDocumentMoniker": "..\\WorkChronicle.Common\\Enums\\ShiftType.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Common\\Enums\\ShiftType.cs",
-              "RelativeToolTip": "..\\WorkChronicle.Common\\Enums\\ShiftType.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAFAAAAAAAAAA==",
+              "Title": "ShiftPattern.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\Configuration\\ShiftPattern.cs",
+              "RelativeDocumentMoniker": "..\\WorkChronicle.Structure\\Configuration\\ShiftPattern.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\Configuration\\ShiftPattern.cs",
+              "RelativeToolTip": "..\\WorkChronicle.Structure\\Configuration\\ShiftPattern.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-04T13:45:53.642Z",
+              "WhenOpened": "2025-04-05T15:00:06.998Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ShiftConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\Configuration\\ShiftConfiguration.cs",
+              "RelativeDocumentMoniker": "..\\WorkChronicle.Structure\\Configuration\\ShiftConfiguration.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\Configuration\\ShiftConfiguration.cs",
+              "RelativeToolTip": "..\\WorkChronicle.Structure\\Configuration\\ShiftConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T15:00:02.487Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ScheduleConfiguration.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\Configuration\\ScheduleConfiguration.cs",
+              "RelativeDocumentMoniker": "..\\WorkChronicle.Structure\\Configuration\\ScheduleConfiguration.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\Configuration\\ScheduleConfiguration.cs",
+              "RelativeToolTip": "..\\WorkChronicle.Structure\\Configuration\\ScheduleConfiguration.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T14:59:53.745Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "RestDaysBetweenShifts.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\Configuration\\RestDaysBetweenShifts.cs",
+              "RelativeDocumentMoniker": "..\\WorkChronicle.Structure\\Configuration\\RestDaysBetweenShifts.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\Configuration\\RestDaysBetweenShifts.cs",
+              "RelativeToolTip": "..\\WorkChronicle.Structure\\Configuration\\RestDaysBetweenShifts.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-05T14:59:37.906Z",
               "EditorCaption": ""
             }
           ]

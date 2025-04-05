@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:WorkChronicle.ViewModels"
-             xmlns:models="clr-namespace:WorkChronicle.ViewModels.Models"
+             xmlns:models="clr-namespace:WorkChronicle.Structure.Models.Contracts;assembly=WorkChronicle.Structure"
              x:Class="WorkChronicle.Views.MainPage"
              x:DataType="viewmodels:MainPageViewModel"
              Title="MainPage">
@@ -48,7 +48,7 @@
 
                 <!-- Bind Days Dynamically -->
                 <CollectionView Grid.Row="1"  
-                            ItemsSource="{Binding calendarDays}">
+                            ItemsSource="{Binding Schedule.WorkSchedule}">
                     <CollectionView.ItemsLayout>
                         <GridItemsLayout Orientation="Vertical" 
                                      Span="7" 
@@ -57,7 +57,7 @@
                     </CollectionView.ItemsLayout>
 
                     <CollectionView.ItemTemplate>
-                        <DataTemplate x:DataType="models:CalendarDay">
+                        <DataTemplate x:DataType="models:IShift">
                             <Frame Padding="5"
                                BackgroundColor="{Binding BackgroundColor}"
                                BorderColor="Black"
@@ -93,9 +93,6 @@
             <Button Text="Pick a new schedule" 
                 Command="{Binding PickNewScheduleCommand}"/>
 
-            <!-- <Button Text="Exit" 
-                Command="{Binding ExitAppCommand}"/>
-                -->
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

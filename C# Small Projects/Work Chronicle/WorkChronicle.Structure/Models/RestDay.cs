@@ -2,11 +2,17 @@
 {
     public class RestDay : Shift
     {
-        public RestDay(ShiftType shiftType, int year, int month, int day, double startTime, double shiftHour) : this(shiftType, year, month, day, startTime, shiftHour, false)
+        public RestDay(ShiftType shiftType, int year, int month, int day, double startTime, double shiftHour) : base(shiftType, year, month, day, startTime, shiftHour, false, false)
         {
         }
 
-        public RestDay(ShiftType shiftType, int year, int month, int day, double startTime, double shiftHour, bool isCompensated) : base(shiftType, year, month, day, startTime, shiftHour, isCompensated)
+        public RestDay(ShiftType shiftType, int year, int month, int day, double startTime, double shiftHour, bool isCurrentMonth) : base (shiftType, year, month, day, startTime, shiftHour, isCurrentMonth, false)
+        {
+        }
+
+
+
+        public RestDay(ShiftType shiftType, int year, int month, int day, double startTime, double shiftHour, bool isCurrentMonth, bool isCompensated) : base (shiftType, year, month, day, startTime, shiftHour, isCurrentMonth, isCompensated)
         {
         }
 

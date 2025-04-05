@@ -2,11 +2,15 @@
 {
     public abstract class Shift : IShift
     {
-        public Shift(ShiftType shiftType,int year, int month, int day, double startTime, double shiftHour): this(shiftType, year, month, day, startTime, shiftHour, false)
+        public Shift(ShiftType shiftType,int year, int month, int day, double startTime, double shiftHour): this(shiftType, year, month, day, startTime, shiftHour, false, false)
         {
         }
 
-        public Shift(ShiftType shiftType,int year, int month, int day, double startTime, double shiftHour, bool isCompensated)
+        public Shift(ShiftType shiftType,int year, int month, int day, double startTime, double shiftHour, bool isCurrentMonth): this (shiftType, year, month, day, startTime, shiftHour, isCurrentMonth,false)
+        {
+        }
+
+        public Shift(ShiftType shiftType,int year, int month, int day, double startTime, double shiftHour, bool isCurrentMonth, bool isCompensated)
         {
             this.ShiftType = shiftType;
             this.Year = year;
@@ -16,6 +20,12 @@
             this.ShiftHour = shiftHour;
             this.ShiftType = shiftType;
             this.IsCompensated = isCompensated;
+            this.IsCurrentMonth = isCurrentMonth; 
+            this.BackgroundColor = !IsCurrentMonth? "LightGray"
+                                                : isCompensated ? "LightBlue"
+                                                : shiftType == ShiftType.DayShift ? "LightGreen"
+                                                : shiftType == ShiftType.NightShift ? "DarkGreen" 
+                                                : "White"; //For RestDay and everything else!
         }
 
         public ShiftType ShiftType { get; set; }
@@ -25,6 +35,8 @@
         public double StarTime { get; set; }
         public double ShiftHour { get; set; }
         public bool IsCompensated { get; set; }
+        public bool IsCurrentMonth { get; set; }
+        public string BackgroundColor { get; set; }
 
         public override string ToString()
         {

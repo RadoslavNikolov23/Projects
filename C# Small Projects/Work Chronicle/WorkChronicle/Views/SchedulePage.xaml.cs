@@ -1,8 +1,5 @@
 namespace WorkChronicle.Views
 {
-
-
-
     public partial class SchedulePage : ContentPage
     {
         public SchedulePage(SchedulePageViewModel schedulePageViewModel)

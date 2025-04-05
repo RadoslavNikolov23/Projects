@@ -61,6 +61,7 @@
             else
             {
                 DateTime startDateNew = Schedule.WorkSchedule.First().GetDateShift();
+
                 await GenerateShiftDetails(this.Schedule, startDateNew);
             }
         }
@@ -82,7 +83,7 @@
                                                                     .Where(s => s.ShiftType != ShiftType.RestDay 
                                                                       && s.IsCompensated == false));
 
-            int compansateShiftsCount = await this.Schedule.TotalCompansatedShifts();
+            //int compensatedShiftsCount = await this.Schedule.TotalCompansatedShifts(); - To Delete ????
 
             if (totalHours > totalHoursByMonth)
             {
@@ -125,8 +126,8 @@
         [RelayCommand]
         private async Task SaveShiftSchedule()
         {
-            int year = this.Schedule.WorkSchedule[0].Year;
-            int month = this.Schedule.WorkSchedule[0].Month;
+            int year = this.Schedule.WorkSchedule.Where(s=>s.IsCurrentMonth).First().Year;
+            int month = this.Schedule.WorkSchedule.Where(s=>s.IsCurrentMonth).First().Month;
 
             var scheduleDb = new DbSchedule 
             { ScheduleName = $"{Provider.GetMonthName(month)} {year}",
@@ -148,6 +149,8 @@
                     StarTime = shifts.StarTime,
                     ShiftHour = shifts.ShiftHour,
                     IsCompensated = shifts.IsCompensated,
+                    IsCurrentMonth = shifts.IsCurrentMonth,
+                    BackgroundColor = shifts.BackgroundColor,
                 };
 
                 await shiftRepo.AddShift(dbShift);
@@ -155,14 +158,11 @@
             }
                         
             await Shell.Current.DisplayAlert("Success", "Your schedule has been saved.", "OK");
-
-            //TextMessage = "Schedule has been saved!"; // Make a pop in text box!
         }
 
         [RelayCommand]
         private async Task GoBackButton()
         {
-            Schedule.WorkSchedule.Clear();
             await Shell.Current.GoToAsync("///MainPage");
         }
     }

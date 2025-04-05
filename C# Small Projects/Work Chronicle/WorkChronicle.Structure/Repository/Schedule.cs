@@ -33,7 +33,7 @@
             return Task.FromResult(workSchedule.Count);
         }
 
-        public Task<int> TotalCompansatedShifts()
+        public Task<int> TotalCompensatedShifts()
         {
             return Task.FromResult(workSchedule.Count(s => s.IsCompensated == true));
         }
