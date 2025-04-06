@@ -1,19 +1,11 @@
 ﻿namespace WorkChronicle.Structure.Configuration
 {
 
-    public class ScheduleConfiguration
+    public class ScheduleConfiguration(DateTime startDate, string[] cycle, string firstShift, ShiftConfiguration shiftConfiguration)
     {
-        public ScheduleConfiguration(DateTime startDate, string[] cycle, string firstShift, ShiftConfiguration shiftConfiguration)
-        {
-            StartDate = startDate;
-            Cycle = cycle;
-            FirstShift = firstShift;
-            ShiftConfiguration = shiftConfiguration;
-        }
-
-        public DateTime StartDate { get; set; }
-        public string[] Cycle { get; set; }
-        public string FirstShift { get; set; }
-        public ShiftConfiguration ShiftConfiguration { get; set; }
+        public DateTime StartDate { get; set; } = startDate;
+        public string[] Cycle { get; set; } = cycle;
+        public string FirstShift { get; set; } = firstShift;
+        public ShiftConfiguration ShiftConfiguration { get; set; } = shiftConfiguration;
     }
 }

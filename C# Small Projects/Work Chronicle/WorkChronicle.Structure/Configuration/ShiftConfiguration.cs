@@ -1,16 +1,9 @@
 ﻿namespace WorkChronicle.Structure.Configuration
 {
-    public class ShiftConfiguration
+    public class ShiftConfiguration(double startDayShift, double startNightShift, double totalShiftHours)
     {
-        public ShiftConfiguration(double startDayShift, double startNightShift, double totalShiftHours)
-        {
-            StartDayShift = startDayShift;
-            StartNightShift = startNightShift;
-            TotalShiftHours = totalShiftHours;
-        }
-
-        public double StartDayShift { get; set; }
-        public double StartNightShift { get; set; }
-        public double TotalShiftHours { get; set; }
+        public double StartDayShift { get; set; } = startDayShift;
+        public double StartNightShift { get; set; } = startNightShift;
+        public double TotalShiftHours { get; set; } = totalShiftHours;
     }
 }

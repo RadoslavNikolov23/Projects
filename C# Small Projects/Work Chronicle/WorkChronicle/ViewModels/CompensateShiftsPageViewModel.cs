@@ -22,9 +22,9 @@
         private async Task RefreshThePage()
         {
             this.ShiftCollectionView = new ObservableCollection<IShift>
-                                            (this.Schedule.WorkSchedule
-                                                           .Where(s => s.ShiftType!=ShiftType.RestDay 
-                                                                    && s.IsCompensated == true));
+                                                            (this.Schedule.WorkSchedule
+                                                                 .Where(s => s.ShiftType!=ShiftType.RestDay 
+                                                                             && s.IsCompensated == true));
             await Task.Delay(10);
         }
 

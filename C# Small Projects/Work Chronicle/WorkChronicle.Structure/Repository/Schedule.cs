@@ -42,7 +42,7 @@
         {
             int totalHours = 0;
 
-            foreach (var shift in workSchedule.Where(ws=>ws.ShiftType!=ShiftType.RestDay))
+            foreach (var shift in workSchedule.Where(s=>s.ShiftType!=ShiftType.RestDay))
             {
                 if (shift.IsCompensated == false)
                 {

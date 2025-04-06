@@ -6,6 +6,10 @@ global using WorkChronicle.Views;
 global using WorkChronicle.ViewModels;
 //global using WorkChronicle.ViewModels.Models;
 
+global using CommunityToolkit.Maui.Views;
+
+global using WorkChronicle.Controls;
+
 global using WorkChronicle.Common.Enums;
 
 global using WorkChronicle.Data.Connection;

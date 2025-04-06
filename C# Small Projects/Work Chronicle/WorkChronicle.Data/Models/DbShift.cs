@@ -23,10 +23,6 @@
 
         public bool IsCurrentMonth { get; set; }
 
-
-        [MaxLength(30)]
-        public string BackgroundColor { get; set; } = null!; //????? Maybe is not necessary to be here
-
         public int DbScheduleId { get; set; }
 
         [Ignore]

@@ -20,7 +20,7 @@
     </FlyoutItem>
 
     <!--<FlyoutItem Title="Schedule View" Icon="schedule.png">-->
-    <FlyoutItem Title="Schedule View" IsVisible="False">
+    <FlyoutItem Title="Schedule View" IsVisible="True">
         <ShellContent Route="ScheduleViewPage" ContentTemplate="{DataTemplate views:SchedulePage}" />
     </FlyoutItem> 
 

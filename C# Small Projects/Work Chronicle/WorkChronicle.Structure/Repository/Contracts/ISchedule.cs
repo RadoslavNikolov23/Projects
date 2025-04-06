@@ -1,6 +1,4 @@
-﻿using System.Collections.ObjectModel;
-
-namespace WorkChronicle.Structure.Repository.Contracts
+﻿namespace WorkChronicle.Structure.Repository.Contracts
 {
     public interface ISchedule<T> where T : class
     {

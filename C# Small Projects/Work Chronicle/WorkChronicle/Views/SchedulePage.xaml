@@ -2,6 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:WorkChronicle.ViewModels"
+             xmlns:controls="clr-namespace:WorkChronicle.Controls;assembly=WorkChronicle.Controls"
+             xmlns:models="clr-namespace:WorkChronicle.Structure.Models.Contracts;assembly=WorkChronicle.Structure"
              x:Class="WorkChronicle.Views.SchedulePage"
              x:DataType="viewmodels:SchedulePageViewModel"
              Title="SchedulePage">
@@ -13,6 +15,9 @@
                    FontSize="Medium" 
                    TextColor="Black" />
 
+            <controls:CalendarGridView BindingContext="{Binding}"/>
+
+            <!--
             <CollectionView x:Name="ShiftCollectionView"
                          ItemsSource="{Binding ShiftCollectionView}"
                          SelectionMode="Multiple"
@@ -31,23 +36,48 @@
                         </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
-            </CollectionView>
+            </CollectionView> -->
 
             <Label Text="{Binding HoursMessage,Mode=TwoWay}" 
                    FontSize="Medium" 
                    TextColor="Black"/>
 
-            <Button Text="Remove Shift" 
-                    Command="{Binding RemoveShiftCommand}"/>
+            <HorizontalStackLayout
+                                Spacing="10"
+                                Padding="10"
+                                HorizontalOptions="Center"
+                                VerticalOptions="End">          
 
-            <Button Text="Compensate Shifts"
-                    Command="{Binding CompensateShiftCommand}"/>
+                <Button
+                        Text="Compensate Selected Shift"
+                        Command="{Binding CompensateButtonCommand}"
+                        WidthRequest="150"
+                        HeightRequest="50" />
+
+                <Button
+                        Text="Edit Selected Shift" 
+                        Command="{Binding EditShiftCommand}"
+                        WidthRequest="150"
+                        HeightRequest="50" />
+
+            </HorizontalStackLayout>
+            
+            <!--
+            <Button Text="Compensate Selected Shift" 
+                    Command="{Binding CompensateButtonCommand}"/>
+
+            <Button Text="Edit Selected Shift" 
+                    Command="{Binding EditShiftCommand}"/> -->
+
 
             <Button Text="Save Schedule"
                     Command="{Binding SaveShiftScheduleCommand}"/>
 
             <Button Text="Go Back to Main" 
                     Command="{Binding GoBackButtonCommand}"/>
+            
+            <Button Text="Comp Views - Wrong"
+                    Command="{Binding CompensateShiftCommand}"/>
 
         </VerticalStackLayout>
     </ScrollView>

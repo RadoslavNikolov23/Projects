@@ -10,8 +10,6 @@
         {
         }
 
-
-
         public RestDay(ShiftType shiftType, int year, int month, int day, double startTime, double shiftHour, bool isCurrentMonth, bool isCompensated) : base (shiftType, year, month, day, startTime, shiftHour, isCurrentMonth, isCompensated)
         {
         }

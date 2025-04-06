@@ -3,6 +3,13 @@
     public partial class MainPageViewModel : BaseViewModel
     {
 
+        [ObservableProperty]
+        private IShift? selectedShift;
+
+        public IRelayCommand<SelectionChangedEventArgs> ShiftSelectedCommand { get; }
+
+
+
         private WorkScheduleRepositoryDB scheduleRepo;
 
         private WorkShiftRepositoryDB? shiftsRepo;
@@ -24,9 +31,14 @@
         [ObservableProperty]
         private string calendarMonthYear = "";
 
+        [ObservableProperty]
+        private string textMessage = "";
+
 
         public MainPageViewModel(ISchedule<IShift> schedule, WorkScheduleRepositoryDB scheduleRepo, WorkShiftRepositoryDB shiftsRepo)
         {
+            this.ShiftSelectedCommand = new AsyncRelayCommand<SelectionChangedEventArgs>(OnShiftSelected!);
+
             this.scheduleRepo = scheduleRepo;
             this.shiftsRepo = shiftsRepo;
 
@@ -34,9 +46,57 @@
             this.scheduleNames = new ObservableCollection<string>();
 
             this.dbShifts = new List<DbShift>();
-
-
         }
+
+        private async Task OnShiftSelected(SelectionChangedEventArgs args)
+        {
+            // Check if the selected item is null or not
+            if(this.SelectedShift==null)
+                return;
+
+            if (this.SelectedShift.ShiftType == ShiftType.RestDay)
+            {
+                await Shell.Current.DisplayAlert("Information", "This is a Rest Day .", "OK");
+                // Deselect the item
+                this.SelectedShift = null;
+                return;
+            }
+
+            // Display a information about the selected shift
+            await Shell.Current.DisplayAlert("Information", 
+                                            $"""
+                                            This is a {this.SelectedShift.ShiftType.ToString()}.
+                                            Your start the shift at {this.SelectedShift.StarTime} and
+                                            is {this.SelectedShift.ShiftHour} hours long.
+                                            """, "OK");
+            // Deselect the item
+            this.SelectedShift = null;
+            return;
+
+
+
+            //var popup = new ShiftCompensationPopup(this.SelectedShift!);
+            // await Shell.Current.CurrentPage.ShowPopupAsync(popup);
+
+            //-TO DELTE !!
+            //if (args.CurrentSelection.FirstOrDefault() is IShift selected)
+            //{
+            //    if (!selected.IsCurrentMonth)
+            //    {
+            //        // Deselect the item
+            //        this.SelectedShift = null;
+            //        return;
+            //    }
+
+
+            //    var popup = new ShiftCompensationPopup(this.SelectedShift!);
+            //    await Shell.Current.CurrentPage.ShowPopupAsync(popup);
+
+            //    // Do whatever logic you want with the valid selection
+            //    this.SelectedShift = selected;
+            //}
+        }
+
 
         public async Task RefreshThePage()
         {
@@ -47,26 +107,38 @@
             if (this.Schedule.WorkSchedule.Count == 0)
             {
                 //await GenerateBlankCalendar(); --- TO MAKE!!!!!!
+                TextMessage = "You have not generated any schedule yet!.";
             }
             else
             {
-                int year = this.Schedule.WorkSchedule.Where(s => s.IsCurrentMonth).First().Year;
-                int month = this.Schedule.WorkSchedule.Where(s => s.IsCurrentMonth).First().Month;
+                DateTime startDate = Schedule.WorkSchedule
+                                       .Where(s => s.IsCurrentMonth == true)
+                                       .First()
+                                       .GetDateShift();
+
+                int year = startDate.Year;
+                int month = startDate.Month;
                 CalendarMonthYear = $"Work Schedule for {Provider.GetMonthName(month)} {year} ";
+
+                KeyValuePair<int, string[]> monthByHoursTotal = Provider.GetMonthHoursTotal(startDate);
+
+                string monthName = Provider.GetMonthName(monthByHoursTotal.Key);
+                int totalHoursByMonth = int.Parse(monthByHoursTotal.Value[1]);
+                int totalHours = await this.Schedule.CalculateTotalWorkHours();
+
+                TextMessage = $"Your total hours are: {totalHours}, for the month {monthName} the working hours are {totalHoursByMonth}";
             }
-
-
         }
 
         private async Task LoadScheduleNamesAsync()
         {
             ScheduleNames.Clear();
 
-            List<string> namesDB = await scheduleRepo.GetAllScheduleNames();
+            List<string> scheduleNamesDTO = await scheduleRepo.GetAllScheduleNames();
 
-            if (namesDB.Count > 0)
+            if (scheduleNamesDTO.Count > 0)
             {
-                foreach (var names in namesDB)
+                foreach (var names in scheduleNamesDTO)
                     ScheduleNames.Add(names);
             }
             else
@@ -82,7 +154,6 @@
             {
                 await LoadFromDBToSchedule();
             }
-            // await GenerateBlankCalendar();
         }
         private async Task LoadFromDBToSchedule()
         {
@@ -101,19 +172,37 @@
 
                     if (dbShift.ShiftType == ShiftType.DayShift)
                     {
-                        shift = new DayShift(ShiftType.DayShift, dbShift.Year, dbShift.Month, dbShift.Day,
-                            dbShift.StarTime, dbShift.ShiftHour, dbShift.IsCurrentMonth, dbShift.IsCompensated);
+                        shift = new DayShift(ShiftType.DayShift, 
+                                            dbShift.Year, 
+                                            dbShift.Month, 
+                                            dbShift.Day,
+                                            dbShift.StarTime,
+                                            dbShift.ShiftHour, 
+                                            dbShift.IsCurrentMonth, 
+                                            dbShift.IsCompensated);
                     }
                     else if (dbShift.ShiftType == ShiftType.NightShift)
                     {
 
-                        shift = new NightShift(ShiftType.NightShift, dbShift.Year, dbShift.Month, dbShift.Day,
-                            dbShift.StarTime, dbShift.ShiftHour, dbShift.IsCurrentMonth, dbShift.IsCompensated);
+                        shift = new NightShift(ShiftType.NightShift, 
+                                                dbShift.Year, 
+                                                dbShift.Month, 
+                                                dbShift.Day,
+                                                dbShift.StarTime, 
+                                                dbShift.ShiftHour, 
+                                                dbShift.IsCurrentMonth, 
+                                                dbShift.IsCompensated);
                     }
                     else
                     {
-                        shift = new RestDay(ShiftType.RestDay, dbShift.Year, dbShift.Month, dbShift.Day,
-                             dbShift.StarTime, dbShift.ShiftHour, dbShift.IsCurrentMonth, dbShift.IsCompensated);
+                        shift = new RestDay(ShiftType.RestDay, 
+                                            dbShift.Year, 
+                                            dbShift.Month, 
+                                            dbShift.Day,
+                                            dbShift.StarTime, 
+                                            dbShift.ShiftHour, 
+                                            dbShift.IsCurrentMonth, 
+                                            dbShift.IsCompensated);
                     }
 
                     await this.Schedule.AddShift(shift!);
@@ -196,15 +285,25 @@
         [RelayCommand]
         private async Task LoadSavedSchedule()
         {
-            dbSchedule = await this.scheduleRepo.GetScheduleByName(SelectedScheduleName);
+            dbSchedule = await this.scheduleRepo
+                                    .GetScheduleByName(SelectedScheduleName);
+
             await LoadFromDBToSchedule();
 
             // await RefreshThePage();
 
             //Chech if the schedule is loaded correctly without the Refresh Page and make
             // this into a method
-            int year = this.Schedule.WorkSchedule.Where(s => s.IsCurrentMonth).First().Year;
-            int month = this.Schedule.WorkSchedule.Where(s => s.IsCurrentMonth).First().Month;
+            int year = this.Schedule.WorkSchedule
+                                    .Where(s => s.IsCurrentMonth)
+                                    .First()
+                                    .Year;
+
+            int month = this.Schedule.WorkSchedule
+                                     .Where(s => s.IsCurrentMonth)
+                                     .First()
+                                     .Month;
+
             CalendarMonthYear = $"Work Schedule for {Provider.GetMonthName(month)} {year} ";
         }
 

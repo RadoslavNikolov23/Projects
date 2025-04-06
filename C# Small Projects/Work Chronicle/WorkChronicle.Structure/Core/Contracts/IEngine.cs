@@ -2,8 +2,6 @@
 {
     public interface IEngine<T> where T:class
     {
-        Task <T>  CalculateShifts(ScheduleConfiguration scheduleConfiguration);
-
-       // int CalculateTotalHours(T schedule);
+        Task <T> CalculateShifts (ScheduleConfiguration scheduleConfiguration);
     }
 }

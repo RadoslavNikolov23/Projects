@@ -30,19 +30,6 @@
 
         public List<int> ShiftDurations { get; } = new() { 4, 6, 8, 10, 12, 24 };
 
-        public PickerDatePageViewModel(ISchedule<IShift> schedule)
-        {
-            this.schedule = schedule;
-            this.schedule.WorkSchedule.Clear(); // Clear the current schedule
-
-            this.engine = new Engine();
-            this.selectedStartDate = DateTime.Now;
-            this.selectedFirstShift = WorkShift[0];
-            this.dayShiftStartTime = new TimeSpan(07, 00, 00);
-            this.nightShiftStartTime = new TimeSpan(19, 00, 00);
-            this.totalShiftHours = 12;
-        }
-
         public ObservableCollection<string> WorkSchedules { get; } = new()
         {
             "Day24Hour",
@@ -57,6 +44,19 @@
             "NightShift",
         };
 
+        public PickerDatePageViewModel(ISchedule<IShift> schedule)
+        {
+            this.schedule = schedule;
+            this.schedule.WorkSchedule.Clear(); // Clear the current schedule
+
+            this.engine = new Engine();
+            this.selectedStartDate = DateTime.Now;
+            this.selectedFirstShift = WorkShift[0];
+            this.dayShiftStartTime = new TimeSpan(07, 00, 00);
+            this.nightShiftStartTime = new TimeSpan(19, 00, 00);
+            this.totalShiftHours = 12;
+        }
+
         [RelayCommand]
         private async Task CalculateShifts()
         {
@@ -64,10 +64,17 @@
 
             string[] cycle = await ValidateSchedule();
 
-            ShiftConfiguration shiftConfiguration = new ShiftConfiguration(this.DayShiftStartTime.Hours, this.NightShiftStartTime.Hours, this.TotalShiftHours);
-            ScheduleConfiguration scheduleConfiguration = new ScheduleConfiguration(startDate, cycle, this.SelectedFirstShift, shiftConfiguration);
+            ShiftConfiguration shiftConfiguration = new (this.DayShiftStartTime.Hours, 
+                                                        this.NightShiftStartTime.Hours, 
+                                                        this.TotalShiftHours);
 
-            ISchedule<IShift> tempSchedule = await this.engine.CalculateShifts(scheduleConfiguration);
+            ScheduleConfiguration scheduleConfiguration = new (startDate, 
+                                                               cycle, 
+                                                               this.SelectedFirstShift, 
+                                                               shiftConfiguration);
+
+            ISchedule<IShift> tempSchedule = await this.engine
+                                                            .CalculateShifts(scheduleConfiguration);
 
             foreach (var shift in tempSchedule.WorkSchedule)
             {
