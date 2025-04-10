@@ -2,7 +2,7 @@ namespace WorkChronicle.Views
 {
     public partial class SchedulePage : ContentPage
     {
-        public SchedulePage(SchedulePageViewModel schedulePageViewModel)
+        public SchedulePage(ScheduleEditViewModel schedulePageViewModel)
         {
             InitializeComponent();
             BindingContext = schedulePageViewModel;
@@ -11,7 +11,7 @@ namespace WorkChronicle.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            if (BindingContext is SchedulePageViewModel sv)
+            if (BindingContext is ScheduleEditViewModel sv)
             {
                 await sv.RefreshThePage();
 

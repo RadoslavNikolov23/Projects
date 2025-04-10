@@ -53,7 +53,7 @@
             this.BackgroundColor = !IsCurrentMonth ? Colors.LightGray
                                                 : IsCompensated ? Colors.LightBlue
                                                 : ShiftType == ShiftType.DayShift ? Colors.LightGreen
-                                                : ShiftType == ShiftType.NightShift ? Colors.YellowGreen
+                                                : ShiftType == ShiftType.NightShift ? Colors.Maroon
                                                 : Colors.White; //For RestDay and everything else!
         }
 
@@ -81,7 +81,7 @@
             else if (ShiftType == ShiftType.DayShift)
                 BackgroundColor = Colors.LightGreen;
             else if (ShiftType == ShiftType.NightShift)
-                BackgroundColor = Colors.YellowGreen;
+                BackgroundColor = Colors.Maroon;
             else
                 BackgroundColor = Colors.White;
         }

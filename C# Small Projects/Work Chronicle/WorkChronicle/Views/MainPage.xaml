@@ -5,38 +5,29 @@
              xmlns:models="clr-namespace:WorkChronicle.Structure.Models.Contracts;assembly=WorkChronicle.Structure"
              xmlns:controls="clr-namespace:WorkChronicle.Controls;assembly=WorkChronicle.Controls"
              x:Class="WorkChronicle.Views.MainPage"
-             x:DataType="viewmodels:MainPageViewModel"
+             x:DataType="viewmodels:MainViewModel"
              Title="MainPage">
 
     <ScrollView>
-        <VerticalStackLayout Padding="15" Spacing="40">
+        <VerticalStackLayout 
+                            Spacing="40"
+                            Padding="15" >
             
-            <Label Text="{Binding CalendarMonthYear}" 
-               FontSize="24" 
-               FontAttributes="Bold"
-               HorizontalOptions="Center"/>
+            <Label 
+                  Text="{Binding CalendarMonthYear}" 
+                  FontSize="24" 
+                  FontAttributes="Bold"
+                  HorizontalOptions="Center"/>
 
-            <controls:CalendarGridView BindingContext="{Binding}"/>
+            <controls:CalendarGridView 
+                                       BindingContext="{Binding}"/>
 
-            <Label Text="{Binding TextMessage}" 
+            <Label 
+                   Text="{Binding TextMessage}" 
                    FontSize="Medium" 
-                   TextColor="Black" />
-
-            <Label x:Name="ChoiseLabel" 
-               Text="Select a Schedule:" 
-               TextColor="Black" 
-               FontSize="Medium"/>
-
-            <Picker Title="Select Schedule"
-                    ItemsSource="{Binding ScheduleNames}"
-                    SelectedItem="{Binding SelectedScheduleName}" />
-
-            <Button Text="Load selected Schedule"
-                Command="{Binding LoadSavedScheduleCommand}"/>
-
-            <Button Text="Pick a new schedule" 
-                Command="{Binding PickNewScheduleCommand}"/>
-
+                   TextColor="Black" 
+                   HorizontalOptions="Center"/>
+            
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

@@ -5,18 +5,14 @@
         private const bool isCurrentMonth = true;
         private const bool isNotCurrentMonth = false;
 
-       // private ShiftType firstShiftType;
         private readonly ShiftPattern shiftPattern = new ShiftPattern();
-
 
         public Task<ISchedule<IShift>> AddShiftsToSchedule(ISchedule<IShift> schedule, ScheduleConfiguration sc, IShift dayShift, IShift? nightShift, int daysBetweenShiftsCycle)
         {
             string[] cycle=sc.Cycle;
             int startDateMonth = sc.StartDate.Month;
 
-           // ShiftTypeExtensions.TryParseShiftType(sc.FirstShift, out firstShiftType);
             shiftPattern.ChechTheShiftPattern(sc.Cycle);
-
 
             DateTime tempDayDT = new DateTime(dayShift.Year, dayShift.Month, dayShift.Day);
             DateTime tempNightDT = default;
@@ -37,42 +33,6 @@
                 }
             }
 
-
-
-            //TO DELETE !!!!!!
-                        //if (firstShiftType == ShiftType.DayShift)
-                        //{
-                        //    tempDayDT = new DateTime(dayShift.Year, dayShift.Month, dayShift.Day);
-                        //    tempNightDT = new DateTime(nightShift!.Year, nightShift.Month, nightShift.Day);
-                        //}
-                        //else
-                        //{
-                        //    tempNightDT = new DateTime(nightShift!.Year, nightShift.Month, nightShift.Day);
-                        //}
-
-                        //if (!shiftPattern.Is24Dayshift)
-                        //{
-                        //    if (firstShiftType==ShiftType.DayShift)
-                        //    {
-                        //        tempNightDT = new DateTime(nightShift!.Year, nightShift.Month, nightShift.Day);
-                        //    }
-                        //    else
-                        //    {
-                        //        //if (shiftPattern.IsDayNightNightShift)
-                        //       // {
-                        //       //     tempDayDT = new DateTime(dayShift.Year, dayShift.Month, dayShift.Day);
-
-                        //      //  }
-
-                        //        dateTime = dateTime.AddDays(1);
-
-                        //        if (!HasShiftMonthChanged(dateTime.Month, nightShift!.Month))
-                        //        {
-                        //            tempSecondNightDT = new DateTime(dateTime.Year, dateTime.Month, dateTime.Day);
-                        //        }
-                        //    }
-                        //}
-
             int counter = 0;
 
             if (shiftPattern.IsDayNightNightShift)
@@ -89,7 +49,13 @@
                     if (HasShiftMonthChanged(tempDayDT.Month, startDateMonth))
                         break;
 
-                    schedule.AddShift(new DayShift(dayShift.ShiftType, tempDayDT.Year, tempDayDT.Month, tempDayDT.Day, dayShift.StarTime, dayShift.ShiftHour, isCurrentMonth));
+                    schedule.AddShift(new DayShift(dayShift.ShiftType, 
+                                                    tempDayDT.Year, 
+                                                    tempDayDT.Month, 
+                                                    tempDayDT.Day, 
+                                                    dayShift.StarTime, 
+                                                    dayShift.ShiftHour, 
+                                                    isCurrentMonth));
 
                     if (shiftPattern.IsDayDayShift)
                     {
@@ -98,7 +64,15 @@
                         if (HasShiftMonthChanged(tempDayDT.Month, startDateMonth))
                             break;
 
-                        schedule.AddShift(new DayShift(dayShift.ShiftType, tempDayDT.Year, tempDayDT.Month, tempDayDT.Day, dayShift.StarTime, dayShift.ShiftHour, isCurrentMonth));
+                        schedule.AddShift(new DayShift(dayShift.ShiftType, 
+                                                        tempDayDT.Year, 
+                                                        tempDayDT.Month, 
+                                                        tempDayDT.Day, 
+                                                        dayShift.StarTime, 
+                                                        dayShift.ShiftHour, 
+                                                        isCurrentMonth));
+                       
+                        tempDayDT = tempDayDT.AddDays(-1);
                     }
                 }
 
@@ -109,7 +83,13 @@
                     if (HasShiftMonthChanged(tempNightDT.Month, startDateMonth))
                         break;
 
-                    schedule.AddShift(new NightShift(nightShift!.ShiftType, tempNightDT.Year, tempNightDT.Month, tempNightDT.Day, nightShift.StarTime, nightShift.ShiftHour, isCurrentMonth));
+                    schedule.AddShift(new NightShift(nightShift!.ShiftType, 
+                                                     tempNightDT.Year, 
+                                                     tempNightDT.Month, 
+                                                     tempNightDT.Day, 
+                                                     nightShift.StarTime, 
+                                                     nightShift.ShiftHour, 
+                                                     isCurrentMonth));
 
                     if (shiftPattern.IsDayNightNightShift)
                     {
@@ -118,7 +98,13 @@
                         if (HasShiftMonthChanged(tempSecondNightDT.Month, startDateMonth))
                             break;
 
-                        schedule.AddShift(new NightShift(nightShift.ShiftType, tempSecondNightDT.Year, tempSecondNightDT.Month, tempSecondNightDT.Day, nightShift.StarTime, nightShift.ShiftHour, isCurrentMonth));
+                        schedule.AddShift(new NightShift(nightShift.ShiftType, 
+                                                        tempSecondNightDT.Year, 
+                                                        tempSecondNightDT.Month,
+                                                        tempSecondNightDT.Day, 
+                                                        nightShift.StarTime, 
+                                                        nightShift.ShiftHour, 
+                                                        isCurrentMonth));
                     }
                 }
             }
@@ -132,47 +118,116 @@
             int year = sc.StartDate.Year;
             int month = sc.StartDate.Month;
 
-            //--------Generate Previous Month Days, which are typed RestDays---------
             DateTime firstDayOfMonth = new DateTime(year, month, 1);
-            int offsetStart = ((int)firstDayOfMonth.DayOfWeek + 6) % 7;
-            var prevYearMonth = firstDayOfMonth.AddMonths(-1);
-            int prevMonthDays = DateTime.DaysInMonth(prevYearMonth.Year, prevYearMonth.Month);
 
-            for (int i = offsetStart - 1; i >= 0; i--)
-            {
-                IShift? shift = new RestDay(ShiftType.RestDay, prevYearMonth.Year, prevYearMonth.Month, prevMonthDays - i, 0, 0, isNotCurrentMonth);
-                scheduleNew.AddShift(shift);
-            }
+            //--------Generate Previous Month Days, which are typed RestDays---------
+            scheduleNew = GeneratePreviousMonthDays(scheduleNew, firstDayOfMonth);
+
 
             //--------Generate Current Month Days, which are the Work days and Rest days also ---------
             int totalDaysInMonth = DateTime.DaysInMonth(year, month);
 
-            for (int i = 1; i <= totalDaysInMonth; i++)
+            for (int day = 1; day <= totalDaysInMonth; day++)
             {
-                IShift? shift = schedule.WorkSchedule.FirstOrDefault(w => w.Day == i);
+                IShift? shift = schedule.WorkSchedule.FirstOrDefault(w => w.Day == day);
 
                 if (shift == null)
                 {
-                    shift = new RestDay(ShiftType.RestDay, year, month, i, 0, 0, isCurrentMonth);
+                    shift = new RestDay(ShiftType.RestDay, 
+                                        year, 
+                                        month, 
+                                        day, 
+                                        0, //StartTime
+                                        0, //ShiftHour
+                                        isCurrentMonth);
                 }
 
                 scheduleNew.AddShift(shift);
             }
 
             //--------Generate Next Month Days, which are typed RestDays---------
-            var nextYearMonth = firstDayOfMonth.AddMonths(1);
-            int totalDays = scheduleNew.WorkSchedule.Count;
-            int paddingEnd = 42 - totalDays;
-
-            for (int i = 1; i <= paddingEnd; i++)
-            {
-                IShift? shift = new RestDay(ShiftType.RestDay, nextYearMonth.Year, nextYearMonth.Month, prevMonthDays - i, 0, 0, isNotCurrentMonth);
-                scheduleNew.AddShift(shift);
-            }
+            scheduleNew = GenerateNextMonthDays(scheduleNew, firstDayOfMonth);
 
             schedule = scheduleNew;
 
             return Task.FromResult(schedule);
+        }
+
+      
+
+        public Task<ISchedule<IShift>> GenerateBlankCalendar (ISchedule<IShift> schedule)
+        {
+            int year = DateTime.Now.Year;
+            int month = DateTime.Now.Month;
+
+            DateTime firstDayOfMonth = new DateTime(year, month, 1);
+
+            //--------Generate Previous Month Days, which are typed RestDays---------
+            schedule = (ISchedule<IShift>)GeneratePreviousMonthDays(schedule, firstDayOfMonth);
+
+            //--------Generate Current Month Days, which are all Rest days ---------
+            int daysInMonth = DateTime.DaysInMonth(year, month);
+
+            for (int day = 1; day <= daysInMonth; day++)
+            {
+                IShift shift = new RestDay(ShiftType.RestDay,
+                                            year,
+                                            month,
+                                            day,
+                                            0.0, //StartTime
+                                            0.0,  //ShiftHour
+                                            isCurrentMonth);
+
+                schedule.WorkSchedule.Add(shift);
+            }
+
+            //--------Generate Next Month Days, which are typed RestDays---------
+            schedule = (ISchedule<IShift>)GenerateNextMonthDays(schedule,firstDayOfMonth);
+
+            return Task.FromResult(schedule);
+        }
+
+        private ISchedule<IShift> GeneratePreviousMonthDays(ISchedule<IShift> schedule, DateTime firstDayOfMonth)
+        {
+            int offsetStart = ((int)firstDayOfMonth.DayOfWeek + 6) % 7;
+            var prevMonth = firstDayOfMonth.AddMonths(-1);
+            int prevMonthDays = DateTime.DaysInMonth(prevMonth.Year, prevMonth.Month);
+
+            for (int i = offsetStart - 1; i >= 0; i--)
+            {
+                IShift shift = new RestDay(ShiftType.RestDay,
+                                            prevMonth.Year,
+                                            prevMonth.Month,
+                                            prevMonthDays - i,
+                                            0.0, //StartTime
+                                            0.0,  //ShiftHour
+                                           isNotCurrentMonth);
+
+                schedule.WorkSchedule.Add(shift);
+            }
+
+            return schedule;
+        }
+        private ISchedule<IShift> GenerateNextMonthDays(ISchedule<IShift> schedule, DateTime firstDayOfMonth)
+        {
+            int totalDays = schedule.WorkSchedule.Count();
+            var nextMonth = firstDayOfMonth.AddMonths(1);
+            int paddingEnd = 42 - totalDays;
+
+            for (int day = 1; day <= paddingEnd; day++)
+            {
+                IShift shift = new RestDay(ShiftType.RestDay,
+                                            nextMonth.Year,
+                                            nextMonth.Month,
+                                            day,
+                                            0.0, //StartTime
+                                            0.0, //ShiftHour
+                                           isNotCurrentMonth);
+
+                schedule.WorkSchedule.Add(shift);
+            }
+
+            return schedule;
         }
 
         private bool HasShiftMonthChanged(int shiftMonth, int startDateMonth)

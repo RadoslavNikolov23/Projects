@@ -3,23 +3,39 @@
   "WorkspaceRootPath": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle\\viewmodels\\schedulepageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|solutionrelative:viewmodels\\schedulepageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle\\viewmodels\\aboutviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|solutionrelative:viewmodels\\aboutviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle\\views\\schedulepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|solutionrelative:views\\schedulepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|solutionrelative:app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0FD5567E-1BA1-4833-AD29-CC1BD6B2A8D2}|..\\WorkChronicle.Data\\WorkChronicle.Data.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.data\\repositorydb\\workshiftrepositorydb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle\\viewmodels\\mainpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|solutionrelative:viewmodels\\mainpageviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle\\appshell.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|solutionrelative:appshell.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle\\views\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|solutionrelative:views\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle\\appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|solutionrelative:appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|solutionrelative:mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle\\views\\aboutpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|solutionrelative:views\\aboutpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle\\viewmodels\\baseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{009EEE1C-7BFB-9E12-220D-517AC7401D1B}|WorkChronicle.csproj|solutionrelative:viewmodels\\baseviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF354B8C-9242-4E21-B4AD-BF95D5E2069A}|..\\WorkChronicle.Structure\\WorkChronicle.Structure.csproj|c:\\users\\pc\\desktop\\work chronicle - app (workshop)\\workchronicle.structure\\models\\shift.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -29,71 +45,123 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "WorkShiftRepositoryDB.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Data\\RepositoryDB\\WorkShiftRepositoryDB.cs",
-              "RelativeDocumentMoniker": "..\\WorkChronicle.Data\\RepositoryDB\\WorkShiftRepositoryDB.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Data\\RepositoryDB\\WorkShiftRepositoryDB.cs",
-              "RelativeToolTip": "..\\WorkChronicle.Data\\RepositoryDB\\WorkShiftRepositoryDB.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAQwBQAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-06T14:51:58.019Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "SchedulePage.xaml",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\Views\\SchedulePage.xaml",
-              "RelativeDocumentMoniker": "Views\\SchedulePage.xaml",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\Views\\SchedulePage.xaml",
-              "RelativeToolTip": "Views\\SchedulePage.xaml",
-              "ViewState": "AgIAACUAAAAAAAAAAAAswDYAAAArAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-04-06T14:39:10.942Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "SchedulePageViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\ViewModels\\SchedulePageViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\SchedulePageViewModel.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\ViewModels\\SchedulePageViewModel.cs",
-              "RelativeToolTip": "ViewModels\\SchedulePageViewModel.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAACMAAAANAAAAAAAAAA==",
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\App.xaml.cs",
+              "RelativeDocumentMoniker": "App.xaml.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\App.xaml.cs",
+              "RelativeToolTip": "App.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-06T14:22:36.865Z",
+              "WhenOpened": "2025-04-10T21:36:23.508Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "MainPage.xaml",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\Views\\MainPage.xaml",
-              "RelativeDocumentMoniker": "Views\\MainPage.xaml",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\Views\\MainPage.xaml",
-              "RelativeToolTip": "Views\\MainPage.xaml",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\App.xaml",
+              "RelativeDocumentMoniker": "App.xaml",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\App.xaml",
+              "RelativeToolTip": "App.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-04-06T14:37:59.31Z",
+              "WhenOpened": "2025-04-10T21:36:20.624Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "MainPageViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\ViewModels\\MainPageViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\MainPageViewModel.cs",
-              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\ViewModels\\MainPageViewModel.cs",
-              "RelativeToolTip": "ViewModels\\MainPageViewModel.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAYwE0AAAAAAAAAAAAAAA==",
+              "Title": "AppShell.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\AppShell.xaml.cs",
+              "RelativeDocumentMoniker": "AppShell.xaml.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\AppShell.xaml.cs",
+              "RelativeToolTip": "AppShell.xaml.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-06T14:21:20.282Z",
+              "WhenOpened": "2025-04-10T21:36:07.175Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AppShell.xaml",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\AppShell.xaml",
+              "RelativeDocumentMoniker": "AppShell.xaml",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\AppShell.xaml",
+              "RelativeToolTip": "AppShell.xaml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-10T21:36:03.728Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MauiProgram.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\MauiProgram.cs",
+              "RelativeDocumentMoniker": "MauiProgram.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\MauiProgram.cs",
+              "RelativeToolTip": "MauiProgram.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAYwDEAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-10T21:35:49.429Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AboutViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\ViewModels\\AboutViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\AboutViewModel.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\ViewModels\\AboutViewModel.cs",
+              "RelativeToolTip": "ViewModels\\AboutViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-10T21:31:13.504Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BaseViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\ViewModels\\BaseViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\BaseViewModel.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\ViewModels\\BaseViewModel.cs",
+              "RelativeToolTip": "ViewModels\\BaseViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-10T21:30:53.42Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Shift.cs",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\Models\\Shift.cs",
+              "RelativeDocumentMoniker": "..\\WorkChronicle.Structure\\Models\\Shift.cs",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle.Structure\\Models\\Shift.cs",
+              "RelativeToolTip": "..\\WorkChronicle.Structure\\Models\\Shift.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAA3wDcAAABjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-10T21:25:19.632Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AboutPage.xaml",
+              "DocumentMoniker": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\Views\\AboutPage.xaml",
+              "RelativeDocumentMoniker": "Views\\AboutPage.xaml",
+              "ToolTip": "C:\\Users\\PC\\Desktop\\Work Chronicle - App (workshop)\\WorkChronicle\\Views\\AboutPage.xaml",
+              "RelativeToolTip": "Views\\AboutPage.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-10T21:17:10.065Z",
               "EditorCaption": ""
             }
           ]

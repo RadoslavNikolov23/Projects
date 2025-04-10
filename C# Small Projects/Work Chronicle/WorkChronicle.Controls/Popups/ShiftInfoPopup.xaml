@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    x:Class="WorkChronicle.Controls.Popups.ShiftInfoPopup"
+    Size="300,200"
+    Color="White"
+    CanBeDismissedByTappingOutsideOfPopup="True">
+
+    <VerticalStackLayout 
+                        Spacing="15"
+                        Padding="5">
+        
+        <Label 
+            x:Name="ShiftTypeLabel" 
+            FontSize="18" 
+            TextColor="Black"/>
+        
+        <Label 
+            x:Name="StartTimeLabel"
+            FontSize="18" 
+            TextColor="Black"/>
+        <Label 
+            x:Name="DurationLabel" 
+            FontSize="18" 
+            TextColor="Black"/>
+        
+        <Button 
+            Text="OK" 
+            Clicked="OnCloseClicked"/>
+        
+    </VerticalStackLayout>
+</toolkit:Popup>

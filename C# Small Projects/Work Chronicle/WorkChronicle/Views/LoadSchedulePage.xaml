@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:WorkChronicle.ViewModels"
+             x:Class="WorkChronicle.Views.LoadSchedulePage"
+             x:DataType="viewmodels:LoadScheduleViewModel"
+             Title="CompensateShiftsPage">
+
+    <ScrollView>
+        <VerticalStackLayout 
+                            Spacing="20"
+                            Padding="20" >
+
+            <Label 
+                   Text="No schedules found!" 
+                   FontSize="Medium" 
+                   TextColor="Black" 
+                   IsVisible="{Binding IsLabelEmptyVisible}"/>
+
+
+            <CollectionView 
+                           ItemsSource="{Binding ScheduleNames}"
+                           SelectionMode="Single"
+                           VerticalScrollBarVisibility="Always"
+                           SelectedItem="{Binding SelectedScheduleName}">
+
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame 
+                              Padding="6" 
+                              Margin="3" 
+                              BackgroundColor="#205b0e">
+                            <StackLayout 
+                                        Padding="6" 
+                                        Orientation="Horizontal">
+                                <Label 
+                                      Text="{Binding .}" 
+                                      TextColor="White" 
+                                      FontSize="12" />
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button 
+                    Text="Load selected schedule" 
+                    Command="{Binding LoadSelectedScheduleCommand}"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

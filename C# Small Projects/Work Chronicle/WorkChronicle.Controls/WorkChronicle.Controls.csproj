@@ -29,10 +29,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="CalendarGridView.xaml">
+	  <Compile Update="Popups\ShiftEditPopup.xaml.cs">
+	    <DependentUpon>ShiftEditPopup.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="CalendarViews\CalendarGridView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="ShiftCompensationPopup.xaml">
+	  <MauiXaml Update="Popups\ShiftEditPopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Popups\ShiftInfoPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

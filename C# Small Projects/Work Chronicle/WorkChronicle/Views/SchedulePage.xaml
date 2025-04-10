@@ -5,80 +5,69 @@
              xmlns:controls="clr-namespace:WorkChronicle.Controls;assembly=WorkChronicle.Controls"
              xmlns:models="clr-namespace:WorkChronicle.Structure.Models.Contracts;assembly=WorkChronicle.Structure"
              x:Class="WorkChronicle.Views.SchedulePage"
-             x:DataType="viewmodels:SchedulePageViewModel"
+             x:DataType="viewmodels:ScheduleEditViewModel"
              Title="SchedulePage">
 
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="20">
+        <VerticalStackLayout 
+                            Spacing="20"
+                            Padding="20">
 
-            <Label Text="{Binding TextMessage}" 
+            <Label 
+               Text="{Binding CalendarMonthYear}" 
+               FontSize="24" 
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/>
+            
+            <Label 
+                   Text="{Binding TextMessage}" 
                    FontSize="Medium" 
                    TextColor="Black" />
 
-            <controls:CalendarGridView BindingContext="{Binding}"/>
+            <controls:CalendarGridView 
+                                       BindingContext="{Binding}"/>
 
-            <!--
-            <CollectionView x:Name="ShiftCollectionView"
-                         ItemsSource="{Binding ShiftCollectionView}"
-                         SelectionMode="Multiple"
-                         VerticalScrollBarVisibility="Always"
-                         SelectedItems="{Binding SelectedShiftsForRemove}">
-                <CollectionView.ItemsLayout>
-                    <LinearItemsLayout Orientation="Vertical" />
-                </CollectionView.ItemsLayout>
-
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Frame Padding="6" Margin="3" BackgroundColor="#205b0e">
-                            <StackLayout Padding="6" Orientation="Horizontal">
-                                <Label Text="{Binding .}" TextColor="White" FontSize="12" />
-                            </StackLayout>
-                        </Frame>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView> -->
-
-            <Label Text="{Binding HoursMessage,Mode=TwoWay}" 
+            <Label 
+                   Text="{Binding HoursMessage,Mode=TwoWay}" 
                    FontSize="Medium" 
                    TextColor="Black"/>
 
-            <HorizontalStackLayout
+            <VerticalStackLayout    
                                 Spacing="10"
                                 Padding="10"
                                 HorizontalOptions="Center"
-                                VerticalOptions="End">          
+                                VerticalOptions="End">
 
-                <Button
-                        Text="Compensate Selected Shift"
-                        Command="{Binding CompensateButtonCommand}"
-                        WidthRequest="150"
+                <HorizontalStackLayout 
+                                      Spacing="10">
+
+                    <Button
+                           Text="Compensate Selected Shift"
+                           Command="{Binding CompensateButtonCommand}"
+                           WidthRequest="150"
+                           HeightRequest="50" />
+
+                    <Button
+                           Text="Edit Selected Shift" 
+                           Command="{Binding EditShiftCommand}"
+                           WidthRequest="150"
+                           HeightRequest="50" />
+
+                </HorizontalStackLayout>
+
+                <Button 
+                        Text="Save Schedule"
+                        Command="{Binding SaveShiftScheduleCommand}"
+                        WidthRequest="310"
                         HeightRequest="50" />
 
-                <Button
-                        Text="Edit Selected Shift" 
-                        Command="{Binding EditShiftCommand}"
-                        WidthRequest="150"
-                        HeightRequest="50" />
-
-            </HorizontalStackLayout>
+      <!--          <Button 
+                        Text="Go Back to Main" 
+                        Command="{Binding GoBackButtonCommand}"
+                        WidthRequest="310"
+                        HeightRequest="50"/> -->
+            </VerticalStackLayout>
             
-            <!--
-            <Button Text="Compensate Selected Shift" 
-                    Command="{Binding CompensateButtonCommand}"/>
-
-            <Button Text="Edit Selected Shift" 
-                    Command="{Binding EditShiftCommand}"/> -->
-
-
-            <Button Text="Save Schedule"
-                    Command="{Binding SaveShiftScheduleCommand}"/>
-
-            <Button Text="Go Back to Main" 
-                    Command="{Binding GoBackButtonCommand}"/>
-            
-            <Button Text="Comp Views - Wrong"
-                    Command="{Binding CompensateShiftCommand}"/>
-
         </VerticalStackLayout>
     </ScrollView>
 

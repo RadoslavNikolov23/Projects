@@ -2,7 +2,7 @@
 {
     public partial class MainPage : ContentPage
     {
-        public MainPage(MainPageViewModel mainPageViewModel)
+        public MainPage(MainViewModel mainPageViewModel)
         {
             InitializeComponent();
             BindingContext = mainPageViewModel;
@@ -12,7 +12,8 @@
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            if (BindingContext is MainPageViewModel mv)
+
+            if (BindingContext is MainViewModel mv)
             {
                 await mv.RefreshThePage();
 

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    x:Class="WorkChronicle.Controls.Popups.ShiftEditPopup"
+    Size="350,450"
+    Color="White">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+        <Label Text="Edit Shift" 
+               FontSize="20" 
+               HorizontalOptions="Center" />
+
+        <Label x:Name="WarningLabel"
+              
+               TextColor="Red" 
+               IsVisible="False" 
+               FontAttributes="Bold" />
+
+        <!-- Shift Type Picker -->
+        <Label Text="Shift Type:" 
+               FontSize="14" 
+               TextColor="Black"/>
+        <Picker x:Name="ShiftTypePicker" />
+
+        <!-- Start Time Picker -->
+        <Label Text="Start Time:"
+               FontSize="14" 
+               TextColor="Black"/>
+        <TimePicker x:Name="StartTimePicker" />
+
+        <!-- Shift Hour -->
+       <Label Text="Shift Hours:" 
+              FontSize="14" 
+              TextColor="Black"/>
+        <TimePicker x:Name="ShiftDurationPicker" /> 
+        
+        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+            
+            <Button Text="OK" 
+                    Clicked="OnSaveClicked" 
+                    WidthRequest="100" />
+            
+            <Button Text="Cancel" 
+                    Clicked="OnCancelClicked" 
+                    WidthRequest="100" />
+            
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+
+</toolkit:Popup>
+
+
+

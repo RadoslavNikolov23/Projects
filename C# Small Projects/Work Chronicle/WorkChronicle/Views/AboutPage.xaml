@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:WorkChronicle.ViewModels"
+             x:Class="WorkChronicle.Views.AboutPage"
+             Title="AboutPage">
+
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView Padding="20">
+        <VerticalStackLayout>
+            <Label Text="{Binding AboutText}" 
+                   FontSize="16"
+                   LineBreakMode="WordWrap"
+                   TextColor="Black"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+
+</ContentPage>

@@ -4,11 +4,10 @@ global using Microsoft.Extensions.Logging;
 
 global using WorkChronicle.Views;
 global using WorkChronicle.ViewModels;
-//global using WorkChronicle.ViewModels.Models;
 
 global using CommunityToolkit.Maui.Views;
 
-global using WorkChronicle.Controls;
+global using WorkChronicle.Controls.Popups;
 
 global using WorkChronicle.Common.Enums;
 
@@ -17,7 +16,8 @@ global using WorkChronicle.Data.RepositoryDB;
 global using WorkChronicle.Data.Models;
 
 global using WorkChronicle.Structure.Core;
-global using WorkChronicle.Structure.Core.Contracts;
+global using WorkChronicle.Structure.Core.Main;
+global using WorkChronicle.Structure.Core.Main.Contracts;
 global using WorkChronicle.Structure.Configuration;
 global using WorkChronicle.Structure.Models;
 global using WorkChronicle.Structure.Models.Contracts;

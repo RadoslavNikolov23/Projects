@@ -36,16 +36,18 @@
             services.AddTransient<SchedulePage>();
             services.AddTransient<PickerDatePage>();
             services.AddTransient<PropertiePage>();
-            services.AddTransient<CompensateShiftsPage>();
+            services.AddTransient<LoadSchedulePage>();
+            services.AddTransient<AboutPage>();
         }
 
         static void RegisterVM(IServiceCollection services)
         {
-            services.AddTransient<MainPageViewModel>();
-            services.AddTransient<SchedulePageViewModel>();
-            services.AddTransient<PickerDatePageViewModel>();
+            services.AddTransient<MainViewModel>();
+            services.AddTransient<ScheduleEditViewModel>();
+            services.AddTransient<PickerDateViewModel>();
             services.AddTransient<PropertieViewModel>();
-            services.AddTransient<CompensateShiftsPageViewModel>();
+            services.AddTransient<LoadScheduleViewModel>();
+            services.AddTransient<AboutViewModel>();
         }
     }
 }

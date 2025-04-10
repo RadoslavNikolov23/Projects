@@ -1,7 +1,5 @@
 ﻿namespace WorkChronicle.Data.Models
 {
-
-
     public class DbShift
     {
         [PrimaryKey,AutoIncrement]

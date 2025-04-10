@@ -17,7 +17,7 @@
     <MauiXaml Update="Views\SchedulePage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\CompensateShiftsPage.xaml">
+    <MauiXaml Update="Views\LoadSchedulePage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>

@@ -37,32 +37,32 @@
 
         <!-- Bind Days Dynamically -->
         <CollectionView Grid.Row="1"  
-                 ItemsSource="{Binding Schedule.WorkSchedule}"
-                 SelectionMode="Single"
-                 SelectedItem="{Binding SelectedShift, Mode=TwoWay}"
-                 SelectionChangedCommand="{Binding ShiftSelectedCommand}">
+                        ItemsSource="{Binding Schedule.WorkSchedule}"
+                        SelectionMode="Single"
+                        SelectedItem="{Binding SelectedShift, Mode=TwoWay}"
+                        SelectionChangedCommand="{Binding ShiftSelectedCommand}">
             <CollectionView.ItemsLayout>
                 <GridItemsLayout Orientation="Vertical" 
-                          Span="7" 
-                          VerticalItemSpacing="5" 
-                          HorizontalItemSpacing="4"/>
+                                 Span="7" 
+                                 VerticalItemSpacing="5" 
+                                 HorizontalItemSpacing="4"/>
             </CollectionView.ItemsLayout>
 
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:IShift">
                     <Frame Padding="5"
-                    BackgroundColor="{Binding BackgroundColor}"
-                    BorderColor="Black"
-                    CornerRadius="10"
-                    HeightRequest="38"
-                    WidthRequest="43"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center">
+                           BackgroundColor="{Binding BackgroundColor}"
+                           BorderColor="Black"
+                           CornerRadius="10"
+                           HeightRequest="38"
+                           WidthRequest="43"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Center">
 
                         <Label Text="{Binding Day}" 
-                        FontSize="13" 
-                        HorizontalOptions="Center" 
-                        VerticalOptions="Center"/>
+                               FontSize="13" 
+                               HorizontalOptions="Center" 
+                               VerticalOptions="Center"/>
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

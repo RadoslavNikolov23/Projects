@@ -6,5 +6,6 @@
 
         Task<T> GenerateMonthSchedule(ISchedule<IShift> schedule,ScheduleConfiguration sc);
 
+        Task<ISchedule<IShift>> GenerateBlankCalendar(ISchedule<IShift> schedule);
     }
 }

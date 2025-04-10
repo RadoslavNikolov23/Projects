@@ -12,9 +12,9 @@
 
             database = new SQLiteAsyncConnection(DatabasePath, Flags);
 
-            //For Deleting the tables and starting over with new Ones each time we start the app for test purpose only!!
+//---------For Deleting the tables and starting over for test purpose only!!-----------
           // await database.DropTableAsync<DbSchedule>();
-           //await database.DropTableAsync<DbShift>();
+         //  await database.DropTableAsync<DbShift>();
 
             await database.CreateTableAsync<DbSchedule>();
             await database.CreateTableAsync<DbShift>();
