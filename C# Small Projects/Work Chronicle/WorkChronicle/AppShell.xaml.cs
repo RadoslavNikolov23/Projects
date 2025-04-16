@@ -7,15 +7,13 @@
         {
             InitializeComponent();
 
-            // Register routes for navigation
             Routing.RegisterRoute(nameof(MainPage), typeof(MainPage));
             Routing.RegisterRoute(nameof(PickerDatePage), typeof(PickerDatePage));
             Routing.RegisterRoute(nameof(SchedulePage), typeof(SchedulePage));
             Routing.RegisterRoute(nameof(LoadSchedulePage), typeof(LoadSchedulePage));
-            Routing.RegisterRoute(nameof(PropertiePage), typeof(PropertiePage));
+            Routing.RegisterRoute(nameof(PropertyPage), typeof(PropertyPage));
             Routing.RegisterRoute(nameof(AboutPage), typeof(AboutPage));
         }
-
 
         private async void OnHelpClicked(object sender, EventArgs e)
         {

@@ -11,7 +11,7 @@
 
         public async Task<IEngineStrategy> GetStrategy(ShiftPattern pattern)
         {
-            await Task.Delay(50); // Simulate some async work
+            await Task.Delay(50);
 
             if (pattern.Is24Dayshift) 
                 return new ShiftsDay24(this.helper);

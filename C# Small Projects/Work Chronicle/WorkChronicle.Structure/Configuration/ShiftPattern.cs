@@ -15,7 +15,7 @@
             IsDayNightNightShift = false;
         }
 
-        public Task ChechTheShiftPattern(string[] cycle)
+        public Task CheckTheShiftPattern(string[] cycle)
         {
             if (this.Is24Dayshift = cycle.Length == 1)
                 return Task.CompletedTask;

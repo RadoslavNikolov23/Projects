@@ -4,13 +4,14 @@
              xmlns:viewmodels="clr-namespace:WorkChronicle.ViewModels"
              xmlns:models="clr-namespace:WorkChronicle.Structure.Models.Contracts;assembly=WorkChronicle.Structure"
              xmlns:controls="clr-namespace:WorkChronicle.Controls;assembly=WorkChronicle.Controls"
+             xmlns:lang="clr-namespace:WorkChronicle.Resources.Localization"
              x:Class="WorkChronicle.Views.MainPage"
              x:DataType="viewmodels:MainViewModel"
-             Title="MainPage">
+             Title="{x:Static lang:AppResources.WelcomeToTheWorkChronicle}">
 
     <ScrollView>
         <VerticalStackLayout 
-                            Spacing="40"
+                            Spacing="25"
                             Padding="15" >
             
             <Label 
@@ -22,12 +23,36 @@
             <controls:CalendarGridView 
                                        BindingContext="{Binding}"/>
 
-            <Label 
-                   Text="{Binding TextMessage}" 
-                   FontSize="Medium" 
-                   TextColor="Black" 
-                   HorizontalOptions="Center"/>
-            
+            <Frame 
+                BackgroundColor="white"
+                BorderColor="Gray"
+                CornerRadius="12"
+                Padding="5">
+
+                <StackLayout Spacing="5">
+
+                    <Label 
+                        Text="{x:Static lang:AppResources.Information}" 
+                        FontSize="17"
+                        FontAttributes="Bold"                        
+                        TextColor="Black"
+                        HorizontalOptions="Start"/>
+
+                    <Label 
+                        Text="{Binding TextMessage}" 
+                        FontSize="15" 
+                        TextColor="Black"
+                        HorizontalOptions="Center"/>
+
+                </StackLayout>
+            </Frame>
+
+            <Button 
+                    Text="{x:Static lang:AppResources.CompensateEditSchedule}" 
+                    Command="{Binding GoToEditScheduleCommand}"
+                    WidthRequest="370"
+                    HeightRequest="50"/>
+
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

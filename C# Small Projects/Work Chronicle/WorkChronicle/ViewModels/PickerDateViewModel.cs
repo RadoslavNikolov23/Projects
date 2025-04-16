@@ -2,6 +2,7 @@
 {
     public partial class PickerDateViewModel : BaseViewModel
     {
+        [ObservableProperty]
         private ISchedule<IShift> schedule;
 
         [ObservableProperty]
@@ -44,7 +45,6 @@
         public PickerDateViewModel(ISchedule<IShift> schedule)
         {
             this.schedule = schedule;
-            this.schedule.WorkSchedule.Clear(); // Clear the current schedule
 
             this.selectedStartDate = DateTime.Now;
             this.selectedFirstShift = WorkShift[0];
@@ -54,34 +54,42 @@
         }
 
         [RelayCommand]
-        private async Task CalculateShifts()
+        private async Task GenerateSchedule()
         {
+            this.Schedule.WorkSchedule.Clear();
+
             DateTime startDate = SelectedStartDate.Date;
 
             string[] cycle = await ValidateSchedule();
 
-
             if (this.TotalShiftHours <= 0)
             {
-                await ShowPopupMessage("Error", "The total shift hours must be a positive number!");
+                await ShowPopupMessage(AppResources.Error, AppResources.TheTotalShiftHoursMustBepositiveNumber);
                 return;
             }
 
             if ((this.SelectedFirstShift != ShiftType.DayShift.ToString() && this.SelectedFirstShift != ShiftType.NightShift.ToString())
                  || string.IsNullOrEmpty(this.SelectedFirstShift))
             {
-                await ShowPopupMessage("Error", "Please select a valid work shift.");
+                await ShowPopupMessage(AppResources.Error, AppResources.PleaseSelectAValidWorkShift);
                 return;
             }
 
+            string dayShift = AppResources.DayShift;
+            string nightShift = AppResources.NightShift;
+
             if (cycle.Length == 1 && this.SelectedFirstShift == ShiftType.NightShift.ToString())
             {
-                await ShowPopupMessage("Error", $"In a 24HourDay schedule, {ShiftType.NightShift.ToString()} can't be select as first shift, please select {ShiftType.DayShift.ToString()}");
+                await ShowPopupMessage(AppResources.Error,
+                                String.Format(AppResources.InA24HourdDayScheduleCantBeSelectedAsFirstShift,
+                                              nightShift, dayShift));
                 return;
             }
             else if ((cycle.Length == 2 && cycle[1] == ShiftType.DayShift.ToString()) && this.SelectedFirstShift == ShiftType.NightShift.ToString())
             {
-                await ShowPopupMessage("Error", $"In a Day-Day schedule, {ShiftType.NightShift.ToString()} can't be select as first shift, please select {ShiftType.DayShift.ToString()}");
+                await ShowPopupMessage(AppResources.Error,
+                                     String.Format(AppResources.InADayDayScheduleCantBeSelectFirstShift,
+                                                   nightShift, dayShift));
                 return;
             }
 
@@ -93,30 +101,37 @@
                                                                cycle,
                                                                this.SelectedFirstShift,
                                                                shiftConfiguration);
-
-            IEngine<ISchedule<IShift>> engine = new Engine();
-            ISchedule<IShift> tempSchedule = await engine.CalculateShifts(scheduleConfiguration);
-
-            if(tempSchedule == null || tempSchedule.WorkSchedule.Count==0)
+            try
             {
-                await ShowPopupMessage("Error", "An error occurred while calculating the shifts. Try again!");
-                return;
+                IEngine<ISchedule<IShift>> engine = new Engine();
+                ISchedule<IShift> tempSchedule = await engine.CalculateShifts(scheduleConfiguration);
+
+                if (tempSchedule == null || tempSchedule.WorkSchedule.Count == 0)
+                {
+                    await ShowPopupMessage(AppResources.Error, AppResources.AnErrorOccurredWhileCalculatingTheShifts);
+                    return;
+                }
+
+                foreach (var shift in tempSchedule.WorkSchedule)
+                {
+                    await this.Schedule.AddShift(shift);
+                }
+
+                await Shell.Current.GoToAsync(nameof(SchedulePage));
+
+            }
+            catch (Exception ex)
+            {
+                await Logger.LogAsync(ex, "Error in GenerateSchedule in the PickerDateViewModel.cs");
+                await ShowPopupMessage(AppResources.Error, AppResources.SomethingWentWrongPleaseTryAgain);
             }
 
-            foreach (var shift in tempSchedule.WorkSchedule)
-            {
-                await schedule.AddShift(shift);
-            }
-
-            //Check if the schedule is transferred correctly to the SchedulePage
-            await Shell.Current.GoToAsync(nameof(SchedulePage));
         }
-
         private async Task<string[]> ValidateSchedule()
         {
             if (string.IsNullOrEmpty(this.SelectedSchedule))
             {
-                await ShowPopupMessage("Error", "Please select a work schedule first.");
+                await ShowPopupMessage(AppResources.Error, AppResources.PleaseSelectAScheduleFirst);
                 return Array.Empty<string>();
             }
 
@@ -124,7 +139,7 @@
 
             if (cycle.Length == 0)
             {
-                await ShowPopupMessage("Error", "Please select a work schedule first.");
+                await ShowPopupMessage(AppResources.Error, AppResources.PleaseSelectAScheduleFirst);
                 return Array.Empty<string>();
             }
 

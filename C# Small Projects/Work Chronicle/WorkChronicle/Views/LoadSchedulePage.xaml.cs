@@ -7,6 +7,7 @@ namespace WorkChronicle.Views
             InitializeComponent();
             BindingContext = loadScheduleViewModel;
         }
+
         protected override async void OnAppearing()
         {
             base.OnAppearing();
@@ -16,6 +17,7 @@ namespace WorkChronicle.Views
 
             }
         }
+
 
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace WorkChronicle.Structure.Core
+﻿namespace WorkChronicle.Common.Providers
 {
     public class Provider
     {
@@ -13,7 +13,7 @@
                 return WorkHoursByYear.Year2025(startDate.Month); 
             }
 
-            return new KeyValuePair<int, string[]>();
+                return new KeyValuePair<int, string[]>();
         }
 
 

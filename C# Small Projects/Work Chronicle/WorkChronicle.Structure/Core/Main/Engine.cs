@@ -1,6 +1,5 @@
 ﻿namespace WorkChronicle.Structure.Core.Main
 {
-
     public class Engine : IEngine<ISchedule<IShift>>
     {
         private readonly ShiftPattern shiftPattern = new ShiftPattern();
@@ -19,23 +18,39 @@
 
         public async Task<ISchedule<IShift>> CalculateShifts(ScheduleConfiguration scheduleConfiguration)
         {
-            await shiftPattern.ChechTheShiftPattern(scheduleConfiguration.Cycle);
+            try
+            {
+                await shiftPattern.CheckTheShiftPattern(scheduleConfiguration.Cycle);
 
-            var strategySchedule = await factory.GetStrategy(shiftPattern);
+                var strategySchedule = await factory.GetStrategy(shiftPattern);
 
-            await strategySchedule
-                        .ApplySchedule(schedule, scheduleConfiguration, isCurrentMonth: true);
+                await strategySchedule
+                            .ApplySchedule(schedule, scheduleConfiguration, isCurrentMonth: true);
 
-            schedule = await helper.GenerateMonthSchedule(schedule, scheduleConfiguration);
+                schedule = await helper.GenerateMonthSchedule(schedule, scheduleConfiguration);
 
-            return schedule;
+                return schedule;
+            }
+            catch (Exception ex)
+            {
+                await Logger.LogAsync(ex, "Error in CalculateShifts, in the Engine class.");
+                throw;
+            }
         }
 
         public async Task<ISchedule<IShift>> BlankCalendar()
         {
-            schedule = await helper.GenerateBlankCalendar(schedule);
+            try
+            {
+                schedule = await helper.GenerateBlankCalendar(schedule);
 
-            return schedule;
+                return schedule;
+            }
+            catch (Exception ex)
+            {
+                await Logger.LogAsync(ex, "Error in BlankCalendar, in the Engine class");
+                throw;
+            }
         }
     }
 }

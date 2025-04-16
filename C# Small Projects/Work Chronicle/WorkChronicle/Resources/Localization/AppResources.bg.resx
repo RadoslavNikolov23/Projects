@@ -1,0 +1,318 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CompensateEditSchedule" xml:space="preserve">
+    <value>Компенсиране &amp; Редактиране на графика</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Информация</value>
+  </data>
+  <data name="NoSaveScheduleFound" xml:space="preserve">
+    <value>Не е намерен запазен график!</value>
+  </data>
+  <data name="DeleteSelectedSchedule" xml:space="preserve">
+    <value>Изтрий избраният график</value>
+  </data>
+  <data name="LoadSelectedSchedule" xml:space="preserve">
+    <value>Зареди избраният график</value>
+  </data>
+  <data name="EnterShiftCyclePattern" xml:space="preserve">
+    <value>Въведи модел на смените:</value>
+  </data>
+  <data name="EnterFirstShift" xml:space="preserve">
+    <value>Избери първата смяна:</value>
+  </data>
+  <data name="SelectFirstShift" xml:space="preserve">
+    <value>Избери първата смяна</value>
+  </data>
+  <data name="GenerateSchedule" xml:space="preserve">
+    <value>Създай график</value>
+  </data>
+  <data name="SelectShiftPattern" xml:space="preserve">
+    <value>Изберете работен модел на смяна</value>
+  </data>
+  <data name="SelectTotalShiftHours" xml:space="preserve">
+    <value>Избери общия брой часове за смяна:</value>
+  </data>
+  <data name="SelectStartingDayWorkCycle" xml:space="preserve">
+    <value>Избери първоначалния ден на работния график:</value>
+  </data>
+  <data name="SelectStartingTimeForDayShift" xml:space="preserve">
+    <value>Избери началния час за дневната смяна:</value>
+  </data>
+  <data name="SelectStartingTimeForNigthShift" xml:space="preserve">
+    <value>Избери началния час за нощната смяна</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="CompensateSelectedShift" xml:space="preserve">
+    <value>Компенсирай избраната смяна</value>
+  </data>
+  <data name="EditSelectedShift" xml:space="preserve">
+    <value>Редактирай избраната смяна</value>
+  </data>
+  <data name="SaveSchedule" xml:space="preserve">
+    <value>Запази работния график</value>
+  </data>
+  <data name="GoBackToMain" xml:space="preserve">
+    <value>Върни се към началната страница</value>
+  </data>
+  <data name="WelcomeToTheWorkChronicle" xml:space="preserve">
+    <value>Работен дневник</value>
+  </data>
+  <data name="EditAndSaveSchedule" xml:space="preserve">
+    <value>Редактирай и Запази Работния график</value>
+  </data>
+  <data name="LoadaSavedSchedule" xml:space="preserve">
+    <value>Избери запазен график</value>
+  </data>
+  <data name="CreateANewSchedule" xml:space="preserve">
+    <value>Създай нов график</value>
+  </data>
+  <data name="AboutTheApp" xml:space="preserve">
+    <value>Относно приложението</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Начало</value>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Помощ</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Изход</value>
+  </data>
+  <data name="ThisShiftIsNotInTheCurrentMonth" xml:space="preserve">
+    <value>Смяната не е от текущият месец.</value>
+  </data>
+  <data name="ThisIsARestDay" xml:space="preserve">
+    <value>Това е почивен ден.</value>
+  </data>
+  <data name="TextMessageThisIsACalendar" xml:space="preserve">
+    <value>Това е календара за {0} {1}!</value>
+  </data>
+  <data name="TextMessageTotalHoursAreForTheMonthAndWorkingHours" xml:space="preserve">
+    <value>Общото ви работно време за месец {0} е {1} часа, работното време за този месец е {2} часа.</value>
+  </data>
+  <data name="CalendarWorkScheduleFor" xml:space="preserve">
+    <value>Работен график за {0} {1}</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Грешка</value>
+  </data>
+  <data name="PleaseSelectASchedule" xml:space="preserve">
+    <value>Моля, изберете работен график.</value>
+  </data>
+  <data name="ScheduleNotFoundPleaseTryAgain" xml:space="preserve">
+    <value>Работният график не е намерен, моля опитайте отново!</value>
+  </data>
+  <data name="SomethingWentWrongPleaseTryAgain" xml:space="preserve">
+    <value>Нещо се обърка, опитайте отново!</value>
+  </data>
+  <data name="ScheduleDeletedSuccessfully" xml:space="preserve">
+    <value>Работният график е изтрит усшено!</value>
+  </data>
+  <data name="YouHaveLoadedTheScheduleForThe" xml:space="preserve">
+    <value>Заредихте работния график за {0} {1}!</value>
+  </data>
+  <data name="PleaseSelectAValidWorkShift" xml:space="preserve">
+    <value>Моля, изберете валидна работна смяна!</value>
+  </data>
+  <data name="DayShift" xml:space="preserve">
+    <value>Дневна смяна</value>
+  </data>
+  <data name="NightShift" xml:space="preserve">
+    <value>Нощна смяна</value>
+  </data>
+  <data name="InA24HourdDayScheduleCantBeSelectedAsFirstShift" xml:space="preserve">
+    <value>В 24-часов график, {0} не може да бъде избрана като първа, моля, изберете {1}.</value>
+  </data>
+  <data name="InADayDayScheduleCantBeSelectFirstShift" xml:space="preserve">
+    <value>В график „Дневна-Дневна“, {0} не може да бъде избрана като първа, моля, изберете {1}.</value>
+  </data>
+  <data name="AnErrorOccurredWhileCalculatingTheShifts" xml:space="preserve">
+    <value>Възникна грешка при изчисляването на смените. Опитайте отново!</value>
+  </data>
+  <data name="PleaseSelectAScheduleFirst" xml:space="preserve">
+    <value>Моля, изберете работен модел първо!</value>
+  </data>
+  <data name="LanguageChanged" xml:space="preserve">
+    <value>Език</value>
+  </data>
+  <data name="TheAppLanguageHasBeenChanged" xml:space="preserve">
+    <value>Езика на приложенеито е променен на {0}.</value>
+  </data>
+  <data name="TheTotalShiftHoursMustBepositiveNumber" xml:space="preserve">
+    <value>Общия брой часове, трябва да е позитивно число!</value>
+  </data>
+  <data name="YouHaveNoScheduleForThisMonth" xml:space="preserve">
+    <value>Нямате график за този месец.</value>
+  </data>
+  <data name="ThisIsARestDayAndItCantBeCompensated" xml:space="preserve">
+    <value>Това е почивен ден и не може да бъде компенсиран!</value>
+  </data>
+  <data name="SelectedShiftIsCompensated" xml:space="preserve">
+    <value>Избраната смяна е компенсирана.</value>
+  </data>
+  <data name="SelectedShiftIsUnCompensated" xml:space="preserve">
+    <value>Избраната смяна е работна отново.</value>
+  </data>
+  <data name="YourShiftHasBeenEditSaveItFirst" xml:space="preserve">
+    <value>Вашата смяна е редактирана. Ако не искате да загубите графика, първо го запазете!</value>
+  </data>
+  <data name="YourShiftHasBeenEdit" xml:space="preserve">
+    <value>Вашата смяна е редактирана.</value>
+  </data>
+  <data name="SomethingWentWrongGeneratedNewSchedule" xml:space="preserve">
+    <value>Нещо се обърка, генерирайте нов график.</value>
+  </data>
+  <data name="ScheduleExists" xml:space="preserve">
+    <value>Графикът съществува</value>
+  </data>
+  <data name="AScheduleForTheMonthAlreadyExistsToOverwrite" xml:space="preserve">
+    <value>Вече съществува график за месец {0}. Искате ли да го презапишете?</value>
+  </data>
+  <data name="YourScheduleHasBeenSaved" xml:space="preserve">
+    <value>Графикът е запазен.</value>
+  </data>
+  <data name="HourMessageYouHaveHoursOfOvertime" xml:space="preserve">
+    <value>Имате {0} часа извънреден труд, можете да изберете коя смяна да компенсирате.</value>
+  </data>
+  <data name="HourMessageYouHaveUnderTheTotalHoursForTheMonth" xml:space="preserve">
+    <value>Имате {0} часа под общия брой часове за месеца.</value>
+  </data>
+  <data name="ChangeLanguage" xml:space="preserve">
+    <value>Смени езика</value>
+  </data>
+  <data name="ReportAProblem" xml:space="preserve">
+    <value>Докладвай проблем</value>
+  </data>
+  <data name="ChangeTheme" xml:space="preserve">
+    <value>Тема</value>
+  </data>
+  <data name="Reminder" xml:space="preserve">
+    <value>Напомняния</value>
+  </data>
+  <data name="SelectLanguage" xml:space="preserve">
+    <value>Избери език</value>
+  </data>
+  <data name="AtThisMomentWorkHoursAvailableTo2025" xml:space="preserve">
+    <value>В този момент работните часове са налични до 2025 г. (включително).</value>
+  </data>
+</root>

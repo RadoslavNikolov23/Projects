@@ -35,7 +35,7 @@
             services.AddTransient<MainPage>();
             services.AddTransient<SchedulePage>();
             services.AddTransient<PickerDatePage>();
-            services.AddTransient<PropertiePage>();
+            services.AddTransient<PropertyPage>();
             services.AddTransient<LoadSchedulePage>();
             services.AddTransient<AboutPage>();
         }
@@ -45,7 +45,7 @@
             services.AddTransient<MainViewModel>();
             services.AddTransient<ScheduleEditViewModel>();
             services.AddTransient<PickerDateViewModel>();
-            services.AddTransient<PropertieViewModel>();
+            services.AddTransient<PropertyViewModel>();
             services.AddTransient<LoadScheduleViewModel>();
             services.AddTransient<AboutViewModel>();
         }

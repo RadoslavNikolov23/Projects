@@ -11,6 +11,7 @@ namespace WorkChronicle.Views
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+
             if (BindingContext is ScheduleEditViewModel sv)
             {
                 await sv.RefreshThePage();

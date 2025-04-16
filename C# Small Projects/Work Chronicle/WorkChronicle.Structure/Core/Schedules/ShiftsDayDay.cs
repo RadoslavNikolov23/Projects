@@ -10,7 +10,7 @@
         }
         public Task ApplySchedule(ISchedule<IShift> schedule, ScheduleConfiguration sc, bool isCurrentMonth)
         {
-            //Have to insert in the picker, aditionl option to pick where the dayShifts start - on the first/second?????)
+            //Have to insert in the picker, additional option to pick where the dayShifts start - on the first/second?????)
 
             IShift firstDayShift = new DayShift(ShiftType.DayShift, 
                                                 sc.StartDate.Year, 

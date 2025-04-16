@@ -55,7 +55,6 @@
 
                     schedule.AddShift(secondNightShift!);
                 }
-
             }
             else
             {
@@ -91,30 +90,6 @@
 
 
             }
-
-            //int prevMonthDays = DateTime.DaysInMonth(sc.StartDate.Year, sc.StartDate.Month);
-
-            //if (dayShift == null)
-            //{
-            //    DateTime dateTime = new DateTime(sc.StartDate.Year, sc.StartDate.Month, sc.StartDate.Day);
-            //    dateTime = dateTime.Subtract(new TimeSpan(1, 0, 0, 0));
-
-            //    dayShift = new DayShift(ShiftType.DayShift, dateTime.Year, dateTime.Month, dateTime.Day, sc.ShiftConfiguration.StartDayShift, sc.ShiftConfiguration.TotalShiftHours, isCurrentMonth);
-            //}
-            //else if (firstNightShift == null && sc.StartDate.Day + 1 <= prevMonthDays)
-            //{
-            //    firstNightShift = new NightShift(ShiftType.NightShift, sc.StartDate.Year, sc.StartDate.Month, sc.StartDate.Day + 1, sc.ShiftConfiguration.StartNightShift, sc.ShiftConfiguration.TotalShiftHours, isCurrentMonth);
-
-            //    schedule.AddShift(firstNightShift!);
-
-
-            //    if (sc.StartDate.Day + 2 <= prevMonthDays)
-            //    {
-            //        secondNightShift = new NightShift(ShiftType.NightShift, sc.StartDate.Year, sc.StartDate.Month, sc.StartDate.Day + 2, sc.ShiftConfiguration.StartNightShift, sc.ShiftConfiguration.TotalShiftHours, isCurrentMonth);
-            //        schedule.AddShift(secondNightShift!);
-            //    }
-
-            //}
 
             this.helper.
                AddShiftsToSchedule(schedule,sc, dayShift, firstNightShift!, RestDaysBetweenShifts.DayNightNight);

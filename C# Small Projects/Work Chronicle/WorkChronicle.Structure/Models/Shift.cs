@@ -29,8 +29,6 @@
         [ObservableProperty]
         private Color backgroundColor;
 
-
-
         public Shift(ShiftType shiftType,int year, int month, int day, double startTime, double shiftHour): this(shiftType, year, month, day, startTime, shiftHour, false, false)
         {
         }
@@ -53,7 +51,7 @@
             this.BackgroundColor = !IsCurrentMonth ? Colors.LightGray
                                                 : IsCompensated ? Colors.LightBlue
                                                 : ShiftType == ShiftType.DayShift ? Colors.LightGreen
-                                                : ShiftType == ShiftType.NightShift ? Colors.Maroon
+                                                : ShiftType == ShiftType.NightShift ? Colors.LightCoral
                                                 : Colors.White; //For RestDay and everything else!
         }
 
@@ -81,7 +79,7 @@
             else if (ShiftType == ShiftType.DayShift)
                 BackgroundColor = Colors.LightGreen;
             else if (ShiftType == ShiftType.NightShift)
-                BackgroundColor = Colors.Maroon;
+                BackgroundColor = Colors.LightCoral;
             else
                 BackgroundColor = Colors.White;
         }
@@ -100,28 +98,28 @@
             return sb.ToString().Trim();
         }
 
-        //-----Check if these method are needed or not!-----//
-        public override bool Equals(object? obj)
-        {
-            if (obj is Shift otherShift)
-            {
-                return ShiftType == otherShift.ShiftType &&
-                       Year == otherShift.Year &&
-                       Month == otherShift.Month &&
-                       Day == otherShift.Day &&
-                       StarTime == otherShift.StarTime &&
-                       ShiftHour == otherShift.ShiftHour &&
-                       IsCurrentMonth == otherShift.IsCurrentMonth &&
-                       BackgroundColor == otherShift.BackgroundColor &&
-                       IsCompensated == otherShift.IsCompensated;
-            }
-            return false;
-        }
+ //-----Check if these method are needed or not!-----//
+        //public override bool Equals(object? obj)
+        //{
+        //    if (obj is Shift otherShift)
+        //    {
+        //        return ShiftType == otherShift.ShiftType &&
+        //               Year == otherShift.Year &&
+        //               Month == otherShift.Month &&
+        //               Day == otherShift.Day &&
+        //               StarTime == otherShift.StarTime &&
+        //               ShiftHour == otherShift.ShiftHour &&
+        //               IsCurrentMonth == otherShift.IsCurrentMonth &&
+        //               BackgroundColor == otherShift.BackgroundColor &&
+        //               IsCompensated == otherShift.IsCompensated;
+        //    }
+        //    return false;
+        //}
 
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(ShiftType,Year,Month,Day,StarTime,ShiftHour, IsCompensated);
-        }
+        //public override int GetHashCode()
+        //{
+        //    return HashCode.Combine(ShiftType,Year,Month,Day,StarTime,ShiftHour, IsCompensated);
+        //}
 
     }
 }

@@ -1,6 +1,5 @@
 ﻿namespace WorkChronicle.Data.Connection
 {
-
     public static class DatabaseConfiguration
     {
         private const string DatabaseFilename = "WorkChronicleDatabase.db3";

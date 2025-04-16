@@ -46,14 +46,14 @@
             {
                 if (shift.IsCompensated == false)
                 {
-                    totalHours += await CalculteShiftHours(shift);
+                    totalHours += await CalculateShiftHours(shift);
                 }
             }
 
             return totalHours;
         }
 
-        private Task<int> CalculteShiftHours(IShift shift)
+        private Task<int> CalculateShiftHours(IShift shift)
         {
             double totalShiftHours = shift.ShiftHour;
 
@@ -92,8 +92,7 @@
 
         private double GetNightShiftMultiplier(int currentHour)
         {
-            return currentHour >= 22 || currentHour < 6 ? 0.143 : 0.0; //Make the 0.143 a const
+            return currentHour >= 22 || currentHour < 6 ? HourCoefficient.NightShiftCoefficient : 0.0;
         }
-
     }
 }

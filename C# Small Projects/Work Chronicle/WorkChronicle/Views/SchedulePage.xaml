@@ -4,37 +4,63 @@
              xmlns:viewmodels="clr-namespace:WorkChronicle.ViewModels"
              xmlns:controls="clr-namespace:WorkChronicle.Controls;assembly=WorkChronicle.Controls"
              xmlns:models="clr-namespace:WorkChronicle.Structure.Models.Contracts;assembly=WorkChronicle.Structure"
+             xmlns:lang="clr-namespace:WorkChronicle.Resources.Localization"
              x:Class="WorkChronicle.Views.SchedulePage"
              x:DataType="viewmodels:ScheduleEditViewModel"
-             Title="SchedulePage">
+             Title="{x:Static lang:AppResources.EditAndSaveSchedule}">
 
     <ScrollView>
         <VerticalStackLayout 
-                            Spacing="20"
-                            Padding="20">
+                            Spacing="15"
+                            Padding="15">
 
             <Label 
-               Text="{Binding CalendarMonthYear}" 
-               FontSize="24" 
-               FontAttributes="Bold"
-               HorizontalOptions="Center"/>
-            
-            <Label 
-                   Text="{Binding TextMessage}" 
-                   FontSize="Medium" 
-                   TextColor="Black" />
+                 Text="{Binding CalendarMonthYear}" 
+                 FontSize="24" 
+                 FontAttributes="Bold"
+                 HorizontalOptions="Center"/>
 
             <controls:CalendarGridView 
                                        BindingContext="{Binding}"/>
 
-            <Label 
-                   Text="{Binding HoursMessage,Mode=TwoWay}" 
-                   FontSize="Medium" 
-                   TextColor="Black"/>
+            <Frame 
+                   BackgroundColor="white"
+                   BorderColor="Gray"
+                   CornerRadius="12"
+                   Padding="5">
+                
+                <StackLayout Spacing="5">
+                    
+                    <Label 
+                        Text="{x:Static lang:AppResources.Information}" 
+                        FontSize="17"
+                        FontAttributes="Bold"                        
+                        TextColor="Black"
+                        HorizontalOptions="Start"/>
+                    
+                    <Label 
+                         Text="{Binding TextMessage}" 
+                         FontSize="15" 
+                         TextColor="Black"
+                         HorizontalOptions="Center"/>
+                    
+                    <BoxView 
+                             Color="DarkGreen"
+                             HeightRequest="2"
+                             HorizontalOptions="Fill" />
+                    
+                    <Label 
+                        Text="{Binding HoursMessage, Mode=TwoWay}" 
+                        FontSize="15" 
+                        TextColor="Black"
+                        HorizontalOptions="Center"/>
+                    
+                </StackLayout>
+            </Frame>
 
             <VerticalStackLayout    
                                 Spacing="10"
-                                Padding="10"
+                                Padding="5"
                                 HorizontalOptions="Center"
                                 VerticalOptions="End">
 
@@ -42,33 +68,32 @@
                                       Spacing="10">
 
                     <Button
-                           Text="Compensate Selected Shift"
+                           Text="{x:Static lang:AppResources.CompensateSelectedShift}"
                            Command="{Binding CompensateButtonCommand}"
-                           WidthRequest="150"
+                           WidthRequest="170"
                            HeightRequest="50" />
 
                     <Button
-                           Text="Edit Selected Shift" 
+                           Text="{x:Static lang:AppResources.EditSelectedShift}"
                            Command="{Binding EditShiftCommand}"
-                           WidthRequest="150"
+                           WidthRequest="170"
                            HeightRequest="50" />
 
                 </HorizontalStackLayout>
 
                 <Button 
-                        Text="Save Schedule"
+                        Text="{x:Static lang:AppResources.SaveSchedule}"
                         Command="{Binding SaveShiftScheduleCommand}"
-                        WidthRequest="310"
+                        WidthRequest="350"
                         HeightRequest="50" />
 
-      <!--          <Button 
-                        Text="Go Back to Main" 
+                <Button 
+                        Text="{x:Static lang:AppResources.GoBackToMain}"
                         Command="{Binding GoBackButtonCommand}"
-                        WidthRequest="310"
-                        HeightRequest="50"/> -->
+                        WidthRequest="350"
+                        HeightRequest="50"/>
             </VerticalStackLayout>
-            
+
         </VerticalStackLayout>
     </ScrollView>
-
 </ContentPage>

@@ -3,6 +3,8 @@ global using System.Collections.ObjectModel;
 
 global using CommunityToolkit.Mvvm.ComponentModel;
 
+global using WorkChronicle.Common;
+global using WorkChronicle.Common.Helpers;
 global using WorkChronicle.Common.Enums;
 
 global using WorkChronicle.Structure.Repository;

@@ -12,7 +12,7 @@
             string[] cycle=sc.Cycle;
             int startDateMonth = sc.StartDate.Month;
 
-            shiftPattern.ChechTheShiftPattern(sc.Cycle);
+            shiftPattern.CheckTheShiftPattern(sc.Cycle);
 
             DateTime tempDayDT = new DateTime(dayShift.Year, dayShift.Month, dayShift.Day);
             DateTime tempNightDT = default;
@@ -152,8 +152,6 @@
 
             return Task.FromResult(schedule);
         }
-
-      
 
         public Task<ISchedule<IShift>> GenerateBlankCalendar (ISchedule<IShift> schedule)
         {

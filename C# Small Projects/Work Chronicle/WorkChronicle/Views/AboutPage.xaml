@@ -2,21 +2,29 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:WorkChronicle.ViewModels"
+             xmlns:lang="clr-namespace:WorkChronicle.Resources.Localization"
              x:Class="WorkChronicle.Views.AboutPage"
-             Title="AboutPage">
+             Title="{x:Static lang:AppResources.AboutTheApp}">
 
     <ContentPage.BindingContext>
         <vm:AboutViewModel />
     </ContentPage.BindingContext>
 
-    <ScrollView Padding="20">
-        <VerticalStackLayout>
-            <Label Text="{Binding AboutText}" 
-                   FontSize="16"
+    <ScrollView Padding="10">
+        <Frame 
+            BackgroundColor="white"
+            BorderColor="Gray"
+            CornerRadius="15"
+            Padding="18">
+
+            <VerticalStackLayout>
+
+                <Label Text="{Binding AboutText}" 
+                   FontSize="15"
                    LineBreakMode="WordWrap"
                    TextColor="Black"/>
-        </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </Frame>
     </ScrollView>
-
-
 </ContentPage>

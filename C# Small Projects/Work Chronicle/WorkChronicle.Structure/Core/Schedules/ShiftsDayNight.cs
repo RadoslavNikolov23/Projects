@@ -5,7 +5,6 @@
         private readonly IEngineHelper<ISchedule<IShift>> helper;
         private ShiftType firstShiftType;
 
-
         public ShiftsDayNight(IEngineHelper<ISchedule<IShift>> helper)
         {
             this.helper = helper;
@@ -40,9 +39,6 @@
                                             sc.ShiftConfiguration.TotalShiftHours,
                                             isCurrentMonth);
                 schedule.AddShift(nightShift!);
-
-
-
             }
             else if (firstShiftType == ShiftType.NightShift)
             {
@@ -67,30 +63,8 @@
                                         isCurrentMonth);
             }
 
-            //if (dayShift == null)
-           // {
-                //dayShift = new DayShift(ShiftType.DayShift, 
-                //                        sc.StartDate.Year, 
-                //                        sc.StartDate.Month, 
-                //                        sc.StartDate.Day - 1, 
-                //                        sc.ShiftConfiguration.StartDayShift, 
-                //                        sc.ShiftConfiguration.TotalShiftHours, 
-                //                        isCurrentMonth);
-           // }
-            //else if (nightShift == null)
-            //{
-                //nightShift = new NightShift(ShiftType.NightShift, 
-                //                            sc.StartDate.Year, 
-                //                            sc.StartDate.Month, 
-                //                            sc.StartDate.Day + 1, 
-                //                            sc.ShiftConfiguration.StartNightShift, 
-                //                            sc.ShiftConfiguration.TotalShiftHours, 
-                //                            isCurrentMonth);
-                //schedule.AddShift(nightShift!);
-          //  }
-
              this.helper
-                .AddShiftsToSchedule(schedule,sc, dayShift, nightShift!, RestDaysBetweenShifts.DayNight);
+                .AddShiftsToSchedule(schedule,sc, dayShift!, nightShift!, RestDaysBetweenShifts.DayNight);
 
             return Task.CompletedTask;
         }

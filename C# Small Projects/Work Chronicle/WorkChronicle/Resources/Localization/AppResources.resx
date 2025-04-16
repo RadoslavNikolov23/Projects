@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CompensateEditSchedule" xml:space="preserve">
+    <value>Compensate &amp; Edit Schedule</value>
+    <comment>In MainPage.xaml</comment>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>Information</value>
+    <comment>In MainPage.xaml, In SchedulePage.xaml</comment>
+  </data>
+  <data name="NoSaveScheduleFound" xml:space="preserve">
+    <value>No save schedule found!</value>
+    <comment>In LoadSchedulePage.xaml</comment>
+  </data>
+  <data name="DeleteSelectedSchedule" xml:space="preserve">
+    <value>Delete selected schedule</value>
+    <comment>In LoadSchedulePage.xaml</comment>
+  </data>
+  <data name="LoadSelectedSchedule" xml:space="preserve">
+    <value>Load selected schedule</value>
+    <comment>In LoadSchedulePage.xaml</comment>
+  </data>
+  <data name="EnterShiftCyclePattern" xml:space="preserve">
+    <value>Enter shift cycle pattern:</value>
+    <comment>In PickerDatePage.xaml</comment>
+  </data>
+  <data name="EnterFirstShift" xml:space="preserve">
+    <value>Enter first shift:</value>
+    <comment>In PickerDatePage.xaml</comment>
+  </data>
+  <data name="SelectFirstShift" xml:space="preserve">
+    <value>Select First Shift</value>
+    <comment>In PickerDatePage.xaml</comment>
+  </data>
+  <data name="GenerateSchedule" xml:space="preserve">
+    <value>Generate Schedule</value>
+    <comment>In PickerDatePage.xaml</comment>
+  </data>
+  <data name="SelectShiftPattern" xml:space="preserve">
+    <value>Select Shift Pattern</value>
+    <comment>In PickDatePage.xaml</comment>
+  </data>
+  <data name="SelectTotalShiftHours" xml:space="preserve">
+    <value>Select Total Shift Hours:</value>
+    <comment>In PickDatePage.xaml</comment>
+  </data>
+  <data name="SelectStartingDayWorkCycle" xml:space="preserve">
+    <value>Select the starting day of your work cycle:</value>
+    <comment>In PickDatePage.xaml</comment>
+  </data>
+  <data name="SelectStartingTimeForDayShift" xml:space="preserve">
+    <value>Select the starting time for the Day Shift:</value>
+    <comment>In PickDatePage.xaml</comment>
+  </data>
+  <data name="SelectStartingTimeForNigthShift" xml:space="preserve">
+    <value>Select the starting time for the Night Shift:</value>
+    <comment>In PickDatePage.xaml</comment>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+    <comment>In PropertyPage.xaml</comment>
+  </data>
+  <data name="CompensateSelectedShift" xml:space="preserve">
+    <value>Compensate Selected Shift</value>
+    <comment>In SchedulePage.xaml</comment>
+  </data>
+  <data name="EditSelectedShift" xml:space="preserve">
+    <value>Edit Selected Shift</value>
+    <comment>In SchedulePage.xaml</comment>
+  </data>
+  <data name="SaveSchedule" xml:space="preserve">
+    <value>Save Schedule</value>
+    <comment>In SchedulePage.xaml</comment>
+  </data>
+  <data name="GoBackToMain" xml:space="preserve">
+    <value>Go Back to Main</value>
+    <comment>In SchedulePage.xaml</comment>
+  </data>
+  <data name="WelcomeToTheWorkChronicle" xml:space="preserve">
+    <value>Work Chronicle</value>
+    <comment>InMainPage.xaml</comment>
+  </data>
+  <data name="EditAndSaveSchedule" xml:space="preserve">
+    <value>Edit and Save Schedule</value>
+    <comment>In SchedulePage.xaml</comment>
+  </data>
+  <data name="LoadaSavedSchedule" xml:space="preserve">
+    <value>Select a saved schedule</value>
+    <comment>In LoadPage.xaml</comment>
+  </data>
+  <data name="CreateANewSchedule" xml:space="preserve">
+    <value>Create a new schedule</value>
+    <comment>In PickerDatePage.xaml</comment>
+  </data>
+  <data name="AboutTheApp" xml:space="preserve">
+    <value>About the App</value>
+    <comment>In AboutPage.xaml</comment>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+    <comment>In AppShell.xaml</comment>
+  </data>
+  <data name="Help" xml:space="preserve">
+    <value>Help</value>
+    <comment>In AppShell.xaml</comment>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Exit</value>
+    <comment>In AppShell.xaml</comment>
+  </data>
+  <data name="ThisShiftIsNotInTheCurrentMonth" xml:space="preserve">
+    <value>This shift is not in the current month.</value>
+    <comment>In the MainViewModel.cs</comment>
+  </data>
+  <data name="ThisIsARestDay" xml:space="preserve">
+    <value>This is a Rest Day.</value>
+    <comment>In the MainViewModel.cs</comment>
+  </data>
+  <data name="TextMessageThisIsACalendar" xml:space="preserve">
+    <value>This is a calendar for the {0} {1}!</value>
+    <comment>In the MainViewModelPage</comment>
+  </data>
+  <data name="TextMessageTotalHoursAreForTheMonthAndWorkingHours" xml:space="preserve">
+    <value>Your total hours for the month {0} are {1} hours , the working hours for that month are: {2} hours.</value>
+    <comment>In the MainViewModel.cs</comment>
+  </data>
+  <data name="CalendarWorkScheduleFor" xml:space="preserve">
+    <value>Work Schedule for {0} {1}</value>
+    <comment>In the MainViewModel.cs, In ScheduleEditViewModel.cs</comment>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+    <comment>In the LoadViewModel.cs</comment>
+  </data>
+  <data name="PleaseSelectASchedule" xml:space="preserve">
+    <value>Please select a schedule.</value>
+    <comment>In the LoadViewModel.cs</comment>
+  </data>
+  <data name="ScheduleNotFoundPleaseTryAgain" xml:space="preserve">
+    <value>Schedule not found, please try again!</value>
+    <comment>In LoadSchedulePage.cs</comment>
+  </data>
+  <data name="SomethingWentWrongPleaseTryAgain" xml:space="preserve">
+    <value>Something went wrong, please try again!</value>
+    <comment>In the LaodScheduleViewModel.cs, In the MainViewModel.cs</comment>
+  </data>
+  <data name="ScheduleDeletedSuccessfully" xml:space="preserve">
+    <value>Schedule deleted successfully!</value>
+    <comment>In LoadScheduleViewModel.cs</comment>
+  </data>
+  <data name="YouHaveLoadedTheScheduleForThe" xml:space="preserve">
+    <value>You have loaded the {0} schedule for the {1}.</value>
+    <comment>In LoadScheduleViewModel.cs</comment>
+  </data>
+  <data name="PleaseSelectAValidWorkShift" xml:space="preserve">
+    <value>Please select a valid work shift!</value>
+    <comment>In PickDateViewModel.cs</comment>
+  </data>
+  <data name="DayShift" xml:space="preserve">
+    <value>Day shift</value>
+    <comment>In PickerDateViewModel.cs</comment>
+  </data>
+  <data name="NightShift" xml:space="preserve">
+    <value>Night shift</value>
+    <comment>In PickerDateViewModel.cs</comment>
+  </data>
+  <data name="InA24HourdDayScheduleCantBeSelectedAsFirstShift" xml:space="preserve">
+    <value>In a 24HourDay schedule, {0} can't be select as first shift, please select {1}.</value>
+    <comment>In PickerDateViewModel.cs</comment>
+  </data>
+  <data name="InADayDayScheduleCantBeSelectFirstShift" xml:space="preserve">
+    <value>In a Day-Day schedule, {0} can't be select as first shift, please select {1}.</value>
+    <comment>In PickerDateViewModel.cs</comment>
+  </data>
+  <data name="AnErrorOccurredWhileCalculatingTheShifts" xml:space="preserve">
+    <value>An error occurred while calculating the shifts. Try again!</value>
+    <comment>In PickerDateViewModel.cs</comment>
+  </data>
+  <data name="PleaseSelectAScheduleFirst" xml:space="preserve">
+    <value>Please select a work schedule first!</value>
+    <comment>In PickerDateViewModel.cs</comment>
+  </data>
+  <data name="LanguageChanged" xml:space="preserve">
+    <value>Language</value>
+    <comment>In PropertyViewModel.cs</comment>
+  </data>
+  <data name="TheAppLanguageHasBeenChanged" xml:space="preserve">
+    <value>The app language has been changed to {0}.</value>
+    <comment>In PropertyViewModel.cs</comment>
+  </data>
+  <data name="TheTotalShiftHoursMustBepositiveNumber" xml:space="preserve">
+    <value>The total shift hours must be a positive number!</value>
+    <comment>In PickerDateViewModel.cs</comment>
+  </data>
+  <data name="YouHaveNoScheduleForThisMonth" xml:space="preserve">
+    <value>You have no schedule for this month.</value>
+    <comment>InScheduleEditViewModel.cs</comment>
+  </data>
+  <data name="ThisIsARestDayAndItCantBeCompensated" xml:space="preserve">
+    <value>This is a rest day and it can't be compensated!</value>
+    <comment>In ScheduleEditViewModel.cs</comment>
+  </data>
+  <data name="SelectedShiftIsCompensated" xml:space="preserve">
+    <value>The selected shift is compensated.</value>
+    <comment>In ScheduleEditViewModel.cs</comment>
+  </data>
+  <data name="SelectedShiftIsUnCompensated" xml:space="preserve">
+    <value>The selected shift is a working shift, again.</value>
+    <comment>In ScheduleEditViewModel.cs</comment>
+  </data>
+  <data name="YourShiftHasBeenEditSaveItFirst" xml:space="preserve">
+    <value>Your shift has been edit. If you don't want to lose the schedule save it first!.</value>
+    <comment>In ScheduleEditViewModel.cs</comment>
+  </data>
+  <data name="YourShiftHasBeenEdit" xml:space="preserve">
+    <value>Your shift has been edit.</value>
+    <comment>In ScheduleEditViewModel.cs</comment>
+  </data>
+  <data name="SomethingWentWrongGeneratedNewSchedule" xml:space="preserve">
+    <value>Something went wrong, generate new schedule.</value>
+    <comment>In ScheduleEditViewModel.cs</comment>
+  </data>
+  <data name="ScheduleExists" xml:space="preserve">
+    <value>Schedule Exists</value>
+    <comment>In ScheduleEditViewModel.cs</comment>
+  </data>
+  <data name="AScheduleForTheMonthAlreadyExistsToOverwrite" xml:space="preserve">
+    <value>A schedule for the month {0} already exists. Do you want to overwrite it?</value>
+    <comment>In ScheduleEditViewModel.cs</comment>
+  </data>
+  <data name="YourScheduleHasBeenSaved" xml:space="preserve">
+    <value>Your schedule has been saved.</value>
+    <comment>In ScheduleEditViewModel.cs</comment>
+  </data>
+  <data name="HourMessageYouHaveHoursOfOvertime" xml:space="preserve">
+    <value>You have {0} hours of overtime, you can choose which shift to compensate.</value>
+    <comment>In ScheduleEditViewModel.cs</comment>
+  </data>
+  <data name="HourMessageYouHaveUnderTheTotalHoursForTheMonth" xml:space="preserve">
+    <value>You have {0} hours under the total hours for the month. </value>
+    <comment>In ScheduleEditViewModel.cs</comment>
+  </data>
+  <data name="ChangeLanguage" xml:space="preserve">
+    <value>Change Language</value>
+    <comment>In PropertyPage.xaml</comment>
+  </data>
+  <data name="ReportAProblem" xml:space="preserve">
+    <value>Report a problem</value>
+    <comment>In PropertyPage.xaml</comment>
+  </data>
+  <data name="ChangeTheme" xml:space="preserve">
+    <value>Change Theme</value>
+    <comment>In PropertyPage.xaml</comment>
+  </data>
+  <data name="Reminder" xml:space="preserve">
+    <value>Reminder</value>
+    <comment>In PropertyPage.xaml</comment>
+  </data>
+  <data name="SelectLanguage" xml:space="preserve">
+    <value>Select Language</value>
+    <comment>In PropertyViewModel.cs</comment>
+  </data>
+  <data name="AtThisMomentWorkHoursAvailableTo2025" xml:space="preserve">
+    <value>At this moment work hours are available up to year 2025 (included).</value>
+    <comment>In the MainViewModel.cs, In the ScheduleEditViewModel.cs</comment>
+  </data>
+</root>

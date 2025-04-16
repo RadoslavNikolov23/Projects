@@ -1,6 +1,5 @@
 ﻿namespace WorkChronicle.Structure.Configuration
 {
-
     public class ScheduleConfiguration(DateTime startDate, string[] cycle, string firstShift, ShiftConfiguration shiftConfiguration)
     {
         public DateTime StartDate { get; set; } = startDate;

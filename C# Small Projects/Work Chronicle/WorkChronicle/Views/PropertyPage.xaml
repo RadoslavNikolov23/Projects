@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:WorkChronicle.ViewModels"
+             xmlns:lang="clr-namespace:WorkChronicle.Resources.Localization"
+             x:Class="WorkChronicle.Views.PropertyPage"
+             x:DataType="viewmodels:PropertyViewModel"
+             Title="{x:Static lang:AppResources.Settings}">
+
+    <VerticalStackLayout Padding="5,50,40,50" Spacing="10">
+
+        <Button 
+                Text="{x:Static lang:AppResources.ChangeLanguage}"
+                WidthRequest="150"
+                BackgroundColor="Transparent"
+                TextColor="Black"
+                FontSize="15"
+                HorizontalOptions="Start"
+                Command="{Binding OpenLanguagePickerCommand}" />
+
+        <Button 
+                Text="{x:Static lang:AppResources.ReportAProblem}"
+                WidthRequest="150"
+                BackgroundColor="Transparent"
+                TextColor="Black"
+                FontSize="15"
+                HorizontalOptions="Start"
+                Command="{Binding ReportProblemCommand}" />
+
+        <Button 
+                Text="{x:Static lang:AppResources.Reminder}"
+                WidthRequest="150"
+                BackgroundColor="Transparent"
+                TextColor="Black"
+                FontSize="15"
+                HorizontalOptions="Start"
+                IsEnabled="False" />
+
+        <Button 
+                Text="{x:Static lang:AppResources.ChangeTheme}"
+                WidthRequest="150"
+                BackgroundColor="Transparent"
+                TextColor="Black"
+                FontSize="15"
+                HorizontalOptions="Start"
+                IsEnabled="False" />
+
+    </VerticalStackLayout>
+
+</ContentPage>

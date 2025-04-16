@@ -13,9 +13,6 @@
         [ObservableProperty]
         private ISchedule<IShift> schedule;
 
-        //[ObservableProperty]
-        //private ObservableCollection<IShift> workSchedule;
-
         [ObservableProperty]
         private IShift? selectedShift;
 
@@ -28,7 +25,7 @@
         public IRelayCommand<SelectionChangedEventArgs> ShiftSelectedCommand { get; }
 
         public MainViewModel(ISchedule<IShift> schedule, WorkScheduleRepositoryDB scheduleRepo, WorkShiftRepositoryDB shiftsRepo)
-        {   
+        {
             this.schedule = schedule;
 
             this.scheduleRepo = scheduleRepo;
@@ -38,69 +35,59 @@
             this.dbShifts = new List<DbShift>();
 
             this.ShiftSelectedCommand = new AsyncRelayCommand<SelectionChangedEventArgs>(OnShiftSelected!);
-            
+
             _ = LoadLastSchedule();
         }
 
         public async Task RefreshThePage()
         {
-            // await LoadLastSchedule(); //- CHeck if this load only when the app is started
-
-            if (this.Schedule.WorkSchedule.Count == 0 || this.Schedule==null)
+            if (this.Schedule.WorkSchedule.Count == 0 || this.Schedule == null)
             {
                 await GenerateBlankCalendar();
             }
             else
             {
-                DateTime startDate = Schedule.WorkSchedule
-                                       .Where(s => s.IsCurrentMonth == true)
-                                       .First()
-                                       .GetDateShift();
-
-                int year = startDate.Year;
-                int month = startDate.Month;
-                await UpdateCalendarMonthYear(month, year);
-                await GenerateTotalHours(startDate);
+                await GenerateCalendarMonthYearAndTotalHours();
             }
         }
 
         private async Task LoadLastSchedule()
         {
-            this.dbSchedule = await scheduleRepo.GetLastSchedule();
-            if (this.dbSchedule != null)
+            try
             {
-                await LoadFromDBToSchedule();
+                this.dbSchedule = await scheduleRepo.GetLastSchedule();
+                if (this.dbSchedule != null)
+                {
+                    await LoadFromDBToSchedule();
+                }
+            }
+            catch (Exception ex)
+            {
+                await Logger.LogAsync(ex, "Error in LoadLastSchedule in the MainViewMode.cs");
+                await ShowPopupMessage(AppResources.Error, AppResources.SomethingWentWrongPleaseTryAgain);
             }
         }
+
         private async Task LoadFromDBToSchedule()
         {
             this.Schedule.WorkSchedule.Clear();
 
-            if (this.dbSchedule != null)
+            try
             {
-                this.dbShifts = await shiftsRepo!.GetShiftsForSchedule(this.dbSchedule.Id);
-            }
-
-            if (this.dbShifts != null && this.dbShifts.Count > 0)
-            {
-                foreach (var dbShift in this.dbShifts)
+                if (this.dbSchedule != null)
                 {
-                    IShift? shift = null;
+                    this.dbShifts = await shiftsRepo!.GetShiftsForSchedule(this.dbSchedule.Id);
+                }
 
-                    if (dbShift.ShiftType == ShiftType.DayShift)
+                if (this.dbShifts != null && this.dbShifts.Count > 0)
+                {
+                    foreach (var dbShift in this.dbShifts)
                     {
-                        shift = new DayShift(ShiftType.DayShift,
-                                            dbShift.Year,
-                                            dbShift.Month,
-                                            dbShift.Day,
-                                            dbShift.StarTime,
-                                            dbShift.ShiftHour,
-                                            dbShift.IsCurrentMonth,
-                                            dbShift.IsCompensated);
-                    }
-                    else if (dbShift.ShiftType == ShiftType.NightShift)
-                    {
-                        shift = new NightShift(ShiftType.NightShift,
+                        IShift? shift = null;
+
+                        if (dbShift.ShiftType == ShiftType.DayShift)
+                        {
+                            shift = new DayShift(ShiftType.DayShift,
                                                 dbShift.Year,
                                                 dbShift.Month,
                                                 dbShift.Day,
@@ -108,38 +95,47 @@
                                                 dbShift.ShiftHour,
                                                 dbShift.IsCurrentMonth,
                                                 dbShift.IsCompensated);
+                        }
+                        else if (dbShift.ShiftType == ShiftType.NightShift)
+                        {
+                            shift = new NightShift(ShiftType.NightShift,
+                                                    dbShift.Year,
+                                                    dbShift.Month,
+                                                    dbShift.Day,
+                                                    dbShift.StarTime,
+                                                    dbShift.ShiftHour,
+                                                    dbShift.IsCurrentMonth,
+                                                    dbShift.IsCompensated);
+                        }
+                        else
+                        {
+                            shift = new RestDay(ShiftType.RestDay,
+                                                dbShift.Year,
+                                                dbShift.Month,
+                                                dbShift.Day,
+                                                dbShift.StarTime,
+                                                dbShift.ShiftHour,
+                                                dbShift.IsCurrentMonth,
+                                                dbShift.IsCompensated);
+                        }
+
+                        await this.Schedule.AddShift(shift!);
                     }
-                    else
-                    {
-                        shift = new RestDay(ShiftType.RestDay,
-                                            dbShift.Year,
-                                            dbShift.Month,
-                                            dbShift.Day,
-                                            dbShift.StarTime,
-                                            dbShift.ShiftHour,
-                                            dbShift.IsCurrentMonth,
-                                            dbShift.IsCompensated);
-                    }
-
-                    await this.Schedule.AddShift(shift!);
                 }
+            }
+            catch (Exception ex)
+            {
+                await Logger.LogAsync(ex, "Error in LoadFromDBToSchedule in the MainViewModel.cs");
+                await ShowPopupMessage(AppResources.Error, AppResources.SomethingWentWrongPleaseTryAgain);
+            }
 
-                if (this.Schedule.WorkSchedule.Count == 0 || this.Schedule == null)
-                {
-                    await GenerateBlankCalendar();
-                }
-                else
-                {
-                   DateTime startDate = Schedule.WorkSchedule
-                     .Where(s => s.IsCurrentMonth == true)
-                     .First()
-                     .GetDateShift();
-
-                    int year = startDate.Year;
-                    int month = startDate.Month;
-                    await UpdateCalendarMonthYear(month, year);
-                    await GenerateTotalHours(startDate);
-                }
+            if (this.Schedule.WorkSchedule.Count == 0 || this.Schedule == null)
+            {
+                await GenerateBlankCalendar();
+            }
+            else
+            {
+                await GenerateCalendarMonthYearAndTotalHours();
             }
         }
 
@@ -149,66 +145,107 @@
             {
                 return;
             }
-
             if (this.SelectedShift.IsCurrentMonth == false)
             {
-                await ShowPopupMessage("Info", "This shift is not in the current month.");
+                await ShowPopupMessage(AppResources.Information, AppResources.ThisShiftIsNotInTheCurrentMonth);
                 this.SelectedShift = null;
                 return;
             }
 
             if (this.SelectedShift.ShiftType == ShiftType.RestDay)
             {
-                await ShowPopupMessage("Information", "This is a Rest Day.");
+                await ShowPopupMessage(AppResources.Information, AppResources.ThisIsARestDay);
                 this.SelectedShift = null;
                 return;
             }
 
-            var popup = new ShiftInfoPopup(this.SelectedShift);
-            await Shell.Current.CurrentPage.ShowPopupAsync(popup);
+            try
+            {
+                var popup = new ShiftInfoPopup(this.SelectedShift);
+                await Shell.Current.CurrentPage.ShowPopupAsync(popup);
+
+            }
+            catch (Exception ex)
+            {
+                await Logger.LogAsync(ex, "Error in ShiftInfoPopup in the MainViewModel.cs");
+                await ShowPopupMessage(AppResources.Error, AppResources.SomethingWentWrongPleaseTryAgain);
+            }
 
             this.SelectedShift = null;
             return;
-            //FOR DELETING-----
-            //await Shell.Current.DisplayAlert("Information",
-            //                                $"""
-            //                                This is a {this.SelectedShift.ShiftType.ToString()}.
-            //                                Your start the shift at {this.SelectedShift.StarTime} and
-            //                                is {this.SelectedShift.ShiftHour} hours long.
-            //                                """, "OK");
-
-        }
-
-        private async Task UpdateCalendarMonthYear(int month, int year)
-        {
-            await Task.Delay(50);   // Just to simulate some delay
-            this.CalendarMonthYear = $"Work Schedule for {Provider.GetMonthName(month)} {year} ";
-        }
-
-        private async Task GenerateTotalHours(DateTime startDate)
-        {
-            KeyValuePair<int, string[]> monthByHoursTotal = Provider.GetMonthHoursTotal(startDate);
-
-            string monthName = Provider.GetMonthName(monthByHoursTotal.Key);
-            int totalHoursByMonth = int.Parse(monthByHoursTotal.Value[1]);
-            int totalHours = await this.Schedule.CalculateTotalWorkHours();
-
-            this.TextMessage = $"Your total hours are: {totalHours}, for the month {monthName} the working hours are {totalHoursByMonth}";
         }
 
         private async Task GenerateBlankCalendar()
         {
             await UpdateCalendarMonthYear(DateTime.Now.Month, DateTime.Now.Year);
 
-            IEngine<ISchedule<IShift>> engine = new Engine();
-            this.Schedule = await engine.BlankCalendar();
+            try
+            {
+                IEngine<ISchedule<IShift>> engine = new Engine();
+                var tempSchedule = await engine.BlankCalendar();
 
-            this.TextMessage = $"This is a calendar for the {Provider.GetMonthName(DateTime.Now.Month)} {DateTime.Now.Year}!";
+                foreach (var shift in tempSchedule.WorkSchedule)
+                {
+                    await this.Schedule.AddShift(shift);
+                }
+            }
+            catch (Exception ex)
+            {
+                await Logger.LogAsync(ex, "Error in BlankCalendar method in the Engine (Structure) class");
+                await ShowPopupMessage(AppResources.Error, AppResources.SomethingWentWrongPleaseTryAgain);
+            }
+
+
+            this.TextMessage = String.Format(AppResources.TextMessageThisIsACalendar,
+                                            CulturalProvider.GetMonthName(DateTime.Now.Month), DateTime.Now.Year);
+        }
+
+        private async Task GenerateCalendarMonthYearAndTotalHours()
+        {
+            DateTime startDate = this.Schedule.WorkSchedule
+                                                       .Where(s => s.IsCurrentMonth == true)
+                                                       .First()
+                                                       .GetDateShift();
+
+            int year = startDate.Year;
+            int month = startDate.Month;
+
+            await UpdateCalendarMonthYear(month, year);
+
+            KeyValuePair<int, string[]> monthByHoursTotal = Provider.GetMonthHoursTotal(startDate);
+
+            if(monthByHoursTotal.Key == 0 || monthByHoursTotal.Value.Length==0)
+            {
+
+               await ShowPopupMessage(AppResources.Error, AppResources.AtThisMomentWorkHoursAvailableTo2025);
+                this.TextMessage = "";
+                return;
+            }
+
+            string monthName = CulturalProvider.GetMonthName(monthByHoursTotal.Key);
+            int totalHoursByMonth = int.Parse(monthByHoursTotal.Value[1]);
+            int totalHours = await this.Schedule.CalculateTotalWorkHours();
+
+            this.TextMessage = String
+                                .Format(AppResources.TextMessageTotalHoursAreForTheMonthAndWorkingHours,
+                                        monthName, totalHours, totalHoursByMonth);
+        }
+
+        private async Task UpdateCalendarMonthYear(int month, int year)
+        {
+            await Task.Delay(10);
+            this.CalendarMonthYear = String.Format(AppResources.CalendarWorkScheduleFor, CulturalProvider.GetMonthName(month), year);
         }
 
         private async Task ShowPopupMessage(string title, string text)
         {
             await Shell.Current.DisplayAlert(title, text, "OK");
+        }
+
+        [RelayCommand]
+        private async Task GoToEditSchedule()
+        {
+            await Shell.Current.GoToAsync(nameof(SchedulePage));
         }
     }
 }

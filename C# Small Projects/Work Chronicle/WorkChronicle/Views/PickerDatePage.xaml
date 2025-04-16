@@ -2,46 +2,47 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewmodels="clr-namespace:WorkChronicle.ViewModels"
+             xmlns:lang="clr-namespace:WorkChronicle.Resources.Localization"
              x:Class="WorkChronicle.Views.PickerDatePage"
              x:DataType="viewmodels:PickerDateViewModel"
-             Title="PickerDatePage">
+             Title="{x:Static lang:AppResources.CreateANewSchedule}">
 
     <StackLayout 
-                Spacing="15"
-                Padding="20">
+                Spacing="12"
+                Padding="15,10,10,10">
 
         <Label 
-              Text="Enter shift cycle pattern:" 
+              Text="{x:Static lang:AppResources.EnterShiftCyclePattern}" 
               FontSize="Medium" />
         <Picker 
-                Title="Select Shift Pattern"
+                Title="{x:Static lang:AppResources.SelectShiftPattern}"
                 ItemsSource="{Binding WorkSchedules}"
                 SelectedItem="{Binding SelectedSchedule, Mode=TwoWay}"
                 HorizontalOptions="Start"/>
 
         <Label 
-               Text="Select the starting day of your work cycle:" 
+               Text="{x:Static lang:AppResources.SelectStartingDayWorkCycle}" 
                FontSize="Medium" />
         <DatePicker 
                     x:Name="StartDatePicker"
                     Date="{Binding SelectedStartDate}"/>
 
         <Label 
-               Text="Select the starting time for the DayShift:" 
+               Text="{x:Static lang:AppResources.SelectStartingTimeForDayShift}" 
                FontSize="Medium" />
         <TimePicker 
                     Time="{Binding DayShiftStartTime,Mode=TwoWay}" 
                     Format="HH:mm"/>
 
         <Label 
-               Text="Select the starting time for the NightShift:" 
+               Text="{x:Static lang:AppResources.SelectStartingTimeForNigthShift}"  
                FontSize="Medium" />
         <TimePicker 
                     Time="{Binding NightShiftStartTime,Mode=TwoWay}" 
                     Format="HH:mm" />
 
         <Label 
-               Text="Select Total Shift Hours:" 
+               Text="{x:Static lang:AppResources.SelectTotalShiftHours}" 
                FontSize="18" />
         <Picker 
                 ItemsSource="{Binding ShiftDurations}" 
@@ -49,17 +50,17 @@
 
 
         <Label 
-               Text="Enter first shift:" 
+               Text="{x:Static lang:AppResources.EnterFirstShift}" 
                FontSize="Medium" />
         <Picker 
-                Title="Select First Shift"
+                Title="{x:Static lang:AppResources.SelectFirstShift}"
                 ItemsSource="{Binding WorkShift}"
                 SelectedItem="{Binding SelectedFirstShift, Mode=TwoWay}"
                 HorizontalOptions="Start"/>
 
         <Button 
-                Text="Calculate Shifts" 
-                Command="{Binding CalculateShiftsCommand}"/>
+                Text="{x:Static lang:AppResources.GenerateSchedule}" 
+                Command="{Binding GenerateScheduleCommand}"/>
 
     </StackLayout>
 </ContentPage>

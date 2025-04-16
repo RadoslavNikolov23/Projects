@@ -3,73 +3,47 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:WorkChronicle.Views"
+    xmlns:lang="clr-namespace:WorkChronicle.Resources.Localization"
     x:Class="WorkChronicle.AppShell"
     Shell.FlyoutBehavior="Flyout"
     Title="WorkChronicle">
 
-    <!-- 
-    <Shell.ItemTemplate>
-        <DataTemplate>
-            <Grid Padding="10">
-                <Label Text="{Binding Title}" 
-                       FontSize="18"  
-                       VerticalOptions="Center" 
-                       FontAttributes="Bold"/>
-            </Grid>
-        </DataTemplate>
-    </Shell.ItemTemplate> -->
-
     <Shell.FlyoutHeader>
         <Grid HeightRequest="100" BackgroundColor="LightGreen">
-            <!-- You can place an image/logo here if you like -->
+            <!-- Put image/logo here -->
         </Grid>
     </Shell.FlyoutHeader>
 
-    <FlyoutItem Title="Home" Icon="home.png">
+    <FlyoutItem Title="{x:Static lang:AppResources.Home}" Icon="home.png">
         <ShellContent Route="MainPage" ContentTemplate="{DataTemplate views:MainPage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Load Save Schedule" Icon="load.png">
+    <FlyoutItem Title="{x:Static lang:AppResources.LoadaSavedSchedule}" Icon="load.png">
         <ShellContent Route="LoadSchedulePage" ContentTemplate="{DataTemplate views:LoadSchedulePage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Picker Date" Icon="picker.png">
+    <FlyoutItem Title="{x:Static lang:AppResources.CreateANewSchedule}" Icon="picker.png">
         <ShellContent Route="PickerDatePage" ContentTemplate="{DataTemplate views:PickerDatePage}" />
     </FlyoutItem>
-
-    <FlyoutItem Title="Schedule View" Icon="schedule.png">
+    <!--
+    <FlyoutItem Title="Schedule View" Icon="schedule.png" IsVisible="False">
         <ShellContent Route="SchedulePage" ContentTemplate="{DataTemplate views:SchedulePage}" />
+    </FlyoutItem> -->
+
+    <FlyoutItem Title="{x:Static lang:AppResources.Settings}" Icon="properties.png">
+        <ShellContent Route="PropertyPage" ContentTemplate="{DataTemplate views:PropertyPage}" />
     </FlyoutItem>
 
-    <!-- Separator (visual spacing) 
-    <ShellItem>
-        <ShellSection>
-            <ShellContent>
-                <ContentPage>
-                    <Shell.FlyoutHeader>
-                        <BoxView HeightRequest="1" BackgroundColor="Gray" HorizontalOptions="Fill" />
-                    </Shell.FlyoutHeader>
-                </ContentPage>
-            </ShellContent>
-        </ShellSection>
-    </ShellItem> -->
-
-    <FlyoutItem Title="────────────" />
-    
-    <FlyoutItem Title="Properties" Icon="properties.png">
-        <ShellContent Route="PropertiePage" ContentTemplate="{DataTemplate views:PropertiePage}" />
-    </FlyoutItem>
-
-    <FlyoutItem Title="About" Icon="about.png">
+    <FlyoutItem Title="{x:Static lang:AppResources.AboutTheApp}" Icon="about.png">
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate views:AboutPage}" />
     </FlyoutItem>
 
     <MenuItem 
-             Text="Help" 
+             Text="{x:Static lang:AppResources.Help}"
              IconImageSource="help.png"
              Clicked="OnHelpClicked" />
 
     <!-- Exit Button FOR DEVELOVEPER PURPOSE ONLY!!! -->
-    <MenuItem Text="Exit" Clicked="OnExitClicked" IconImageSource="exit.png"/>
+    <MenuItem Text="{x:Static lang:AppResources.Exit}" Clicked="OnExitClicked" IconImageSource="exit.png"/>
 
 </Shell>
